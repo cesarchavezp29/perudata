@@ -1,0 +1,605 @@
+year,csv_code,module_name
+2001,590-Modulo1201,Capítulo 01 para todos los sectores
+2001,590-Modulo1202,Agencias de Viajes 2001 B
+2001,590-Modulo1203,Agencias de Viajes 2001 B1
+2001,590-Modulo1204,Agroindustria 2001 F
+2001,590-Modulo1205,Agroindustria 2001 F1
+2001,590-Modulo1206,Agroindustria 2001 F2
+2001,590-Modulo1207,Educación 2001 U
+2001,590-Modulo1208,Comercio Y Servicios 2001 F1
+2001,590-Modulo1209,Comercio Y Servicios 2001 F2
+2001,590-Modulo1210,Construcción 2001 F1
+2001,590-Modulo1211,Construcción 2001 F2
+2001,590-Modulo1212,Hospedaje 2001 A
+2001,590-Modulo1213,Hospedaje 2001 A1
+2001,590-Modulo1214,Hidrocarburos 2001 F1
+2001,590-Modulo1215,Hidrocarburos 2001 F2
+2001,590-Modulo1216,Hidrocarburos 2001 F3
+2001,590-Modulo1217,Pesca 2001 A
+2001,590-Modulo1218,Acuicultura 2001 U
+2001,590-Modulo1219,Manufactura 2001 D
+2001,590-Modulo1220,Manufactura 2001 D1
+2001,590-Modulo1221,Manufactura 2001 D2
+2001,590-Modulo1222,Servicios Electricos 2001 U
+2001,590-Modulo1223,Transportes y Comunicaciones 2001 F1
+2001,590-Modulo1224,Transportes y Comunicaciones 2001 F2
+2001,590-Modulo1225,Universidades 2001 U
+2002,585-Modulo1171,Capítulo 01 para todos los sectores
+2002,585-Modulo1172,Agencias de Viajes 2002 B
+2002,585-Modulo1173,Agencias de Viajes 2002 B1
+2002,585-Modulo1174,Agroindustria 2002 F
+2002,585-Modulo1175,Agroindustria 2002 F1
+2002,585-Modulo1176,Agroindustria 2002 F2
+2002,585-Modulo1177,Educación 2002 U
+2002,585-Modulo1178,Comercio 2002 F1
+2002,585-Modulo1179,Comercio 2002 F2
+2002,585-Modulo1180,Construcción 2002 F1
+2002,585-Modulo1181,Construcción 2002 F2
+2002,585-Modulo1182,No Financieras 2002 U
+2002,585-Modulo1183,Hospedaje 2002 A
+2002,585-Modulo1184,Hospedaje 2002 A1
+2002,585-Modulo1185,Hidrocarburos 2002 F1
+2002,585-Modulo1186,Hidrocarburos 2002 F2
+2002,585-Modulo1187,Hidrocarburos 2002 F3
+2002,585-Modulo1188,Acuicultura 2002 U
+2002,585-Modulo1189,Pesca 2002 A
+2002,585-Modulo1190,Manufactura 2002 D
+2002,585-Modulo1191,Manufactura 2002 D1
+2002,585-Modulo1192,Manufactura 2002 D2
+2002,585-Modulo1193,Servicios Electricos 2002 U
+2002,585-Modulo1194,Transportes 2002 F1
+2002,585-Modulo1195,Transportes 2002 F2
+2002,585-Modulo1196,Universidades 2002 U
+2003,581-Modulo1145,Capítulo 01 para todos los sectores
+2003,581-Modulo1146,Agencias de Viajes 2003 B
+2003,581-Modulo1147,Agencias de Viajes 2003 B1
+2003,581-Modulo1148,Agroindustria 2003 F
+2003,581-Modulo1149,Agroindustria 2003 F1
+2003,581-Modulo1150,Agroindustria 2003 F2
+2003,581-Modulo1151,Educación 2003 U
+2003,581-Modulo1152,Comercio 2003 F1
+2003,581-Modulo1153,Comercio 2003 F2
+2003,581-Modulo1154,Construcción 2003 F1
+2003,581-Modulo1155,Construcción 2003 F2
+2003,581-Modulo1156,No Financieras 2003 U
+2003,581-Modulo1157,Hospedaje 2003 A
+2003,581-Modulo1158,Hospedaje 2003 A1
+2003,581-Modulo1159,Hidrocarburos 2003 F1
+2003,581-Modulo1160,Hidrocarburos 2003 F2
+2003,581-Modulo1161,Hidrocarburos 2003 F3
+2003,581-Modulo1162,Acuicultura 2003 A
+2003,581-Modulo1163,Pesca 2003 P
+2003,581-Modulo1164,Manufactura 2003 D
+2003,581-Modulo1165,Manufactura 2003 D1
+2003,581-Modulo1166,Manufactura 2003 D2
+2003,581-Modulo1167,Servicios Electricos 2003 U
+2003,581-Modulo1168,Transportes 2003 F1
+2003,581-Modulo1169,Transportes 2003 F2
+2003,581-Modulo1170,Universidades 2003 U
+2004,530-Modulo1008,Capítulo 01 para todos los sectores
+2004,530-Modulo1009,Agencias de Viajes 2004 B
+2004,530-Modulo1010,Agencias de Viajes 2004 B1
+2004,530-Modulo1011,Agroindustria 2004 F
+2004,530-Modulo1012,Agroindustria 2004 F1
+2004,530-Modulo1013,Agroindustria 2004 F2
+2004,530-Modulo1014,Educación 2004 U
+2004,530-Modulo1015,Comercio 2004 F1
+2004,530-Modulo1016,Comercio 2004 F2
+2004,530-Modulo1017,Construcción 2004 F1
+2004,530-Modulo1018,Construcción 2004 F2
+2004,530-Modulo1019,No Financieras 2004 U
+2004,530-Modulo1020,Hospedaje 2004 A
+2004,530-Modulo1021,Hospedaje 2004 A1
+2004,530-Modulo1022,Hidrocarburos 2004 F1
+2004,530-Modulo1023,Hidrocarburos 2004 F2
+2004,530-Modulo1024,Hidrocarburos 2004 F3
+2004,530-Modulo1025,Acuicultura 2004 A
+2004,530-Modulo1026,Pesca 2004 P
+2004,530-Modulo1027,Manufactura 2004 D
+2004,530-Modulo1028,Manufactura 2004 D1
+2004,530-Modulo1029,Manufactura 2004 D2
+2004,530-Modulo1030,Servicios Electricos 2004 U
+2004,530-Modulo1031,Transportes 2004 F1
+2004,530-Modulo1032,Transportes 2004 F2
+2004,530-Modulo1033,Universidades 2004 U
+2005,517-Modulo899,Capítulo 01 para todos los sectores
+2005,517-Modulo900,Agencia de Viajes 2005 B
+2005,517-Modulo901,Agencia de Viajes 2005 B1
+2005,517-Modulo902,Agroindustria 2005 F
+2005,517-Modulo903,Agroindustria 2005 F1
+2005,517-Modulo904,Agroindustria 2005 F2
+2005,517-Modulo905,Educación 2005 U
+2005,517-Modulo906,Comercio 2005 F1
+2005,517-Modulo907,Comercio 2005 F2
+2005,517-Modulo908,Construcción 2005 F1
+2005,517-Modulo909,Construcción 2005 F2
+2005,517-Modulo910,No Financieras 2005 U
+2005,517-Modulo911,Hospedaje 2005 A
+2005,517-Modulo912,Hospedaje 2005 A1
+2005,517-Modulo913,Hidrocarburos 2005 F1
+2005,517-Modulo914,Hidrocarburos 2005 F2
+2005,517-Modulo915,Hidrocarburos 2005 F3
+2005,517-Modulo916,Acuicultura 2005 A
+2005,517-Modulo917,Pesca 2005 P
+2005,517-Modulo918,Manufactura 2005 D
+2005,517-Modulo919,Manufactura 2005 D1
+2005,517-Modulo920,Manufactura 2005 D2
+2005,517-Modulo921,Servicios Electricos 2005 U
+2005,517-Modulo922,Transportes 2005 F1
+2005,517-Modulo923,Transportes 2005 F2
+2005,517-Modulo924,Universidades 2005 U
+2006,513-Modulo865,Capítulo 01 para todos los sectores
+2006,513-Modulo866,Agencia de Viajes 2006 B
+2006,513-Modulo867,Agencia de Viajes 2006 B1
+2006,513-Modulo868,Agroindustria 2006 F
+2006,513-Modulo869,Agroindustria 2006 F1
+2006,513-Modulo870,Agroindustria 2006 F2
+2006,513-Modulo871,Educación 2006 U
+2006,513-Modulo872,Comercio 2006 F1
+2006,513-Modulo873,Comercio 2006 F2
+2006,513-Modulo874,Construcción 2006 F1
+2006,513-Modulo875,Construcción 2006 F2
+2006,513-Modulo876,No Financieras 2006 U
+2006,513-Modulo877,Hospedaje 2006 A
+2006,513-Modulo878,Hospedaje 2006 A1
+2006,513-Modulo879,Hidrocarburos 2006 F1
+2006,513-Modulo880,Hidrocarburos 2006 F2
+2006,513-Modulo881,Hidrocarburos 2006 F3
+2006,513-Modulo882,Acuicultura 2006 A
+2006,513-Modulo883,Pesca 2006 P
+2006,513-Modulo884,Manufactura 2006 D
+2006,513-Modulo885,Manufactura 2006 D1
+2006,513-Modulo886,Manufactura 2006 D2
+2006,513-Modulo887,Servicios Electricos 2006 U
+2006,513-Modulo888,Transportes 2006 F1
+2006,513-Modulo889,Transportes 2006 F2
+2006,513-Modulo890,Universidades 2006 U
+2006,513-Modulo891,Restaurantes 2006 J2
+2006,513-Modulo892,Restaurantes 2006 R1
+2006,513-Modulo893,Restaurantes 2006 R2
+2007,507-Modulo810,Capítulo 01 para todos los sectores
+2007,507-Modulo811,Agencia de Viajes B
+2007,507-Modulo812,Agencia de Viajes B1
+2007,507-Modulo813,Agroindustria F
+2007,507-Modulo814,Agroindustria F1
+2007,507-Modulo815,Agroindustria F2
+2007,507-Modulo816,Educación 2007 U
+2007,507-Modulo817,Comercio 2007 F1
+2007,507-Modulo818,Comercio 2007 F2
+2007,507-Modulo819,Construcción 2007 F1
+2007,507-Modulo820,Construcción 2007 F2
+2007,507-Modulo821,Hospedaje 2007 A
+2007,507-Modulo822,Hospedaje 2007 A1
+2007,507-Modulo823,Hidrocarburos 2007 F1
+2007,507-Modulo824,EEA 08 Hidrocarburos F2
+2007,507-Modulo825,EEA 08 Hidrocarburos F3
+2007,507-Modulo826,Acuicultura A
+2007,507-Modulo827,Pesca 2007 P
+2007,507-Modulo828,Manufactura D
+2007,507-Modulo829,Manufactura D1
+2007,507-Modulo830,Manufactura D2
+2007,507-Modulo831,Servicios Electricos U
+2007,507-Modulo832,Transportes F1
+2007,507-Modulo833,Transportes F2
+2007,507-Modulo834,Universidades U
+2007,507-Modulo835,Restaurantes J2
+2007,507-Modulo836,Restaurantes R1
+2007,507-Modulo837,Restaurantes R2
+2008,394-Modulo345,Capítulo 01 para todos los sectores
+2008,394-Modulo368,Agencia de Viajes U
+2008,394-Modulo369,Agroindustrias U
+2008,394-Modulo370,Centros Educativos no Estatale U
+2008,394-Modulo371,Comercio U
+2008,394-Modulo372,Construcción U
+2008,394-Modulo373,Establecimientos de Hospedaje U
+2008,394-Modulo374,Hidrocarburos F1
+2008,394-Modulo375,Hidrocarburos F2
+2008,394-Modulo376,Hidrocarburos F3
+2008,394-Modulo377,Acuicultura A
+2008,394-Modulo378,Pesca P
+2008,394-Modulo379,Manufactura U
+2008,394-Modulo380,Servicios Electricos U
+2008,394-Modulo381,Transportes y Comunicaciones U
+2008,394-Modulo382,Universidades no Estatales U
+2008,394-Modulo383,Restaurantes U
+2008,394-Modulo384,Servicios U
+2008,394-Modulo385,MINERIA U
+2009,395-Modulo345,Capítulo 01 para todos los sectores
+2009,395-Modulo386,Agencia de Viajes B1
+2009,395-Modulo387,Agroindustrias F2
+2009,395-Modulo388,Centros Educativos no Estatale U
+2009,395-Modulo389,Comercio F2
+2009,395-Modulo390,Construcción F2
+2009,395-Modulo391,Establecimientos de Hospedaje A1
+2009,395-Modulo392,Hidrocarburos F1
+2009,395-Modulo393,Hidrocarburos F2
+2009,395-Modulo394,Hidrocarburos F3
+2009,395-Modulo395,Acuicultura A
+2009,395-Modulo396,Pesca P
+2009,395-Modulo397,Manufactura D2
+2009,395-Modulo398,Servicios Electricos U
+2009,395-Modulo399,Transportes y Comunicaciones F2
+2009,395-Modulo400,Universidades no Estatales U
+2009,395-Modulo401,Restaurantes R2
+2009,395-Modulo402,Servicios F2
+2009,395-Modulo403,Agencia de Viajes B
+2009,395-Modulo404,Agroindustrias M
+2009,395-Modulo405,Comercio M
+2009,395-Modulo406,Construcción  M
+2009,395-Modulo407,Establecimientos de Hospedaje A
+2009,395-Modulo408,Manufactura M
+2009,395-Modulo409,Transportes y Comunicaciones M
+2009,395-Modulo410,Restaurantes R1
+2009,395-Modulo411,Servicios M
+2010,396-Modulo345,Capítulo 01 para todos los sectores
+2010,396-Modulo386,Agencia de Viajes B1
+2010,396-Modulo387,Agroindustrias F2
+2010,396-Modulo388,Centros Educativos no Estatale U
+2010,396-Modulo389,Comercio F2
+2010,396-Modulo390,Construcción F2
+2010,396-Modulo391,Establecimientos de Hospedaje A1
+2010,396-Modulo392,Hidrocarburos F1
+2010,396-Modulo393,Hidrocarburos F2
+2010,396-Modulo394,Hidrocarburos F3
+2010,396-Modulo395,Acuicultura A
+2010,396-Modulo396,Pesca P
+2010,396-Modulo397,Manufactura D2
+2010,396-Modulo398,Servicios Electricos U
+2010,396-Modulo399,Transportes y Comunicaciones F2
+2010,396-Modulo400,Universidades no Estatales U
+2010,396-Modulo401,Restaurantes R2
+2010,396-Modulo402,Servicios F2
+2010,396-Modulo403,Agencia de Viajes B
+2010,396-Modulo404,Agroindustrias M
+2010,396-Modulo405,Comercio M
+2010,396-Modulo406,Construcción  M
+2010,396-Modulo407,Establecimientos de Hospedaje A
+2010,396-Modulo408,Manufactura M
+2010,396-Modulo409,Transportes y Comunicaciones M
+2010,396-Modulo410,Restaurantes R1
+2010,396-Modulo411,Servicios M
+2011,397-Modulo345,Capítulo 01 para todos los sectores
+2011,397-Modulo386,Agencia de Viajes B1
+2011,397-Modulo387,Agroindustrias F2
+2011,397-Modulo388,Centros Educativos no Estatale U
+2011,397-Modulo389,Comercio F2
+2011,397-Modulo390,Construcción F2
+2011,397-Modulo391,Establecimientos de Hospedaje A1
+2011,397-Modulo392,Hidrocarburos F1
+2011,397-Modulo393,Hidrocarburos F2
+2011,397-Modulo394,Hidrocarburos F3
+2011,397-Modulo395,Acuicultura A
+2011,397-Modulo396,Pesca P
+2011,397-Modulo397,Manufactura D2
+2011,397-Modulo398,Servicios Electricos U
+2011,397-Modulo399,Transportes y Comunicaciones F2
+2011,397-Modulo400,Universidades no Estatales U
+2011,397-Modulo401,Restaurantes R2
+2011,397-Modulo402,Servicios F2
+2011,397-Modulo403,Agencia de Viajes B
+2011,397-Modulo404,Agroindustrias M
+2011,397-Modulo405,Comercio M
+2011,397-Modulo406,Construcción  M
+2011,397-Modulo407,Establecimientos de Hospedaje A
+2011,397-Modulo408,Manufactura M
+2011,397-Modulo409,Transportes y Comunicaciones M
+2011,397-Modulo410,Restaurantes R1
+2011,397-Modulo411,Servicios M
+2012,398-Modulo345,Capítulo 01 para todos los sectores
+2012,398-Modulo346,Agencia de Viajes B1
+2012,398-Modulo347,Agroindustrias F2
+2012,398-Modulo348,Centros Educativos no Estatale U
+2012,398-Modulo349,Comercio F2
+2012,398-Modulo350,Construcción F2
+2012,398-Modulo351,Establecimientos de Hospedaje A1
+2012,398-Modulo352,Hidrocarburos U
+2012,398-Modulo353,Acuicultura A
+2012,398-Modulo354,Pesca P
+2012,398-Modulo355,Manufactura D2
+2012,398-Modulo356,Servicios Electricos U
+2012,398-Modulo357,Transportes y Comunicaciones F2
+2012,398-Modulo358,Universidades no Estatales U
+2012,398-Modulo359,Restaurantes R2
+2012,398-Modulo360,Servicios F2
+2012,398-Modulo361,Agroindustrias M
+2012,398-Modulo362,Comercio M
+2012,398-Modulo363,Construcción  M
+2012,398-Modulo364,Manufactura M
+2012,398-Modulo365,Transportes y Comunicaciones M
+2012,398-Modulo366,Servicios M
+2013,393-Modulo345,Capítulo 01 para todos los sectores
+2013,393-Modulo346,Agencia de Viajes B1
+2013,393-Modulo347,Agroindustrias F2
+2013,393-Modulo348,Centros Educativos no Estatale U
+2013,393-Modulo349,Comercio F2
+2013,393-Modulo350,Construcción F2
+2013,393-Modulo351,Establecimientos de Hospedaje A1
+2013,393-Modulo352,Hidrocarburos U
+2013,393-Modulo353,Acuicultura A
+2013,393-Modulo354,Pesca P
+2013,393-Modulo355,Manufactura D2
+2013,393-Modulo356,Servicios Electricos U
+2013,393-Modulo357,Transportes y Comunicaciones F2
+2013,393-Modulo358,Universidades no Estatales U
+2013,393-Modulo359,Restaurantes R2
+2013,393-Modulo360,Servicios F2
+2013,393-Modulo361,Agroindustrias M
+2013,393-Modulo362,Comercio M
+2013,393-Modulo363,Construcción  M
+2013,393-Modulo364,Manufactura M
+2013,393-Modulo365,Transportes y Comunicaciones M
+2013,393-Modulo366,Servicios M
+2014,451-Modulo1787,TICS para todos los sectores
+2014,451-Modulo345,Capítulo 01 para todos los sectores
+2014,451-Modulo346,Agencia de Viajes B1
+2014,451-Modulo347,Agroindustrias F2
+2014,451-Modulo348,Centros Educativos no Estatale U
+2014,451-Modulo349,Comercio F2
+2014,451-Modulo350,Construcción F2
+2014,451-Modulo351,Establecimientos de Hospedaje A1
+2014,451-Modulo352,Hidrocarburos U
+2014,451-Modulo353,Acuicultura A
+2014,451-Modulo354,Pesca P
+2014,451-Modulo355,Manufactura D2
+2014,451-Modulo356,Servicios Electricos U
+2014,451-Modulo357,Transportes y Comunicaciones F2
+2014,451-Modulo358,Universidades no Estatales U
+2014,451-Modulo359,Restaurantes R2
+2014,451-Modulo360,Servicios F2
+2014,451-Modulo361,Agroindustrias M
+2014,451-Modulo362,Comercio M
+2014,451-Modulo363,Construcción  M
+2014,451-Modulo364,Manufactura M
+2014,451-Modulo365,Transportes y Comunicaciones M
+2014,451-Modulo366,Servicios M
+2015,511-Modulo1787,TICS para todos los sectores
+2015,511-Modulo838,Capítulo 01 para todos los sectores
+2015,511-Modulo839,Agencia de Viajes B1
+2015,511-Modulo840,Agroindustria F2
+2015,511-Modulo841,Centros Educativos no Estatales U
+2015,511-Modulo842,Comercio F2
+2015,511-Modulo843,Construcción F2
+2015,511-Modulo844,Establecimiento de Hospedaje A1
+2015,511-Modulo845,Hidrocarburos U
+2015,511-Modulo846,Acuicultura A
+2015,511-Modulo847,Pesca P
+2015,511-Modulo848,Manufactura D2
+2015,511-Modulo849,Servicios Electricos U
+2015,511-Modulo850,Transportes y Comunicaciones F2
+2015,511-Modulo851,Universidades no Estatales U
+2015,511-Modulo852,Restaurantes R2
+2015,511-Modulo853,Servicios F2
+2015,511-Modulo854,Agroindustria M
+2015,511-Modulo855,Comercio M
+2015,511-Modulo856,Construcción M
+2015,511-Modulo857,Manufactura M
+2015,511-Modulo858,Transportes y Comunicaciones M
+2015,511-Modulo859,Servicios M
+2016,552-Modulo1094,Capítulo 01 para todos los sectores
+2016,552-Modulo1095,Agencia de Viajes B1
+2016,552-Modulo1096,Agroindustria F2
+2016,552-Modulo1097,Centros Educativos no Estatales U
+2016,552-Modulo1098,Comercio F2
+2016,552-Modulo1099,Construcción F2
+2016,552-Modulo1100,Establecimiento de Hospedaje A1
+2016,552-Modulo1101,Hidrocarburos U
+2016,552-Modulo1102,Acuicultura A
+2016,552-Modulo1103,Pesca P
+2016,552-Modulo1104,Manufactura D2
+2016,552-Modulo1105,Servicios Electricos U
+2016,552-Modulo1106,Transportes y Comunicaciones F2
+2016,552-Modulo1107,Universidades no Estatales U
+2016,552-Modulo1108,Restaurantes R2
+2016,552-Modulo1109,Servicios F2
+2016,552-Modulo1110,Agroindustria M
+2016,552-Modulo1111,Comercio M
+2016,552-Modulo1112,Construcción M
+2016,552-Modulo1113,Manufactura M
+2016,552-Modulo1114,Transportes y Comunicaciones M
+2016,552-Modulo1115,Servicios M
+2016,552-Modulo1787,TICS para todos los sectores
+2017,627-Modulo1348,Capítulo 01 para todos los sectores
+2017,627-Modulo1349,Agencia de Viajes B1
+2017,627-Modulo1350,Agroindustria F2
+2017,627-Modulo1351,Centros Educativos no Estatales U
+2017,627-Modulo1352,Comercio F2
+2017,627-Modulo1353,Construcción F2
+2017,627-Modulo1354,Establecimientos de Hospedaje A1
+2017,627-Modulo1355,Hidrocarburos U
+2017,627-Modulo1356,Acuicultuta A
+2017,627-Modulo1357,Pesca P
+2017,627-Modulo1358,Manufactura D2
+2017,627-Modulo1359,Servicios Electricos U
+2017,627-Modulo1360,Transportes y Comunicaciones F2
+2017,627-Modulo1361,Universidades no Estatales U
+2017,627-Modulo1362,Restaurantes R2
+2017,627-Modulo1363,Servicios F2
+2017,627-Modulo1364,Agroindustria M
+2017,627-Modulo1365,Comercio M
+2017,627-Modulo1366,Construcción M
+2017,627-Modulo1367,Manufactura M
+2017,627-Modulo1368,Transportes y Comunicaciones M
+2017,627-Modulo1369,Servicios M
+2017,627-Modulo1787,TICS para todos los sectores
+2018,645-Modulo1428,Capítulo 01 para todos los sectores
+2018,645-Modulo1429,Agencia de Viajes B1
+2018,645-Modulo1430,Agroindustria F2
+2018,645-Modulo1431,Centros Educativos no Estatales U
+2018,645-Modulo1432,Comercio F2
+2018,645-Modulo1433,Construcción F2
+2018,645-Modulo1434,Establecimientos de Hospedaje A1
+2018,645-Modulo1435,Hidrocarburos U
+2018,645-Modulo1436,Acuicultuta A
+2018,645-Modulo1437,Pesca P
+2018,645-Modulo1438,Manufactura D2
+2018,645-Modulo1439,Servicios Electricos U
+2018,645-Modulo1440,Transportes y Comunicaciones F2
+2018,645-Modulo1441,Universidades no Estatales U
+2018,645-Modulo1442,Restaurantes R2
+2018,645-Modulo1443,Servicios F2
+2018,645-Modulo1444,Agroindustria M
+2018,645-Modulo1445,Comercio M
+2018,645-Modulo1446,Construcción M
+2018,645-Modulo1447,Manufactura M
+2018,645-Modulo1448,Transportes y Comunicaciones M
+2018,645-Modulo1449,Servicios M
+2018,645-Modulo1787,TICS para todos los sectores
+2019,733-Modulo1592,Capítulo 01 para todos los sectores
+2019,733-Modulo1593,Agencia de Viajes B1
+2019,733-Modulo1594,Agroindustria F2
+2019,733-Modulo1595,Centros Educativos no Estatales U
+2019,733-Modulo1596,Comercio F2
+2019,733-Modulo1597,Construcción F2
+2019,733-Modulo1598,Establecimientos de Hospedaje A1
+2019,733-Modulo1599,Hidrocarburos U
+2019,733-Modulo1600,Acuicultuta A
+2019,733-Modulo1601,Pesca P
+2019,733-Modulo1602,Manufactura D2
+2019,733-Modulo1603,Servicios Electricos U
+2019,733-Modulo1604,Transportes y Comunicaciones F2
+2019,733-Modulo1605,Universidades no Estatales U
+2019,733-Modulo1606,Restaurantes R2
+2019,733-Modulo1607,Servicios F2
+2019,733-Modulo1608,Agroindustria M
+2019,733-Modulo1609,Comercio M
+2019,733-Modulo1610,Construcción M
+2019,733-Modulo1611,Manufactura M
+2019,733-Modulo1612,Transportes y Comunicaciones M
+2019,733-Modulo1613,Servicios M
+2019,733-Modulo1787,TICS para todos los sectores
+2020,767-Modulo1686,Capítulo 01 para todos los sectores
+2020,767-Modulo1687,Agencia de Viajes F2
+2020,767-Modulo1688,Centros Educativos no Estatales F2
+2020,767-Modulo1689,Comercio F1
+2020,767-Modulo1690,Construcción F2
+2020,767-Modulo1691,Establecimientos de Hospedaje F2
+2020,767-Modulo1692,Hidrocarburos F2
+2020,767-Modulo1693,Acuicultuta A
+2020,767-Modulo1694,Pesca F2
+2020,767-Modulo1695,Manufactura D2
+2020,767-Modulo1696,Servicios Electricos F2
+2020,767-Modulo1697,Transportes y Comunicaciones F2
+2020,767-Modulo1698,Universidades no Estatales F2
+2020,767-Modulo1699,Restaurantes F2
+2020,767-Modulo1700,Servicios F2
+2020,767-Modulo1701,Agencia de Viajes M
+2020,767-Modulo1702,Centros Educativos no Estatales M
+2020,767-Modulo1703,Comercio M
+2020,767-Modulo1704,Construcción M
+2020,767-Modulo1705,Establecimientos de Hospedaje M
+2020,767-Modulo1706,Pesca M
+2020,767-Modulo1707,Manufactura M
+2020,767-Modulo1708,Transportes y Comunicaciones M
+2020,767-Modulo1709,Restaurantes M
+2020,767-Modulo1710,Servicios M
+2020,767-Modulo1787,TICS para todos los sectores
+2021,975-Modulo1914,Capítulo 01 para todos los sectores
+2021,975-Modulo1915,Agencia de Viajes F2
+2021,975-Modulo1916,Centros Educativos no Estatales F2
+2021,975-Modulo1917,Comercio F1
+2021,975-Modulo1918,Construcción F2
+2021,975-Modulo1919,Establecimientos de Hospedaje F2
+2021,975-Modulo1920,Hidrocarburos F2
+2021,975-Modulo1921,Acuicultuta A
+2021,975-Modulo1922,Pesca F2
+2021,975-Modulo1923,Manufactura D2
+2021,975-Modulo1924,Servicios Electricos F2
+2021,975-Modulo1925,Transportes y Comunicaciones F2
+2021,975-Modulo1926,Universidades no Estatales F2
+2021,975-Modulo1927,Restaurantes F2
+2021,975-Modulo1928,Servicios F2
+2021,975-Modulo1929,Agencia de Viajes M
+2021,975-Modulo1930,Centros Educativos no Estatales M
+2021,975-Modulo1931,Comercio M
+2021,975-Modulo1932,Construcción M
+2021,975-Modulo1933,Establecimientos de Hospedaje M
+2021,975-Modulo1934,Pesca M
+2021,975-Modulo1935,Manufactura M
+2021,975-Modulo1936,Transportes y Comunicaciones M
+2021,975-Modulo1937,Restaurantes M
+2021,975-Modulo1938,Servicios M
+2021,975-Modulo1939,TICS para todos los sectores
+2021,975-Modulo1940,Seguridad para todos los sectores
+2022,988-Modulo1993,Capítulo 01 para todos los sectores
+2022,988-Modulo1994,Agencia de Viajes F2
+2022,988-Modulo1995,Centros Educativos no Estatales F2
+2022,988-Modulo1996,Comercio F2
+2022,988-Modulo1997,Construcción F2
+2022,988-Modulo1998,Establecimientos de Hospedaje F2
+2022,988-Modulo1999,Hidrocarburos F2
+2022,988-Modulo2000,Pesca F2
+2022,988-Modulo2001,Manufactura F2
+2022,988-Modulo2002,Servicios Electricos F2
+2022,988-Modulo2003,Transportes y Comunicaciones F2
+2022,988-Modulo2004,Universidades no Estatales F2
+2022,988-Modulo2005,Restaurantes F2
+2022,988-Modulo2006,Servicios F2
+2022,988-Modulo2007,Mineria F2
+2022,988-Modulo2008,Agencia de Viajes M
+2022,988-Modulo2009,Centros Educativos no Estatales M
+2022,988-Modulo2010,Comercio M
+2022,988-Modulo2011,Construcción M
+2022,988-Modulo2012,Establecimientos de Hospedaje M
+2022,988-Modulo2013,Pesca M
+2022,988-Modulo2014,Manufactura M
+2022,988-Modulo2015,Transportes y Comunicaciones M
+2022,988-Modulo2016,Restaurantes M
+2022,988-Modulo2017,Servicios M
+2022,988-Modulo2018,Mineria M
+2023,987-Modulo1965,Capítulo 01 para todos los sectores
+2023,987-Modulo1966,Agencia de Viajes F2
+2023,987-Modulo1967,Centros Educativos no Estatales F2
+2023,987-Modulo1968,Comercio F2
+2023,987-Modulo1969,Construcción F2
+2023,987-Modulo1970,Establecimientos de Hospedaje F2
+2023,987-Modulo1971,Hidrocarburos F2
+2023,987-Modulo1972,Acuicultuta F2
+2023,987-Modulo1973,Pesca F2
+2023,987-Modulo1974,Manufactura F2
+2023,987-Modulo1975,Servicios Electricos F2
+2023,987-Modulo1976,Transportes y Comunicaciones F2
+2023,987-Modulo1977,Universidades no Estatales F2
+2023,987-Modulo1978,Restaurantes F2
+2023,987-Modulo1979,Servicios F2
+2023,987-Modulo1980,Agencia de Viajes M
+2023,987-Modulo1981,Centros Educativos no Estatales M
+2023,987-Modulo1982,Comercio M
+2023,987-Modulo1983,Construcción M
+2023,987-Modulo1984,Establecimientos de Hospedaje M
+2023,987-Modulo1985,Acuicultuta M
+2023,987-Modulo1986,Pesca M
+2023,987-Modulo1987,Manufactura M
+2023,987-Modulo1988,Transportes y Comunicaciones M
+2023,987-Modulo1989,Restaurantes M
+2023,987-Modulo1990,Servicios M
+2023,987-Modulo1991,TICS para todos los sectores
+2023,987-Modulo1992,Seguridad para todos los sectores
+2024,1026-Modulo2042,Capítulo 01 para todos los sectores
+2024,1026-Modulo2043,Agencia de Viajes F2
+2024,1026-Modulo2044,Centros Educativos no Estatales F2
+2024,1026-Modulo2045,Comercio F2
+2024,1026-Modulo2046,Construcción F2
+2024,1026-Modulo2047,Establecimientos de Hospedaje F2
+2024,1026-Modulo2048,Hidrocarburos F2
+2024,1026-Modulo2049,Acuicultuta F2
+2024,1026-Modulo2050,Pesca F2
+2024,1026-Modulo2051,Manufactura F2
+2024,1026-Modulo2052,Servicios Electricos F2
+2024,1026-Modulo2053,Transportes y Comunicaciones F2
+2024,1026-Modulo2054,Universidades no Estatales F2
+2024,1026-Modulo2055,Restaurantes F2
+2024,1026-Modulo2056,Servicios F2
+2024,1026-Modulo2057,Agencia de Viajes M
+2024,1026-Modulo2058,Centros Educativos no Estatales M
+2024,1026-Modulo2059,Comercio M
+2024,1026-Modulo2060,Construcción M
+2024,1026-Modulo2061,Establecimientos de Hospedaje M
+2024,1026-Modulo2062,Acuicultuta M
+2024,1026-Modulo2063,Pesca M
+2024,1026-Modulo2064,Manufactura M
+2024,1026-Modulo2065,Transportes y Comunicaciones M
+2024,1026-Modulo2066,Restaurantes M
+2024,1026-Modulo2067,Servicios M
+2024,1026-Modulo2068,Microempresas
+2024,1026-Modulo2069,TICS para todos los sectores
+2024,1026-Modulo2070,Seguridad para todos los sectores

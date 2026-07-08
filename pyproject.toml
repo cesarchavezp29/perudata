@@ -1,0 +1,35 @@
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "perudata"
+version = "0.1.0"
+description = "Peru's official INEI microdata (ENAHO, ENDES, EPEN, EEA, ENAHO Panel): download, load and validate against official statistics"
+readme = "README.md"
+license = { text = "MIT" }
+authors = [{ name = "Carlos Chávez Padilla", email = "cesarchavezpadilla@gmail.com" }]
+requires-python = ">=3.9"
+dependencies = [
+    "pandas>=1.5",
+    "pyreadstat>=1.2",
+]
+keywords = ["peru", "inei", "enaho", "endes", "dhs", "microdata", "poverty", "survey", "economics"]
+classifiers = [
+    "Development Status :: 4 - Beta",
+    "Intended Audience :: Science/Research",
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python :: 3",
+    "Topic :: Scientific/Engineering",
+    "Topic :: Sociology",
+]
+
+[project.urls]
+Homepage = "https://github.com/cesarchavezp29/perudata"
+Issues = "https://github.com/cesarchavezp29/perudata/issues"
+
+[project.scripts]
+perudata = "perudata.cli:main"
+
+[tool.hatch.build.targets.wheel]
+packages = ["src/perudata"]
