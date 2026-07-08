@@ -1,0 +1,31 @@
+name: Watch INEI for a new ENAHO year
+
+# INEI publishes each new ENAHO year as a fresh proyecto code with no
+# announcement API. This probes the code range above the newest mapped year
+# every Monday and opens an issue the day a new Modulo34 appears.
+on:
+  schedule:
+    - cron: "0 12 * * 1"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+  issues: write
+
+jobs:
+  probe:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: pip install -e .
+      - name: Ensure label exists
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: gh label create new-inei-year --force --color 0e8a16 --description "INEI published a new survey year" || true
+      - name: Probe unmapped proyecto codes
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: python .github/probe_new_year.py
