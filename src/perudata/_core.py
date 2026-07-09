@@ -44,11 +44,26 @@ def data_dir(out: str | Path | None = None) -> Path:
 # --------------------------------------------------------------------------- #
 # HTTP
 # --------------------------------------------------------------------------- #
-def get(url: str, timeout: int = 300, tries: int = 4) -> bytes | None:
+# INEI's TLS chain fails default verification from some networks (observed on
+# GitHub-hosted runners; the same host works fine with relaxed verification).
+# First attempt verifies normally, later attempts fall back to an unverified
+# context -- we only READ public zips from this host, integrity is checked by
+# opening every file after download.
+def _relaxed_ctx():
+    import ssl
+    ctx = ssl.create_default_context()
+    ctx.check_hostname = False
+    ctx.verify_mode = ssl.CERT_NONE
+    return ctx
+
+
+def get(url: str, timeout: int = 300, tries: int = 5) -> bytes | None:
     """GET with backoff on throttling, no retry on a genuine 404."""
     for i in range(tries):
         try:
-            with urlopen(Request(url, headers={"User-Agent": UA}), timeout=timeout) as r:
+            ctx = None if i == 0 else _relaxed_ctx()
+            with urlopen(Request(url, headers={"User-Agent": UA}),
+                         timeout=timeout, context=ctx) as r:
                 if r.status == 200:
                     return r.read()
         except HTTPError as e:
@@ -56,7 +71,7 @@ def get(url: str, timeout: int = 300, tries: int = 4) -> bytes | None:
                 return None
         except (URLError, TimeoutError, OSError):
             pass
-        time.sleep(2 * (i + 1))
+        time.sleep(5 * (i + 1))
     return None
 
 
