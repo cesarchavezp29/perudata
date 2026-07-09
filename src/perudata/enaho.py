@@ -136,14 +136,24 @@ def download(years_: list[int] | int, modules_: list | None = None,
                 continue
             u = url(y, m)
             print(f"[get ] {y} M{m} ({MODULES[m][1]})")
-            blob = _core.get(u)
-            if blob is None:
-                print(f"      ! download failed: {u}")
-                continue
-            zf = _core.open_zip(blob)
+            # INEI throttles bursts by answering an HTML error page with HTTP
+            # 200 ("bad zip"): pace requests and cool down before retrying
+            import time as _t
+            zf = None
+            for attempt in range(3):
+                if attempt:
+                    print(f"      throttled? cooldown 35s (retry {attempt}/2)")
+                    _t.sleep(35)
+                blob = _core.get(u)
+                if blob is None:
+                    continue
+                zf = _core.open_zip(blob)
+                if zf is not None:
+                    break
             if zf is None:
-                print("      ! not a valid zip (server may have sent an error page)")
+                print(f"      ! download failed after retries: {u}")
                 continue
+            _t.sleep(2)  # pacing between files keeps the throttle asleep
             tmp = root / f"_tmp_{y}_{m}"
             members = _core.extract_members(zf, tmp, (".dta",))
             main = _core.pick_main_dta(members)
