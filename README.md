@@ -50,8 +50,11 @@ poverty = 100 * w[df["pobreza"].isin([1, 2])].sum() / w.sum()   # -> 27.6
 validate.poverty()                   # full 2004-2025 table vs official INEI
 
 # --- ENAHO Panel (longitudinal) ----------------------------------------------
-df, meta = panel.load_long(2011, "sumaria")   # 2007-2011 balanced panel, tidy long
-meta["waves"]                                 # [2007, 2008, 2009, 2010, 2011]
+panel.releases()                              # [2011, 2015, ..., 2022, 2023] — 10 releases
+df, meta = panel.load_long(2023, "sumaria")   # latest: 2019-2023, tidy long
+meta["waves"]                                 # [2019, 2020, 2021, 2022, 2023]
+# any release works the same, e.g. the earliest 5-year panel:
+df, meta = panel.load_long(2011, "sumaria")   # 2007-2011
 
 # --- ENDES (DHS) --------------------------------------------------------------
 endes.download(2024, ["peso_talla_anemia"])
@@ -84,9 +87,9 @@ file is:
 peru_raw/
   enaho/sumaria/enaho-2024-34.dta
   enaho_panel/2011_302/panel-2011-sumaria.dta
-  endes/2024_968/1638_peso_talla_anemia/*.sav
-  epen/997_.../*.csv
-  eea/2110221/*.csv
+  endes/2024_968/1629_hogar/968-Modulo1629/*.sav
+  epen/804_15_lima.../*.csv
+  eea/987-Modulo1968/a2022_s04_fF2/*.csv
   */_manifest.csv          # what was downloaded, when, rows x cols
 ```
 

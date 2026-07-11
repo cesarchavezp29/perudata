@@ -51,7 +51,10 @@ def modules(year: int):
 def search(term: str):
     cat = catalog()
     terms = term.lower().split()
-    mask = cat["module_name"].str.lower().apply(lambda s: all(t in s for t in terms))
+    # match each term against the label OR the year (newer labels drop the year,
+    # e.g. "Comercio F2" for 2023 -> searching "2023" must still find it)
+    hay = (cat["module_name"].str.lower() + " " + cat["year"].astype(str))
+    mask = hay.apply(lambda s: all(t in s for t in terms))
     return cat[mask]
 
 

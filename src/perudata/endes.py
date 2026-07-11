@@ -102,6 +102,8 @@ def download(years_: list[int] | int, modules_: list | None = None,
     """Download ENDES SPSS modules. Every extracted .sav is opened and verified."""
     if isinstance(years_, int):
         years_ = [years_]
+    if isinstance(modules_, (int, str)):
+        modules_ = [modules_]
     root = _core.data_dir(out) / "endes"
     done: list[Path] = []
     for y in years_:

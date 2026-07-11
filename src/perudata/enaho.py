@@ -117,6 +117,8 @@ def download(years_: list[int] | int, modules_: list | None = None,
     """
     if isinstance(years_, int):
         years_ = [years_]
+    if isinstance(modules_, (int, str)):
+        modules_ = [modules_]
     modules_ = [str(m).zfill(2) for m in (modules_ or DEFAULT_MODULES)]
     root = _core.data_dir(out) / "enaho"
     done: list[Path] = []

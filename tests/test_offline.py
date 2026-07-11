@@ -34,6 +34,22 @@ def test_epen_catalog():
     assert len(epen.search("lima")) > 0
 
 
+def test_scalar_module_accepted():
+    """download(year, 34) — a bare int/str module — must not raise. The scalar
+    is coerced to a one-element list before iteration (regression guard)."""
+    import inspect
+    for mod in (enaho, endes, panel):
+        src = inspect.getsource(mod.download)
+        assert "isinstance(modules_, (int, str))" in src, mod.__name__
+
+
+def test_eea_search_by_year():
+    """Newer EEA labels drop the year ('Comercio F2' for 2023); search must
+    still find them by matching the catalog's year column."""
+    assert len(eea.search("2023")) > 0
+    assert len(eea.search("comercio 2023")) > 0
+
+
 def test_eea_catalog():
     cat = eea.catalog()
     assert len(cat) > 500

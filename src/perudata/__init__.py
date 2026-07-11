@@ -15,5 +15,5 @@ with the PERUDATA_DIR environment variable.
 """
 from . import eea, enaho, endes, epen, panel, validate  # noqa: F401
 
-__version__ = "0.1.0"
+__version__ = "0.1.1"
 __all__ = ["enaho", "endes", "epen", "eea", "panel", "validate"]

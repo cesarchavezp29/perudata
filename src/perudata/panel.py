@@ -103,6 +103,8 @@ def download(releases_: list[int] | int, modules_: list | None = None,
     """Download panel releases. Default module: sumaria (poverty dynamics)."""
     if isinstance(releases_, int):
         releases_ = [releases_]
+    if isinstance(modules_, (int, str)):
+        modules_ = [modules_]
     modules_ = modules_ or ["sumaria"]
     root = _core.data_dir(out) / "enaho_panel"
     done: list[Path] = []
@@ -188,13 +190,17 @@ def reshape_wide_to_long(df):
     import pandas as pd
     cols_lower = {c.lower(): c for c in df.columns}
     anchors = _anchor(cols_lower)
+    anchor_bases = {a.lower() for a in anchors}
     by_year: dict[str, dict[str, str]] = {}
     unsuffixed = []
     for c in df.columns:
         m = SUFFIX_RE.match(c.lower())
-        if m:
+        # a suffixed copy of an anchor (e.g. conglome_19) would rename onto the
+        # unsuffixed anchor and create a duplicate column -> skip it, the
+        # unsuffixed anchor already carries the id across every wave
+        if m and m.group("base") not in anchor_bases:
             by_year.setdefault(m.group("yy"), {})[m.group("base")] = c
-        else:
+        elif not m:
             unsuffixed.append(c)
     frames = []
     for yy, mapping in sorted(by_year.items()):
