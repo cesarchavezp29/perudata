@@ -69,3 +69,21 @@ def test_panel_wide_to_long():
     assert set(long["anio"]) == {2007, 2008, 2009, 2010, 2011}
     assert len(long) == 10
     assert {"pobreza", "gashog2d", "cong"} <= set(long.columns)
+
+
+def test_panel_wide_to_long_suffixed_anchor():
+    """Real panels ship the anchor id BOTH unsuffixed and year-suffixed
+    (conglome + conglome_19..._23). The suffixed copies must not be renamed
+    onto the anchor — that made two identical columns and crashed concat with
+    'Reindexing only valid with uniquely valued Index objects' (regression)."""
+    wide = pd.DataFrame({
+        "conglome": [1, 2], "vivienda": [10, 20],
+        **{f"conglome_{y:02d}": [1, 2] for y in range(19, 24)},
+        **{f"vivienda_{y:02d}": [10, 20] for y in range(19, 24)},
+        **{f"pobreza_{y:02d}": [1, 2] for y in range(19, 24)},
+    })
+    long = panel.reshape_wide_to_long(wide)          # must not raise
+    assert set(long["anio"]) == {2019, 2020, 2021, 2022, 2023}
+    assert len(long) == 10
+    assert list(long.columns).count("conglome") == 1
+    assert "pobreza" in long.columns
