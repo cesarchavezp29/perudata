@@ -144,13 +144,33 @@ def csv_shape(path: Path) -> tuple[int, int]:
 # zip handling
 # --------------------------------------------------------------------------- #
 def open_zip(blob: bytes) -> zipfile.ZipFile | None:
+    """Open an INEI zip, tolerating a corrupt member we do not need.
+
+    A whole-archive testzip() gate is WRONG here. ENAHO 2015 (498-Modulo34.zip)
+    ships a documentation PDF with a bad CRC while sumaria-2015.dta inside the
+    SAME archive reads perfectly. Failing the archive threw away the data file
+    and made 2015 permanently undownloadable -- which in turn killed
+    validate.poverty() for every user, since the gate needs every year.
+
+    Integrity is not weakened: every member we actually extract is opened and
+    verified afterwards (verify_dta / verify_sav / csv_shape), and a CRC-bad
+    data member still raises on extract and is skipped by extract_members().
+    A throttled HTML error page served as a "zip" is still rejected here,
+    because it is not a zip at all and raises BadZipFile.
+    """
     try:
-        zf = zipfile.ZipFile(io.BytesIO(blob))
-        if zf.testzip() is not None:
-            return None
-        return zf
+        return zipfile.ZipFile(io.BytesIO(blob))
     except zipfile.BadZipFile:
         return None
+
+
+def bad_members(zf: zipfile.ZipFile) -> list[str]:
+    """Names of members that fail their CRC check (diagnostic only)."""
+    try:
+        first = zf.testzip()
+    except Exception:
+        return []
+    return [first] if first else []
 
 
 def extract_members(zf: zipfile.ZipFile, dest: Path, suffixes: tuple[str, ...]) -> list[Path]:

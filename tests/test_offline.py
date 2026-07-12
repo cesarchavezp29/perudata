@@ -1,8 +1,41 @@
 """Offline tests: catalogs, URL construction, module resolution, wide->long
 reshape. No network needed."""
+import io
+import zipfile
+
 import pandas as pd
 
-from perudata import eea, enaho, endes, epen, panel
+from perudata import _core, eea, enaho, endes, epen, panel
+
+
+def _zip_with_corrupt_member() -> bytes:
+    """A zip whose PDF has a bad CRC but whose .dta is perfectly readable —
+    exactly the shape of INEI's real 498-Modulo34.zip (ENAHO 2015)."""
+    buf = io.BytesIO()
+    with zipfile.ZipFile(buf, "w") as z:
+        z.writestr("Diccionario.pdf", b"P" * 200)
+        z.writestr("sumaria-2015.dta", b"REALDATA" * 20)
+    raw = bytearray(buf.getvalue())
+    i = raw.find(b"P" * 200)          # scribble on the PDF payload -> CRC fails
+    raw[i:i + 20] = b"\x00" * 20
+    return bytes(raw)
+
+
+def test_open_zip_tolerates_a_corrupt_member_we_do_not_need():
+    """REGRESSION: a whole-archive testzip() gate rejected 498-Modulo34.zip
+    because a documentation PDF had a bad CRC, so ENAHO 2015 sumaria was
+    permanently undownloadable and validate.poverty() died for every user.
+    The archive must open and the intact .dta must still be readable."""
+    zf = _core.open_zip(_zip_with_corrupt_member())
+    assert zf is not None, "archive rejected over a member we never extract"
+    assert zf.read("sumaria-2015.dta") == b"REALDATA" * 20
+    assert "Diccionario.pdf" in _core.bad_members(zf)
+
+
+def test_open_zip_still_rejects_a_non_zip():
+    """The throttle guard must survive: INEI answers bursts with an HTML error
+    page under HTTP 200, and that must NOT be mistaken for an archive."""
+    assert _core.open_zip(b"<html><body>error</body></html>") is None
 
 
 def test_enaho_years_and_urls():

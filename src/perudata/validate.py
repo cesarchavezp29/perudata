@@ -34,7 +34,10 @@ OFFICIAL_EXTREME = {2020: 5.1, 2021: 4.1, 2022: 5.0, 2023: 5.7, 2024: 5.5, 2025:
 
 
 def poverty_year(year: int, out: str | Path | None = None) -> dict | None:
-    """National poverty for one year straight from the raw sumaria."""
+    """National poverty for one year straight from the raw sumaria.
+
+    Raises if the year cannot be fetched — poverty() catches and records it.
+    """
     df = enaho.load(year, "34", out=out,
                     columns=None)  # columns differ by vintage; filter after load
     need = {"pobreza", "factor07", "mieperho"}
@@ -61,9 +64,17 @@ def poverty(years: list[int] | None = None, out: str | Path | None = None,
     the computed rate, the official rate and their difference per year."""
     import pandas as pd
     years = years or enaho.years()
-    rows = []
+    rows, unfetched = [], []
     for y in years:
-        r = poverty_year(y, out=out)
+        # a year that cannot be fetched must NOT kill the gate: the gate is the
+        # first thing a user runs to check the package works, so it reports what
+        # it could not get and carries on with the rest.
+        try:
+            r = poverty_year(y, out=out)
+        except Exception as e:  # noqa: BLE001
+            unfetched.append((y, f"{type(e).__name__}: {e}"))
+            print(f"[warn] {y}: unfetched, skipped ({type(e).__name__})")
+            continue
         if r:
             rows.append(r)
     df = pd.DataFrame(rows)
@@ -71,10 +82,14 @@ def poverty(years: list[int] | None = None, out: str | Path | None = None,
         return df
     df["pov_diff"] = (df["poverty_pct"] - df["official_poverty"]).round(1)
     df["ext_diff"] = (df["extreme_pct"] - df["official_extreme"]).round(1)
+    df.attrs["unfetched"] = unfetched
     if verbose:
         matched = df.dropna(subset=["official_poverty"])
         within = (matched["pov_diff"].abs() <= 0.1).sum()
         print(df.to_string(index=False))
         print(f"\nNational poverty reproduced within 0.1pp of INEI in "
               f"{within}/{len(matched)} years.")
+        if unfetched:
+            print(f"UNFETCHED ({len(unfetched)}): "
+                  + ", ".join(f"{y} ({why})" for y, why in unfetched))
     return df
