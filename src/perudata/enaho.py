@@ -190,10 +190,17 @@ def _download_one(year: int, module: str, out: str | Path | None = None) -> Path
 
 
 def load(year: int, module: str | int = "34", out: str | Path | None = None,
-         columns: list[str] | None = None, download_if_missing: bool = True):
+         columns: list[str] | None = None, download_if_missing: bool = True,
+         harmonize: bool = False):
     """Load one (year, module) as a DataFrame, downloading it first if needed.
 
     Column names are lower-cased. Value labels are NOT applied (raw codes).
+
+    harmonize=True ADDS canonical columns from the module's crosswalk (same name,
+    coding and unit in every vintage) alongside the raw ones — nothing is dropped
+    and money stays NOMINAL. Ids are normalized. The per-variable coverage report
+    lands in df.attrs["coverage"]. Modules without a crosswalk raise, and
+    harmonize=False always returns the raw file.
     """
     p = path(year, module, out)
     if not p.exists():
@@ -208,7 +215,116 @@ def load(year: int, module: str | int = "34", out: str | Path | None = None,
         _download_one(year, module_, out=out)
     df = _core.read_dta(p, columns=columns)
     df.columns = [c.lower() for c in df.columns]
+    if harmonize:
+        from . import harmonize as _h
+        df, _ = _h.apply(df, "enaho", module, year=year)
     return df
+
+
+# --------------------------------------------------------------------------- #
+# combine
+# --------------------------------------------------------------------------- #
+HH_KEY = ["conglome", "vivienda", "hogar"]
+PERSON_KEY = HH_KEY + ["codperso"]
+
+# granularity per module, verified empirically (one row per what?).
+# ITEM modules must be AGGREGATED before they can be joined -- combine() refuses
+# them rather than silently exploding the row count.
+HOUSEHOLD_MODULES = {"01", "34", "37", "84", "85"}
+PERSON_MODULES = {"02", "03", "04", "05", "25", "28"}
+
+
+def combine(year: int, modules: list[str] | None = None,
+            level: str = "person", out: str | Path | None = None):
+    """Join several ENAHO modules into ONE analysis table, safely.
+
+    This exists because doing it by hand is demonstrably dangerous:
+
+      * KEYS. ENAHO 2004-2006 pad the household id differently in different
+        modules ('   5' vs '0005'). A raw merge matches 2.08% of households in
+        2004 and RAISES NOTHING. Keys are normalized here, always.
+      * POPULATION. The module-02 roster counts everyone in the dwelling
+        (37.13M weighted in 2025). INEI's welfare population counts HABITUAL
+        RESIDENTS only (p204==1 -> 34.86M). Picking the wrong one moves the
+        population by 2.3 million people. combine() attaches BOTH, named apart.
+      * WEIGHTS. The right weight CHANGES BY MODULE: 03 carries factor07 (and
+        factora07), 04 carries factor07, 05 carries only fac500a. A naive merge
+        inherits whichever came along for the ride.
+
+    level="person"    -> one row per person (household vars broadcast onto people)
+    level="household" -> one row per household (household modules only)
+
+    Returns a DataFrame; df.attrs["combine"] records what was joined and how many
+    rows matched at each step.
+    """
+    import pandas as pd
+    from . import harmonize as _h
+
+    modules = [str(m).zfill(2) for m in (modules or ["34", "02"])]
+    bad = [m for m in modules
+           if m not in HOUSEHOLD_MODULES and m not in PERSON_MODULES]
+    if bad:
+        raise ValueError(
+            f"module(s) {bad} are ITEM-level (many rows per household: a product, "
+            f"an expense). Joining them here would multiply your rows. Aggregate "
+            f"them to household/person first, then merge.")
+    if level == "household" and any(m in PERSON_MODULES for m in modules):
+        raise ValueError(
+            f"level='household' but {[m for m in modules if m in PERSON_MODULES]} "
+            f"is person-level. Use level='person', or drop the person module.")
+
+    meta: dict = {"year": year, "level": level, "modules": modules, "steps": []}
+
+    def _load(m):
+        df = load(year, m, out=out)
+        return _h.normalize_keys(df)          # ALWAYS, before any join
+
+    hh_mods = [m for m in modules if m in HOUSEHOLD_MODULES]
+    pe_mods = [m for m in modules if m in PERSON_MODULES]
+
+    # ---- household spine ---------------------------------------------------
+    base = None
+    for m in hh_mods:
+        d = _load(m)
+        if m == "34":                          # canonical poverty/income/weights
+            d, _ = _h.apply(d, "enaho", "34", year=year)
+        d = d.drop_duplicates(HH_KEY)
+        base = d if base is None else base.merge(
+            d, on=HH_KEY, how="inner", suffixes=("", f"_m{m}"))
+        meta["steps"].append({"module": m, "level": "household", "rows": len(base)})
+
+    if level == "household":
+        if base is None:
+            raise ValueError("no household module requested")
+        base.attrs["combine"] = meta
+        return base
+
+    # ---- person spine ------------------------------------------------------
+    person = None
+    for m in pe_mods:
+        d = _load(m)
+        if m == "02":
+            d, _ = _h.apply(d, "enaho", "02", year=year)   # hh_member + weights
+        d = d.drop_duplicates(PERSON_KEY)
+        person = d if person is None else person.merge(
+            d, on=PERSON_KEY, how="outer", suffixes=("", f"_m{m}"))
+        meta["steps"].append({"module": m, "level": "person", "rows": len(person)})
+
+    if person is None:
+        raise ValueError("level='person' needs at least one person module "
+                         "(e.g. '02')")
+
+    if base is not None:
+        n_before = len(person)
+        person = person.merge(base, on=HH_KEY, how="left",
+                              suffixes=("", "_hh"))
+        matched = person[HH_KEY].notna().all(axis=1).sum()
+        meta["steps"].append({"module": "household->person broadcast",
+                              "rows": len(person),
+                              "matched_pct": round(100 * matched / n_before, 2)})
+
+    person.attrs["combine"] = meta
+    return person
 
 
 def discover(year: int, lo: int = 967, hi: int = 1200) -> list[int]:

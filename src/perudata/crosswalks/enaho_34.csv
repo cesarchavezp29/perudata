@@ -14,7 +14,7 @@ earners,rename,percepho,2004,2025,,persons,household,confirmed,income earners in
 weight_hh,rename,factor07,2004,2025,,weight,household,confirmed,"household expansion factor. Using this alone for a PERSON rate is the classic error: it yields 20.13% poverty vs the official 25.67%."
 weight_person,derive,factor07;mieperho,2004,2025,factor07 * mieperho,weight,household,confirmed,"the official INEI person weight. This is what reproduces the published poverty series to 0.0pp."
 poverty,rename,pobreza,2004,2025,,code,household,confirmed,"1=extreme poor, 2=poor (non-extreme), 3=non-poor. Coding stable in every year. SHIPPED AS-IS — never recomputed."
-poor,derive,pobreza,2004,2025,pobreza in (1,2),bool,household,confirmed,headcount indicator used by validate.poverty()
+poor,derive,pobreza,2004,2025,"pobreza in (1,2)",bool,household,confirmed,headcount indicator used by validate.poverty()
 extreme_poor,derive,pobreza,2004,2025,pobreza == 1,bool,household,confirmed,extreme headcount indicator
 income_hh,rename,inghog2d,2004,2025,,soles_year_nominal,household,confirmed,"NET annual household income (imputed rent included, INEI convention). Nominal — deflate only via the opt-in."
 income_gross_hh,rename,inghog1d,2004,2025,,soles_year_nominal,household,confirmed,"GROSS annual household income. CONFIRMED: inghog1d >= inghog2d in 100.0% of households in 2004/2014/2020/2025."
@@ -23,5 +23,5 @@ spending_gross_hh,rename,gashog1d,2004,2025,,soles_year_nominal,household,confir
 poverty_line,rename,linea,2004,2025,,soles_month_pc_nominal,household,confirmed,"MONTHLY PER-CAPITA total poverty line. CONFIRMED by reconstruction: gashog2d/(12*mieperho) < linea reproduces INEI's own pobreza flag in 100.00% of 2025 households (99.78% 2020, 99.18% 2004)."
 extreme_poverty_line,rename,linpe,2004,2025,,soles_month_pc_nominal,household,confirmed,"MONTHLY PER-CAPITA extreme (food) line. linpe < linea in 100% of households in every year tested."
 spending_pc_month,derive,gashog2d;mieperho,2004,2025,gashog2d / (12 * mieperho),soles_month_nominal,household,confirmed,"the welfare metric that is compared against poverty_line. Nominal."
-income_pc_month,derive,inghog2d;mieperho,2004,2025,inghog2d / (12 * mieperho),soles_month_nominal,household,confirmed,per-capita monthly income, nominal
+income_pc_month,derive,inghog2d;mieperho,2004,2025,inghog2d / (12 * mieperho),soles_month_nominal,household,confirmed,"per-capita monthly income, nominal"
 spatial_deflator,rename,ld,2005,2025,,index,household,confirmed,"spatial price deflator. ABSENT IN 2004 — resolves to an all-NA column, marked in the coverage report, never silently dropped. Needed by the deflation opt-in."

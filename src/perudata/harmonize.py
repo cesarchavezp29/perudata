@@ -1,0 +1,183 @@
+"""The standardizer: apply a per-module crosswalk so the same concept has the
+same name, coding and unit in every vintage.
+
+Contract (decided deliberately, and narrow on purpose):
+  * ADDITIVE. Canonical columns are ADDED; every raw column stays. Nothing is
+    hidden, and every harmonized value is auditable back to its source.
+  * NOMINAL. Money is renamed and recoded, never rescaled. No deflation happens
+    unless you ask for it separately. The standardizer must never silently move
+    a magnitude.
+  * STABLE SCHEMA. A canonical variable genuinely absent in a vintage comes back
+    as an all-NA column and is MARKED in the coverage report — never silently
+    missing, so pooling years can't break on a column that isn't there.
+  * KEYS ARE ALWAYS NORMALIZED. Strip + zero-fill on every id column, every
+    time. Idempotent on clean vintages. This is not vintage-gated: a raw merge
+    of ENAHO 2004 matches 2.08% of households and reports no error at all.
+
+Derived variables are NAMED PYTHON FUNCTIONS, not eval'd strings. The crosswalk's
+`recode` column documents the formula for a human; the code below is what runs.
+"""
+from __future__ import annotations
+
+from importlib import resources
+from pathlib import Path
+
+# id columns that must be normalized before any join, in any ENAHO module
+KEY_COLS = ("conglome", "vivienda", "hogar", "codperso")
+
+_CACHE: dict[tuple[str, str], object] = {}
+
+
+def crosswalk(survey: str, module: str | int):
+    """The crosswalk table for one (survey, module), or raise if not written yet."""
+    import pandas as pd
+    key = (survey, str(module).zfill(2) if str(module).isdigit()
+           and len(str(module)) <= 2 else str(module))
+    if key in _CACHE:
+        return _CACHE[key].copy()
+    name = f"{key[0]}_{key[1]}.csv"
+    path = resources.files("perudata").joinpath(f"crosswalks/{name}")
+    if not path.is_file():
+        raise FileNotFoundError(
+            f"no crosswalk for {survey} module {key[1]} yet (have: "
+            f"{', '.join(available()) or 'none'}). load(harmonize=False) still "
+            f"returns the raw file, so nothing is blocked.")
+    with path.open("r", encoding="utf-8") as f:
+        cw = pd.read_csv(f)
+    _CACHE[key] = cw
+    return cw.copy()
+
+
+def available() -> list[str]:
+    """Which (survey, module) crosswalks exist."""
+    d = resources.files("perudata").joinpath("crosswalks")
+    return sorted(Path(str(p)).stem for p in d.iterdir()
+                  if str(p).endswith(".csv"))
+
+
+def normalize_keys(df, cols=KEY_COLS):
+    """Canonicalize id columns to their NUMERIC identity. ALWAYS ON, idempotent.
+
+    ENAHO 2004-2006 store the household id space-padded in the roster ('   5')
+    and zero-padded in sumaria ('0005'). Merging the raw columns matches 2.08%
+    of households in 2004 and raises nothing at all.
+
+    Zero-FILLING to each column's own max width is NOT enough: the width is a
+    property of the data present, so a module whose widest id is 4 chars and one
+    whose widest is 2 still fail to meet ('0005' vs '05'). Stripping whitespace
+    AND leading zeros is width-independent, so the two sides always agree.
+    Leading zeros carry no meaning in these ids -- they are numeric.
+    """
+    out = df.copy()
+    for c in cols:
+        if c not in out.columns:
+            continue
+        s = (out[c].astype(str).str.strip()
+             .str.replace(r"\.0$", "", regex=True))
+        numeric = s.str.fullmatch(r"\d+")
+        # only strip zeros where the id really is all digits; leave anything
+        # else exactly as it is rather than mangling an id we do not understand
+        s = s.mask(numeric.fillna(False),
+                   s.str.lstrip("0").replace("", "0"))
+        out[c] = s
+    return out
+
+
+# --------------------------------------------------------------------------- #
+# derived variables — the formula in the crosswalk's `recode` column, in code
+# --------------------------------------------------------------------------- #
+def _d_enaho34(d, canonical):
+    import numpy as np
+    if canonical == "area":            # CONFIRMED: reproduces INEI urban/rural
+        return np.where(d["estrato"].astype("float") <= 5, 1, 2)
+    if canonical == "weight_person":   # the official INEI person weight
+        return d["factor07"] * d["mieperho"]
+    if canonical == "poor":
+        return d["pobreza"].isin([1, 2])
+    if canonical == "extreme_poor":
+        return d["pobreza"] == 1
+    if canonical == "spending_pc_month":
+        return d["gashog2d"] / (12 * d["mieperho"])
+    if canonical == "income_pc_month":
+        return d["inghog2d"] / (12 * d["mieperho"])
+    return None
+
+
+def _d_enaho02(d, canonical):
+    if canonical == "hh_member":            # CONFIRMED: p204==1, all 21 vintages
+        return d["p204"] == 1
+    if canonical == "weight_person_welfare":
+        return d["facpob07"].where(d["p204"] == 1)
+    return None
+
+
+DERIVERS = {("enaho", "34"): _d_enaho34, ("enaho", "02"): _d_enaho02}
+
+
+def _needed_raw(row) -> list[str]:
+    raw = str(row.get("raw", "") or "")
+    return [r.strip() for r in raw.split(";") if r.strip()]
+
+
+def apply(df, survey: str, module: str | int, year: int | None = None):
+    """Harmonize one loaded module. Returns (df_with_canonical_cols, coverage).
+
+    coverage: one row per canonical variable — did it resolve, from which raw
+    name, and if not, why. That report is how you see how far standardization
+    actually reaches, per year.
+    """
+    import pandas as pd
+
+    mod = str(module).zfill(2) if str(module).isdigit() and len(str(module)) <= 2 \
+        else str(module)
+    cw = crosswalk(survey, mod)
+    deriver = DERIVERS.get((survey, mod))
+
+    out = normalize_keys(df)          # ALWAYS, before anything else
+    cov = []
+
+    for _, row in cw.iterrows():
+        canon, kind = row["canonical"], row["kind"]
+        if year is not None:
+            ys, ye = row.get("year_start"), row.get("year_end")
+            if pd.notna(ys) and year < int(ys):
+                cov.append({"canonical": canon, "resolved": False, "raw": "",
+                            "reason": f"not published before {int(ys)}"})
+                out[canon] = pd.NA
+                continue
+            if pd.notna(ye) and year > int(ye):
+                cov.append({"canonical": canon, "resolved": False, "raw": "",
+                            "reason": f"not published after {int(ye)}"})
+                out[canon] = pd.NA
+                continue
+
+        need = _needed_raw(row)
+        missing = [r for r in need if r not in out.columns]
+        if missing:
+            # STABLE SCHEMA: absent -> all-NA column, and SAY SO. Never silent.
+            out[canon] = pd.NA
+            cov.append({"canonical": canon, "resolved": False,
+                        "raw": ";".join(need),
+                        "reason": f"raw column(s) absent: {', '.join(missing)}"})
+            continue
+
+        if kind == "rename":
+            out[canon] = out[need[0]]
+        else:                                   # derive / recode
+            val = deriver(out, canon) if deriver else None
+            if val is None:
+                out[canon] = pd.NA
+                cov.append({"canonical": canon, "resolved": False,
+                            "raw": ";".join(need),
+                            "reason": "no deriver implemented"})
+                continue
+            out[canon] = val
+        cov.append({"canonical": canon, "resolved": True, "raw": ";".join(need),
+                    "reason": ""})
+
+    coverage = pd.DataFrame(cov)
+    # attrs must hold only plain data: pandas COMPARES attrs when merging frames,
+    # and a DataFrame in there raises "Can only compare identically-labeled...".
+    out.attrs["coverage"] = cov                       # list of dicts, not a frame
+    out.attrs["harmonized"] = f"{survey}/{mod}"
+    return out, coverage

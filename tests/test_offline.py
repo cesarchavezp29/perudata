@@ -75,6 +75,45 @@ def test_panel_module_02_is_not_advertised():
         assert "02" not in panel.modules_for(rel), f"release {rel} still offers M02"
 
 
+def test_crosswalks_parse_and_are_well_formed():
+    """A crosswalk that does not parse is a crosswalk that does not exist.
+    (Both files shipped malformed once: an unquoted comma inside `recode`
+    and inside a note silently added an 11th field.)"""
+    from perudata import harmonize
+    assert harmonize.available()
+    for name in harmonize.available():
+        survey, module = name.split("_", 1)
+        cw = harmonize.crosswalk(survey, module)
+        assert {"canonical", "kind", "raw", "status"} <= set(cw.columns), name
+        assert cw["kind"].isin(["rename", "derive", "recode"]).all(), name
+        assert cw["canonical"].is_unique, name
+
+
+def test_normalize_keys_fixes_2004_and_is_idempotent_on_clean_keys():
+    """The 2004 trap in miniature: sumaria zero-pads the id, the roster
+    space-pads it, and a raw merge silently keeps almost nothing. Normalization
+    must reconcile them AND leave an already-clean key untouched."""
+    from perudata import harmonize
+    sumaria = pd.DataFrame({"conglome": ["0005", "0012"], "hogar": ["11", "11"]})
+    roster = pd.DataFrame({"conglome": ["   5", "  12"], "hogar": ["11", "11"]})
+    raw = sumaria.merge(roster, on=["conglome", "hogar"], how="inner")
+    assert len(raw) == 0                       # the silent catastrophe
+    s2 = harmonize.normalize_keys(sumaria)
+    r2 = harmonize.normalize_keys(roster)
+    assert len(s2.merge(r2, on=["conglome", "hogar"], how="inner")) == 2
+    # idempotent: a clean key survives a second pass unchanged
+    assert harmonize.normalize_keys(s2)["conglome"].tolist() == s2["conglome"].tolist()
+
+
+def test_combine_refuses_item_modules_instead_of_exploding_rows():
+    """Module 07 is HOUSEHOLD-ITEM (267 rows per household in 2025). Joining it
+    like a household module would multiply the row count and quietly corrupt any
+    weighted statistic. combine() must refuse, not comply."""
+    import pytest
+    with pytest.raises(ValueError, match="ITEM-level"):
+        enaho.combine(2025, ["34", "07"], level="person")
+
+
 def test_panel_roster_1314_only_exists_in_2016_2017():
     """The roster module IS real, but ONLY for releases 2016-2017 (old era).
     The 2011 and 2015 panels ship no roster at all — their person-level data
