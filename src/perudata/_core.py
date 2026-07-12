@@ -29,6 +29,60 @@ UA = "Mozilla/5.0 (perudata; https://github.com/cesarchavezp29/perudata)"
 
 
 # --------------------------------------------------------------------------- #
+# typed failures
+# --------------------------------------------------------------------------- #
+# Three genuinely different things used to surface as one RuntimeError
+# ("could not obtain X"), and that ambiguity cost real debugging: ENAHO 2015 was
+# misread as a throttle three times when the archive was actually fine and OUR
+# CRC gate was discarding it, and panel module 02 was nearly trimmed from the
+# catalog when the real question was whether INEI publishes it at all.
+#
+# A user seeing a failure needs to know which of these it is, because the
+# correct response differs: retry / report a bug / accept the file is not there.
+class PerudataError(Exception):
+    """Base for every failure this package raises."""
+
+
+class NotPublished(PerudataError):
+    """INEI has no such file: the constructed URL returned 404.
+
+    Carries the URL so the caller can tell "the server says no such file" apart
+    from "our catalog never listed it". When the catalog CLAIMS a module and the
+    URL 404s, that disagreement is the signal to go check INEI's codebook rather
+    than trust either side -- exactly the panel-02 case.
+    """
+
+    def __init__(self, url: str, msg: str = ""):
+        self.url = url
+        super().__init__(msg or f"INEI returned 404 for {url} (not published)")
+
+
+class ServerRefused(PerudataError):
+    """The host refused, timed out, or answered a throttle page. TRANSIENT — retry."""
+
+    def __init__(self, url: str, attempts: int, detail: str = ""):
+        self.url, self.attempts = url, attempts
+        super().__init__(
+            f"INEI refused/timed out after {attempts} attempts: {url} "
+            f"({detail or 'no usable response'}). Transient — retry later.")
+
+
+class CorruptMember(PerudataError):
+    """The archive downloaded and opened, but the DATA member is unreadable.
+
+    Not transient and not a 404: retrying will not help and the file does exist.
+    A damaged AUXILIARY member (a PDF) is NOT this error — those are tolerated,
+    since we never extract them.
+    """
+
+    def __init__(self, url: str, member: str, detail: str = ""):
+        self.url, self.member = url, member
+        super().__init__(
+            f"data member {member!r} in {url} is corrupt ({detail}). "
+            f"The file exists but its data is damaged upstream — report to INEI.")
+
+
+# --------------------------------------------------------------------------- #
 # data directory
 # --------------------------------------------------------------------------- #
 def data_dir(out: str | Path | None = None) -> Path:
@@ -73,6 +127,30 @@ def get(url: str, timeout: int = 300, tries: int = 5) -> bytes | None:
             pass
         time.sleep(5 * (i + 1))
     return None
+
+
+def fetch(url: str, timeout: int = 300, tries: int = 5) -> bytes:
+    """Typed GET: bytes on success, NotPublished on 404, ServerRefused otherwise.
+
+    This is get() with the failure reason preserved instead of collapsed to None.
+    """
+    detail = ""
+    for i in range(tries):
+        try:
+            ctx = None if i == 0 else _relaxed_ctx()
+            with urlopen(Request(url, headers={"User-Agent": UA}),
+                         timeout=timeout, context=ctx) as r:
+                if r.status == 200:
+                    return r.read()
+                detail = f"HTTP {r.status}"
+        except HTTPError as e:
+            if e.code == 404:
+                raise NotPublished(url) from None   # definitive: do not retry
+            detail = f"HTTP {e.code}"
+        except (URLError, TimeoutError, OSError) as e:
+            detail = f"{type(e).__name__}: {e}"
+        time.sleep(5 * (i + 1))
+    raise ServerRefused(url, tries, detail)
 
 
 def head_ok(url: str, timeout: int = 15) -> bool:
@@ -171,6 +249,28 @@ def bad_members(zf: zipfile.ZipFile) -> list[str]:
     except Exception:
         return []
     return [first] if first else []
+
+
+def fetch_zip(url: str, tries: int = 3, cooldown: int = 35, pace: float = 2.0
+              ) -> zipfile.ZipFile:
+    """Download and open an INEI zip, with typed failures.
+
+    Raises NotPublished (404), ServerRefused (throttle/timeout/refusal).
+    INEI throttles bursts by answering an HTML error page under HTTP 200 — that
+    is not a zip, so open_zip() rejects it and we cool down and retry. A zip that
+    opens is returned even if an AUXILIARY member is CRC-damaged (see open_zip).
+    """
+    detail = ""
+    for attempt in range(tries):
+        if attempt:
+            time.sleep(cooldown)          # throttled: let the host cool off
+        blob = fetch(url)                 # NotPublished propagates immediately
+        zf = open_zip(blob)
+        if zf is not None:
+            time.sleep(pace)              # pacing keeps the throttle asleep
+            return zf
+        detail = "response was not a zip (throttle page?)"
+    raise ServerRefused(url, tries, detail)
 
 
 def extract_members(zf: zipfile.ZipFile, dest: Path, suffixes: tuple[str, ...]) -> list[Path]:

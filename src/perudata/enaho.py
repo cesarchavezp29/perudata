@@ -136,49 +136,57 @@ def download(years_: list[int] | int, modules_: list | None = None,
                 print(f"[have] {y} M{m} -> {dest}")
                 done.append(dest)
                 continue
-            u = url(y, m)
-            print(f"[get ] {y} M{m} ({MODULES[m][1]})")
-            # INEI throttles bursts by answering an HTML error page with HTTP
-            # 200 ("bad zip"): pace requests and cool down before retrying
-            import time as _t
-            zf = None
-            for attempt in range(3):
-                if attempt:
-                    print(f"      throttled? cooldown 35s (retry {attempt}/2)")
-                    _t.sleep(35)
-                blob = _core.get(u)
-                if blob is None:
-                    continue
-                zf = _core.open_zip(blob)
-                if zf is not None:
-                    break
-            if zf is None:
-                print(f"      ! download failed after retries: {u}")
+            try:
+                dest = _download_one(y, m, out=out)
+            except _core.NotPublished as e:
+                # the catalog claims this module but INEI has no such file. That
+                # disagreement is a CATALOG fact, not a bug to retry.
+                print(f"      ! NOT PUBLISHED (404): {e.url}")
                 continue
-            _t.sleep(2)  # pacing between files keeps the throttle asleep
-            tmp = root / f"_tmp_{y}_{m}"
-            members = _core.extract_members(zf, tmp, (".dta",))
-            main = _core.pick_main_dta(members)
-            if main is None:
-                print("      ! no .dta inside the zip")
-                _core.rmtree(tmp)
+            except _core.ServerRefused as e:
+                print(f"      ! SERVER REFUSED (transient, retry later): {e}")
                 continue
-            dest.parent.mkdir(parents=True, exist_ok=True)
-            main.replace(dest)
-            _core.rmtree(tmp)
-            ok, nr, nc = _core.verify_dta(dest)
-            if not ok:
-                print("      ! verification failed, removing")
-                dest.unlink(missing_ok=True)
+            except _core.CorruptMember as e:
+                print(f"      ! CORRUPT DATA MEMBER (upstream, not transient): {e}")
                 continue
-            print(f"      ok  {nr:,} rows x {nc} cols")
-            _core.manifest_append(root, {
-                "survey": "enaho", "year": y, "module": m, "code": YEAR_CODE[y],
-                "file": str(dest), "n_rows": nr, "n_cols": nc,
-                "bytes": dest.stat().st_size,
-            })
             done.append(dest)
     return done
+
+
+def _download_one(year: int, module: str, out: str | Path | None = None) -> Path:
+    """Fetch exactly one (year, module) or raise a TYPED failure.
+
+    NotPublished  — INEI 404s the URL: the file does not exist. Do not retry.
+    ServerRefused — throttle/timeout: transient, retry later.
+    CorruptMember — the archive is fine but its .dta is damaged upstream.
+    """
+    root = _core.data_dir(out) / "enaho"
+    dest = path(year, module, out)
+    u = url(year, module)
+    zf = _core.fetch_zip(u)                      # raises NotPublished/ServerRefused
+    tmp = root / f"_tmp_{year}_{module}"
+    members = _core.extract_members(zf, tmp, (".dta",))
+    main = _core.pick_main_dta(members)
+    if main is None:
+        listed = [n for n in zf.namelist() if n.lower().endswith(".dta")]
+        _core.rmtree(tmp)
+        if listed:
+            raise _core.CorruptMember(u, listed[0], "member would not extract")
+        raise _core.CorruptMember(u, "<none>", "archive contains no .dta at all")
+    dest.parent.mkdir(parents=True, exist_ok=True)
+    main.replace(dest)
+    _core.rmtree(tmp)
+    ok, nr, nc = _core.verify_dta(dest)
+    if not ok:
+        dest.unlink(missing_ok=True)
+        raise _core.CorruptMember(u, main.name, "extracted .dta would not open")
+    print(f"      ok  {nr:,} rows x {nc} cols")
+    _core.manifest_append(root, {
+        "survey": "enaho", "year": year, "module": module,
+        "code": YEAR_CODE[year], "file": str(dest), "n_rows": nr, "n_cols": nc,
+        "bytes": dest.stat().st_size,
+    })
+    return dest
 
 
 def load(year: int, module: str | int = "34", out: str | Path | None = None,
@@ -191,9 +199,13 @@ def load(year: int, module: str | int = "34", out: str | Path | None = None,
     if not p.exists():
         if not download_if_missing:
             raise FileNotFoundError(p)
-        download([year], [module], out=out)
-    if not p.exists():
-        raise RuntimeError(f"could not obtain ENAHO {year} module {module}")
+        # let the TYPED failure reach the caller: "not published" and "server
+        # refused" demand opposite responses, and collapsing both into one
+        # RuntimeError is what made ENAHO 2015 look like a throttle for three
+        # rounds when the real cause was a corrupt member in our own gate.
+        module_ = str(module).zfill(2)
+        print(f"[get ] {year} M{module_} ({MODULES[module_][1]})")
+        _download_one(year, module_, out=out)
     df = _core.read_dta(p, columns=columns)
     df.columns = [c.lower() for c in df.columns]
     return df

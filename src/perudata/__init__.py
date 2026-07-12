@@ -14,6 +14,13 @@ Data lands in ./peru_raw by default — override per call with out= or globally
 with the PERUDATA_DIR environment variable.
 """
 from . import eea, enaho, endes, epen, panel, validate  # noqa: F401
+from ._core import (  # noqa: F401
+    CorruptMember,
+    NotPublished,
+    PerudataError,
+    ServerRefused,
+)
 
 __version__ = "0.1.2"
-__all__ = ["enaho", "endes", "epen", "eea", "panel", "validate"]
+__all__ = ["enaho", "endes", "epen", "eea", "panel", "validate",
+           "PerudataError", "NotPublished", "ServerRefused", "CorruptMember"]

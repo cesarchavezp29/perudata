@@ -80,14 +80,15 @@ def download(csv_codes: list | str, out: str | Path | None = None,
             print(f"[have] {cc} -> {main.name}")
             done.append(main)
             continue
+        u = url(cc)
         print(f"[get ] EEA {cc}")
-        blob = _core.get(url(cc))
-        if blob is None:
-            print("      ! download failed")
+        try:
+            zf = _core.fetch_zip(u)
+        except _core.NotPublished:
+            print(f"      ! NOT PUBLISHED (404): {u}")
             continue
-        zf = _core.open_zip(blob)
-        if zf is None:
-            print("      ! bad zip")
+        except _core.ServerRefused as e:
+            print(f"      ! SERVER REFUSED (transient, retry later): {e}")
             continue
         members = _core.extract_members(zf, dest, (".csv", ".pdf"))
         csvs = [p for p in members if p.suffix.lower() == ".csv"]

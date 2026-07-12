@@ -119,14 +119,15 @@ def download(years_: list[int] | int, modules_: list | None = None,
                 print(f"[have] {y} M{m} ({MOD_NAMES.get(m,'?')}) -> {len(savs)} .sav")
                 done += savs
                 continue
+            u = url(y, m)
             print(f"[get ] {y} M{m} ({MOD_NAMES.get(m,'?')})")
-            blob = _core.get(url(y, m))
-            if blob is None:
-                print("      ! 404 / download failed")
+            try:
+                zf = _core.fetch_zip(u)
+            except _core.NotPublished:
+                print(f"      ! NOT PUBLISHED (404): {u}")
                 continue
-            zf = _core.open_zip(blob)
-            if zf is None:
-                print("      ! bad zip")
+            except _core.ServerRefused as e:
+                print(f"      ! SERVER REFUSED (transient, retry later): {e}")
                 continue
             members = _core.extract_members(zf, dest, (".sav",))
             nok = 0

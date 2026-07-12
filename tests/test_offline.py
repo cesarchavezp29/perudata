@@ -38,6 +38,55 @@ def test_open_zip_still_rejects_a_non_zip():
     assert _core.open_zip(b"<html><body>error</body></html>") is None
 
 
+def test_pick_main_dta_is_name_based_not_first_readable(tmp_path):
+    """Now that the archive-level CRC gate is gone, member selection is the last
+    thing standing between a tolerant extract and a readable-but-WRONG file.
+    Sumaria zips ship -12/-12g variants that silently LACK the poverty vars, and
+    the decoy here is deliberately the BIGGEST file, so a 'largest wins' or
+    'first readable' rule would pick it. The canonical name must win."""
+    decoy_big = tmp_path / "sumaria-2015-12g.dta"
+    decoy_big.write_bytes(b"X" * 5000)            # biggest on purpose
+    decoy = tmp_path / "sumaria-2015-12.dta"
+    decoy.write_bytes(b"X" * 3000)
+    real = tmp_path / "sumaria-2015.dta"
+    real.write_bytes(b"X" * 100)                  # smallest on purpose
+    picked = _core.pick_main_dta([decoy_big, decoy, real])
+    assert picked == real, f"picked {picked.name}, a -12/-12g variant lacking pobreza"
+
+
+def test_typed_failures_are_distinguishable():
+    """Three failures used to wear one RuntimeError coat, which is what made
+    ENAHO 2015 look like a throttle for three rounds. They must be tellable
+    apart, and NotPublished must carry the URL it 404'd on."""
+    assert issubclass(_core.NotPublished, _core.PerudataError)
+    assert issubclass(_core.ServerRefused, _core.PerudataError)
+    assert issubclass(_core.CorruptMember, _core.PerudataError)
+    e = _core.NotPublished("https://x/302-Modulo02.zip")
+    assert e.url.endswith("302-Modulo02.zip")
+    assert not isinstance(e, _core.ServerRefused)
+
+
+def test_panel_module_02_is_not_advertised():
+    """REGRESSION: panel.OLD_MODULES listed module 02 by copying the ANNUAL map.
+    INEI publishes no module 02 for ANY panel release (302-Modulo02.zip is a
+    genuine 404). Advertising it made the package promise a file that does not
+    exist. Verified against INEI's own `enahopanel` module catalogue."""
+    for rel in panel.releases():
+        assert "02" not in panel.modules_for(rel), f"release {rel} still offers M02"
+
+
+def test_panel_roster_1314_only_exists_in_2016_2017():
+    """The roster module IS real, but ONLY for releases 2016-2017 (old era).
+    The 2011 and 2015 panels ship no roster at all — their person-level data
+    lives in modules 03/04/05. Trimming 1314 outright would have deleted a
+    true capability; year-gating it is the correct fix."""
+    assert "1314" in panel.modules_for(2016)
+    assert "1314" in panel.modules_for(2017)
+    assert "1314" not in panel.modules_for(2011)
+    assert "1314" not in panel.modules_for(2015)
+    assert "1479" in panel.modules_for(2023)      # new-era roster still there
+
+
 def test_enaho_years_and_urls():
     ys = enaho.years()
     assert ys[0] == 2004 and ys[-1] >= 2025

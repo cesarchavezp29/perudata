@@ -42,15 +42,24 @@ PANEL_CODE = {
     2019: 699, 2020: 743, 2021: 763, 2022: 845, 2023: 912,
 }
 
+# Verified against INEI's own module catalogue for `enahopanel` (NOT copied from
+# the annual ENAHO map). Two corrections that cost real debugging:
+#   * module 02 is NOT a panel module for ANY release. The annual survey has it,
+#     the panel never did -- 302-Modulo02.zip is a genuine 404. Listing it made
+#     the package promise a file INEI never published.
+#   * module 1314 (Miembros) IS real, but ONLY for releases 2016 and 2017.
+#     The 2011 and 2015 panels ship no roster module at all; their person-level
+#     data lives in modules 03/04/05.
 OLD_MODULES = {
     "01":   ("vivienda_hogar", "Caracteristicas de la Vivienda y del Hogar"),
-    "02":   ("miembros",       "Caracteristicas de los Miembros del Hogar"),
     "03":   ("educacion",      "Educacion"),
     "04":   ("salud",          "Salud"),
     "05":   ("empleo_ingreso", "Empleo e Ingresos"),
     "34":   ("sumaria",        "Sumaria - Variables Calculadas"),
-    "1314": ("miembros",       "Miembros del Hogar (2016-2017)"),
 }
+# roster module, old era: published for these releases only
+MIEMBROS_1314_RELEASES = (2016, 2017)
+MIEMBROS_1314 = {"1314": ("miembros", "Miembros del Hogar (2016-2017 only)")}
 NEW_MODULES = {
     "1474": ("vivienda_hogar", "Caracteristicas de la Vivienda y del Hogar"),
     "1475": ("educacion",      "Educacion"),
@@ -71,8 +80,15 @@ def releases() -> list[int]:
 
 
 def modules_for(release: int) -> dict:
-    """Module dict (number -> (folder, description)) for a release's era."""
-    return NEW_MODULES if release >= 2018 else OLD_MODULES
+    """Module dict (number -> (folder, description)) actually PUBLISHED for this
+    release. The roster module exists only in 2016-2017 (old era) and as 1479
+    from 2018 on -- the 2011 and 2015 panels have no roster module."""
+    if release >= 2018:
+        return dict(NEW_MODULES)
+    mods = dict(OLD_MODULES)
+    if release in MIEMBROS_1314_RELEASES:
+        mods.update(MIEMBROS_1314)
+    return mods
 
 
 def resolve_module(release: int, module: str | int) -> str:
@@ -119,21 +135,24 @@ def download(releases_: list[int] | int, modules_: list | None = None,
                 print(f"[have] panel {rel} {m} -> {dest}")
                 done.append(dest)
                 continue
+            u = url(rel, m)
             print(f"[get ] panel {rel} M{m} ({modules_for(rel)[m][1]})")
-            blob = _core.get(url(rel, m))
-            if blob is None:
-                print("      ! download failed")
+            try:
+                zf = _core.fetch_zip(u)
+            except _core.NotPublished:
+                print(f"      ! NOT PUBLISHED (404): {u}")
                 continue
-            zf = _core.open_zip(blob)
-            if zf is None:
-                print("      ! bad zip")
+            except _core.ServerRefused as e:
+                print(f"      ! SERVER REFUSED (transient, retry later): {e}")
                 continue
             tmp = root / f"_tmp_{rel}_{m}"
             members = _core.extract_members(zf, tmp, (".dta",))
             main = _core.pick_main_dta(members)
             if main is None:
-                print("      ! no .dta in zip")
+                listed = [n for n in zf.namelist() if n.lower().endswith(".dta")]
                 _core.rmtree(tmp)
+                print(f"      ! CORRUPT DATA MEMBER: {listed[0]} would not extract"
+                      if listed else "      ! no .dta in zip")
                 continue
             dest.parent.mkdir(parents=True, exist_ok=True)
             main.replace(dest)

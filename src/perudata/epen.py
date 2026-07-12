@@ -81,14 +81,15 @@ def download(codes: list[int] | int, out: str | Path | None = None,
             continue
         module = int(cat.loc[code, "module"]) if code in cat.index else 76
         label = str(cat.loc[code, "label"]) if code in cat.index else str(code)
+        u = url(code, module)
         print(f"[get ] {code} ({label})")
-        blob = _core.get(url(code, module))
-        if blob is None:
-            print("      ! download failed")
+        try:
+            zf = _core.fetch_zip(u)
+        except _core.NotPublished:
+            print(f"      ! NOT PUBLISHED (404): {u}")
             continue
-        zf = _core.open_zip(blob)
-        if zf is None:
-            print("      ! bad zip")
+        except _core.ServerRefused as e:
+            print(f"      ! SERVER REFUSED (transient, retry later): {e}")
             continue
         csvs = [n for n in zf.namelist() if n.lower().endswith(".csv")]
         if not csvs:
