@@ -183,10 +183,26 @@ def read_dta(path: str | Path, columns: list[str] | None = None):
 
 
 def read_sav(path: str | Path, columns: list[str] | None = None):
-    """Read an SPSS .sav file (ENDES ships SPSS for every year)."""
+    """Read an SPSS .sav file (ENDES ships SPSS for every year).
+
+    Some ENDES files declare an encoding their bytes do not honour, and the
+    default read dies with "Unable to convert string to the requested encoding"
+    (observed: ENDES 2019 module 414, CSALUD01.sav). The file is fine — it is
+    Latin-1 in practice. Fall back rather than lose the module.
+    """
     import pyreadstat
-    df, _ = pyreadstat.read_sav(str(path), usecols=columns)
-    return df
+    try:
+        df, _ = pyreadstat.read_sav(str(path), usecols=columns)
+        return df
+    except Exception:
+        for enc in ("latin1", "cp1252"):
+            try:
+                df, _ = pyreadstat.read_sav(str(path), usecols=columns,
+                                            encoding=enc)
+                return df
+            except Exception:
+                continue
+        raise
 
 
 def verify_dta(path: Path) -> tuple[bool, int, int]:
@@ -196,6 +212,46 @@ def verify_dta(path: Path) -> tuple[bool, int, int]:
         return (len(df) > 0 and df.shape[1] > 0), int(len(df)), int(df.shape[1])
     except Exception:
         return False, 0, 0
+
+
+def sav_to_dta(sav: Path) -> Path | None:
+    """Convert an SPSS .sav to Stata .dta next to it, and return the .dta.
+
+    ENDES is the only survey INEI ships as SPSS-only. Nobody works in .sav, so
+    every ENDES file is converted on download and the .dta is what load() reads.
+    The .sav is kept as the untouched source of truth.
+
+    Stata caps variable names at 32 chars and forbids some characters; names are
+    sanitized when needed, and the mapping is written beside the file.
+    """
+    import pyreadstat
+    dta = sav.with_suffix(".dta")
+    if dta.exists():
+        return dta
+    try:
+        df = read_sav(sav)                      # already has the latin1 fallback
+    except Exception:
+        return None
+    renames = {}
+    seen = set()
+    for c in list(df.columns):
+        n = re.sub(r"[^0-9a-zA-Z_]", "_", str(c)).lower()[:32]
+        if not n or n[0].isdigit():
+            n = "v" + n
+        base, i = n, 1
+        while n in seen:                        # collisions after truncation
+            n = f"{base[:29]}_{i}"
+            i += 1
+        seen.add(n)
+        if n != c:
+            renames[c] = n
+    if renames:
+        df = df.rename(columns=renames)
+    try:
+        pyreadstat.write_dta(df, str(dta))
+    except Exception:
+        return None
+    return dta
 
 
 def verify_sav(path: Path) -> tuple[bool, int, int]:

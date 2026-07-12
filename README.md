@@ -11,8 +11,11 @@ validate.poverty(years=[2024])     # reproduces INEI's official 27.6% from raw d
 
 Five national surveys, one consistent API. Every file is verified on download
 by actually opening it, and a built-in validation gate reproduces INEI's
-official poverty series **to 0.0 percentage points, 2004–2025** before you
-build anything on top.
+official poverty series **for all 22 years, 2004–2025, at the precision INEI
+publishes it** (one decimal) before you build anything on top. The unrounded
+residual never exceeds **0.05pp** — that is the rounding of the published
+figure, not a disagreement, and the gate prints it rather than hiding it behind
+a rounded zero.
 
 | Survey | What it is | Coverage | Format |
 |---|---|---|---|
@@ -125,15 +128,18 @@ a pile of undocumented conventions, all of which this package encodes:
 the official series from INEI's *Evolución de la Pobreza Monetaria* reports:
 
 ```
-year  poverty_pct  official_poverty  pov_diff
-2004         58.7              58.7       0.0
+year  poverty_pct  official_poverty  pov_diff  poverty_exact  pov_diff_exact
+2004         58.7              58.7       0.0        58.6990          -0.001
 ...
-2024         27.6              27.6       0.0
-2025         25.7              25.7       0.0
+2024         27.6              27.6       0.0        27.5795          -0.021
+2025         25.7              25.7       0.0        25.6667          -0.033
 ```
 
-22/22 years within 0.1pp (0.0pp in every year, extreme poverty included where
-published).
+22/22 years match the published figure at INEI's own precision. `poverty_exact`
+is the unrounded value and `pov_diff_exact` the unrounded residual (largest:
+0.049pp, in 2006) — reported on purpose, because rounding our own number before
+comparing would turn a real 0.03pp residual into a reported 0.0 and let the gate
+flatter itself.
 
 ## Notes
 

@@ -135,6 +135,11 @@ def download(years_: list[int] | int, modules_: list | None = None,
                 ok, nr, nc = _core.verify_sav(p)
                 if ok:
                     nok += 1
+                    # ENDES is SPSS-only at INEI. Convert to Stata on arrival:
+                    # nobody works in .sav. The .sav stays as the source of truth.
+                    d = _core.sav_to_dta(p)
+                    if d is None:
+                        print(f"      ! could not convert {p.name} to .dta")
                     _core.manifest_append(root, {
                         "survey": "endes", "year": y, "module": m,
                         "code": ENDES_CODE[y], "file": str(p),
@@ -148,6 +153,24 @@ def download(years_: list[int] | int, modules_: list | None = None,
 def files(year: int, module: str | int, out: str | Path | None = None) -> list[Path]:
     """List the .sav recodes downloaded for a (year, module)."""
     return sorted(module_dir(year, module, out).glob("**/*.sav"))
+
+
+def dta_files(year: int, module: str | int, out: str | Path | None = None) -> list[Path]:
+    """The Stata conversions of this module's recodes (.dta, written on download)."""
+    return sorted(module_dir(year, module, out).glob("**/*.dta"))
+
+
+def to_stata(year: int, module: str | int, out: str | Path | None = None) -> list[Path]:
+    """Convert this module's .sav recodes to .dta (idempotent). Returns the .dta paths.
+
+    Downloads the module first if it is not there yet.
+    """
+    savs = files(year, module, out)
+    if not savs:
+        download([year], [module], out=out)
+        savs = files(year, module, out)
+    made = [_core.sav_to_dta(p) for p in savs]
+    return [p for p in made if p is not None]
 
 
 def load(year: int, module: str | int, recode: str | None = None,
@@ -172,6 +195,13 @@ def load(year: int, module: str | int, recode: str | None = None,
         target = hits[0]
     else:
         target = max(savs, key=lambda p: p.stat().st_size)
-    df = _core.read_sav(target, columns=columns)
+    # ENDES is the only SPSS-only survey at INEI, and nobody works in .sav.
+    # Every recode is converted to Stata on download -- read that, and convert
+    # on the spot for anything downloaded before this behaviour existed.
+    dta = target.with_suffix(".dta")
+    if not dta.exists():
+        dta = _core.sav_to_dta(target) or target
+    df = (_core.read_dta(dta, columns=columns) if dta.suffix.lower() == ".dta"
+          else _core.read_sav(target, columns=columns))
     df.columns = [c.lower() for c in df.columns]
     return df

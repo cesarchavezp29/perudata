@@ -235,7 +235,8 @@ PERSON_MODULES = {"02", "03", "04", "05", "25", "28"}
 
 
 def combine(year: int, modules: list[str] | None = None,
-            level: str = "person", out: str | Path | None = None):
+            level: str = "person", out: str | Path | None = None,
+            anchor: str | None = None, harmonize: bool = True):
     """Join several ENAHO modules into ONE analysis table, safely.
 
     This exists because doing it by hand is demonstrably dangerous:
@@ -277,21 +278,47 @@ def combine(year: int, modules: list[str] | None = None,
 
     def _load(m):
         df = load(year, m, out=out)
-        return _h.normalize_keys(df)          # ALWAYS, before any join
+        df = _h.normalize_keys(df)             # ALWAYS, before any join
+        if harmonize and f"enaho_{m}" in _h.available():
+            df, _ = _h.apply(df, "enaho", m, year=year)
+        return df
 
     hh_mods = [m for m in modules if m in HOUSEHOLD_MODULES]
     pe_mods = [m for m in modules if m in PERSON_MODULES]
 
+    # EVERY module has its own universe (module 01 covers 44,599 households in
+    # 2025, sumaria only 33,702). An inner join would silently intersect them and
+    # drop 10,897 households with no warning -- the same class of silent sample
+    # loss as the padding trap. So: ONE anchor defines the universe, everything
+    # else LEFT-joins onto it, and what does not match is REPORTED, not hidden.
+    hh_anchor = anchor if anchor in hh_mods else (
+        "34" if "34" in hh_mods else (hh_mods[0] if hh_mods else None))
+    pe_anchor = anchor if anchor in pe_mods else (
+        "02" if "02" in pe_mods else (pe_mods[0] if pe_mods else None))
+
     # ---- household spine ---------------------------------------------------
     base = None
-    for m in hh_mods:
-        d = _load(m)
-        if m == "34":                          # canonical poverty/income/weights
-            d, _ = _h.apply(d, "enaho", "34", year=year)
-        d = d.drop_duplicates(HH_KEY)
-        base = d if base is None else base.merge(
-            d, on=HH_KEY, how="inner", suffixes=("", f"_m{m}"))
-        meta["steps"].append({"module": m, "level": "household", "rows": len(base)})
+    if hh_mods:
+        base = _load(hh_anchor).drop_duplicates(HH_KEY)
+        meta["anchor_household"] = hh_anchor
+        meta["steps"].append({"module": hh_anchor, "role": "ANCHOR (universe)",
+                              "rows": len(base)})
+        for m in [x for x in hh_mods if x != hh_anchor]:
+            d = _load(m).drop_duplicates(HH_KEY)
+            before = len(base)
+            base = base.merge(d, on=HH_KEY, how="left", suffixes=("", f"_m{m}"))
+            # how much of the ANCHOR found a partner, and what the other module
+            # carried that the anchor's universe does not contain
+            matched = base[f"_merge_{m}"] if False else None
+            hit = base.index.size and d.merge(
+                base[HH_KEY], on=HH_KEY, how="inner").drop_duplicates(HH_KEY).shape[0]
+            meta["steps"].append({
+                "module": m, "role": "left-joined onto anchor",
+                "rows": len(base),
+                "anchor_rows_matched_pct": round(
+                    100 * hit / before, 2) if before else 0.0,
+                "rows_in_module_outside_anchor_universe": max(len(d) - hit, 0),
+            })
 
     if level == "household":
         if base is None:
@@ -300,28 +327,36 @@ def combine(year: int, modules: list[str] | None = None,
         return base
 
     # ---- person spine ------------------------------------------------------
-    person = None
-    for m in pe_mods:
-        d = _load(m)
-        if m == "02":
-            d, _ = _h.apply(d, "enaho", "02", year=year)   # hh_member + weights
-        d = d.drop_duplicates(PERSON_KEY)
-        person = d if person is None else person.merge(
-            d, on=PERSON_KEY, how="outer", suffixes=("", f"_m{m}"))
-        meta["steps"].append({"module": m, "level": "person", "rows": len(person)})
-
-    if person is None:
+    if not pe_mods:
         raise ValueError("level='person' needs at least one person module "
                          "(e.g. '02')")
+    person = _load(pe_anchor).drop_duplicates(PERSON_KEY)
+    meta["anchor_person"] = pe_anchor
+    meta["steps"].append({"module": pe_anchor, "role": "ANCHOR (person universe)",
+                          "rows": len(person)})
+    for m in [x for x in pe_mods if x != pe_anchor]:
+        d = _load(m).drop_duplicates(PERSON_KEY)
+        before = len(person)
+        person = person.merge(d, on=PERSON_KEY, how="left", suffixes=("", f"_m{m}"))
+        hit = d.merge(person[PERSON_KEY], on=PERSON_KEY,
+                      how="inner").drop_duplicates(PERSON_KEY).shape[0]
+        meta["steps"].append({
+            "module": m, "role": "left-joined onto person anchor",
+            "rows": len(person),
+            "anchor_rows_matched_pct": round(100 * hit / before, 2) if before else 0.0,
+            "rows_in_module_outside_anchor_universe": max(len(d) - hit, 0),
+        })
 
     if base is not None:
         n_before = len(person)
-        person = person.merge(base, on=HH_KEY, how="left",
-                              suffixes=("", "_hh"))
-        matched = person[HH_KEY].notna().all(axis=1).sum()
-        meta["steps"].append({"module": "household->person broadcast",
+        person = person.merge(base, on=HH_KEY, how="left", suffixes=("", "_hh"))
+        key = "poverty" if "poverty" in person.columns else HH_KEY[0]
+        matched = person[key].notna().sum()
+        meta["steps"].append({"module": f"{hh_anchor}->person broadcast",
+                              "role": "household vars onto people",
                               "rows": len(person),
-                              "matched_pct": round(100 * matched / n_before, 2)})
+                              "persons_matched_pct": round(
+                                  100 * matched / n_before, 2)})
 
     person.attrs["combine"] = meta
     return person

@@ -44,16 +44,23 @@ def poverty_year(year: int, out: str | Path | None = None) -> dict | None:
     if not need.issubset(df.columns):
         return None
     df = df.dropna(subset=["pobreza", "factor07", "mieperho"])
-    w = df["factor07"] * df["mieperho"]
+    # float64: the raw columns are float32, and summing 30k+ households in
+    # float32 loses digits we are about to compare at the 0.01pp level
+    w = df["factor07"].astype("float64") * df["mieperho"].astype("float64")
     pov = 100 * w[df["pobreza"].isin([1, 2])].sum() / w.sum()
     ext = 100 * w[df["pobreza"] == 1].sum() / w.sum()
     return {
         "year": year,
         "n_households": len(df),
         "population_wtd": round(w.sum()),
+        # INEI publishes ONE decimal. `poverty_pct` is our value at INEI's own
+        # precision (that is the like-for-like comparison), and `poverty_exact`
+        # is the unrounded value so the residual is never hidden by the rounding.
         "poverty_pct": round(pov, 1),
+        "poverty_exact": round(pov, 4),
         "official_poverty": OFFICIAL_POVERTY.get(year),
         "extreme_pct": round(ext, 1),
+        "extreme_exact": round(ext, 4),
         "official_extreme": OFFICIAL_EXTREME.get(year),
     }
 
@@ -80,15 +87,24 @@ def poverty(years: list[int] | None = None, out: str | Path | None = None,
     df = pd.DataFrame(rows)
     if df.empty:
         return df
+    # like-for-like: our value at INEI's published precision vs INEI's value
     df["pov_diff"] = (df["poverty_pct"] - df["official_poverty"]).round(1)
     df["ext_diff"] = (df["extreme_pct"] - df["official_extreme"]).round(1)
+    # and the residual BEFORE rounding, so the gate cannot flatter itself:
+    # rounding our value first turns a real 0.03pp residual into a reported 0.0
+    df["pov_diff_exact"] = (df["poverty_exact"] - df["official_poverty"]).round(3)
     df.attrs["unfetched"] = unfetched
     if verbose:
         matched = df.dropna(subset=["official_poverty"])
-        within = (matched["pov_diff"].abs() <= 0.1).sum()
-        print(df.to_string(index=False))
-        print(f"\nNational poverty reproduced within 0.1pp of INEI in "
+        within = (matched["pov_diff"].abs() <= 0.05).sum()
+        worst = matched["pov_diff_exact"].abs().max()
+        print(df[["year", "poverty_pct", "official_poverty", "pov_diff",
+                  "poverty_exact", "pov_diff_exact"]].to_string(index=False))
+        print(f"\nMatches INEI's published figure (1 decimal) in "
               f"{within}/{len(matched)} years.")
+        print(f"Largest UNROUNDED residual: {worst:.3f} pp — INEI publishes one "
+              f"decimal, so this is rounding of the published value, not a "
+              f"disagreement.")
         if unfetched:
             print(f"UNFETCHED ({len(unfetched)}): "
                   + ", ".join(f"{y} ({why})" for y, why in unfetched))
