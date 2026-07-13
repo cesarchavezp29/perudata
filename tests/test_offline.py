@@ -93,6 +93,29 @@ def test_recode_refuses_to_drop_a_code():
     assert (out["p4195_h"] == 1).sum() == 3           # shares preserved
 
 
+def test_the_recode_guards_are_alive_not_decorative():
+    """CERTIFY THE CERTIFIER. One check in the recode filter compared a value to
+    ITSELF and could never fire — a dead guard that looks alive is worse than no
+    guard, because it makes the next reader trust a filter that is not filtering.
+    Finding one by reading the code does not prove the others fire. So each guard
+    is shown to FAIL on a deliberately broken map, and to PASS on a correct one
+    (a checker that rejects everything is as useless as one that accepts
+    everything)."""
+    import pytest
+    from perudata import harmonize
+    df = pd.DataFrame({"v": [0, 0, 1, 1, 1]})
+
+    # A. drops the unlabelled code 0 -> the 100%-SIS signature
+    with pytest.raises(ValueError, match="drop"):
+        harmonize.apply_recode(df.copy(), {"map": {2004: {1: 1}}}, "v", 2004)
+
+    # B. a correct map must still pass, and preserve every row and every share
+    out = harmonize.apply_recode(df.copy(), {"map": {2004: {0: 2, 1: 1}}}, "v", 2004)
+    assert out["v_h"].notna().all()
+    assert sorted(out["v_h"].value_counts().tolist()) == sorted(
+        df["v"].value_counts().tolist())          # zero share drift, exactly
+
+
 def test_bulk_recode_maps_are_not_shipped():
     """The fabricated bulk maps must be GONE from the package, not merely disabled.
     A wrong map that is switched off is one re-enable away from going live."""
