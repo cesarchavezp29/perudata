@@ -98,6 +98,12 @@ def dataset(years, *modules, harmonize: bool = True, level: str = "auto",
     frames = [f.reindex(columns=cols) for f in frames]
     pool = pd.concat(frames, ignore_index=True, sort=False)
 
+    # carry the per-column stability status through to the pooled frame, and
+    # SAY OUT LOUD which columns cannot be pooled blindly
+    unsafe: list[str] = []
+    for f in frames:
+        unsafe += [c for c in f.attrs.get("unsafe_columns", []) if c in pool.columns]
+    pool.attrs["unsafe_columns"] = sorted(set(unsafe))
     pool.attrs["years_ok"] = ok
     pool.attrs["unfetched"] = unfetched
     pool.attrs["coverage"] = coverage
@@ -108,4 +114,9 @@ def dataset(years, *modules, harmonize: bool = True, level: str = "auto",
               f"years {min(ok)}-{max(ok)} ({len(ok)} of {len(ys)})")
         if unfetched:
             print(f"unfetched: {[u['year'] for u in unfetched]}")
+        n_unsafe = len(pool.attrs.get("unsafe_columns", []))
+        if n_unsafe:
+            print(f"WARNING: {n_unsafe} of {pool.shape[1]} columns change their "
+                  f"coding, their question or their coverage across these years — "
+                  f"see df.attrs['unsafe_columns'] and harmonize.unsafe(module).")
     return pool

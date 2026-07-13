@@ -1,0 +1,53 @@
+canonical,kind,raw,year_start,year_end,recode,unit,level,status,note
+a_o,rename,a_o,2004,2011,,,,confirmed,"año :: NOT COLLECTED EVERY YEAR (present 2004-2011, 3 of 14 years) — absent years come back as a marked all-NA column."
+aÑo,rename,aÑo,2005,2025,,,,confirmed,"año :: NOT COLLECTED EVERY YEAR (present 2005-2025, 11 of 14 years) — absent years come back as a marked all-NA column."
+conglome,rename,conglome,2004,2025,,,,continuous,número de conglomerado :: QUESTION REWORDED across years — check for a redefinition.
+d610b,rename,d610b,2004,2025,,,,continuous,"(deflactado , anualizado) ¿cuánto fue el monto total por la compra o servicio? :: QUESTION REWORDED across years — check for a redefinition."
+d610c,rename,d610c,2004,2025,,,,continuous,"(deflactado , anualizado ) ¿en cuánto estima el valor del ...? :: QUESTION REWORDED across years — check for a redefinition."
+d610c2,rename,d610c2,2020,2025,,,,continuous,"(deflactado, anualizado ) ¿cuánto cree que le costaria si tuviera que pagar por :: NOT COLLECTED EVERY YEAR (present 2020-2025, 2 of 14 years) — absent years come back as a marked all-NA column."
+d610c3,rename,d610c3,2020,2025,,,,continuous,"(deflactado, anualizado ) ¿cuánto cree que le costaria si tuviera que pagar por :: NOT COLLECTED EVERY YEAR (present 2020-2025, 2 of 14 years) — absent years come back as a marked all-NA column."
+d610c4,rename,d610c4,2020,2025,,,,continuous,"(deflactado, anualizado ) ¿cuánto cree que le costaria si tuviera que pagar por :: NOT COLLECTED EVERY YEAR (present 2020-2025, 2 of 14 years) — absent years come back as a marked all-NA column."
+d610c5,rename,d610c5,2020,2025,,,,continuous,"(deflactado, anualizado )  ¿cuánto cree que le costaria si tuviera que pagar por :: NOT COLLECTED EVERY YEAR (present 2020-2025, 2 of 14 years) — absent years come back as a marked all-NA column."
+d610c6,rename,d610c6,2020,2025,,,,continuous,"(deflactado, anualizado ) ¿cuánto cree que le costaria, si tuviera que pagar por :: NOT COLLECTED EVERY YEAR (present 2020-2025, 2 of 14 years) — absent years come back as a marked all-NA column."
+d610c7,rename,d610c7,2020,2025,,,,continuous,"(deflactado, anualizado ) ¿cuánto cree que le costaria si tuviera que pagar por :: NOT COLLECTED EVERY YEAR (present 2020-2025, 2 of 14 years) — absent years come back as a marked all-NA column."
+dominio,rename,dominio,2004,2025,,,,label_change,dominio geográfico :: QUESTION REWORDED across years — check for a redefinition.
+estrato,rename,estrato,2004,2025,,,,label_change,estrato geográfico :: QUESTION REWORDED across years — check for a redefinition.
+factor07,rename,factor07,2004,2025,,,,continuous,factor de expanción de hogar proyección cpv 2007 :: QUESTION REWORDED across years — check for a redefinition.
+factor_p,rename,factor_p,2020,2020,,,,continuous,"factor de expansión anual - tipo presencial - proyecciones cpv-2007 :: NOT COLLECTED EVERY YEAR (present 2020-2020, 1 of 14 years) — absent years come back as a marked all-NA column."
+hogar,rename,hogar,2004,2025,,,,continuous,hogar :: QUESTION REWORDED across years — check for a redefinition.
+i610b,rename,i610b,2004,2025,,,,continuous,"(imputado , deflactado , anualizado) ¿cuánto fue el monto total por la compra o :: QUESTION REWORDED across years — check for a redefinition."
+i610c,rename,i610c,2004,2025,,,,continuous,"(imputado , deflactado , anualizado ) ¿en cuánto estima el valor del ...? :: QUESTION REWORDED across years — check for a redefinition."
+i610c2,rename,i610c2,2020,2025,,,,continuous,"(imputado, deflactado, anualizado ) ¿cuánto cree que le costaria si tuviera que :: NOT COLLECTED EVERY YEAR (present 2020-2025, 2 of 14 years) — absent years come back as a marked all-NA column."
+i610c3,rename,i610c3,2020,2025,,,,continuous,"(imputado, deflactado, anualizado ) ¿cuánto cree que le costaria si tuviera que :: NOT COLLECTED EVERY YEAR (present 2020-2025, 2 of 14 years) — absent years come back as a marked all-NA column."
+i610c4,rename,i610c4,2020,2025,,,,continuous,"(imputado, deflactado, anualizado ) ¿cuánto cree que le costaria si tuviera que :: NOT COLLECTED EVERY YEAR (present 2020-2025, 2 of 14 years) — absent years come back as a marked all-NA column."
+i610c5,rename,i610c5,2020,2025,,,,continuous,"(imputado, deflactado, anualizado ) ¿cuánto cree que le costaria si tuviera que :: NOT COLLECTED EVERY YEAR (present 2020-2025, 2 of 14 years) — absent years come back as a marked all-NA column."
+i610c6,rename,i610c6,2020,2025,,,,continuous,"(imputado, deflactado, anualizado ) ¿cuánto cree que le costaria si tuviera que :: NOT COLLECTED EVERY YEAR (present 2020-2025, 2 of 14 years) — absent years come back as a marked all-NA column."
+i610c7,rename,i610c7,2020,2025,,,,continuous,"(imputado, deflactado, anualizado ) ¿cuánto cree que le costaria si tuviera que :: NOT COLLECTED EVERY YEAR (present 2020-2025, 2 of 14 years) — absent years come back as a marked all-NA column."
+mes,rename,mes,2004,2025,,,,continuous,mes de ejecución de la encuesta :: QUESTION REWORDED across years — check for a redefinition.
+nconglome,rename,nconglome,2020,2025,,,,continuous,"número de conglomerado (proveniente del marco) :: NOT COLLECTED EVERY YEAR (present 2020-2025, 2 of 14 years) — absent years come back as a marked all-NA column."
+p610,rename,p610,2004,2025,,,,label_change,"en los últimos 12 meses ud. o algún miembro obtuvieron, o le regalaron : muebles :: QUESTION REWORDED across years — check for a redefinition."
+p610a1,rename,p610a1,2004,2025,,,,label_change,¿ cómo obtuvieron el(la) ... ? : comprado :: QUESTION REWORDED across years — check for a redefinition.
+p610a2,rename,p610a2,2004,2025,,,,label_change,¿ cómo obtuvieron el(la) ... ? : autoconsumo :: QUESTION REWORDED across years — check for a redefinition.
+p610a3,rename,p610a3,2004,2025,,,,label_change,¿ cómo obtuvieron el(la) ... ? : autosuministro :: QUESTION REWORDED across years — check for a redefinition.
+p610a4,rename,p610a4,2004,2025,,,,label_change,¿ cómo obtuvieron el(la) ... ? : como parte de pago a un miembro del hogar :: QUESTION REWORDED across years — check for a redefinition.
+p610a5,rename,p610a5,2004,2025,,,,label_change,¿ cómo obtuvieron el(la) ... ? : regalado o pagado por miembro de otro hogar :: QUESTION REWORDED across years — check for a redefinition.
+p610a6,rename,p610a6,2004,2025,,,,label_change,¿ cómo obtuvieron el(la) ... ? : donado por institución o programa social :: QUESTION REWORDED across years — check for a redefinition.
+p610a7,rename,p610a7,2004,2025,,,,label_change,¿ cómo obtuvieron el(la) ... ? : otro :: QUESTION REWORDED across years — check for a redefinition.
+p610a8,rename,p610a8,2004,2025,,,,label_change,¿ cómo obtuvieron el(la) ... ? : no sabe/no responde :: QUESTION REWORDED across years — check for a redefinition.
+p610aa,rename,p610aa,2004,2025,,,,label_change,¿ dónde lo compró ? :: QUESTION REWORDED across years — check for a redefinition.
+p610b,rename,p610b,2004,2025,,,,continuous,¿ cuánto fue el monto total por la compra o servicio ? :: QUESTION REWORDED across years — check for a redefinition.
+p610c,rename,p610c,2004,2025,,,,continuous,¿ en cuánto estima el valor del ... ? :: QUESTION REWORDED across years — check for a redefinition.
+p610c2,rename,p610c2,2020,2025,,,,continuous,"¿cuánto cree que le costaria  si tuviera que pagar por este producto o servicio? :: NOT COLLECTED EVERY YEAR (present 2020-2025, 2 of 14 years) — absent years come back as a marked all-NA column."
+p610c3,rename,p610c3,2020,2025,,,,continuous,"¿cuánto cree que le costaria si tuviera que pagar por este producto o servicio? :: NOT COLLECTED EVERY YEAR (present 2020-2025, 2 of 14 years) — absent years come back as a marked all-NA column."
+p610c4,rename,p610c4,2020,2025,,,,continuous,"¿cuánto cree que le costaria si tuviera que pagar por este producto o servicio? :: NOT COLLECTED EVERY YEAR (present 2020-2025, 2 of 14 years) — absent years come back as a marked all-NA column."
+p610c5,rename,p610c5,2020,2025,,,,continuous,"¿cuánto cree que le costaria si tuviera que pagar por este producto o servicio? :: NOT COLLECTED EVERY YEAR (present 2020-2025, 2 of 14 years) — absent years come back as a marked all-NA column."
+p610c6,rename,p610c6,2020,2025,,,,continuous,"¿cuánto cree que le costaria si tuviera que pagar por este producto o servicio? :: NOT COLLECTED EVERY YEAR (present 2020-2025, 2 of 14 years) — absent years come back as a marked all-NA column."
+p610c7,rename,p610c7,2020,2025,,,,continuous,"¿cuánto cree que le costaria si tuviera que pagar por este producto o servicio? :: NOT COLLECTED EVERY YEAR (present 2020-2025, 2 of 14 years) — absent years come back as a marked all-NA column."
+p610n,rename,p610n,2004,2025,,,,label_change,producto o servicio por muebles y enseres :: QUESTION REWORDED across years — check for a redefinition.
+sub_conglome,rename,sub_conglome,2020,2025,,,,continuous,"número de subconglomerado (proveniente del marco) :: NOT COLLECTED EVERY YEAR (present 2020-2025, 2 of 14 years) — absent years come back as a marked all-NA column."
+ticuest0,rename,ticuest0,2011,2012,,,,intermittent,"origen de cuestionario :: NOT COLLECTED EVERY YEAR (present 2011-2012, 2 of 14 years) — absent years come back as a marked all-NA column."
+ticuest01,rename,ticuest01,2013,2025,,,,intermittent,"origen de cuestionario :: NOT COLLECTED EVERY YEAR (present 2013-2025, 5 of 14 years) — absent years come back as a marked all-NA column."
+tipocuestionario,rename,tipocuestionario,2020,2020,,,,intermittent,"tipo de cuestionario :: NOT COLLECTED EVERY YEAR (present 2020-2020, 1 of 14 years) — absent years come back as a marked all-NA column."
+tipoentrevista,rename,tipoentrevista,2020,2020,,,,intermittent,"tipo de entrevista :: NOT COLLECTED EVERY YEAR (present 2020-2020, 1 of 14 years) — absent years come back as a marked all-NA column."
+ubigeo,rename,ubigeo,2004,2025,,,,continuous,código de distrito ( ubicación geográfica ) :: QUESTION REWORDED across years — check for a redefinition.
+vivienda,rename,vivienda,2004,2025,,,,continuous,número de selección de la vivienda :: QUESTION REWORDED across years — check for a redefinition.

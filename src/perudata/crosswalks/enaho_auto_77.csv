@@ -1,0 +1,48 @@
+canonical,kind,raw,year_start,year_end,recode,unit,level,status,note
+a_o,rename,a_o,2004,2011,,,,confirmed,"año :: NOT COLLECTED EVERY YEAR (present 2004-2011, 2 of 14 years) — absent years come back as a marked all-NA column."
+activida,rename,activida,2004,2025,,,,label_change,tipo de actividad :: QUESTION REWORDED across years — check for a redefinition.
+aÑo,rename,aÑo,2005,2025,,,,confirmed,"año :: NOT COLLECTED EVERY YEAR (present 2005-2025, 11 of 14 years) — absent years come back as a marked all-NA column."
+año,rename,año,2013,2013,,,,confirmed,"año :: NOT COLLECTED EVERY YEAR (present 2013-2013, 1 of 14 years) — absent years come back as a marked all-NA column."
+cantidad,rename,cantidad,2005,2006,,,,continuous,"cantidad :: NOT COLLECTED EVERY YEAR (present 2005-2006, 2 of 14 years) — absent years come back as a marked all-NA column."
+coddest,rename,coddest,2005,2006,,,,continuous,"código de destino ( imputado ) :: NOT COLLECTED EVERY YEAR (present 2005-2006, 2 of 14 years) — absent years come back as a marked all-NA column."
+codinfor,rename,codinfor,2007,2025,,,,continuous,"código de informante :: NOT COLLECTED EVERY YEAR (present 2007-2025, 11 of 14 years) — absent years come back as a marked all-NA column."
+codorig,rename,codorig,2005,2006,,,,continuous,"código de origen ( imputado ) :: NOT COLLECTED EVERY YEAR (present 2005-2006, 2 of 14 years) — absent years come back as a marked all-NA column."
+codperso,rename,codperso,2004,2025,,,,continuous,código de persona :: QUESTION REWORDED across years — check for a redefinition.
+concepto,rename,concepto,2007,2025,,,,continuous,"concepto (otros gastos) :: NOT COLLECTED EVERY YEAR (present 2007-2025, 11 of 14 years) — absent years come back as a marked all-NA column."
+conglome,rename,conglome,2004,2025,,,,continuous,número de conglomerado :: QUESTION REWORDED across years — check for a redefinition.
+destino,rename,destino,2005,2006,,,,continuous,"destino :: NOT COLLECTED EVERY YEAR (present 2005-2006, 2 of 14 years) — absent years come back as a marked all-NA column."
+dominio,rename,dominio,2004,2025,,,,label_change,dominio geográfico :: QUESTION REWORDED across years — check for a redefinition.
+e10,rename,e10,2004,2004,,,,continuous,"indique los equipos que ud., utiliza actualmente para hacer funcionar su negocio :: NOT COLLECTED EVERY YEAR (present 2004-2004, 1 of 14 years) — absent years come back as a marked all-NA column."
+e10a,rename,e10a,2004,2004,,,,continuous,"actualmente para hacer funcionar su negocio: ¿tiene? :: NOT COLLECTED EVERY YEAR (present 2004-2004, 1 of 14 years) — absent years come back as a marked all-NA column."
+e10b,rename,e10b,2004,2004,,,,continuous,"su uso es para: :: NOT COLLECTED EVERY YEAR (present 2004-2004, 1 of 14 years) — absent years come back as a marked all-NA column."
+e10c,rename,e10c,2004,2004,,,,continuous,"el bien y/o equipo es: :: NOT COLLECTED EVERY YEAR (present 2004-2004, 1 of 14 years) — absent years come back as a marked all-NA column."
+e10d1,rename,e10d1,2004,2004,,,,continuous,"mes de la adquisición del bien y/o equipo :: NOT COLLECTED EVERY YEAR (present 2004-2004, 1 of 14 years) — absent years come back as a marked all-NA column."
+e10d2,rename,e10d2,2004,2004,,,,continuous,"año de la adquisición del bien y/o equipo :: NOT COLLECTED EVERY YEAR (present 2004-2004, 1 of 14 years) — absent years come back as a marked all-NA column."
+e10e,rename,e10e,2004,2004,,,,continuous,"¿cuánto le costaría si tuviera que comprar uno nuevo ahora? :: NOT COLLECTED EVERY YEAR (present 2004-2004, 1 of 14 years) — absent years come back as a marked all-NA column."
+e10f,rename,e10f,2004,2004,,,,continuous,"¿cuánto cuesta ahora, tal como está? :: NOT COLLECTED EVERY YEAR (present 2004-2004, 1 of 14 years) — absent years come back as a marked all-NA column."
+e23a,rename,e23a,2007,2025,,,,label_change,"otros gastos en el mes anterior: ¿tiene gasto ... ? :: NOT COLLECTED EVERY YEAR (present 2007-2025, 11 of 14 years) — absent years come back as a marked all-NA column."
+e23c,rename,e23c,2007,2025,,,,code_change,"otros gastos en el mes anterior: frecuencia :: CODING MOVED UNDER A STABLE NAME — 2007: 0, 1, 2, 3, 4, 5 | 2008: 0, 1, 2, 3, 4, 5 | 2009: 0, 1, 2, 3, 4, 5 | 2010: 0, 1, 2, 3, 4, 5 | 2012: 0, 1, 2, 3, 4, 5 | 2013: 0, 1, 2, 3, 4, 5 | 2014: 1, 2, 3, 4, 5 | 2015: 0, 1, 2, 3, 4, 5 | 2020: 0, 1, 2, 3, 4, 5 | 2025: 0, 1, 2, 3, 4, 5. Do not pool on a code without checking the year."
+e23g,rename,e23g,2007,2025,,,,continuous,"otros gastos en el mes anterior: monto frecuencia :: NOT COLLECTED EVERY YEAR (present 2007-2025, 11 of 14 years) — absent years come back as a marked all-NA column."
+e23gg,rename,e23gg,2007,2025,,,,continuous,"otros gastos en el mes anterior: monto mensual :: NOT COLLECTED EVERY YEAR (present 2007-2025, 11 of 14 years) — absent years come back as a marked all-NA column."
+estrato,rename,estrato,2004,2025,,,,label_change,estrato :: QUESTION REWORDED across years — check for a redefinition.
+factor07,rename,factor07,2012,2012,,,,continuous,"factor de expansión anual de empleo/ingresos proyecciones cpv-07 :: NOT COLLECTED EVERY YEAR (present 2012-2012, 1 of 14 years) — absent years come back as a marked all-NA column."
+factor_p,rename,factor_p,2020,2020,,,,continuous,"factor de expansión de empleo/ingresos - presencial - proyecciones cpv-2007 :: NOT COLLECTED EVERY YEAR (present 2020-2020, 1 of 14 years) — absent years come back as a marked all-NA column."
+factora0,rename,factora0,2004,2012,,,,continuous,"factor de expanción de empleo proyección cpv 2007-ajustado por edad :: NOT COLLECTED EVERY YEAR (present 2004-2012, 8 of 14 years) — absent years come back as a marked all-NA column."
+factora07,rename,factora07,2007,2025,,,,continuous,"factor de expanción de empleo proyección cpv 2007-ajustado por edad :: NOT COLLECTED EVERY YEAR (present 2007-2025, 6 of 14 years) — absent years come back as a marked all-NA column."
+frecuen,rename,frecuen,2005,2006,,,,intermittent,"frecuencia :: NOT COLLECTED EVERY YEAR (present 2005-2006, 2 of 14 years) — absent years come back as a marked all-NA column."
+hogar,rename,hogar,2004,2025,,,,continuous,número de hogar :: QUESTION REWORDED across years — check for a redefinition.
+medida,rename,medida,2005,2006,,,,continuous,"unidad de medida :: NOT COLLECTED EVERY YEAR (present 2005-2006, 2 of 14 years) — absent years come back as a marked all-NA column."
+mes,rename,mes,2004,2025,,,,continuous,mes de ejecución de la encuesta :: QUESTION REWORDED across years — check for a redefinition.
+modulo,rename,modulo,2005,2006,,,,intermittent,"tipo de módulo :: NOT COLLECTED EVERY YEAR (present 2005-2006, 2 of 14 years) — absent years come back as a marked all-NA column."
+montotot,rename,montotot,2005,2006,,,,continuous,"monto total en soles :: NOT COLLECTED EVERY YEAR (present 2005-2006, 2 of 14 years) — absent years come back as a marked all-NA column."
+nconglome,rename,nconglome,2020,2025,,,,continuous,"número de conglomerado (proveniente del marco) :: NOT COLLECTED EVERY YEAR (present 2020-2025, 2 of 14 years) — absent years come back as a marked all-NA column."
+orden,rename,orden,2005,2006,,,,continuous,"número de orden del producto :: NOT COLLECTED EVERY YEAR (present 2005-2006, 2 of 14 years) — absent years come back as a marked all-NA column."
+origen,rename,origen,2005,2006,,,,continuous,"origen :: NOT COLLECTED EVERY YEAR (present 2005-2006, 2 of 14 years) — absent years come back as a marked all-NA column."
+periodo,rename,periodo,2007,2025,,,,label_change,"período :: NOT COLLECTED EVERY YEAR (present 2007-2025, 11 of 14 years) — absent years come back as a marked all-NA column."
+precio,rename,precio,2005,2006,,,,continuous,"precio unitario :: NOT COLLECTED EVERY YEAR (present 2005-2006, 2 of 14 years) — absent years come back as a marked all-NA column."
+producto,rename,producto,2005,2006,,,,continuous,"nombre del producto :: NOT COLLECTED EVERY YEAR (present 2005-2006, 2 of 14 years) — absent years come back as a marked all-NA column."
+sub_conglome,rename,sub_conglome,2020,2025,,,,continuous,"número de subconglomerado (proveniente del marco) :: NOT COLLECTED EVERY YEAR (present 2020-2025, 2 of 14 years) — absent years come back as a marked all-NA column."
+tipocuestionario,rename,tipocuestionario,2020,2020,,,,intermittent,"tipo de cuestionario :: NOT COLLECTED EVERY YEAR (present 2020-2020, 1 of 14 years) — absent years come back as a marked all-NA column."
+tipoentrevista,rename,tipoentrevista,2020,2020,,,,intermittent,"tipo de entrevista :: NOT COLLECTED EVERY YEAR (present 2020-2020, 1 of 14 years) — absent years come back as a marked all-NA column."
+ubigeo,rename,ubigeo,2004,2025,,,,continuous,código de ubicación geográfica :: QUESTION REWORDED across years — check for a redefinition.
+vivienda,rename,vivienda,2004,2025,,,,continuous,número de selección de vivienda :: QUESTION REWORDED across years — check for a redefinition.

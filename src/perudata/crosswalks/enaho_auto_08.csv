@@ -1,0 +1,37 @@
+canonical,kind,raw,year_start,year_end,recode,unit,level,status,note
+a_o,rename,a_o,2004,2006,,,,confirmed,"año :: NOT COLLECTED EVERY YEAR (present 2004-2006, 2 of 15 years) — absent years come back as a marked all-NA column."
+aÑo,rename,aÑo,2005,2025,,,,confirmed,"año :: NOT COLLECTED EVERY YEAR (present 2005-2025, 13 of 15 years) — absent years come back as a marked all-NA column."
+conglome,rename,conglome,2004,2025,,,,continuous,número del conglomerado :: QUESTION REWORDED across years — check for a redefinition.
+d602e,rename,d602e,2004,2006,,,,continuous,"(deflactado, anualizado) ¿cuánto pagó cada vez por el alimento recibido? :: NOT COLLECTED EVERY YEAR (present 2004-2006, 3 of 15 years) — absent years come back as a marked all-NA column."
+d602e1,rename,d602e1,2007,2025,,,,continuous,"(deflactado, anualizado) ¿cuánto pagó cada vez por el alimento recibido? :: NOT COLLECTED EVERY YEAR (present 2007-2025, 12 of 15 years) — absent years come back as a marked all-NA column."
+d602e2,rename,d602e2,2007,2025,,,,continuous,"(deflactado, anualizado) ¿cuánto pagó en el mes anterior por otros conceptos? :: NOT COLLECTED EVERY YEAR (present 2007-2025, 12 of 15 years) — absent years come back as a marked all-NA column."
+dominio,rename,dominio,2004,2025,,,,label_change,dominio :: QUESTION REWORDED across years — check for a redefinition.
+estrato,rename,estrato,2004,2025,,,,label_change,estrato geográfico :: QUESTION REWORDED across years — check for a redefinition.
+factor07,rename,factor07,2004,2025,,,,continuous,factor de expanción de hogar proyección cpv 2007 :: QUESTION REWORDED across years — check for a redefinition.
+factor_p,rename,factor_p,2020,2020,,,,continuous,"factor de expansión anual - tipo presencial - proyecciones cpv-2007 :: NOT COLLECTED EVERY YEAR (present 2020-2020, 1 of 15 years) — absent years come back as a marked all-NA column."
+hogar,rename,hogar,2004,2025,,,,continuous,hogar :: QUESTION REWORDED across years — check for a redefinition.
+i602e,rename,i602e,2004,2006,,,,continuous,"(imputado, deflactado, anualizado) ¿cuánto pagó cada vez por el alimento recibid :: NOT COLLECTED EVERY YEAR (present 2004-2006, 3 of 15 years) — absent years come back as a marked all-NA column."
+i602e1,rename,i602e1,2007,2025,,,,continuous,"(imputado, deflactado, anualizado) ¿cuánto pagó cada vez por el alimento recibid :: NOT COLLECTED EVERY YEAR (present 2007-2025, 12 of 15 years) — absent years come back as a marked all-NA column."
+i602e2,rename,i602e2,2007,2025,,,,continuous,"(imputado, deflactado, anualizado) ¿cuánto pagó en el mes anterior por otros con :: NOT COLLECTED EVERY YEAR (present 2007-2025, 12 of 15 years) — absent years come back as a marked all-NA column."
+mes,rename,mes,2004,2025,,,,continuous,mes de ejecución de la encuesta :: QUESTION REWORDED across years — check for a redefinition.
+nconglome,rename,nconglome,2016,2025,,,,continuous,"número de conglomerado (proveniente del marco) :: NOT COLLECTED EVERY YEAR (present 2016-2025, 3 of 15 years) — absent years come back as a marked all-NA column."
+p602,rename,p602,2004,2025,,,,label_change,en los últimos 15 días ud. o algún miembro de su hogar obtuvieron alimentos para :: QUESTION REWORDED across years — check for a redefinition.
+p602a,rename,p602a,2004,2025,,,,continuous,"generalmente, ¿ cuántas veces por semana ? :: QUESTION REWORDED across years — check for a redefinition."
+p602b,rename,p602b,2004,2025,,,,continuous,"generalmente, ¿ cuántas raciones consumieron cada vez ? :: QUESTION REWORDED across years — check for a redefinition."
+p602c,rename,p602c,2004,2025,,,,continuous,"generalmente, ¿ cuántos miembros de su hogar consumieron cada vez ? :: QUESTION REWORDED across years — check for a redefinition."
+p602d,rename,p602d,2004,2006,,,,intermittent,"generalmente, ¿ pagó por el consumo ? :: NOT COLLECTED EVERY YEAR (present 2004-2006, 3 of 15 years) — absent years come back as a marked all-NA column."
+p602d1_3,rename,p602d1_3,2025,2025,,,,intermittent,"No realizo ningun pago porque :: NOT COLLECTED EVERY YEAR (present 2025-2025, 1 of 15 years) — absent years come back as a marked all-NA column."
+p602da,rename,p602da,2007,2025,,,,label_change,"¿pagó: por el alimento? :: NOT COLLECTED EVERY YEAR (present 2007-2025, 12 of 15 years) — absent years come back as a marked all-NA column."
+p602db,rename,p602db,2007,2025,,,,code_change,"¿pagó: por otros pagos asociados (transporte del alimento, kerosene, cocinera,et :: CODING MOVED UNDER A STABLE NAME — 2007: 0, 2 | 2008: 0, 1 | 2009: 0, 1 | 2010: 0, 1 | 2011: 0, 1 | 2012: 2 | 2013: 0, 2 | 2014: 2 | 2015: 2 | 2016: 0, 2 | 2020: 0, 2 | 2025: 0, 2. Do not pool on a code without checking the year."
+p602dc,rename,p602dc,2007,2025,,,,code_change,"no realizó ningún pago :: CODING MOVED UNDER A STABLE NAME — 2007: 0, 3 | 2008: 0, 1 | 2009: 0, 1 | 2010: 0, 1 | 2011: 0, 1 | 2012: 3 | 2013: 0, 3 | 2014: 3 | 2015: 3 | 2016: 0, 3 | 2020: 0, 3 | 2025: 0, 3. Do not pool on a code without checking the year."
+p602e,rename,p602e,2004,2006,,,,continuous,"generalmente, ¿ cuánto pagó cada vez ( monto ) ? :: NOT COLLECTED EVERY YEAR (present 2004-2006, 3 of 15 years) — absent years come back as a marked all-NA column."
+p602e1,rename,p602e1,2007,2025,,,,continuous,"¿cuánto pagó cada vez por el alimento recibido? :: NOT COLLECTED EVERY YEAR (present 2007-2025, 12 of 15 years) — absent years come back as a marked all-NA column."
+p602e2,rename,p602e2,2007,2025,,,,continuous,"¿cuánto pagó en el mes anterior por otros conceptos? :: NOT COLLECTED EVERY YEAR (present 2007-2025, 12 of 15 years) — absent years come back as a marked all-NA column."
+p602n,rename,p602n,2004,2025,,,,code_change,"alimento para consumir dentro del hogar obtenido de instituciones benéficas :: CODING MOVED UNDER A STABLE NAME — 2005: 1, 2, 3, 4, 5, 6, 7 | 2007: 1, 2, 3, 4, 5, 6, 7 | 2008: 1, 2, 3, 4, 5, 6, 7 | 2009: 1, 2, 3, 4, 5, 6, 7 | 2010: 1, 2, 3, 4, 5, 6, 7 | 2011: 1, 2, 3, 4, 5, 6, 7 | 2012: 1, 2, 3, 4, 5, 6, 7 | 2013: 1, 2, 3, 4, 5, 6, 7 | 2014: 1, 2, 3, 4, 5, 6, 7 | 2015: 1, 2, 3, 4, 5, 6, 7 | 2016: 1, 2, 3, 4, 5,. Do not pool on a code without checking the year."
+sub_conglome,rename,sub_conglome,2020,2025,,,,continuous,"número de subconglomerado (proveniente del marco) :: NOT COLLECTED EVERY YEAR (present 2020-2025, 2 of 15 years) — absent years come back as a marked all-NA column."
+ticuest0,rename,ticuest0,2011,2012,,,,intermittent,"origen de cuestionario :: NOT COLLECTED EVERY YEAR (present 2011-2012, 2 of 15 years) — absent years come back as a marked all-NA column."
+ticuest01,rename,ticuest01,2013,2025,,,,intermittent,"origen de cuestionario :: NOT COLLECTED EVERY YEAR (present 2013-2025, 6 of 15 years) — absent years come back as a marked all-NA column."
+tipocuestionario,rename,tipocuestionario,2020,2020,,,,intermittent,"tipo de cuestionario :: NOT COLLECTED EVERY YEAR (present 2020-2020, 1 of 15 years) — absent years come back as a marked all-NA column."
+tipoentrevista,rename,tipoentrevista,2020,2020,,,,intermittent,"tipo de entrevista :: NOT COLLECTED EVERY YEAR (present 2020-2020, 1 of 15 years) — absent years come back as a marked all-NA column."
+ubigeo,rename,ubigeo,2004,2025,,,,continuous,código de distrito ( ubicación geográfica ) :: QUESTION REWORDED across years — check for a redefinition.
+vivienda,rename,vivienda,2004,2025,,,,continuous,número de selección de la vivienda :: QUESTION REWORDED across years — check for a redefinition.

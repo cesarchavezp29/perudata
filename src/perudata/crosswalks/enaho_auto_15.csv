@@ -1,0 +1,23 @@
+canonical,kind,raw,year_start,year_end,recode,unit,level,status,note
+a_o,rename,a_o,2004,2011,,,,confirmed,"año :: NOT COLLECTED EVERY YEAR (present 2004-2011, 3 of 14 years) — absent years come back as a marked all-NA column."
+aÑo,rename,aÑo,2005,2025,,,,confirmed,"año :: NOT COLLECTED EVERY YEAR (present 2005-2025, 11 of 14 years) — absent years come back as a marked all-NA column."
+conglome,rename,conglome,2004,2025,,,,continuous,número de conglomerado :: QUESTION REWORDED across years — check for a redefinition.
+d609a,rename,d609a,2004,2025,,,,continuous,"(deflactado, anualizado) ¿cuánto gastó? :: QUESTION REWORDED across years — check for a redefinition."
+dominio,rename,dominio,2004,2025,,,,label_change,dominio geográfico :: QUESTION REWORDED across years — check for a redefinition.
+estrato,rename,estrato,2004,2025,,,,label_change,estrato geográfico :: QUESTION REWORDED across years — check for a redefinition.
+factor07,rename,factor07,2004,2025,,,,continuous,factor de expanción de hogar proyección cpv 2007 :: QUESTION REWORDED across years — check for a redefinition.
+factor_p,rename,factor_p,2020,2020,,,,continuous,"factor de expansión anual - tipo presencial - proyecciones cpv-2007 :: NOT COLLECTED EVERY YEAR (present 2020-2020, 1 of 14 years) — absent years come back as a marked all-NA column."
+hogar,rename,hogar,2004,2025,,,,continuous,hogar :: QUESTION REWORDED across years — check for a redefinition.
+i609a,rename,i609a,2004,2025,,,,continuous,"(imputado, deflactado, anualizado) ¿cuánto gastó? :: QUESTION REWORDED across years — check for a redefinition."
+mes,rename,mes,2004,2025,,,,continuous,mes de ejecución de la encuesta :: QUESTION REWORDED across years — check for a redefinition.
+nconglome,rename,nconglome,2020,2025,,,,continuous,"número de conglomerado (proveniente del marco) :: NOT COLLECTED EVERY YEAR (present 2020-2025, 2 of 14 years) — absent years come back as a marked all-NA column."
+p609,rename,p609,2004,2025,,,,label_change,en los últimos 3 meses ud. o algún miembro del hogar tuvieron : gastos de transf :: QUESTION REWORDED across years — check for a redefinition.
+p609a,rename,p609a,2004,2025,,,,continuous,¿ cuánto gastó ? :: QUESTION REWORDED across years — check for a redefinition.
+p609n,rename,p609n,2004,2025,,,,label_change,gasto de transferencia :: QUESTION REWORDED across years — check for a redefinition.
+sub_conglome,rename,sub_conglome,2020,2025,,,,continuous,"número de subconglomerado (proveniente del marco) :: NOT COLLECTED EVERY YEAR (present 2020-2025, 2 of 14 years) — absent years come back as a marked all-NA column."
+ticuest0,rename,ticuest0,2011,2012,,,,intermittent,"origen de cuestionario :: NOT COLLECTED EVERY YEAR (present 2011-2012, 2 of 14 years) — absent years come back as a marked all-NA column."
+ticuest01,rename,ticuest01,2013,2025,,,,intermittent,"origen de cuestionario :: NOT COLLECTED EVERY YEAR (present 2013-2025, 5 of 14 years) — absent years come back as a marked all-NA column."
+tipocuestionario,rename,tipocuestionario,2020,2020,,,,intermittent,"tipo de cuestionario :: NOT COLLECTED EVERY YEAR (present 2020-2020, 1 of 14 years) — absent years come back as a marked all-NA column."
+tipoentrevista,rename,tipoentrevista,2020,2020,,,,intermittent,"tipo de entrevista :: NOT COLLECTED EVERY YEAR (present 2020-2020, 1 of 14 years) — absent years come back as a marked all-NA column."
+ubigeo,rename,ubigeo,2004,2025,,,,continuous,ubicación geográfica :: QUESTION REWORDED across years — check for a redefinition.
+vivienda,rename,vivienda,2004,2025,,,,continuous,número de selección de la vivienda :: QUESTION REWORDED across years — check for a redefinition.

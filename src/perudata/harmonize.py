@@ -123,10 +123,47 @@ def crosswalk(survey: str, module: str | int):
 
 
 def available() -> list[str]:
-    """Which (survey, module) crosswalks exist."""
+    """Which HAND-CONFIRMED (survey, module) crosswalks exist."""
     d = resources.files("perudata").joinpath("crosswalks")
     return sorted(Path(str(p)).stem for p in d.iterdir()
-                  if str(p).endswith(".csv"))
+                  if str(p).endswith(".csv") and "_auto_" not in str(p))
+
+
+def stability(module: str | int, status: str | None = None):
+    """EVERY variable of a module, with whether it is safe to pool across years.
+
+    The hand-confirmed crosswalks cover the ~135 variables that carry the
+    headline statistics. This covers ALL 5,678, computed from INEI's own metadata
+    in the files:
+
+      stable       — present every year, value labels never move
+      code_change  — THE CODING MOVED UNDER A STABLE NAME. 546 variables do this.
+                     It is the silent-error class: the health-insurance flags go
+                     from 0/1 to 1/2 in 2012 while the name and the label stay put.
+      label_change — the question was REWORDED (a redefinition may be hiding)
+      intermittent — not collected every year
+      continuous   — a count or an amount, no codes to drift
+
+        harmonize.stability("04", status="code_change")   # what will bite me?
+    """
+    import pandas as pd
+    m = str(module).zfill(2)
+    p = resources.files("perudata").joinpath(f"crosswalks/enaho_auto_{m}.csv")
+    if not p.is_file():
+        raise FileNotFoundError(f"no auto-crosswalk for module {m}")
+    with p.open("r", encoding="utf-8") as f:
+        df = pd.read_csv(f)
+    if status:
+        df = df[df["status"] == status]
+    return df[["canonical", "status", "year_start", "year_end", "note"]]
+
+
+def unsafe(module: str | int):
+    """The variables of a module that CANNOT be pooled blindly: their coding or
+    their question moved across years. Look here before trusting a raw column."""
+    import pandas as pd
+    df = stability(module)
+    return df[df["status"].isin(["code_change", "label_change", "intermittent"])]
 
 
 def normalize_keys(df, cols=KEY_COLS):
@@ -164,7 +201,7 @@ def _d_enaho34(d, canonical):
     import numpy as np
     if canonical == "area":            # CONFIRMED: reproduces INEI urban/rural
         return np.where(d["estrato"].astype("float") <= 5, 1, 2)
-    if canonical == "weight_person":   # the official INEI person weight
+    if canonical == "weight_hh_x_size":  # official person weight, HOUSEHOLD grain
         return d["factor07"] * d["mieperho"]
     if canonical == "poor":
         return d["pobreza"].isin([1, 2])
@@ -431,4 +468,17 @@ def apply(df, survey: str, module: str | int, year: int | None = None):
     # and a DataFrame in there raises "Can only compare identically-labeled...".
     out.attrs["coverage"] = cov                       # list of dicts, not a frame
     out.attrs["harmonized"] = f"{survey}/{mod}"
+
+    # EVERY raw column of the module comes back too (the contract is additive).
+    # Attach the stability status of each one, so a column that changes its coding
+    # or its question across years cannot be pooled unknowingly.
+    try:
+        st = stability(mod)
+        st = st[st["canonical"].isin(out.columns)]
+        risky = st[st["status"].isin(["code_change", "label_change", "intermittent"])]
+        out.attrs["stability"] = st.to_dict("records")
+        out.attrs["unsafe_columns"] = risky["canonical"].tolist()
+    except FileNotFoundError:
+        out.attrs["stability"] = []
+        out.attrs["unsafe_columns"] = []
     return out, coverage

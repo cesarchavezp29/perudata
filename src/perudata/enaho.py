@@ -318,15 +318,26 @@ def combine(year: int, modules: list[str] | None = None,
     meta: dict = {"year": year, "level": level, "modules": modules, "steps": []}
 
     coverage: list = []
+    unsafe: list = []
 
     def _load(m):
         df = load(year, m, out=out)
         df = _h.normalize_keys(df)             # ALWAYS, before any join
         if harmonize and f"enaho_{m}" in _h.available():
             df, cov = _h.apply(df, "enaho", m, year=year)
-            # pandas DROPS .attrs on merge, so the per-module coverage has to be
-            # accumulated here or the report comes back silently empty
+            # pandas DROPS .attrs on merge, so BOTH the coverage and the per-column
+            # stability have to be accumulated here or they come back silently
+            # empty -- which is exactly what "flagged unsafe: 0" was.
             coverage.extend({"module": m, **r} for r in cov.to_dict("records"))
+            unsafe.extend(f"{c}" for c in df.attrs.get("unsafe_columns", []))
+        else:
+            try:
+                st = _h.stability(m)
+                bad = st[st["status"].isin(
+                    ["code_change", "label_change", "intermittent"])]
+                unsafe.extend(c for c in bad["canonical"] if c in df.columns)
+            except FileNotFoundError:
+                pass
         return df
 
     hh_mods = [m for m in modules if m in HOUSEHOLD_MODULES]
@@ -409,6 +420,7 @@ def combine(year: int, modules: list[str] | None = None,
             raise ValueError("no household module requested")
         base.attrs["combine"] = meta
         base.attrs["coverage"] = coverage
+        base.attrs["unsafe_columns"] = sorted({c for c in unsafe if c in base.columns})
         return base
 
     # ---- person spine ------------------------------------------------------
@@ -445,6 +457,7 @@ def combine(year: int, modules: list[str] | None = None,
 
     person.attrs["combine"] = meta
     person.attrs["coverage"] = coverage
+    person.attrs["unsafe_columns"] = sorted({c for c in unsafe if c in person.columns})
     return person
 
 

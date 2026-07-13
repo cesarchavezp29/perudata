@@ -1,0 +1,50 @@
+canonical,kind,raw,year_start,year_end,recode,unit,level,status,note
+a_o,rename,a_o,2004,2011,,,,confirmed,"año :: NOT COLLECTED EVERY YEAR (present 2004-2011, 3 of 14 years) — absent years come back as a marked all-NA column."
+aÑo,rename,aÑo,2005,2025,,,,confirmed,"año :: NOT COLLECTED EVERY YEAR (present 2005-2025, 11 of 14 years) — absent years come back as a marked all-NA column."
+codinfor,rename,codinfor,2004,2025,,,,continuous,codigo de informante :: QUESTION REWORDED across years — check for a redefinition.
+codperso,rename,codperso,2004,2025,,,,continuous,codigo de persona :: QUESTION REWORDED across years — check for a redefinition.
+conglome,rename,conglome,2004,2025,,,,continuous,número de conglomerado :: QUESTION REWORDED across years — check for a redefinition.
+dominio,rename,dominio,2004,2025,,,,label_change,dominio geográfico :: QUESTION REWORDED across years — check for a redefinition.
+estrato,rename,estrato,2004,2025,,,,label_change,estrato geográfico :: QUESTION REWORDED across years — check for a redefinition.
+factor07,rename,factor07,2012,2012,,,,continuous,"factor de expansión anual de empleo/ingresos proyecciones cpv-07 :: NOT COLLECTED EVERY YEAR (present 2012-2012, 1 of 14 years) — absent years come back as a marked all-NA column."
+factor_p,rename,factor_p,2020,2020,,,,continuous,"factor de expansión de empleo/ingresos - presencial - proyecciones cpv-2007 :: NOT COLLECTED EVERY YEAR (present 2020-2020, 1 of 14 years) — absent years come back as a marked all-NA column."
+factora0,rename,factora0,2004,2013,,,,continuous,"factor de expanción de empleo proyección cpv 2007-ajustado por edad :: NOT COLLECTED EVERY YEAR (present 2004-2013, 10 of 14 years) — absent years come back as a marked all-NA column."
+factora07,rename,factora07,2014,2025,,,,continuous,"factor de expansión anual de empleo/ingresos ajustados por grupos de edad. proye :: NOT COLLECTED EVERY YEAR (present 2014-2025, 4 of 14 years) — absent years come back as a marked all-NA column."
+hogar,rename,hogar,2004,2025,,,,continuous,número secuencial del hogar :: QUESTION REWORDED across years — check for a redefinition.
+mes,rename,mes,2004,2025,,,,continuous,mes de ejecución de la encuesta :: QUESTION REWORDED across years — check for a redefinition.
+nconglome,rename,nconglome,2020,2025,,,,continuous,"número de conglomerado (proveniente del marco) :: NOT COLLECTED EVERY YEAR (present 2020-2025, 2 of 14 years) — absent years come back as a marked all-NA column."
+p20001a,rename,p20001a,2004,2006,,,,label_change,"¿qué tipo de actividad realizó en su explotación agropecuaria? - agrícola :: NOT COLLECTED EVERY YEAR (present 2004-2006, 3 of 14 years) — absent years come back as a marked all-NA column."
+p20001b,rename,p20001b,2004,2006,,,,label_change,"¿qué tipo de actividad realizó en su explotación agropecuaria? - pecuaria :: NOT COLLECTED EVERY YEAR (present 2004-2006, 3 of 14 years) — absent years come back as a marked all-NA column."
+p20001c,rename,p20001c,2004,2006,,,,label_change,"que tipo de actividad realizó en su explotación agropecuaria? - forestal :: NOT COLLECTED EVERY YEAR (present 2004-2006, 3 of 14 years) — absent years come back as a marked all-NA column."
+p20002,rename,p20002,2004,2006,,,,intermittent,"su actividad agropecuaria la realiza en forma: :: NOT COLLECTED EVERY YEAR (present 2004-2006, 3 of 14 years) — absent years come back as a marked all-NA column."
+p20002b1,rename,p20002b1,2004,2006,,,,continuous,"superficie propia que trabaja actualmente :: NOT COLLECTED EVERY YEAR (present 2004-2006, 3 of 14 years) — absent years come back as a marked all-NA column."
+p20002b2,rename,p20002b2,2004,2006,,,,continuous,"superficie propia que alquila, presta, cede a otros :: NOT COLLECTED EVERY YEAR (present 2004-2006, 3 of 14 years) — absent years come back as a marked all-NA column."
+p20002b3,rename,p20002b3,2004,2006,,,,continuous,"superficie propia que alquila, recibe o trabaja de otros :: NOT COLLECTED EVERY YEAR (present 2004-2006, 3 of 14 years) — absent years come back as a marked all-NA column."
+p20002c,rename,p20002c,2004,2006,,,,continuous,"¿cuántas parcelas trabaja o tiene en su poder? :: NOT COLLECTED EVERY YEAR (present 2004-2006, 3 of 14 years) — absent years come back as a marked all-NA column."
+p20003,rename,p20003,2004,2006,,,,label_change,"su actividad agropecuaria se realiza en tierras: :: NOT COLLECTED EVERY YEAR (present 2004-2006, 3 of 14 years) — absent years come back as a marked all-NA column."
+p20004,rename,p20004,2004,2006,,,,label_change,"¿cuántas de sus tierras tienen título de propiedad? :: NOT COLLECTED EVERY YEAR (present 2004-2006, 3 of 14 years) — absent years come back as a marked all-NA column."
+p20005,rename,p20005,2004,2006,,,,label_change,"¿cuál es el tipo de riego en la mayor parte de sus tierras? :: NOT COLLECTED EVERY YEAR (present 2004-2006, 3 of 14 years) — absent years come back as a marked all-NA column."
+p2200,rename,p2200,2004,2006,,,,label_change,"en los ultimos 12 meses ¿elaboró subproductos agrícolas? :: NOT COLLECTED EVERY YEAR (present 2004-2006, 3 of 14 years) — absent years come back as a marked all-NA column."
+p22001a,rename,p22001a,2004,2025,,,,continuous,¿cuál fue la producción total del subproducto agrícola: cantidad? :: QUESTION REWORDED across years — check for a redefinition.
+p22001b,rename,p22001b,2004,2025,,,,continuous,¿cuál fue la producción total del subproducto agrícola: unidad de medida? :: QUESTION REWORDED across years — check for a redefinition.
+p22001c,rename,p22001c,2004,2025,,,,continuous,¿cuál fue la producción total del subproducto agrícola: equivalencia en kg? :: QUESTION REWORDED across years — check for a redefinition.
+p22002a,rename,p22002a,2004,2025,,,,continuous,¿cúanto del subproducto se destinó para la:  venta? :: QUESTION REWORDED across years — check for a redefinition.
+p22002a1,rename,p22002a1,2007,2025,,,,continuous,"precio unitario - venta :: NOT COLLECTED EVERY YEAR (present 2007-2025, 11 of 14 years) — absent years come back as a marked all-NA column."
+p22002b,rename,p22002b,2004,2025,,,,continuous,valor s/. de la venta :: QUESTION REWORDED across years — check for a redefinition.
+p22002c,rename,p22002c,2004,2025,,,,continuous,¿cuánto del subproducto se destinó para el : consumo del hogar? :: QUESTION REWORDED across years — check for a redefinition.
+p22002c1,rename,p22002c1,2007,2025,,,,continuous,"precio del consumo hogar :: NOT COLLECTED EVERY YEAR (present 2007-2025, 11 of 14 years) — absent years come back as a marked all-NA column."
+p22002d,rename,p22002d,2004,2025,,,,continuous,valor s/. del consumo del hogar :: QUESTION REWORDED across years — check for a redefinition.
+p22002e,rename,p22002e,2004,2025,,,,continuous,¿cuánto del subproducto se destinó para: otros? :: QUESTION REWORDED across years — check for a redefinition.
+p22002f,rename,p22002f,2004,2025,,,,continuous,valor s/. de lo que se destinó a otros :: QUESTION REWORDED across years — check for a redefinition.
+p22002g,rename,p22002g,2004,2025,,,,continuous,cantidad total destinado del subproducto agrícola :: QUESTION REWORDED across years — check for a redefinition.
+p22002h,rename,p22002h,2004,2025,,,,continuous,valor total s/. destinado del subproducto agrícola :: QUESTION REWORDED across years — check for a redefinition.
+p22002i,rename,p22002i,2004,2006,,,,continuous,"total valor s/. destinado de los subproductos agrícolas :: NOT COLLECTED EVERY YEAR (present 2004-2006, 3 of 14 years) — absent years come back as a marked all-NA column."
+p22002t,rename,p22002t,2007,2025,,,,continuous,"total subproductos agricolas s/. :: NOT COLLECTED EVERY YEAR (present 2007-2025, 11 of 14 years) — absent years come back as a marked all-NA column."
+p2200a,rename,p2200a,2004,2025,,,,label_change,ocurrencia del tipo de subproducto agrícola :: QUESTION REWORDED across years — check for a redefinition.
+p2200b,rename,p2200b,2004,2025,,,,continuous,código del subproducto agrícola :: QUESTION REWORDED across years — check for a redefinition.
+periodo,rename,periodo,2007,2025,,,,label_change,"periodo :: NOT COLLECTED EVERY YEAR (present 2007-2025, 11 of 14 years) — absent years come back as a marked all-NA column."
+sub_conglome,rename,sub_conglome,2020,2025,,,,continuous,"número de subconglomerado (proveniente del marco) :: NOT COLLECTED EVERY YEAR (present 2020-2025, 2 of 14 years) — absent years come back as a marked all-NA column."
+tipocuestionario,rename,tipocuestionario,2020,2020,,,,intermittent,"tipo de cuestionario :: NOT COLLECTED EVERY YEAR (present 2020-2020, 1 of 14 years) — absent years come back as a marked all-NA column."
+tipoentrevista,rename,tipoentrevista,2020,2020,,,,intermittent,"tipo de entrevista :: NOT COLLECTED EVERY YEAR (present 2020-2020, 1 of 14 years) — absent years come back as a marked all-NA column."
+ubigeo,rename,ubigeo,2004,2025,,,,continuous,ubicación geografica :: QUESTION REWORDED across years — check for a redefinition.
+vivienda,rename,vivienda,2004,2025,,,,continuous,número de selección de la vivienda :: QUESTION REWORDED across years — check for a redefinition.

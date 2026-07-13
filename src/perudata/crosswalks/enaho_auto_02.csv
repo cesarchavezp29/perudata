@@ -1,0 +1,54 @@
+canonical,kind,raw,year_start,year_end,recode,unit,level,status,note
+a_o,rename,a_o,2004,2006,,,,confirmed,"año :: NOT COLLECTED EVERY YEAR (present 2004-2006, 2 of 22 years) — absent years come back as a marked all-NA column."
+aÑo,rename,aÑo,2005,2025,,,,confirmed,"año :: NOT COLLECTED EVERY YEAR (present 2005-2025, 20 of 22 years) — absent years come back as a marked all-NA column."
+codperso,rename,codperso,2004,2025,,,,continuous,código de persona :: QUESTION REWORDED across years — check for a redefinition.
+codtarea,rename,codtarea,2012,2025,,,,code_change,"código de tarea peligrosa o no, según tareas realizadas :: CODING MOVED UNDER A STABLE NAME — 2020: 0, 1 | 2025: 0. Do not pool on a code without checking the year."
+codtiempo,rename,codtiempo,2012,2025,,,,code_change,"código de tarea peligrosa o no, según horas a la semana :: CODING MOVED UNDER A STABLE NAME — 2020: 0, 1 | 2025: 0. Do not pool on a code without checking the year."
+conglome,rename,conglome,2004,2025,,,,continuous,número del conglomerado :: QUESTION REWORDED across years — check for a redefinition.
+dominio,rename,dominio,2004,2025,,,,label_change,dominio :: QUESTION REWORDED across years — check for a redefinition.
+estrato,rename,estrato,2004,2025,,,,label_change,estrato geográfico :: QUESTION REWORDED across years — check for a redefinition.
+facpob07,rename,facpob07,2004,2025,,,,continuous,factor de expanción de poblacion proyección cpv 2007 :: QUESTION REWORDED across years — check for a redefinition.
+factor_p,rename,factor_p,2020,2020,,,,continuous,"factor de expansión anual - tipo presencial - proyecciones cpv-2007 :: NOT COLLECTED EVERY YEAR (present 2020-2020, 1 of 22 years) — absent years come back as a marked all-NA column."
+hogar,rename,hogar,2004,2025,,,,continuous,hogar :: QUESTION REWORDED across years — check for a redefinition.
+i211d,rename,i211d,2012,2016,,,,continuous,"(imputado) ¿cuántas horas en total realizó estas tareas: ? :: NOT COLLECTED EVERY YEAR (present 2012-2016, 5 of 22 years) — absent years come back as a marked all-NA column."
+mes,rename,mes,2004,2025,,,,continuous,mes de ejecución de la encuesta :: QUESTION REWORDED across years — check for a redefinition.
+nconglome,rename,nconglome,2016,2025,,,,continuous,"número de conglomerado (proveniente del marco) :: NOT COLLECTED EVERY YEAR (present 2016-2025, 10 of 22 years) — absent years come back as a marked all-NA column."
+ocupac_r3,rename,ocupac_r3,2012,2025,,,,label_change,"código de tareas realizadas, según ocupaciones - ciou 88 :: NOT COLLECTED EVERY YEAR (present 2012-2025, 14 of 22 years) — absent years come back as a marked all-NA column."
+ocupac_r4,rename,ocupac_r4,2012,2025,,,,label_change,"código de tareas realizadas, según ocupaciones - ciou 2015 :: NOT COLLECTED EVERY YEAR (present 2012-2025, 14 of 22 years) — absent years come back as a marked all-NA column."
+p201p,rename,p201p,2004,2025,,,,continuous,código de la persona panel :: QUESTION REWORDED across years — check for a redefinition.
+p203,rename,p203,2004,2025,,,,code_change,"relación de parentesco con el jefe del hogar :: CODING MOVED UNDER A STABLE NAME — 2005: 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 | 2007: 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 | 2008: 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 | 2009: 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 | 2010: 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 | 2011: 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 | 2012: 0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 | 2013: 0, 1, 2. Do not pool on a code without checking the year."
+p203a,rename,p203a,2004,2025,,,,continuous,número de núcleo familiar :: QUESTION REWORDED across years — check for a redefinition.
+p203b,rename,p203b,2004,2025,,,,code_change,"relación de parentesco con el jefe del núcleo familiar :: CODING MOVED UNDER A STABLE NAME — 2005: 1, 2, 3, 6, 7 | 2007: 1, 2, 3, 6, 7 | 2008: 1, 2, 3, 6, 7 | 2009: 1, 2, 3, 6, 7 | 2010: 1, 2, 3, 6, 7 | 2011: 1, 2, 3, 6, 7 | 2012: 1, 2, 3, 6, 7 | 2013: 1, 2, 3, 6, 7 | 2014: 1, 2, 3, 6, 7 | 2015: 1, 2, 3, 6, 7 | 2016: 1, 2, 3, 6, 7 | 2017: 1, 2, 3, 6, 7 | 2018: 1, 2, 3, 6 | 2019: 1, 2, 3, 6 . Do not pool on a code without checking the year."
+p204,rename,p204,2004,2025,,,,label_change,¿ es miembro del hogar familiar ? :: QUESTION REWORDED across years — check for a redefinition.
+p205,rename,p205,2004,2025,,,,label_change,¿ se encuentra ausente del hogar 30 días o más ? :: QUESTION REWORDED across years — check for a redefinition.
+p206,rename,p206,2004,2025,,,,label_change,¿ está  presente en el hogar 30 días o más ? :: QUESTION REWORDED across years — check for a redefinition.
+p207,rename,p207,2004,2025,,,,stable,sexo
+p208a,rename,p208a,2004,2025,,,,continuous,¿ qué edad tiene en años cumplidos ? :: QUESTION REWORDED across years — check for a redefinition.
+p208a1,rename,p208a1,2004,2017,,,,label_change,"¿ nació en este distrito ? :: NOT COLLECTED EVERY YEAR (present 2004-2017, 14 of 22 years) — absent years come back as a marked all-NA column."
+p208a2,rename,p208a2,2004,2017,,,,continuous,"¿ en qué provincia y distrito nació ? :: NOT COLLECTED EVERY YEAR (present 2004-2017, 14 of 22 years) — absent years come back as a marked all-NA column."
+p208b,rename,p208b,2004,2025,,,,continuous,¿ qué edad tiene en años cumplidos ? ( sólo para menores de 1 año ) :: QUESTION REWORDED across years — check for a redefinition.
+p208b1,rename,p208b1,2008,2011,,,,intermittent,"¿el nacimiento de ... fue inscrito en la municipalidad? :: NOT COLLECTED EVERY YEAR (present 2008-2011, 4 of 22 years) — absent years come back as a marked all-NA column."
+p208c1,rename,p208c1,2008,2011,,,,intermittent,"¿la partida de nacimiento tiene nº de cui (código único de i :: NOT COLLECTED EVERY YEAR (present 2008-2011, 4 of 22 years) — absent years come back as a marked all-NA column."
+p208d1,rename,p208d1,2008,2011,,,,intermittent,"¿tiene dni? :: NOT COLLECTED EVERY YEAR (present 2008-2011, 4 of 22 years) — absent years come back as a marked all-NA column."
+p209,rename,p209,2004,2025,,,,label_change,¿cuál es su estado civil o conyugal ? :: QUESTION REWORDED across years — check for a redefinition.
+p210,rename,p210,2004,2025,,,,label_change,la semana pasada ¿estuvo trabajando o realizando alguna labor o tarea en el hoga :: QUESTION REWORDED across years — check for a redefinition.
+p211,rename,p211,2004,2011,,,,label_change,"la semana pasada ¿qué labores o tareas realizó en el hogar o fuera de él? :: NOT COLLECTED EVERY YEAR (present 2004-2011, 8 of 22 years) — absent years come back as a marked all-NA column."
+p211a,rename,p211a,2012,2025,,,,label_change,"actividad de la semana pasada :: NOT COLLECTED EVERY YEAR (present 2012-2025, 14 of 22 years) — absent years come back as a marked all-NA column."
+p211d,rename,p211d,2012,2025,,,,continuous,"¿ cuántas horas en total realizó estas tareas: ? :: NOT COLLECTED EVERY YEAR (present 2012-2025, 14 of 22 years) — absent years come back as a marked all-NA column."
+p212,rename,p212,2004,2025,,,,continuous,persona declarante del módulo educación :: QUESTION REWORDED across years — check for a redefinition.
+p213,rename,p213,2004,2025,,,,continuous,persona declarante del módulo salud :: QUESTION REWORDED across years — check for a redefinition.
+p214,rename,p214,2004,2025,,,,continuous,persona declarante del módulo empleo e ingresos :: QUESTION REWORDED across years — check for a redefinition.
+p215,rename,p215,2004,2025,,,,continuous,número de orden de la persona en el capítulo enaho 2002-iv ( sólo para la encues :: QUESTION REWORDED across years — check for a redefinition.
+p216,rename,p216,2004,2025,,,,continuous,persona nueva ( sólo para la encuesta panel ) :: QUESTION REWORDED across years — check for a redefinition.
+p217,rename,p217,2004,2025,,,,label_change,¿ porqué motivo ya no vive en este hogar ? ( solo para la encuesta panel ) :: QUESTION REWORDED across years — check for a redefinition.
+rama_3,rename,rama_3,2012,2019,,,,label_change,"código de actividad, según ciiu revisión3 :: NOT COLLECTED EVERY YEAR (present 2012-2019, 8 of 22 years) — absent years come back as a marked all-NA column."
+rama_4,rename,rama_4,2012,2019,,,,label_change,"código de actividad, según ciiu revisión4 :: NOT COLLECTED EVERY YEAR (present 2012-2019, 8 of 22 years) — absent years come back as a marked all-NA column."
+rama_r3,rename,rama_r3,2020,2025,,,,label_change,"código de actividades realizadas, según actividades - ciiu r3 :: NOT COLLECTED EVERY YEAR (present 2020-2025, 6 of 22 years) — absent years come back as a marked all-NA column."
+rama_r4,rename,rama_r4,2020,2025,,,,label_change,"código de actividades realizadas, según actividades - ciiu r4 :: NOT COLLECTED EVERY YEAR (present 2020-2025, 6 of 22 years) — absent years come back as a marked all-NA column."
+sub_conglome,rename,sub_conglome,2020,2025,,,,continuous,"número de subconglomerado (proveniente del marco) :: NOT COLLECTED EVERY YEAR (present 2020-2025, 6 of 22 years) — absent years come back as a marked all-NA column."
+t211,rename,t211,2004,2025,,,,code_change,"¿ qué labores o tareas realizó la semana pasada ? ( recodificado ) :: CODING MOVED UNDER A STABLE NAME — 2005: 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12 | 2007: 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12 | 2008: 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12 | 2009: 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12 | 2010: 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12 | 2011: 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12 | 2012: 1, 2, 3, 4, 5, 6, . Do not pool on a code without checking the year."
+ticuest01,rename,ticuest01,2011,2025,,,,label_change,"origen de cuestionario :: NOT COLLECTED EVERY YEAR (present 2011-2025, 15 of 22 years) — absent years come back as a marked all-NA column."
+tipocuestionario,rename,tipocuestionario,2020,2021,,,,code_change,"tipo de cuestionario :: CODING MOVED UNDER A STABLE NAME — 2020: 0, 1, 2 | 2021: 1, 2. Do not pool on a code without checking the year."
+tipoentrevista,rename,tipoentrevista,2020,2020,,,,intermittent,"tipo de entrevista :: NOT COLLECTED EVERY YEAR (present 2020-2020, 1 of 22 years) — absent years come back as a marked all-NA column."
+ubigeo,rename,ubigeo,2004,2025,,,,continuous,código de distrito ( ubicación geográfica ) :: QUESTION REWORDED across years — check for a redefinition.
+vivienda,rename,vivienda,2004,2025,,,,continuous,número de selección de la vivienda :: QUESTION REWORDED across years — check for a redefinition.

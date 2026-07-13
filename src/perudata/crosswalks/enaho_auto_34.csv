@@ -1,0 +1,217 @@
+canonical,kind,raw,year_start,year_end,recode,unit,level,status,note
+aÑo,rename,aÑo,2004,2025,,,,confirmed,"año :: NOT COLLECTED EVERY YEAR (present 2004-2025, 21 of 22 years) — absent years come back as a marked all-NA column."
+año,rename,año,2013,2013,,,,confirmed,"año :: NOT COLLECTED EVERY YEAR (present 2013-2013, 1 of 22 years) — absent years come back as a marked all-NA column."
+conglome,rename,conglome,2004,2025,,,,continuous,conglomerado :: QUESTION REWORDED across years — check for a redefinition.
+dominio,rename,dominio,2004,2025,,,,label_change,dominio :: QUESTION REWORDED across years — check for a redefinition.
+estrato,rename,estrato,2004,2025,,,,label_change,estrato geográfico :: QUESTION REWORDED across years — check for a redefinition.
+estrsocial,rename,estrsocial,2014,2025,,,,code_change,"estrato socio-económico :: CODING MOVED UNDER A STABLE NAME — 2014: 1, 2, 3, 4, 5 | 2015: 1, 2, 3, 4, 5, 6 | 2016: 1, 2, 3, 4, 5 | 2017: 1, 2, 3, 4, 5, 6 | 2018: 1, 2, 3, 4, 5, 6 | 2019: 1, 2, 3, 4, 5, 6 | 2020: 1, 2, 3, 4, 5, 6 | 2021: 1, 2, 3, 4, 5, 6 | 2022: 1, 2, 3, 4, 5, 6 | 2023: 1, 2, 3, 4, 5, 6 | 2024: 1, 2, 3, 4, 5, 6 | 2025: 1, 2, 3, 4, 5, 6. Do not pool on a code without checking the year."
+factor,rename,factor,2006,2006,,,,continuous,"factor de expansión :: NOT COLLECTED EVERY YEAR (present 2006-2006, 1 of 22 years) — absent years come back as a marked all-NA column."
+factor07,rename,factor07,2004,2025,,,,continuous,factor expansion ajustado a cpv 2007 :: QUESTION REWORDED across years — check for a redefinition.
+g01hd,rename,g01hd,2004,2011,,,,continuous,"gastos por ampliación del hogar - recursos propios :: NOT COLLECTED EVERY YEAR (present 2004-2011, 8 of 22 years) — absent years come back as a marked all-NA column."
+g05hd,rename,g05hd,2004,2025,,,,continuous,gastos por alimentos consumidos fuera del hogar - pagó :: QUESTION REWORDED across years — check for a redefinition.
+g05hd1,rename,g05hd1,2004,2025,,,,continuous,gastos por alimentos consumidos fuera del hogar en otro hogar- pagó :: QUESTION REWORDED across years — check for a redefinition.
+g05hd2,rename,g05hd2,2004,2025,,,,continuous,gastos por alimentos consumidos fuera del hogar prepara sus alimentos - pagó :: QUESTION REWORDED across years — check for a redefinition.
+g05hd3,rename,g05hd3,2004,2025,,,,continuous,gastos por alimentos consumidos fuera del hogar prepara sus alim en su centro de :: QUESTION REWORDED across years — check for a redefinition.
+g05hd4,rename,g05hd4,2004,2025,,,,continuous,gastos por alimentos consumidos fuera del hogar en el aula del centro educativo :: QUESTION REWORDED across years — check for a redefinition.
+g05hd5,rename,g05hd5,2004,2025,,,,continuous,gastos por alimentos consumidos fuera del hogar a autoconsumo
+g05hd6,rename,g05hd6,2004,2025,,,,continuous,gastos por alimentos consumidos fuera del hogar campamento - pagó :: QUESTION REWORDED across years — check for a redefinition.
+g07hd,rename,g07hd,2004,2025,,,,continuous,otros gastos - pagó :: QUESTION REWORDED across years — check for a redefinition.
+ga03hd,rename,ga03hd,2004,2025,,,,continuous,gasto por alquiler
+ga04hd,rename,ga04hd,2004,2025,,,,continuous,gasto por alquiler imputado
+gashog1d,rename,gashog1d,2004,2025,,,,continuous,gasto monetario :: QUESTION REWORDED across years — check for a redefinition.
+gashog21,rename,gashog21,2017,2020,,,,continuous,"gasto total , con inversion, con bienes libres, con invitacion familiar,con fies :: NOT COLLECTED EVERY YEAR (present 2017-2020, 4 of 22 years) — absent years come back as a marked all-NA column."
+gashog22,rename,gashog22,2017,2020,,,,continuous,"gasto total , sin inversion, con bienes libres, con invitacion familiar,con fies :: NOT COLLECTED EVERY YEAR (present 2017-2020, 4 of 22 years) — absent years come back as a marked all-NA column."
+gashog23,rename,gashog23,2017,2020,,,,continuous,"gasto total, con inversion, sin bienes libres, con invitacion familiar,con fiest :: NOT COLLECTED EVERY YEAR (present 2017-2020, 4 of 22 years) — absent years come back as a marked all-NA column."
+gashog24,rename,gashog24,2017,2020,,,,continuous,"gasto total, con inversion,con bienes libres,sin invitacion familiar,con fiestas :: NOT COLLECTED EVERY YEAR (present 2017-2020, 4 of 22 years) — absent years come back as a marked all-NA column."
+gashog25,rename,gashog25,2017,2020,,,,continuous,"gasto total ,con inversion, con bienes libres, con invitacion familiar,con fiest :: NOT COLLECTED EVERY YEAR (present 2017-2020, 4 of 22 years) — absent years come back as a marked all-NA column."
+gashog26,rename,gashog26,2017,2020,,,,continuous,"gasto total, sin inversion,sin bienes libres,sin invitacion familiar,sin fiestas :: NOT COLLECTED EVERY YEAR (present 2017-2020, 4 of 22 years) — absent years come back as a marked all-NA column."
+gashog2d,rename,gashog2d,2004,2025,,,,continuous,gasto total bruto
+gru11hd,rename,gru11hd,2004,2025,,,,continuous,grupo 1 : alimentos - gasto :: QUESTION REWORDED across years — check for a redefinition.
+gru12hd1,rename,gru12hd1,2004,2025,,,,continuous,"grupo 1 : alimentos - autoconsumo, autosuministro :: QUESTION REWORDED across years — check for a redefinition."
+gru12hd2,rename,gru12hd2,2004,2025,,,,continuous,grupo 1 : alimentos - pago en especie :: QUESTION REWORDED across years — check for a redefinition.
+gru13hd1,rename,gru13hd1,2004,2025,,,,continuous,grupo 1 : alimentos - donación pública :: QUESTION REWORDED across years — check for a redefinition.
+gru13hd2,rename,gru13hd2,2004,2025,,,,continuous,grupo 1 : alimentos - donación privada :: QUESTION REWORDED across years — check for a redefinition.
+gru13hd3,rename,gru13hd3,2004,2025,,,,continuous,grupo 1 : alimentos - otros gastos :: QUESTION REWORDED across years — check for a redefinition.
+gru13hd4,rename,gru13hd4,2004,2025,,,,continuous,grupo 1: alimentos consumidos dentro hogar -bienes libres
+gru14hd,rename,gru14hd,2004,2025,,,,continuous,alimentos preparados consumir en el hogar - pagado
+gru14hd1,rename,gru14hd1,2004,2025,,,,continuous,"alimentos preparados consumir en el hogar - autoconsumo , autosuministro"
+gru14hd2,rename,gru14hd2,2004,2025,,,,continuous,alimentos preparados consumir en el hogar - especie
+gru14hd3,rename,gru14hd3,2004,2025,,,,continuous,alimentos preparados consumir en el hogar - donado publico :: QUESTION REWORDED across years — check for a redefinition.
+gru14hd4,rename,gru14hd4,2004,2025,,,,continuous,alimentos preparados consumir en el hogar - donado privado
+gru14hd5,rename,gru14hd5,2004,2025,,,,continuous,alimentos preparados consumir en el hogar - otros
+gru14hd6,rename,gru14hd6,2004,2025,,,,continuous,grupo 1: alimentos consumidos fuera del hogar -bienes libres
+gru21hd,rename,gru21hd,2004,2025,,,,continuous,grupo 2 : vestido y calzado - gasto :: QUESTION REWORDED across years — check for a redefinition.
+gru22hd1,rename,gru22hd1,2004,2025,,,,continuous,"grupo 2 : vestido y calzado - autoconsumo, autosuministro :: QUESTION REWORDED across years — check for a redefinition."
+gru22hd2,rename,gru22hd2,2004,2025,,,,continuous,grupo 2 : vestido y calzado - pago en especie :: QUESTION REWORDED across years — check for a redefinition.
+gru23hd1,rename,gru23hd1,2004,2025,,,,continuous,grupo 2 : vestido y calzado - donacion publica :: QUESTION REWORDED across years — check for a redefinition.
+gru23hd2,rename,gru23hd2,2004,2025,,,,continuous,grupo 2 : vestido y calzado - donacion privada :: QUESTION REWORDED across years — check for a redefinition.
+gru23hd3,rename,gru23hd3,2004,2025,,,,continuous,grupo 2 : vestido y calzado - otros :: QUESTION REWORDED across years — check for a redefinition.
+gru24hd,rename,gru24hd,2004,2025,,,,continuous,"grupo 2 : vestido y calzado - no gasto, no sabe :: QUESTION REWORDED across years — check for a redefinition."
+gru31hd,rename,gru31hd,2004,2025,,,,continuous,"grupo 3 : alquiler de vivienda, combustible, electricidad y conservación de la v :: QUESTION REWORDED across years — check for a redefinition."
+gru32hd1,rename,gru32hd1,2004,2025,,,,continuous,"grupo 3 : alquiler de vivienda, combustible, electricidad y conservación de la v :: QUESTION REWORDED across years — check for a redefinition."
+gru32hd2,rename,gru32hd2,2004,2025,,,,continuous,"grupo 3 : alquiler de vivienda, combustible, electricidad y conservación de la v :: QUESTION REWORDED across years — check for a redefinition."
+gru33hd1,rename,gru33hd1,2004,2025,,,,continuous,"grupo 3 : alquiler de vivienda, combustible, electricidad y conservación de la v :: QUESTION REWORDED across years — check for a redefinition."
+gru33hd2,rename,gru33hd2,2004,2025,,,,continuous,"grupo 3 : alquiler de vivienda, combustible, electricidad y conservación de la v :: QUESTION REWORDED across years — check for a redefinition."
+gru33hd3,rename,gru33hd3,2004,2025,,,,continuous,"grupo 3 : alquiler de vivienda, combustible, electricidad y conservación de la v :: QUESTION REWORDED across years — check for a redefinition."
+gru34hd,rename,gru34hd,2004,2025,,,,continuous,"grupo 3 : alquiler de vivienda, combustible, electricidad y conservación de la v :: QUESTION REWORDED across years — check for a redefinition."
+gru35hd,rename,gru35hd,2004,2011,,,,continuous,"grupo 3: gasto en ampliacion o modificaciones de vivienda :: NOT COLLECTED EVERY YEAR (present 2004-2011, 8 of 22 years) — absent years come back as a marked all-NA column."
+gru35hd1,rename,gru35hd1,2004,2011,,,,continuous,"grupo 3: ingreso y gasto en ampliacion o modificacion de vivienda - autoconsumo :: NOT COLLECTED EVERY YEAR (present 2004-2011, 8 of 22 years) — absent years come back as a marked all-NA column."
+gru35hd2,rename,gru35hd2,2004,2011,,,,continuous,"grupo 3: ingreso y gasto en ampliacion o modificacion de vivienda - donado o reg :: NOT COLLECTED EVERY YEAR (present 2004-2011, 8 of 22 years) — absent years come back as a marked all-NA column."
+gru35hd3,rename,gru35hd3,2004,2011,,,,continuous,"grupo 3: ingreso y gasto en ampliacion o modificacion de vivienda - otros :: NOT COLLECTED EVERY YEAR (present 2004-2011, 8 of 22 years) — absent years come back as a marked all-NA column."
+gru41hd,rename,gru41hd,2004,2025,,,,continuous,"grupo 4 : muebles, enseres y mantenimiento de la vivienda - gasto :: QUESTION REWORDED across years — check for a redefinition."
+gru42hd1,rename,gru42hd1,2004,2025,,,,continuous,"grupo 4 : muebles, enseres y mantenimiento de la vivienda - autoconsumo, autosum :: QUESTION REWORDED across years — check for a redefinition."
+gru42hd2,rename,gru42hd2,2004,2025,,,,continuous,"grupo 4 : muebles, enseres y mantenimiento de la vivienda - pago en especie :: QUESTION REWORDED across years — check for a redefinition."
+gru43hd1,rename,gru43hd1,2004,2025,,,,continuous,"grupo 4 : muebles, enseres y mantenimiento de la vivienda - donación pública :: QUESTION REWORDED across years — check for a redefinition."
+gru43hd2,rename,gru43hd2,2004,2025,,,,continuous,"grupo 4 : muebles, enseres y mantenimiento de la vivienda - donación privada :: QUESTION REWORDED across years — check for a redefinition."
+gru43hd3,rename,gru43hd3,2004,2025,,,,continuous,"grupo 4 : muebles, enseres y mantenimiento de la vivienda - otros :: QUESTION REWORDED across years — check for a redefinition."
+gru44hd,rename,gru44hd,2004,2025,,,,continuous,"grupo 4 : muebles, enseres y mantenimiento de la vivienda - no gastó, no sabe :: QUESTION REWORDED across years — check for a redefinition."
+gru51hd,rename,gru51hd,2004,2025,,,,continuous,"grupo 5 : cuidado, conservación de la salud y servicios médicos - gasto :: QUESTION REWORDED across years — check for a redefinition."
+gru51hd1,rename,gru51hd1,2021,2021,,,,continuous,"grupo 5: cuidado, conservacion de la salud y servicios medicos - gasto covid 19 :: NOT COLLECTED EVERY YEAR (present 2021-2021, 1 of 22 years) — absent years come back as a marked all-NA column."
+gru52hd1,rename,gru52hd1,2004,2025,,,,continuous,"grupo 5 : cuidado, conservación de la salud y servicios médicos - autoconsumo, a :: QUESTION REWORDED across years — check for a redefinition."
+gru52hd11,rename,gru52hd11,2021,2021,,,,continuous,"grupo 5: cuidado, conservacion de la salud y servicios medicos - autoconsumo, au :: NOT COLLECTED EVERY YEAR (present 2021-2021, 1 of 22 years) — absent years come back as a marked all-NA column."
+gru52hd2,rename,gru52hd2,2004,2016,,,,continuous,"grupo 5 : cuidado, conservación de la salud y servicios médicos - pago en especi :: NOT COLLECTED EVERY YEAR (present 2004-2016, 13 of 22 years) — absent years come back as a marked all-NA column."
+gru53hd1,rename,gru53hd1,2004,2025,,,,continuous,"grupo 5 : cuidado, conservación de la salud y servicios médicos - donación públi :: QUESTION REWORDED across years — check for a redefinition."
+gru53hd11,rename,gru53hd11,2021,2021,,,,continuous,"grupo 5: cuidado, conservacion de la salud y servicios medicos - donacion public :: NOT COLLECTED EVERY YEAR (present 2021-2021, 1 of 22 years) — absent years come back as a marked all-NA column."
+gru53hd2,rename,gru53hd2,2004,2025,,,,continuous,"grupo 5 : cuidado, conservación de la salud y servicios médicos - donación priva :: QUESTION REWORDED across years — check for a redefinition."
+gru53hd21,rename,gru53hd21,2021,2021,,,,continuous,"grupo 5: cuidado, conservacion de la salud y servicios medicos - donacion privad :: NOT COLLECTED EVERY YEAR (present 2021-2021, 1 of 22 years) — absent years come back as a marked all-NA column."
+gru53hd3,rename,gru53hd3,2004,2025,,,,continuous,"grupo 5 : cuidado, conservación de la salud y servicios médicos - otros :: QUESTION REWORDED across years — check for a redefinition."
+gru53hd31,rename,gru53hd31,2021,2021,,,,continuous,"grupo 5: cuidado, conservacion de la salud y servicios medicos - otros covid 19 :: NOT COLLECTED EVERY YEAR (present 2021-2021, 1 of 22 years) — absent years come back as a marked all-NA column."
+gru53hd4,rename,gru53hd4,2004,2025,,,,continuous,"grupo 5 : cuidado, conservación de la salud y servicios médicos - bienes libres :: QUESTION REWORDED across years — check for a redefinition."
+gru54hd,rename,gru54hd,2004,2025,,,,continuous,"grupo 5 : cuidado, conservación de la salud y servicios médicos - no gastó, no s :: QUESTION REWORDED across years — check for a redefinition."
+gru54hd1,rename,gru54hd1,2021,2021,,,,continuous,"grupo 5: cuidado, conservacion de la salud y servicios medicos - no gasto, no sa :: NOT COLLECTED EVERY YEAR (present 2021-2021, 1 of 22 years) — absent years come back as a marked all-NA column."
+gru61hd,rename,gru61hd,2004,2025,,,,continuous,grupo 6 : transportes y comunicaciones - gasto :: QUESTION REWORDED across years — check for a redefinition.
+gru62hd1,rename,gru62hd1,2004,2025,,,,continuous,"grupo 6 : transportes y comunicaciones - autoconsumo, autosuministro :: QUESTION REWORDED across years — check for a redefinition."
+gru62hd2,rename,gru62hd2,2004,2025,,,,continuous,grupo 6 : transportes y comunicaciones - pago en especie :: QUESTION REWORDED across years — check for a redefinition.
+gru63hd1,rename,gru63hd1,2004,2025,,,,continuous,grupo 6 : transportes y comunicaciones - donación pública :: QUESTION REWORDED across years — check for a redefinition.
+gru63hd2,rename,gru63hd2,2004,2025,,,,continuous,grupo 6 : transportes y comunicaciones - donación privada :: QUESTION REWORDED across years — check for a redefinition.
+gru63hd3,rename,gru63hd3,2004,2025,,,,continuous,grupo 6 : transportes y comunicaciones - otros :: QUESTION REWORDED across years — check for a redefinition.
+gru64hd,rename,gru64hd,2004,2025,,,,continuous,"grupo 6 : transportes y comunicaciones - no gasto, no sabe :: QUESTION REWORDED across years — check for a redefinition."
+gru71hd,rename,gru71hd,2004,2025,,,,continuous,"grupo 7 : esparcimiento, diversión, servicios culturales y de enseñanza - gasto :: QUESTION REWORDED across years — check for a redefinition."
+gru72hd1,rename,gru72hd1,2004,2025,,,,continuous,"grupo 7 : esparcimiento, diversión, servicios culturales y de enseñanza - autoco :: QUESTION REWORDED across years — check for a redefinition."
+gru72hd2,rename,gru72hd2,2004,2025,,,,continuous,"grupo 7 : esparcimiento, diversión, servicios culturales y de enseñanza - pago e :: QUESTION REWORDED across years — check for a redefinition."
+gru73hd1,rename,gru73hd1,2004,2025,,,,continuous,"grupo 7 : esparcimiento, diversión, servicios culturales y de enseñanza - donaci :: QUESTION REWORDED across years — check for a redefinition."
+gru73hd2,rename,gru73hd2,2004,2025,,,,continuous,"grupo 7 : esparcimiento, diversión, servicios culturales y de enseñanza - donaci :: QUESTION REWORDED across years — check for a redefinition."
+gru73hd3,rename,gru73hd3,2004,2025,,,,continuous,"grupo 7 : esparcimiento, diversión, servicios culturales y de enseñanza - otros :: QUESTION REWORDED across years — check for a redefinition."
+gru74hd,rename,gru74hd,2004,2025,,,,continuous,"grupo 7 : esparcimiento, diversión, servicios culturales y de enseñanza - no gas :: QUESTION REWORDED across years — check for a redefinition."
+gru81hd,rename,gru81hd,2004,2025,,,,continuous,grupo 8 : otros bienes y servicios - gasto :: QUESTION REWORDED across years — check for a redefinition.
+gru82hd1,rename,gru82hd1,2004,2025,,,,continuous,"grupo 8 : otros bienes y servicios - autoconsumo, autosuministro :: QUESTION REWORDED across years — check for a redefinition."
+gru82hd2,rename,gru82hd2,2004,2025,,,,continuous,grupo 8 : otros bienes y servicios - pago en especie :: QUESTION REWORDED across years — check for a redefinition.
+gru83hd1,rename,gru83hd1,2004,2025,,,,continuous,grupo 8 : otros bienes y servicios - donación pública :: QUESTION REWORDED across years — check for a redefinition.
+gru83hd2,rename,gru83hd2,2004,2025,,,,continuous,grupo 8 : otros bienes y servicios - donación privada :: QUESTION REWORDED across years — check for a redefinition.
+gru83hd3,rename,gru83hd3,2004,2025,,,,continuous,grupo 8 : otros bienes y servicios - otros :: QUESTION REWORDED across years — check for a redefinition.
+gru83hd4,rename,gru83hd4,2004,2025,,,,continuous,grupo 8: alimentos para mascotas - bien libre
+gru84hd,rename,gru84hd,2004,2025,,,,continuous,"grupo 8 : otros bienes y servicios - no gastó, no sabe :: QUESTION REWORDED across years — check for a redefinition."
+gru84hd1,rename,gru84hd1,2004,2025,,,,continuous,grupo 8 : otros bienes y servicios fiestas familiares y sociales - pagado :: QUESTION REWORDED across years — check for a redefinition.
+gru85hd1,rename,gru85hd1,2004,2025,,,,continuous,"grupo 8 : otros bienes y servicios fiestas familiares y sociales- autoconsumo, a :: QUESTION REWORDED across years — check for a redefinition."
+gru86hd1,rename,gru86hd1,2004,2025,,,,continuous,grupo 8 : otros bienes y servicios fiestas familiares y sociales- donado privado :: QUESTION REWORDED across years — check for a redefinition.
+gru86hd2,rename,gru86hd2,2004,2025,,,,continuous,grupo 8 : otros bienes y servicios fiestas familiares y sociales- donado - otro :: QUESTION REWORDED across years — check for a redefinition.
+gru87hd,rename,gru87hd,2004,2025,,,,continuous,"grupo 8 : otros bienes y servicios fiestas familiares y sociales-  no gastó, no :: QUESTION REWORDED across years — check for a redefinition."
+hogar,rename,hogar,2004,2025,,,,continuous,hogar :: QUESTION REWORDED across years — check for a redefinition.
+ia01hd,rename,ia01hd,2004,2025,,,,continuous,ingreso alquiler imputado de la vivienda
+ia02hd,rename,ia02hd,2004,2025,,,,continuous,ingreso por transferencia de alquiler
+ig02hd1,rename,ig02hd1,2004,2012,,,,continuous,"ingresos y gastos por ampliación del hogar - autosuministro :: NOT COLLECTED EVERY YEAR (present 2004-2012, 9 of 22 years) — absent years come back as a marked all-NA column."
+ig02hd2,rename,ig02hd2,2004,2012,,,,continuous,"ingresos y gastos por ampliación del hogar - donacion, regalado :: NOT COLLECTED EVERY YEAR (present 2004-2012, 9 of 22 years) — absent years come back as a marked all-NA column."
+ig02hd3,rename,ig02hd3,2004,2012,,,,continuous,"otro :: NOT COLLECTED EVERY YEAR (present 2004-2012, 9 of 22 years) — absent years come back as a marked all-NA column."
+ig02hd4,rename,ig02hd4,2012,2012,,,,continuous,"obtecion de credito o préstamo destinado:comprar  construccion de vivienda nueva :: NOT COLLECTED EVERY YEAR (present 2012-2012, 1 of 22 years) — absent years come back as a marked all-NA column."
+ig03hd,rename,ig03hd,2004,2011,,,,continuous,"ingresos y gasto por ampliación del hogar - crédito total :: NOT COLLECTED EVERY YEAR (present 2004-2011, 8 of 22 years) — absent years come back as a marked all-NA column."
+ig03hd1,rename,ig03hd1,2013,2025,,,,continuous,"credito, compra casa, departamento :: NOT COLLECTED EVERY YEAR (present 2013-2025, 13 of 22 years) — absent years come back as a marked all-NA column."
+ig03hd2,rename,ig03hd2,2013,2025,,,,continuous,"credito, comprar terreno para vivienda :: NOT COLLECTED EVERY YEAR (present 2013-2025, 13 of 22 years) — absent years come back as a marked all-NA column."
+ig03hd3,rename,ig03hd3,2013,2025,,,,continuous,"credito mejoramiento y/o ampliación de la vivienda :: NOT COLLECTED EVERY YEAR (present 2013-2025, 13 of 22 years) — absent years come back as a marked all-NA column."
+ig03hd4,rename,ig03hd4,2013,2025,,,,continuous,"credito,construcción de nueva vivienda :: NOT COLLECTED EVERY YEAR (present 2013-2025, 13 of 22 years) — absent years come back as a marked all-NA column."
+ig04hd,rename,ig04hd,2004,2011,,,,continuous,"gastos por amortización del crédito :: NOT COLLECTED EVERY YEAR (present 2004-2011, 8 of 22 years) — absent years come back as a marked all-NA column."
+ig06hd,rename,ig06hd,2004,2025,,,,continuous,ingresos y gastos por alimentos consumidos fuera del hogar :: QUESTION REWORDED across years — check for a redefinition.
+ig06hd1,rename,ig06hd1,2004,2025,,,,continuous,ingresos y gastos por alimentos consumidos fuera del hogar - otro hogar :: QUESTION REWORDED across years — check for a redefinition.
+ig06hd2,rename,ig06hd2,2004,2025,,,,continuous,ingresos y gastos por alimentos consumidos fuera del hogar - prepara sus aliment :: QUESTION REWORDED across years — check for a redefinition.
+ig06hd3,rename,ig06hd3,2004,2025,,,,continuous,ingresos y gastos por alimentos consumidos fuera del hogar - prepara sus alim en :: QUESTION REWORDED across years — check for a redefinition.
+ig06hd4,rename,ig06hd4,2004,2025,,,,continuous,ingresos y gastos por alimentos consumidos fuera del hogar- aula de su centro ed :: QUESTION REWORDED across years — check for a redefinition.
+ig06hd5,rename,ig06hd5,2004,2025,,,,continuous,ingresos y gastos por alimentos consumidos fuera del hogar - autonsumo :: QUESTION REWORDED across years — check for a redefinition.
+ig06hd6,rename,ig06hd6,2004,2025,,,,continuous,ingresos y gastos por alimentos consumidos fuera del hogar - campamento :: QUESTION REWORDED across years — check for a redefinition.
+ig08hd,rename,ig08hd,2004,2025,,,,continuous,"ingresos y gastos, otros - no pagó :: QUESTION REWORDED across years — check for a redefinition."
+ingauthd,rename,ingauthd,2004,2025,,,,continuous,ingreso por autoconsumo de la actividad principal independiente
+ingbruhd,rename,ingbruhd,2004,2025,,,,continuous,ingreso bruto actividad principal monetaria (dependiente)
+ingexthd,rename,ingexthd,2004,2025,,,,continuous,ingresos extraordinarios por trabajo
+inghog1d,rename,inghog1d,2004,2025,,,,continuous,ingreso bruto total :: QUESTION REWORDED across years — check for a redefinition.
+inghog1d1,rename,inghog1d1,2020,2021,,,,continuous,"ingreso bruto total-encuesta :: NOT COLLECTED EVERY YEAR (present 2020-2021, 2 of 22 years) — absent years come back as a marked all-NA column."
+inghog2d,rename,inghog2d,2004,2025,,,,continuous,ingreso neto total
+inghog2d1,rename,inghog2d1,2020,2021,,,,continuous,"ingreso neto total-encuesta :: NOT COLLECTED EVERY YEAR (present 2020-2021, 2 of 22 years) — absent years come back as a marked all-NA column."
+ingindhd,rename,ingindhd,2004,2025,,,,continuous,ingreso por actividad principal independiente
+ingmo1hd,rename,ingmo1hd,2004,2025,,,,continuous,ingreso monetario (bruto)
+ingmo1hd1,rename,ingmo1hd1,2021,2021,,,,continuous,"ingreso monetario (bruto encuesta) :: NOT COLLECTED EVERY YEAR (present 2021-2021, 1 of 22 years) — absent years come back as a marked all-NA column."
+ingmo2hd,rename,ingmo2hd,2004,2025,,,,continuous,ingreso monetario  (neto) :: QUESTION REWORDED across years — check for a redefinition.
+ingmo2hd1,rename,ingmo2hd1,2021,2021,,,,continuous,"ingreso monetario (neto encuesta) :: NOT COLLECTED EVERY YEAR (present 2021-2021, 1 of 22 years) — absent years come back as a marked all-NA column."
+ingnethd,rename,ingnethd,2004,2025,,,,continuous,ingreso neto de la actividad principal monetario (dependiente)
+ingoexhd,rename,ingoexhd,2004,2025,,,,continuous,otros ingresos extraordinarios
+ingotrhd,rename,ingotrhd,2004,2025,,,,continuous,"otras transacciones :: NOT COLLECTED EVERY YEAR (present 2004-2025, 18 of 22 years) — absent years come back as a marked all-NA column."
+ingpeihd,rename,ingpeihd,2004,2016,,,,continuous,"ingreso permanente de la actividad principal independiente :: NOT COLLECTED EVERY YEAR (present 2004-2016, 13 of 22 years) — absent years come back as a marked all-NA column."
+ingrenhd,rename,ingrenhd,2004,2025,,,,continuous,ingreso por rentas de la propiedad monetaria
+ingseihd,rename,ingseihd,2004,2025,,,,continuous,ingreso neto de la actividad secundaria independiente
+ingtexhd,rename,ingtexhd,2004,2025,,,,continuous,ingreso por transferencias corrientes del extranjero
+ingtprhd,rename,ingtprhd,2004,2025,,,,continuous,ingreso por transferencia corrientes privada
+ingtpu01,rename,ingtpu01,2006,2025,,,,continuous,"ingreso por transferencia corrientes publica juntos :: NOT COLLECTED EVERY YEAR (present 2006-2025, 20 of 22 years) — absent years come back as a marked all-NA column."
+ingtpu01a,rename,ingtpu01a,2021,2021,,,,continuous,"ingreso por transferencias corrientes publicas: juntos- encuesta- registro admin :: NOT COLLECTED EVERY YEAR (present 2021-2021, 1 of 22 years) — absent years come back as a marked all-NA column."
+ingtpu02,rename,ingtpu02,2006,2025,,,,continuous,"ingreso por transferencias corrientes publicas otros :: NOT COLLECTED EVERY YEAR (present 2006-2025, 20 of 22 years) — absent years come back as a marked all-NA column."
+ingtpu021,rename,ingtpu021,2020,2021,,,,continuous,"ingreso por transferencias corrientes  públicas otros-encuesta :: NOT COLLECTED EVERY YEAR (present 2020-2021, 2 of 22 years) — absent years come back as a marked all-NA column."
+ingtpu03,rename,ingtpu03,2012,2025,,,,continuous,"ingreso por transferencias corrientes públicas pension 65 :: NOT COLLECTED EVERY YEAR (present 2012-2025, 14 of 22 years) — absent years come back as a marked all-NA column."
+ingtpu03a,rename,ingtpu03a,2021,2021,,,,continuous,"ingreso por transferencias corrientes publicas: pension 65- encuesta- registro a :: NOT COLLECTED EVERY YEAR (present 2021-2021, 1 of 22 years) — absent years come back as a marked all-NA column."
+ingtpu04,rename,ingtpu04,2012,2025,,,,continuous,"ingreso por transferencias corrientes públicas beca 18 :: NOT COLLECTED EVERY YEAR (present 2012-2025, 14 of 22 years) — absent years come back as a marked all-NA column."
+ingtpu05,rename,ingtpu05,2013,2025,,,,continuous,"ingreso por transferencias corrientes públicas bono del gas :: NOT COLLECTED EVERY YEAR (present 2013-2025, 13 of 22 years) — absent years come back as a marked all-NA column."
+ingtpu06,rename,ingtpu06,2020,2022,,,,continuous,"ingreso por transferencias corrientes públicas bono yo me quedo en casa :: NOT COLLECTED EVERY YEAR (present 2020-2022, 3 of 22 years) — absent years come back as a marked all-NA column."
+ingtpu061,rename,ingtpu061,2020,2021,,,,continuous,"ingreso por transferencias corrientes públicas bono yo me quedo en casa-encuesta :: NOT COLLECTED EVERY YEAR (present 2020-2021, 2 of 22 years) — absent years come back as a marked all-NA column."
+ingtpu07,rename,ingtpu07,2020,2022,,,,continuous,"ingreso por transferencias corrientes públicas bono independiente :: NOT COLLECTED EVERY YEAR (present 2020-2022, 3 of 22 years) — absent years come back as a marked all-NA column."
+ingtpu071,rename,ingtpu071,2020,2020,,,,continuous,"ingreso por transferencias corrientes públicas bono independiente-encuesta :: NOT COLLECTED EVERY YEAR (present 2020-2020, 1 of 22 years) — absent years come back as a marked all-NA column."
+ingtpu08,rename,ingtpu08,2020,2022,,,,continuous,"ingreso por transferencias corrientes públicas bono rural :: NOT COLLECTED EVERY YEAR (present 2020-2022, 3 of 22 years) — absent years come back as a marked all-NA column."
+ingtpu081,rename,ingtpu081,2020,2021,,,,continuous,"ingreso por transferencias corrientes públicas bono rural-encuesta :: NOT COLLECTED EVERY YEAR (present 2020-2021, 2 of 22 years) — absent years come back as a marked all-NA column."
+ingtpu09,rename,ingtpu09,2020,2022,,,,continuous,"ingreso por transferencias corrientes públicas bono familiar universal :: NOT COLLECTED EVERY YEAR (present 2020-2022, 3 of 22 years) — absent years come back as a marked all-NA column."
+ingtpu091,rename,ingtpu091,2020,2021,,,,continuous,"ingreso por transferencias corrientes públicas bono familiar universal-encuesta :: NOT COLLECTED EVERY YEAR (present 2020-2021, 2 of 22 years) — absent years come back as a marked all-NA column."
+ingtpu10,rename,ingtpu10,2021,2025,,,,continuous,"ingreso por transferencias corrientes publicas: bono electricidad :: NOT COLLECTED EVERY YEAR (present 2021-2025, 5 of 22 years) — absent years come back as a marked all-NA column."
+ingtpu11,rename,ingtpu11,2021,2025,,,,continuous,"ingreso por transf.corrientes publica: bono niño :: NOT COLLECTED EVERY YEAR (present 2021-2025, 5 of 22 years) — absent years come back as a marked all-NA column."
+ingtpu12,rename,ingtpu12,2021,2025,,,,continuous,"ingreso por transferencias corriente publica: bono onp :: NOT COLLECTED EVERY YEAR (present 2021-2025, 5 of 22 years) — absent years come back as a marked all-NA column."
+ingtpu13,rename,ingtpu13,2021,2025,,,,continuous,"ingreso por transferencias corriente publica: programa contigo :: NOT COLLECTED EVERY YEAR (present 2021-2025, 5 of 22 years) — absent years come back as a marked all-NA column."
+ingtpu13a,rename,ingtpu13a,2021,2021,,,,continuous,"ingreso por transferencias corriente publica: programa contigo- encuesta- regist :: NOT COLLECTED EVERY YEAR (present 2021-2021, 1 of 22 years) — absent years come back as a marked all-NA column."
+ingtpu14,rename,ingtpu14,2021,2024,,,,continuous,"ingreso por transferencias corrientes publicas: bono yanapay- encuesta-registro :: NOT COLLECTED EVERY YEAR (present 2021-2024, 4 of 22 years) — absent years come back as a marked all-NA column."
+ingtpu141,rename,ingtpu141,2021,2021,,,,continuous,"ingreso por transferencia: bono yanapay- encuesta :: NOT COLLECTED EVERY YEAR (present 2021-2021, 1 of 22 years) — absent years come back as a marked all-NA column."
+ingtpu15,rename,ingtpu15,2021,2024,,,,continuous,"ingreso por transferencias corrientes publicas: bono 600- encuesta-registro admi :: NOT COLLECTED EVERY YEAR (present 2021-2024, 4 of 22 years) — absent years come back as a marked all-NA column."
+ingtpu151,rename,ingtpu151,2021,2021,,,,continuous,"ingreso por transferencia: bono 600- encuesta :: NOT COLLECTED EVERY YEAR (present 2021-2021, 1 of 22 years) — absent years come back as a marked all-NA column."
+ingtpu16,rename,ingtpu16,2022,2024,,,,continuous,"ingreso por transferencias corrientes públicas bono alimentario :: NOT COLLECTED EVERY YEAR (present 2022-2024, 3 of 22 years) — absent years come back as a marked all-NA column."
+ingtpuhd,rename,ingtpuhd,2004,2025,,,,continuous,ingreso por transferencia corrientes publica
+ingtpuhd1,rename,ingtpuhd1,2020,2021,,,,continuous,"ingreso por transferencia corrientes publica-encuesta :: NOT COLLECTED EVERY YEAR (present 2020-2021, 2 of 22 years) — absent years come back as a marked all-NA column."
+ingtrahd,rename,ingtrahd,2004,2025,,,,continuous,ingreso por transferencias corrientes monetarias del pais
+ingtrahd1,rename,ingtrahd1,2020,2021,,,,continuous,"ingreso por transferencias corrientes monetarias del pais-encuesta :: NOT COLLECTED EVERY YEAR (present 2020-2021, 2 of 22 years) — absent years come back as a marked all-NA column."
+insedlhd,rename,insedlhd,2004,2025,,,,continuous,ingreso neto de la actividad secundaria dependiente
+insedthd,rename,insedthd,2004,2025,,,,continuous,ingreso bruto de la actividad secundaria dependiente
+insedthd1,rename,insedthd1,2020,2022,,,,continuous,"ingreso bruto de la actividad secundaria (cuestionario reducido) :: NOT COLLECTED EVERY YEAR (present 2020-2022, 3 of 22 years) — absent years come back as a marked all-NA column."
+isecauhd,rename,isecauhd,2004,2025,,,,continuous,ingreso por autoconsumo de la actividad secundaria independiente
+ld,rename,ld,2012,2025,,,,continuous,"deflactor espacial :: NOT COLLECTED EVERY YEAR (present 2012-2025, 14 of 22 years) — absent years come back as a marked all-NA column."
+linea,rename,linea,2004,2025,,,,continuous,linea de pobreza total :: QUESTION REWORDED across years — check for a redefinition.
+lineav,rename,lineav,2020,2025,,,,continuous,"linea corriente de vulnerabilidad :: NOT COLLECTED EVERY YEAR (present 2020-2025, 6 of 22 years) — absent years come back as a marked all-NA column."
+lineav_rpl,rename,lineav_rpl,2020,2020,,,,continuous,"linea real de vulnerabilidad - base 2018 a precios de lima metropolitana con cal :: NOT COLLECTED EVERY YEAR (present 2020-2020, 1 of 22 years) — absent years come back as a marked all-NA column."
+linpe,rename,linpe,2004,2025,,,,continuous,linea de pobreza alimentaria :: QUESTION REWORDED across years — check for a redefinition.
+mes,rename,mes,2004,2025,,,,continuous,mes de ejecución de la encuesta :: QUESTION REWORDED across years — check for a redefinition.
+mieperho,rename,mieperho,2004,2025,,,,continuous,total de miembros del hogar
+nconglome,rename,nconglome,2016,2025,,,,continuous,"número de conglomerado (proveniente del marco) :: NOT COLLECTED EVERY YEAR (present 2016-2025, 10 of 22 years) — absent years come back as a marked all-NA column."
+paesechd,rename,paesechd,2004,2025,,,,continuous,ingreso pago en especie de la actividad secundaria dependiente
+paesechd1,rename,paesechd1,2020,2022,,,,continuous,"ingreso pago en especie de la actividad secundaria (cuestionario reducido) :: NOT COLLECTED EVERY YEAR (present 2020-2022, 3 of 22 years) — absent years come back as a marked all-NA column."
+pagesphd,rename,pagesphd,2004,2025,,,,continuous,ingreso por pago en especie de la actividad principal
+percepho,rename,percepho,2004,2025,,,,continuous,total de perceptores de ingresos
+pobreza,rename,pobreza,2004,2025,,,,label_change,pobreza :: QUESTION REWORDED across years — check for a redefinition.
+pobrezav,rename,pobrezav,2020,2025,,,,label_change,"pobreza y vulnerabilidad :: NOT COLLECTED EVERY YEAR (present 2020-2025, 6 of 22 years) — absent years come back as a marked all-NA column."
+sg23,rename,sg23,2004,2025,,,,continuous,gastos por alimentos para consumir dentro del hogar
+sg25,rename,sg25,2004,2025,,,,continuous,gastos por alimentos consumidos fuera del hogar (menores de 14 años)
+sg27,rename,sg27,2023,2025,,,,continuous,"gastos por alimentos consumidos por ollas comunes :: NOT COLLECTED EVERY YEAR (present 2023-2025, 3 of 22 years) — absent years come back as a marked all-NA column."
+sg42,rename,sg42,2004,2025,,,,continuous,"gastos por equipamiento del hogar comprados- equipos tv,computa,sonido :: QUESTION REWORDED across years — check for a redefinition."
+sg421,rename,sg421,2004,2025,,,,continuous,gastos por equipamiento del hogar comprados- electrtrodomesticos :: QUESTION REWORDED across years — check for a redefinition.
+sg422,rename,sg422,2004,2025,,,,continuous,gastos por equipamiento del hogar comprados - transporte
+sg423,rename,sg423,2004,2025,,,,continuous,gastos por equipamiento del hogar comprados- otros :: QUESTION REWORDED across years — check for a redefinition.
+sg42d,rename,sg42d,2004,2025,,,,continuous,"gastos por equipamiento del hogar adquiridos - equipos tv,computa,sonido :: QUESTION REWORDED across years — check for a redefinition."
+sg42d1,rename,sg42d1,2004,2025,,,,continuous,gastos por equipamiento del hogar adquiridos- electrtrodomesticos :: QUESTION REWORDED across years — check for a redefinition.
+sg42d2,rename,sg42d2,2004,2025,,,,continuous,gastos por equipamiento del hogar adquiridos- transporte :: QUESTION REWORDED across years — check for a redefinition.
+sg42d3,rename,sg42d3,2004,2025,,,,continuous,gastos por equipamiento del hogar adquiridos- otros :: QUESTION REWORDED across years — check for a redefinition.
+sig24,rename,sig24,2004,2025,,,,continuous,ingresos y gastos por alimentos para consumir en el hogar
+sig26,rename,sig26,2004,2025,,,,continuous,ingresos y gastos por alimentos consumidos fuera del hogar (menores de 14 años)
+sig28,rename,sig28,2023,2025,,,,continuous,"ingresos y gastos por alimentos consumidos por ollas comunes :: NOT COLLECTED EVERY YEAR (present 2023-2025, 3 of 22 years) — absent years come back as a marked all-NA column."
+sub_conglome,rename,sub_conglome,2020,2025,,,,continuous,"número de subconglomerado (proveniente del marco) :: NOT COLLECTED EVERY YEAR (present 2020-2025, 6 of 22 years) — absent years come back as a marked all-NA column."
+tipocuestionario,rename,tipocuestionario,2020,2020,,,,intermittent,"tipo de cuestionario :: NOT COLLECTED EVERY YEAR (present 2020-2020, 1 of 22 years) — absent years come back as a marked all-NA column."
+tipoentrevista,rename,tipoentrevista,2020,2020,,,,intermittent,"tipo de entrevista :: NOT COLLECTED EVERY YEAR (present 2020-2020, 1 of 22 years) — absent years come back as a marked all-NA column."
+totmieho,rename,totmieho,2004,2025,,,,continuous,total de personas en el hogar
+ubigeo,rename,ubigeo,2004,2025,,,,continuous,ubicación geografica :: QUESTION REWORDED across years — check for a redefinition.
+vivienda,rename,vivienda,2004,2025,,,,continuous,número de selección de la vivienda :: QUESTION REWORDED across years — check for a redefinition.
