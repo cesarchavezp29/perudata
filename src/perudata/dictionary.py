@@ -35,6 +35,10 @@ def _load():
                 "catalogs/enaho_dictionary.csv.gz").open("rb") as f:
             _DICT = pd.read_csv(f, compression="gzip", encoding="utf-8",
                                 dtype={"module": str, "column": str})
+        # modules are two-digit strings ("01"), but a bare read turns "01" into
+        # "1" for anything that round-tripped through a number. Normalize, or
+        # every lookup for module "01" silently returns nothing.
+        _DICT["module"] = _DICT["module"].astype(str).str.zfill(2)
     return _DICT
 
 
