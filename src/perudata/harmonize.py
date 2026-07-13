@@ -304,6 +304,34 @@ def _d_enaho05(d, canonical, year=None):
     if canonical == "informal_official":
         return (pd.to_numeric(d["ocupinf"], errors="coerce") == 1
                 if "ocupinf" in d.columns else None)
+
+    if canonical == "informal_source":
+        # WHICH SOURCE PRODUCED `informal` IN THIS ROW. Without this column the
+        # series contains INVISIBLE METHOD BREAKS: 2006 (constructed, 83.5) ->
+        # 2007 (ocupinf, 80.1) looks like a 3.5-point collapse in informality and
+        # is mostly the source switching. Measured bias of the constructed rule
+        # against INEI's own flag:
+        #     2007-2011 (INEI's pre-2012 method):  +2.61 pp (over-estimates)
+        #     2012-2023 (INEI's direct method)  :  -2.04 pp, shrinking to -0.8
+        #                                          by 2023
+        # So 2005-2006 constructed values run ~2.6pp HOT (84.6 / 83.5 raw ->
+        # ~82 / ~81 comparable), while 2024-2025 run ~0.8-1.0pp COLD (72.5 / 71.8
+        # raw -> ~73.3 / ~72.7 comparable). Never plot this series without
+        # splitting or annotating by this column.
+        y = int(year) if year else 2025
+        if "ocupinf" in d.columns and pd.to_numeric(
+                d["ocupinf"], errors="coerce").notna().mean() > 0.5:
+            return pd.Series("ocupinf (INEI official)", index=d.index)
+        sal = np.isin(pd.to_numeric(d.get("p507"), errors="coerce").values, [3, 4, 6])
+        occ = pd.to_numeric(d.get("ocu500"), errors="coerce") == 1
+        m = occ & pd.Series(sal, index=d.index)
+        cov = (1 - pd.to_numeric(d.get("p511a"), errors="coerce")[m].isna().mean()
+               if m.any() else 0.0)
+        if cov < 0.8:
+            return pd.Series("NOT CONSTRUCTIBLE", index=d.index)
+        return pd.Series(
+            f"constructed ({'pre-2012 rule, runs ~+2.6pp hot' if y <= 2011 else 'post-2012 rule, runs ~0.8-1.0pp cold'})",
+            index=d.index)
     return None
 
 
