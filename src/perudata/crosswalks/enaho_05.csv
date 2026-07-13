@@ -1,0 +1,17 @@
+canonical,kind,raw,year_start,year_end,recode,unit,level,status,note
+year,rename,año,2004,2025,,year,person,confirmed,raw name is non-ASCII (año)
+cluster,rename,conglome,2004,2025,,id,person,confirmed,JOIN KEY 1/4 — normalized before any join
+dwelling,rename,vivienda,2004,2025,,id,person,confirmed,JOIN KEY 2/4
+household,rename,hogar,2004,2025,,id,person,confirmed,JOIN KEY 3/4
+person,rename,codperso,2004,2025,,id,person,confirmed,JOIN KEY 4/4
+weight_employment,rename,fac500a,2004,2025,,weight,person,confirmed,"THE WEIGHT FOR THIS MODULE, and factor07 IS NOT EVEN PRESENT HERE — verified absent in 2004, 2014, 2020 and 2025. Any employment statistic uses fac500a. A merge that drags factor07 in from another module and then weights by it is silently wrong."
+employed,derive,ocu500,2004,2025,ocu500 == 1,bool,person,confirmed,"occupied (PEA ocupada). ocu500 == 1 is stable in every vintage 2004-2025."
+employment_status,rename,ocu500,2004,2025,,code,person,confirmed,"1=ocupado. Other codes distinguish unemployed / inactive — check the year's codebook before assuming the full set."
+occupational_category,rename,p507,2004,2025,,code,person,confirmed,"employer / independiente / empleado / obrero / trabajador familiar no remunerado / trabajador del hogar. Codes stable across the four vintages tested."
+industry_ciiu,rename,p506r4,2004,2025,,code,person,verify,"industry. p506r4 is present in every year, but ENAHO MIGRATES the underlying classification (CIIU rev3 -> rev4) — the column name survives the change. Do not pool raw industry codes across the break without checking."
+hours_worked,rename,p513t,2004,2025,,hours_week,person,verify,total hours worked in the week. Confirm the reference period before comparing to an official figure.
+income_dependent_year,rename,i524a1,2004,2025,,soles_year_nominal,person,verify,"annual income from dependent (salaried) work. NOMINAL — never deflated by the standardizer. Confirm whether it is net or gross before publishing a level."
+income_independent_year,rename,i530a,2004,2025,,soles_year_nominal,person,verify,annual income from independent work. NOMINAL. Confirm definition before use.
+work_contract,rename,p511a,2004,2025,,code,person,verify,"type of contract. CODES NOT STABLE: 2004 and 2020 carry a code 8 that 2014 and 2025 do not. Check per year."
+firm_size,rename,p512a,2004,2025,,code,person,verify,size of the establishment. Confirm the bracket definitions per year before pooling.
+second_job,rename,p519,2004,2025,,code,person,verify,"has a secondary occupation. CODES NOT STABLE: 1/2 through 2020, a code 3 appears in 2025."

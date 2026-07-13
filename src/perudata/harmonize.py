@@ -111,7 +111,59 @@ def _d_enaho02(d, canonical):
     return None
 
 
-DERIVERS = {("enaho", "34"): _d_enaho34, ("enaho", "02"): _d_enaho02}
+def _d_enaho03(d, canonical):
+    if canonical == "literate":
+        # p302 is CONDITIONAL: INEI skips it when schooling already implies
+        # literacy, so 75k of 108k rows are null. Only an explicit "no" is
+        # illiterate; the skipped are literate. Dividing by respondents gives
+        # 40% instead of the official 4.8%.
+        return d["p302"] != 2
+    if canonical == "illiterate":
+        return d["p302"] == 2
+    if canonical == "enrolled":
+        return d["p306"] == 1
+    if canonical == "attending":
+        return d["p307"] == 1
+    return None
+
+
+INSURANCE = [f"p419{i}" for i in range(1, 9)]
+
+
+def _d_enaho04(d, canonical):
+    # p4191-p4198 are coded 0/1 in 2004 and 1/2 from 2014 -- the NAME never
+    # changed. "== 1" is right in every year; "== 2" or "!= 1" is silently wrong
+    # for 2004-2013.
+    one = {
+        "has_insurance_essalud": "p4191", "has_insurance_private": "p4192",
+        "has_insurance_eps": "p4193", "has_insurance_ffaa": "p4194",
+        "has_insurance_sis": "p4195", "has_insurance_university": "p4196",
+        "has_insurance_school": "p4197", "has_insurance_other": "p4198",
+    }
+    if canonical in one:
+        return d[one[canonical]] == 1
+    if canonical == "has_insurance_any":
+        cols = [c for c in INSURANCE if c in d.columns]
+        return (d[cols] == 1).any(axis=1)
+    if canonical == "disability_any":
+        cols = [f"p401h{i}" for i in range(1, 7) if f"p401h{i}" in d.columns]
+        return (d[cols] == 1).any(axis=1) if cols else None
+    return None
+
+
+def _d_enaho05(d, canonical):
+    if canonical == "employed":
+        return d["ocu500"] == 1
+    return None
+
+
+DERIVERS = {
+    ("enaho", "34"): _d_enaho34,
+    ("enaho", "02"): _d_enaho02,
+    ("enaho", "03"): _d_enaho03,
+    ("enaho", "04"): _d_enaho04,
+    ("enaho", "05"): _d_enaho05,
+}
 
 
 def _needed_raw(row) -> list[str]:

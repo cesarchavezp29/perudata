@@ -1,0 +1,15 @@
+canonical,kind,raw,year_start,year_end,recode,unit,level,status,note
+year,rename,año,2004,2025,,year,person,confirmed,raw name is non-ASCII (año)
+cluster,rename,conglome,2004,2025,,id,person,confirmed,JOIN KEY 1/4 — normalized before any join (2004-2006 pad ids differently across modules)
+dwelling,rename,vivienda,2004,2025,,id,person,confirmed,JOIN KEY 2/4
+household,rename,hogar,2004,2025,,id,person,confirmed,JOIN KEY 3/4
+person,rename,codperso,2004,2025,,id,person,confirmed,JOIN KEY 4/4
+weight_education,rename,factora07,2004,2025,,weight,person,confirmed,"THE WEIGHT FOR THIS MODULE, and it is NOT factor07. CONFIRMED against INEI's published illiteracy: factora07 gives 5.55 / 4.78 / 4.65 for 2019 / 2023 / 2024 against official 5.6 / 4.8 / 4.6. Using factor07 instead gives 7.29 / 6.34 / 6.33 — an inflation of ~1.5pp, a 32% relative error. Every education statistic must use this weight."
+weight_hh,rename,factor07,2004,2025,,weight,person,confirmed,"household expansion factor, carried in this module. Do NOT use it for education rates — see weight_education."
+literate,derive,p302,2004,2025,not (p302 == 2),bool,person,confirmed,"p302 is 'sabe leer y escribir' but it is a CONDITIONAL question: only ~33k of 108k people are asked (INEI skips it when schooling already implies literacy), so 75k are null. Illiterate = answered NO. Everyone else in the universe is literate, INCLUDING the skipped. Dividing by respondents only gives 40% illiteracy instead of 4.8%."
+illiterate,derive,p302,2004,2025,p302 == 2,bool,person,confirmed,"the official rate is over the 15+ population. Anchor: 4.78% in 2023 vs INEI 4.8% (weight_education, ages 15+)."
+education_level,rename,p301a,2004,2025,,code,person,confirmed,"last level approved. 1-11 stable 2004-2025; CODE 12 (basica especial) ADDED in 2020 — a new category appended, not a remap, so pooling is safe as long as 12 is handled."
+language_first,rename,p300a,2004,2025,,code,person,verify,"mother tongue. CODES ARE NOT STABLE: 1-4 (quechua/aimara/otra nativa/castellano) hold, but code 5 disappears after 2013 and codes 9-15 appear in 2020. Indigenous = 1-3 is safe; anything beyond that must be checked per year."
+enrolled,derive,p306,2004,2025,p306 == 1,bool,person,confirmed,enrolled this year in a basic/higher education programme
+attending,derive,p307,2004,2025,p307 == 1,bool,person,confirmed,currently attending. INEI's attendance rate = enrolled AND attending.
+literacy_programme,rename,p302a,2004,2025,,code,person,verify,received a literacy programme in the last 12 months (marginal counts — 51 yes in 2023)

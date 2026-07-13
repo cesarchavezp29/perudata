@@ -132,7 +132,19 @@ def load(csv_code: str, out: str | Path | None = None,
     if not fs:
         raise RuntimeError(f"could not obtain EEA {csv_code}")
     main = max(fs, key=lambda p: p.stat().st_size)
-    kwargs = {"encoding": "latin-1", "low_memory": False}
+    # EEA ships a MIX of ',' and ';' delimited files across vintages -- the 2015
+    # block is ';'. Reading a ';' file as ',' does not fail: it returns ONE
+    # column holding the whole line, silently. 23 of 52 modules came back like
+    # that (33,350 rows x 1 col) and still looked "ok" to a row-count check.
+    with open(main, "r", encoding="latin-1", errors="replace") as f:
+        header = f.readline()
+    sep = max([",", ";", "\t", "|"], key=header.count)
+    kwargs = {"encoding": "latin-1", "low_memory": False, "sep": sep}
     kwargs.update(read_csv_kwargs)
     df = pd.read_csv(main, **kwargs)
+    if df.shape[1] == 1:
+        raise _core.CorruptMember(
+            str(main), main.name,
+            f"parsed to a single column with sep={sep!r} — the delimiter is not "
+            f"one of , ; tab | . Header starts: {header[:80]!r}")
     return _core.clean_columns(df)
