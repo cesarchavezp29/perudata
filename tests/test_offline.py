@@ -105,13 +105,16 @@ def test_normalize_keys_fixes_2004_and_is_idempotent_on_clean_keys():
     assert harmonize.normalize_keys(s2)["conglome"].tolist() == s2["conglome"].tolist()
 
 
-def test_combine_refuses_item_modules_instead_of_exploding_rows():
+def test_item_modules_are_aggregated_never_joined_raw():
     """Module 07 is HOUSEHOLD-ITEM (267 rows per household in 2025). Joining it
-    like a household module would multiply the row count and quietly corrupt any
-    weighted statistic. combine() must refuse, not comply."""
+    raw would multiply the row count and corrupt every weighted statistic, so it
+    must be AGGREGATED to one row per household first. And an item module with no
+    household module to anchor on must refuse rather than guess a universe."""
     import pytest
-    with pytest.raises(ValueError, match="ITEM-level"):
-        enaho.combine(2025, ["34", "07"], level="person")
+    assert "07" in enaho.ITEM_MODULES
+    assert "07" not in enaho.HOUSEHOLD_MODULES
+    with pytest.raises(ValueError, match="anchor on"):
+        enaho.combine(2025, ["07"], level="household")
 
 
 def test_panel_roster_1314_only_exists_in_2016_2017():

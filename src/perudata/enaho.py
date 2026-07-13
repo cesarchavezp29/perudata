@@ -232,6 +232,45 @@ PERSON_KEY = HH_KEY + ["codperso"]
 # them rather than silently exploding the row count.
 HOUSEHOLD_MODULES = {"01", "34", "37", "84", "85"}
 PERSON_MODULES = {"02", "03", "04", "05", "25", "28"}
+# item modules: MANY rows per household (a product, an expense, a crop). They can
+# be joined only after being AGGREGATED to the household.
+ITEM_MODULES = {"07", "08", "09", "10", "11", "12", "13", "15", "16", "17", "18",
+                "22", "23", "24", "26", "27", "77", "78"}
+
+
+def aggregate_item_module(year: int, module: str, out: str | Path | None = None):
+    """Collapse an ITEM module to ONE ROW PER HOUSEHOLD: spend_m<NN>.
+
+    The rule is the sum of the module's annualized value columns (i6NN*) per
+    household.
+
+    READ THIS BEFORE USING IT AS SPENDING:
+    This is the module's own spending DETAIL. It is NOT how INEI builds the
+    official household total, and it does not reconcile to it. INEI constructs
+    gashog2d inside SUMARIA from its gru*hd columns (see INEI's
+    01_ConstrVarGastoIngreso do-file: gpcrg3 = (gru11hd + gru12hd1 + ...)/...).
+    Summing the item modules instead gives a median household ratio of 1.06 and
+    a weighted total 10% BELOW gashog2d — it both double-counts and misses.
+
+    So: use this for COMPOSITION (what a household spends on, item by item) and
+    take the official household total from sumaria's spending_hh / gashog2d.
+    """
+    import pandas as pd
+    from . import harmonize as _h
+
+    d = load(year, module, out=out)
+    d = _h.normalize_keys(d)
+    ivals = [c for c in d.columns
+             if c[:1] == "i" and c[1:4].isdigit()]
+    if not ivals:
+        raise ValueError(f"module {module} has no i6NN value columns to aggregate")
+    v = d[ivals].sum(axis=1, min_count=1)
+    g = (v.groupby([d[c] for c in HH_KEY]).sum()
+         .rename(f"spend_m{module}").reset_index())
+    g.attrs["aggregated_from"] = {"module": module, "value_cols": ivals,
+                                  "rule": "sum of i6NN columns per household",
+                                  "not_official_total": True}
+    return g
 
 
 def combine(year: int, modules: list[str] | None = None,
@@ -262,13 +301,15 @@ def combine(year: int, modules: list[str] | None = None,
     from . import harmonize as _h
 
     modules = [str(m).zfill(2) for m in (modules or ["34", "02"])]
+    item_mods = [m for m in modules if m in ITEM_MODULES]
+    modules = [m for m in modules if m not in ITEM_MODULES]
     bad = [m for m in modules
            if m not in HOUSEHOLD_MODULES and m not in PERSON_MODULES]
     if bad:
         raise ValueError(
-            f"module(s) {bad} are ITEM-level (many rows per household: a product, "
-            f"an expense). Joining them here would multiply your rows. Aggregate "
-            f"them to household/person first, then merge.")
+            f"module(s) {bad} have no known granularity. Household modules: "
+            f"{sorted(HOUSEHOLD_MODULES)}; person: {sorted(PERSON_MODULES)}; "
+            f"item: {sorted(ITEM_MODULES)}.")
     if level == "household" and any(m in PERSON_MODULES for m in modules):
         raise ValueError(
             f"level='household' but {[m for m in modules if m in PERSON_MODULES]} "
@@ -318,6 +359,28 @@ def combine(year: int, modules: list[str] | None = None,
                 "anchor_rows_matched_pct": round(
                     100 * hit / before, 2) if before else 0.0,
                 "rows_in_module_outside_anchor_universe": max(len(d) - hit, 0),
+            })
+
+    # ITEM modules: aggregated to one row per household, then LEFT-joined onto the
+    # anchor. A household with no rows in the module gets NaN, not a fake zero --
+    # "did not report this item" and "spent 0" are different facts.
+    if item_mods:
+        if base is None:
+            raise ValueError(
+                f"item module(s) {item_mods} aggregate to the HOUSEHOLD, so they "
+                f"need a household module to anchor on (e.g. '34').")
+        for m in item_mods:
+            agg = aggregate_item_module(year, m, out=out)
+            before = len(base)
+            base = base.merge(agg, on=HH_KEY, how="left")
+            hit = base[f"spend_m{m}"].notna().sum()
+            meta["steps"].append({
+                "module": m, "role": "ITEM aggregated to household (sum i6NN)",
+                "rows": len(base),
+                "anchor_rows_matched_pct": round(100 * hit / before, 2)
+                if before else 0.0,
+                "warning": "module spending DETAIL — does NOT reconcile to the "
+                           "official gashog2d, which sumaria builds from gru*hd",
             })
 
     if level == "household":
