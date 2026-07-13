@@ -20,6 +20,7 @@ Files land in ./peru_raw (override with out= or the PERUDATA_DIR env var):
 """
 from __future__ import annotations
 
+import re
 from pathlib import Path
 
 from . import _core
@@ -230,7 +231,10 @@ PERSON_KEY = HH_KEY + ["codperso"]
 # granularity per module, verified empirically (one row per what?).
 # ITEM modules must be AGGREGATED before they can be joined -- combine() refuses
 # them rather than silently exploding the row count.
-HOUSEHOLD_MODULES = {"01", "34", "37", "84", "85"}
+HOUSEHOLD_MODULES = {"01", "34", "84", "85"}
+# 37 is NOT a plain household module: it flips between WIDE (1 row/hh) and LONG
+# (2.4-4.2 rows/hh) formats twice. It always goes through aggregate_programmes().
+COLLAPSE_MODULES = {"37"}
 PERSON_MODULES = {"02", "03", "04", "05", "25", "28"}
 # item modules: MANY rows per household (a product, an expense, a crop). They can
 # be joined only after being AGGREGATED to the household.
@@ -273,6 +277,138 @@ def aggregate_item_module(year: int, module: str, out: str | Path | None = None)
     return g
 
 
+# module 37 (social programmes) changes its PHYSICAL FORMAT twice and back:
+#   2004-2011  LONG  (2.2-2.4 rows/household, codperso + p702 = food-aid recipients)
+#   2012-2020  WIDE  (1 row/household, p710_NN flags)
+#   2021-2024  LONG  (2.4-4.2 rows/household, p712 = one row per person x programme)
+#   2025       WIDE  again
+# So it can never be joined as-is. This collapses ANY era to one row per household.
+PROGRAMMES = {"juntos": ("juntos", "apoyo directo"), "pension65": ("pension 65",)}
+# p712 (the LONG era) ships no value labels in the MAIN .dta -- they live in the
+# `700b` SUBFILE of each year's zip. The mapping below is therefore CONFIRMED from
+# INEI's own labels (4=Juntos, 5=Pension 65), not inferred. Level continuity
+# agrees with it: Pension 65 runs 6.15% (2020, WIDE) -> 6.19% 2021 -> 8.67% 2024
+# (LONG) -> 9.54% 2025 (WIDE), a smooth ramp across two format changes.
+P712_CODES = {"juntos": 4, "pension65": 5}
+
+
+def _programme_columns(year: int, df) -> dict:  # noqa: D401
+    """Which p710_NN slot holds which programme, THIS year.
+
+    The slots are RENUMBERED: JUNTOS is p710_03 in 2012-2013 and p710_04 from
+    2014, while Pension 65 stays at p710_05. The programme name is NOT in the
+    column label (that is a truncated question stem) -- it is in the VALUE LABEL
+    of code 1. So map by value label and the renumbering cannot bite.
+    """
+    from . import dictionary as _dic
+    from . import harmonize as _h
+    out = {}
+    for canon, needles in PROGRAMMES.items():
+        for c in df.columns:
+            if not re.fullmatch(r"p710_\d+", c):
+                continue
+            vl = _dic.value_labels(c, year, "37")
+            # ACCENTS: the value label is 'programa pension 65' in some years and
+            # 'programa pension 65' with an accent in others. A raw substring match
+            # silently missed the programme in every accented year (Pension 65 read
+            # 0.00% in 2014/2019/2020). Squash accents on BOTH sides.
+            name = _h._squash(str(vl.get("1", "")))
+            if any(_h._squash(n) in name for n in needles):
+                out[canon] = c
+                break
+    # FALLBACK: 2018 and 2019 ship NO value labels for p710_* at all, so the
+    # label lookup finds nothing and coverage silently reads 0.00%. INEI's
+    # questionnaire (CED-01-700A) gives the slot map, verified in ENAHO_ANALYSIS:
+    #   JUNTOS     = p710_03 in 2012-2013, p710_04 from 2014 (Wawa Wasi split in
+    #                two and pushed Juntos one slot along)
+    #   PENSION 65 = p710_05 in every year
+    slots = {"juntos": "p710_03" if year <= 2013 else "p710_04",
+             "pension65": "p710_05"}
+    for canon, c in slots.items():
+        if canon not in out and c in df.columns:
+            out[canon] = c
+    return out
+
+
+def aggregate_programmes(year: int, out: str | Path | None = None):
+    """Module 37 collapsed to ONE ROW PER HOUSEHOLD, in any era.
+
+    Returns household keys + a boolean per programme (prog_juntos,
+    prog_pension65). Household with no row in the module = False, not NaN: the
+    LONG-era file only carries BENEFICIARIES, so absence IS 'did not receive'.
+    The denominator therefore has to be anchored on sumaria, which combine() does.
+
+    CAVEAT, and it is a real one: the RECALL WINDOW of these questions CHANGES.
+    In 2014-2015 the question is 'en los ultimos tres MESES'; by 2020 it is 'en
+    los ultimos tres ANOS'. Same variable, same codes, a different question --
+    coverage levels are NOT comparable across that break.
+    """
+    import pandas as pd
+    from . import harmonize as _h
+
+    d = _h.normalize_keys(load(year, "37", out=out))
+    res = d[HH_KEY].drop_duplicates().copy()
+
+    if "p712" in d.columns:                       # LONG era (2021-2024)
+        code = pd.to_numeric(d["p712"], errors="coerce")
+        for canon, val in P712_CODES.items():
+            hits = d.loc[code == val, HH_KEY].drop_duplicates()
+            hits[f"prog_{canon}"] = True
+            res = res.merge(hits, on=HH_KEY, how="left")
+    else:                                          # WIDE era (2012-2020, 2025)
+        cols = _programme_columns(year, d)
+        for canon, c in cols.items():
+            hits = d.loc[pd.to_numeric(d[c], errors="coerce") == 1,
+                         HH_KEY].drop_duplicates()
+            hits[f"prog_{canon}"] = True
+            res = res.merge(hits, on=HH_KEY, how="left")
+
+    for canon in PROGRAMMES:
+        c = f"prog_{canon}"
+        if c not in res.columns:
+            # 2004-2011 asks a DIFFERENT question (p702 = who received FOOD AID),
+            # so these programmes genuinely do not exist there. NA, not False.
+            res[c] = pd.NA
+        else:
+            res[c] = res[c].fillna(False)
+
+    # THE RECALL WINDOW DOES NOT CHANGE -- and the .dta LABEL LIES ABOUT IT.
+    # The p710 labels read "en los ultimos tres MESES" in 2014-2019 and "tres
+    # ANOS" from 2020, which looks like an invisible definitional break. It is not
+    # one. INEI's questionnaire (CED-01-700A) asks about the last THREE YEARS in
+    # all of them; the 2014-2019 label is simply stale. THE DATA CONFIRMS IT:
+    # Juntos coverage is 9.55% (2014), 11.24% (2020), 10.74% (2025) -- no jump at
+    # the supposed break, whereas a real 3-months -> 3-years switch would have
+    # multiplied it. Trusting the label alone would have manufactured a break that
+    # does not exist. (Questionnaire + label + empirical distribution: never one
+    # source alone.)
+    # CONSEQUENCE for the user: coverage means "received AT SOME POINT IN THE LAST
+    # THREE YEARS", so it sits ABOVE point-in-time enrolment -- by design.
+    # MACHINE-READABLE value only. A free-text qualifier in the cell would split
+    # the series on a groupby into "3_anios" and "3_anios (INFERRED...)" -- the
+    # honesty note would silently fracture the very series it is warning about.
+    # The qualifier goes in its own boolean.
+    is_long = "p712" in d.columns
+    # 3 years in EVERY era, per CED-01-700A. The 2014-2019 "tres meses" label is
+    # an INEI labelling error, contradicted by the questionnaire and by the flat
+    # coverage across the supposed break.
+    window, confirmed = "3_anios", True
+    res["prog_recall_window"] = window
+    res["prog_window_confirmed"] = confirmed
+    res.attrs["era"] = ("LONG p712" if "p712" in d.columns
+                        else "WIDE p710" if any(re.fullmatch(r"p710_\d+", c)
+                                                for c in d.columns)
+                        else "OLD p702 (different question: food aid)")
+    res.attrs["recall_window"] = window
+    res.attrs["window_confirmed"] = confirmed
+    # There is NO overlap year: every year ships exactly ONE format, so a
+    # household-level reconciliation between the wide and long eras CANNOT be
+    # done. The mapping rests on level continuity across the boundary, which is
+    # weaker evidence than a per-household match. Stated, not hidden.
+    res.attrs["cross_era_check"] = "no overlap year exists — level continuity only"
+    return res
+
+
 def combine(year: int, modules: list[str] | None = None,
             level: str = "person", out: str | Path | None = None,
             anchor: str | None = None, harmonize: bool = True):
@@ -302,7 +438,9 @@ def combine(year: int, modules: list[str] | None = None,
 
     modules = [str(m).zfill(2) for m in (modules or ["34", "02"])]
     item_mods = [m for m in modules if m in ITEM_MODULES]
-    modules = [m for m in modules if m not in ITEM_MODULES]
+    collapse_mods = [m for m in modules if m in COLLAPSE_MODULES]
+    modules = [m for m in modules
+               if m not in ITEM_MODULES and m not in COLLAPSE_MODULES]
     bad = [m for m in modules
            if m not in HOUSEHOLD_MODULES and m not in PERSON_MODULES]
     if bad:
@@ -414,6 +552,35 @@ def combine(year: int, modules: list[str] | None = None,
                 "warning": "module spending DETAIL — does NOT reconcile to the "
                            "official gashog2d, which sumaria builds from gru*hd",
             })
+
+    # module 37: collapsed to one row per household FIRST, in whatever era it is
+    for m in collapse_mods:
+        if base is None:
+            raise ValueError(
+                f"module {m} collapses to the HOUSEHOLD, so it needs a household "
+                f"module to anchor on (e.g. '34').")
+        agg = aggregate_programmes(year, out=out)
+        window = agg.attrs["recall_window"]
+        confirmed = agg.attrs["window_confirmed"]
+        agg = agg.drop(columns=["prog_recall_window", "prog_window_confirmed"],
+                       errors="ignore")
+        before = len(base)
+        base = base.merge(agg, on=HH_KEY, how="left")
+        # the LONG-era file carries ONLY beneficiaries, so a household absent from
+        # it did NOT receive the programme -- False, not NaN. Anchor the denominator
+        # on sumaria (which combine already does) or coverage is computed over
+        # beneficiaries only and reads ~16% instead of ~9%.
+        for c in [c for c in base.columns if c.startswith("prog_")]:
+            base[c] = base[c].fillna(False)
+        base["prog_recall_window"] = window          # a YEAR fact, on every row
+        base["prog_window_confirmed"] = confirmed    # False = inferred, not stated
+        meta["steps"].append({
+            "module": m, "role": f"COLLAPSED to household ({agg.attrs['era']})",
+            "rows": len(base),
+            "recall_window": agg.attrs["recall_window"],
+            "warning": "recall window changes 3-meses (2014-2019) -> 3-anios "
+                       "(2020+); no overlap year exists to reconcile the eras",
+        })
 
     if level == "household":
         if base is None:
