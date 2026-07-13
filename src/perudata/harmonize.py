@@ -19,11 +19,61 @@ Derived variables are NAMED PYTHON FUNCTIONS, not eval'd strings. The crosswalk'
 """
 from __future__ import annotations
 
+import re
+import unicodedata
 from importlib import resources
 from pathlib import Path
 
 # id columns that must be normalized before any join, in any ENAHO module
 KEY_COLS = ("conglome", "vivienda", "hogar", "codperso")
+
+
+def _squash(name: str) -> str:
+    """Lower-case, strip accents, drop every non-ASCII-alphanumeric character, so
+    the same concept spelled differently collapses to one token.
+
+    NOTE: a plain isalnum() filter is NOT enough — 'ñ'.isalnum() is True in
+    Python, so 'año' would survive as 'año' and never match 'ano'. Decompose to
+    NFKD and keep ASCII only.
+    """
+    import unicodedata
+    s = unicodedata.normalize("NFKD", str(name).lower())
+    return "".join(ch for ch in s if ch.isascii() and ch.isalnum())
+
+
+# EVERY ENAHO module-year has a year column. It is just spelled a different way
+# almost every time, INCLUDING as corrupted bytes:
+#   'año' (341 module-years) | 'a_o' (62) | a mangled 'a?o' variant (5)
+#   'aÑo' in 2025 module 85, whose real bytes are b'a\xc3\x83\xe2\x80\x98o' --
+#         'año' double-encoded, i.e. MOJIBAKE, which squashes to 'aao'
+# An exact token list is always one vintage behind a new encoding accident, so
+# match by SHAPE (a...o) and then CHECK THE VALUES look like years.
+# NOTE: `periodo` is NOT the year (it is 'periodo de ejecucion de la encuesta',
+# values 1-5) and `mes` is the month.
+YEAR_RE = re.compile(r"^(a[a-z]{0,3}o|anio|year)$")
+
+
+def find_year_col(df, expect: int | None = None) -> str | None:
+    """The year column, whatever INEI spelled or mis-encoded it this vintage.
+
+    Matched by shape, then VALIDATED on its values: a column only counts if it
+    actually holds plausible years (1996-2100), so a coincidental name match
+    cannot quietly become the year.
+    """
+    import pandas as pd
+    cands = [c for c in df.columns if YEAR_RE.match(_squash(c))]
+    if not cands:
+        return None
+    if len(df) == 0:                    # metadata-only frame: nothing to validate
+        return cands[0]
+    for c in cands:
+        v = pd.to_numeric(df[c], errors="coerce").dropna()
+        if v.empty:
+            continue
+        if v.between(1996, 2100).mean() > 0.99:
+            if expect is None or int(v.mode().iloc[0]) == int(expect):
+                return c
+    return None
 
 _CACHE: dict[tuple[str, str], object] = {}
 
@@ -205,6 +255,24 @@ def apply(df, survey: str, module: str | int, year: int | None = None):
 
         need = _needed_raw(row)
         missing = [r for r in need if r not in out.columns]
+
+        # `year` is spelled FOUR ways across ENAHO ('año', 'a_o', a mangled byte
+        # variant, and 'aÑo'). EVERY module-year has one -- resolve it by shape,
+        # never by a hard-coded name.
+        if canon == "year":
+            col = find_year_col(out)
+            if col is not None:
+                out[canon] = pd.to_numeric(out[col], errors="coerce")
+                cov.append({"canonical": canon, "resolved": True, "raw": col,
+                            "reason": ""})
+                continue
+            if year is not None:      # last resort: we always know what we asked for
+                out[canon] = int(year)
+                cov.append({"canonical": canon, "resolved": True, "raw": "",
+                            "reason": "no year column found — filled from the "
+                                      "requested year"})
+                continue
+
         if missing:
             # STABLE SCHEMA: absent -> all-NA column, and SAY SO. Never silent.
             out[canon] = pd.NA
