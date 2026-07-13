@@ -299,17 +299,46 @@ def build_recode(module: str | int, column: str, years: list[int] | None = None,
             ym[c] = hit
         maps[y] = ym
 
-    # INVARIANT 3: a year with no labels whose code set matches a labelled year's
-    # is the same coding -- adopt that year's map wholesale.
+    # INVARIANT 3 -- AND ITS LIMIT, WHICH IS THE WHOLE POINT.
+    #
+    # A year with no labels whose code set matches a labelled year's is PROBABLY the
+    # same coding, so the map can be carried. But "probably" is where the silent
+    # error lives: nothing in an unlabelled year can CONTRADICT the assertion. And
+    # for a near-50/50 categorical, a full si<->no REVERSAL of the carried ids moves
+    # the weighted shares LESS than the variable's own legitimate year-to-year drift
+    # -- at ANY bracket width. So trend-checking is structurally blind to it. No
+    # tolerance fixes that; it is not a parameter, it is a limit.
+    #
+    # Therefore: POPULATED IMPLIES CHECKABLE. A carry-forward is asserted ONLY where
+    # a reversal WOULD have been visible. Where it would not, the year is left
+    # UNMAPPED -- the `_h` column is NA there.
+    #
+    # NA is honest: "we could not confirm this, you decide". A populated column that
+    # might be silently reversed is STRICTLY WORSE than the raw column, because the
+    # raw one at least announces itself as unmapped, while a confidently-labelled
+    # flipped column is exactly the failure this whole filter exists to prevent --
+    # and a warning in .attrs does not reach the person doing df.groupby.
     for y in sorted(observed):
         if y in labelled:
             continue
         same = [yy for yy in labelled if observed.get(yy) == observed[y]]
-        if same:
-            src = max(same)
-            maps[y] = dict(maps[src])
+        if not same:
             audit.append({"year": y, "raw": None, "canonical": None,
-                          "why": f"no labels; code set equals {src} — map carried"})
+                          "why": "no labels and no code-set match — left NA"})
+            continue
+        src = max(same)
+        lo = [yy for yy in labelled if yy < y]
+        hi = [yy for yy in labelled if yy > y]
+        if not lo or not hi:
+            # extrapolation, not interpolation: nothing brackets it
+            audit.append({"year": y, "raw": None, "canonical": None,
+                          "why": "carry not bracketed on both sides (extrapolation)"
+                                 " — left NA, not asserted"})
+            continue
+        maps[y] = dict(maps[src])
+        audit.append({"year": y, "raw": None, "canonical": None,
+                      "why": f"no labels; code set equals {src} — map carried, "
+                             f"bracketed by {lo[-1]} and {hi[0]}"})
 
     # THE GUARD: a recode may never lose a row. If any observed code fails to map,
     # the recode refuses itself rather than silently shrinking a denominator.
