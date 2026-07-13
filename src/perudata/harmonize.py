@@ -137,9 +137,19 @@ def stability(module: str | int, status: str | None = None):
     in the files:
 
       stable       — present every year, value labels never move
-      code_change  — THE CODING MOVED UNDER A STABLE NAME. 546 variables do this.
-                     It is the silent-error class: the health-insurance flags go
-                     from 0/1 to 1/2 in 2012 while the name and the label stay put.
+      code_change  — THE CODING MOVED UNDER A STABLE NAME (detected from the
+                     LABELS). The silent-error class: the health-insurance flags go
+                     from 0/1 to 1/2 in 2012 while name and label stay put.
+      recode_confirmed — the coding move is confirmed FROM THE DATA, by a MINIMUM
+                     SHIFT (0/1 -> 1/2). *** THIS IS A FLOOR, NOT A TOTAL. *** The
+                     test cannot see a recode whose minimum is stable: a category
+                     redefined mid-range, or two categories merging. Those are a
+                     KNOWN BLIND SPOT and are not yet scanned.
+
+    AND NOTE WHAT THIS IS NOT: these statuses DETECT drift. They do not FIX it.
+    A flagged raw column pooled across the break still gives you garbage -- you
+    just get told it might. Only the hand-written canonical columns (has_insurance_*,
+    informal, ...) are actually STABILIZED and validated against an official figure.
       label_change — the question was REWORDED (a redefinition may be hiding)
       intermittent — not collected every year
       continuous   — a count or an amount, no codes to drift
@@ -164,6 +174,72 @@ def unsafe(module: str | int):
     import pandas as pd
     df = stability(module)
     return df[df["status"].isin(["code_change", "label_change", "intermittent"])]
+
+
+_RECODES = None
+
+
+def _recode_maps():
+    """{module: {column: {year: {raw_code: canonical_code}}}} + canonical labels."""
+    global _RECODES
+    if _RECODES is None:
+        import gzip
+        import json
+        p = resources.files("perudata").joinpath("catalogs/enaho_recodes.json.gz")
+        with p.open("rb") as f:
+            with gzip.open(f, "rt", encoding="utf-8") as g:
+                _RECODES = json.load(g)
+    return _RECODES
+
+
+def recode_labels(module: str | int, column: str) -> dict:
+    """What each CANONICAL code means for a variable (stable across all years)."""
+    m = str(module).zfill(2)
+    return _recode_maps()["labels"].get(m, {}).get(column, {})
+
+
+def apply_recodes(df, module: str | int, year: int):
+    """FIX the drifting codes — do not merely flag them.
+
+    For every variable whose coding moves across years, INEI's OWN VALUE LABELS
+    say what each code MEANS in each year. So each year's raw codes are mapped
+    onto ONE canonical scheme keyed by the label text:
+
+        p4195 (SIS):  2004  1='seguro integral de salud'      -> canonical 1
+                      2004  0='pase'/absent                   -> canonical n
+                      2012+ 1='seguro integral de salud'      -> canonical 1
+                      2012+ 2='no'                            -> canonical 2
+        so `p4195_h` means the SAME thing in 2004 and 2024, while the raw column
+        still flips 0/1 -> 1/2 underneath.
+
+    Harmonized columns are ADDED with an `_h` suffix; the raw column is untouched,
+    so every value stays auditable back to its source.
+
+    THIS ALSO DISSOLVES THE MINIMUM-SHIFT BLIND SPOT. A category silently
+    REDEFINED under a stable code (1,2,3,4 stays 1,2,3,4 but "3" changes meaning)
+    never shows up in a minimum-shift scan -- but its LABEL TEXT changes, so it
+    lands on a different canonical id here and is fixed anyway. Recoding by
+    meaning does not need to detect the drift first.
+
+    A year that ships NO value labels cannot be mapped and is left as NA in the
+    `_h` column, never mapped by position -- that is how you invent data.
+    """
+    import pandas as pd
+    m = str(module).zfill(2)
+    maps = _recode_maps()["recodes"].get(m, {})
+    y = str(int(year))
+    done = []
+    for col, per_year in maps.items():
+        if col not in df.columns:
+            continue
+        mapping = per_year.get(y)
+        if not mapping:
+            df[f"{col}_h"] = pd.NA          # no labels this year -> not guessed
+            continue
+        lut = {float(k): v for k, v in mapping.items()}
+        df[f"{col}_h"] = pd.to_numeric(df[col], errors="coerce").map(lut).astype("Int64")
+        done.append(col)
+    return df, done
 
 
 def normalize_keys(df, cols=KEY_COLS):
@@ -401,6 +477,21 @@ def apply(df, survey: str, module: str | int, year: int | None = None):
     deriver = DERIVERS.get((survey, mod))
 
     out = normalize_keys(df)          # ALWAYS, before anything else
+    # RECODES ARE NOT APPLIED AUTOMATICALLY -- and that is deliberate.
+    #
+    # A first attempt keyed canonical ids on the VALUE LABEL TEXT and applied them
+    # in bulk. It FAILED the known-good case: p4195 (SIS) is labelled 'seguro
+    # integral de salud' in 2004 and 'seguro integral de salud (SIS)' in 2024, so
+    # the SAME concept landed on two different canonical ids, and 2019 (which
+    # ships no labels at all, though its raw 1/2 coding is perfectly usable) came
+    # back as all-NA -- the harmonized column was WORSE than the raw one.
+    #
+    # Recoding by fuzzy label text, in bulk, without a per-variable check, does not
+    # harmonize data. It fabricates it. Each recode is written and VALIDATED one
+    # variable at a time (see enaho_04.csv: has_insurance_* are stabilized AND
+    # reproduce INEI's published 90.7%). apply_recodes() stays available to build
+    # them, but it is never run blind.
+    recoded: list = []
     cov = []
 
     for _, row in cw.iterrows():
@@ -468,6 +559,7 @@ def apply(df, survey: str, module: str | int, year: int | None = None):
     # and a DataFrame in there raises "Can only compare identically-labeled...".
     out.attrs["coverage"] = cov                       # list of dicts, not a frame
     out.attrs["harmonized"] = f"{survey}/{mod}"
+    out.attrs["recoded_columns"] = recoded
 
     # EVERY raw column of the module comes back too (the contract is additive).
     # Attach the stability status of each one, so a column that changes its coding
