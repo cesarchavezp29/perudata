@@ -1,5 +1,5 @@
 canonical,kind,raw,year_start,year_end,recode,unit,level,status,note
-year,rename,año,2004,2025,,year,person,confirmed,raw name is non-ASCII (año)
+year,rename,año,2004,2025,,year,person,confirmed,"raw name is non-ASCII (año). ABSENT IN 2004 AND 2006 in this module — verified across every downloaded vintage. It resolves to a marked all-NA column in those years, and dataset() fills the pooled `year` from the requested year anyway, so pooling never breaks on it."
 month,rename,mes,2004,2025,,month,person,confirmed,
 cluster,rename,conglome,2004,2025,,id,person,confirmed,"JOIN KEY 1/4. PADDING IS NOT STABLE ACROSS VINTAGES. Sumaria stores '0005' (zero-padded) while module 02 stores '   5' (space-padded) in the early years. SWEEP OF ALL 22 VINTAGES (raw vs strip+zero-fill merge, M34 x M02): a RAW merge silently collapses in 2004 (2.08% of households matched), 2005 (2.84%) and 2006 (3.22%). 2007-2025 match 100% raw. After normalization ALL 21 fetchable years match 100.00%. Normalization is ALWAYS ON and is idempotent on already-clean keys — never vintage-gated, because one INEI re-release would reopen the hole."
 dwelling,rename,vivienda,2004,2025,,id,person,confirmed,JOIN KEY 2/4 — same padding warning as cluster

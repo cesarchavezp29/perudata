@@ -317,11 +317,16 @@ def combine(year: int, modules: list[str] | None = None,
 
     meta: dict = {"year": year, "level": level, "modules": modules, "steps": []}
 
+    coverage: list = []
+
     def _load(m):
         df = load(year, m, out=out)
         df = _h.normalize_keys(df)             # ALWAYS, before any join
         if harmonize and f"enaho_{m}" in _h.available():
-            df, _ = _h.apply(df, "enaho", m, year=year)
+            df, cov = _h.apply(df, "enaho", m, year=year)
+            # pandas DROPS .attrs on merge, so the per-module coverage has to be
+            # accumulated here or the report comes back silently empty
+            coverage.extend({"module": m, **r} for r in cov.to_dict("records"))
         return df
 
     hh_mods = [m for m in modules if m in HOUSEHOLD_MODULES]
@@ -387,6 +392,7 @@ def combine(year: int, modules: list[str] | None = None,
         if base is None:
             raise ValueError("no household module requested")
         base.attrs["combine"] = meta
+        base.attrs["coverage"] = coverage
         return base
 
     # ---- person spine ------------------------------------------------------
@@ -422,6 +428,7 @@ def combine(year: int, modules: list[str] | None = None,
                                   100 * matched / n_before, 2)})
 
     person.attrs["combine"] = meta
+    person.attrs["coverage"] = coverage
     return person
 
 
