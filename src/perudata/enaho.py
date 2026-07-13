@@ -322,6 +322,13 @@ def _programme_columns(year: int, df) -> dict:  # noqa: D401
     #   JUNTOS     = p710_03 in 2012-2013, p710_04 from 2014 (Wawa Wasi split in
     #                two and pushed Juntos one slot along)
     #   PENSION 65 = p710_05 in every year
+    # STATUS OF 2018-2019: slot-mapped, confirmed by NEIGHBOURS, not by the file.
+    # Guard run: the p710 SLOT SET is identical (15 slots) in 2017, 2018 and 2019,
+    # and 2017 IS label-confirmed -- so no programme split moved the slots inside
+    # that span. The guard is not decorative: it detects the real renumbering
+    # (13 -> 14 slots in 2014, the Wawa Wasi split) and the 2020 expansion
+    # (15 -> 22 slots). If the slot set had moved in 2018-19, the fallback would
+    # have read the wrong column and still landed near the trend line.
     slots = {"juntos": "p710_03" if year <= 2013 else "p710_04",
              "pension65": "p710_05"}
     for canon, c in slots.items():
