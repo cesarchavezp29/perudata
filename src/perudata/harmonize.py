@@ -180,66 +180,169 @@ _RECODES = None
 
 
 def _recode_maps():
-    """{module: {column: {year: {raw_code: canonical_code}}}} + canonical labels."""
-    global _RECODES
-    if _RECODES is None:
-        import gzip
-        import json
-        p = resources.files("perudata").joinpath("catalogs/enaho_recodes.json.gz")
-        with p.open("rb") as f:
-            with gzip.open(f, "rt", encoding="utf-8") as g:
-                _RECODES = json.load(g)
-    return _RECODES
+    """QUARANTINED. The bulk label-keyed recode maps are GONE, not merely disabled.
+
+    They were built by keying canonical ids on the value-label TEXT and applied to
+    all 2,195 labelled variables. They FABRICATED data: p4195 (SIS) came back as
+    100% coverage in 2004 (the unlabelled code 0 was dropped, collapsing the
+    denominator to the people who HAVE SIS: 15.1% -> 100%) and as all-NA in 2019.
+    A wrong map that is only "switched off" is one re-enable away from going live,
+    so the artifact is deleted from the package rather than shipped alongside it.
+
+    Recodes are rebuilt per variable under the three invariants below, each with a
+    regression test, and validated against an official figure where one exists.
+    """
+    raise NotImplementedError(
+        "the bulk recode maps were fabricated and have been deleted. Use the "
+        "hand-written, validated canonical columns (has_insurance_*, informal, "
+        "...) or build a recode with harmonize.build_recode(), which enforces the "
+        "never-drop-a-code / anchor-on-code / carry-forward invariants.")
 
 
-def recode_labels(module: str | int, column: str) -> dict:
-    """What each CANONICAL code means for a variable (stable across all years)."""
-    m = str(module).zfill(2)
-    return _recode_maps()["labels"].get(m, {}).get(column, {})
+def _norm_label(s: str) -> str:
+    """Normalize a value label for ALIGNMENT ONLY (never for identity).
+
+    Strips accents, punctuation AND parentheticals, because INEI rewords the same
+    category across years: 'seguro integral de salud' vs 'seguro integral de salud
+    (SIS)'. _squash() keeps the '(sis)' as 'sis' and the two texts stop matching,
+    which is what made every year mint a fresh canonical id.
+    """
+    t = unicodedata.normalize("NFKD", str(s).lower().strip())
+    t = "".join(ch for ch in t if ch.isascii())
+    t = re.sub(r"\(.*?\)", " ", t)
+    t = re.sub(r"[^a-z0-9 ]", " ", t)
+    return " ".join(t.split())
 
 
-def apply_recodes(df, module: str | int, year: int):
-    """FIX the drifting codes — do not merely flag them.
+def build_recode(module: str | int, column: str, years: list[int] | None = None,
+                 out=None) -> dict:
+    """Build a year-aware recode that CANNOT fabricate, by construction.
 
-    For every variable whose coding moves across years, INEI's OWN VALUE LABELS
-    say what each code MEANS in each year. So each year's raw codes are mapped
-    onto ONE canonical scheme keyed by the label text:
+    Three invariants, each of which the bulk recoder violated and each of which is
+    a mechanical rule -- not a matter of "going slower":
 
-        p4195 (SIS):  2004  1='seguro integral de salud'      -> canonical 1
-                      2004  0='pase'/absent                   -> canonical n
-                      2012+ 1='seguro integral de salud'      -> canonical 1
-                      2012+ 2='no'                            -> canonical 2
-        so `p4195_h` means the SAME thing in 2004 and 2024, while the raw column
-        still flips 0/1 -> 1/2 underneath.
+    1. NEVER DROP A CODE. An unlabelled code is a real category (usually no/other/
+       pase), never a row to delete. The bulk version dropped 2004's unlabelled
+       code 0 for p4195 and the denominator collapsed from 15.1% to 100% SIS
+       coverage. Any code observed in the data gets a canonical id, labelled or not.
 
-    Harmonized columns are ADDED with an `_h` suffix; the raw column is untouched,
-    so every value stays auditable back to its source.
+    2. ANCHOR ON THE CODE, NOT ON THE LABEL TEXT. The label is a HINT to align two
+       years; the identity is the code in a REFERENCE year. Keying ids on label text
+       split one concept in two the moment INEI reworded it ('seguro integral de
+       salud' -> '... (SIS)').
 
-    THIS ALSO DISSOLVES THE MINIMUM-SHIFT BLIND SPOT. A category silently
-    REDEFINED under a stable code (1,2,3,4 stays 1,2,3,4 but "3" changes meaning)
-    never shows up in a minimum-shift scan -- but its LABEL TEXT changes, so it
-    lands on a different canonical id here and is fixed anyway. Recoding by
-    meaning does not need to detect the drift first.
+    3. CARRY FORWARD ON A CODE-SET MATCH. A year with no labels whose observed code
+       set equals a labelled year's is the SAME coding: carry that map. 2019 ships
+       no labels but its {1,2} is 2012's {1,2} -- returning NA there made the
+       harmonized column worse than the raw one.
 
-    A year that ships NO value labels cannot be mapped and is left as NA in the
-    `_h` column, never mapped by position -- that is how you invent data.
+    Returns {year: {raw_code: canonical_code}} plus 'labels' and 'audit'.
     """
     import pandas as pd
+    from . import dictionary as _dic
+    from . import enaho as _enaho
+
     m = str(module).zfill(2)
-    maps = _recode_maps()["recodes"].get(m, {})
-    y = str(int(year))
-    done = []
-    for col, per_year in maps.items():
-        if col not in df.columns:
+    years = years or [y for y in _enaho.years() if _enaho.path(y, m, out).exists()]
+
+    labelled, observed = {}, {}
+    for y in years:
+        try:
+            v = pd.to_numeric(_enaho.load(y, m, out=out, columns=[column],
+                                          download_if_missing=False)[column],
+                              errors="coerce")
+        except Exception:
             continue
-        mapping = per_year.get(y)
-        if not mapping:
-            df[f"{col}_h"] = pd.NA          # no labels this year -> not guessed
+        observed[y] = {int(x) for x in v.dropna().unique()}
+        vl = _dic.value_labels(column, y, m)
+        if vl:
+            labelled[y] = {int(float(k)): _norm_label(v) for k, v in vl.items()}
+    if not observed:
+        raise FileNotFoundError(f"{m}/{column}: no downloaded year has this column")
+
+    # INVARIANT 2: identity is the CODE in the reference year (latest labelled one,
+    # else the latest year present). Labels only ALIGN other years onto it.
+    ref = max(labelled) if labelled else max(observed)
+    canon = {c: c for c in observed.get(ref, set())}          # code -> canonical
+    ref_lab = labelled.get(ref, {})
+    nxt = (max(canon.values()) if canon else 0) + 1
+
+    maps, audit = {ref: dict(canon)}, []
+    for y in sorted(observed):
+        if y == ref:
             continue
-        lut = {float(k): v for k, v in mapping.items()}
-        df[f"{col}_h"] = pd.to_numeric(df[col], errors="coerce").map(lut).astype("Int64")
-        done.append(col)
-    return df, done
+        ym = {}
+        for c in sorted(observed[y]):
+            lab = labelled.get(y, {}).get(c)
+            hit = None
+            # (a) the LABEL is a HINT: if it matches a reference label, align there
+            if lab:
+                for rc, rl in ref_lab.items():
+                    if rl and rl == lab:
+                        hit = rc
+                        break
+            # (b) INVARIANT 2, ACTUALLY ENFORCED: identity is the CODE. If the label
+            # did not align (INEI reworded it -- 'seguro integral de salud' became
+            # 'seguro integral de salud (SIS)'), fall back to the code itself when
+            # that code exists in the reference year. Text drift must never split
+            # one concept into two ids; only a code with NO counterpart is new.
+            if hit is None and c in canon:
+                hit = canon[c]
+            if hit is None:
+                # INVARIANT 1: a code we cannot align is still a REAL category.
+                # Give it a NEW canonical id. Never drop it.
+                hit = nxt
+                nxt += 1
+                audit.append({"year": y, "raw": c, "canonical": hit,
+                              "why": "unaligned code — kept as a new category, "
+                                     "never dropped"})
+            ym[c] = hit
+        maps[y] = ym
+
+    # INVARIANT 3: a year with no labels whose code set matches a labelled year's
+    # is the same coding -- adopt that year's map wholesale.
+    for y in sorted(observed):
+        if y in labelled:
+            continue
+        same = [yy for yy in labelled if observed.get(yy) == observed[y]]
+        if same:
+            src = max(same)
+            maps[y] = dict(maps[src])
+            audit.append({"year": y, "raw": None, "canonical": None,
+                          "why": f"no labels; code set equals {src} — map carried"})
+
+    # THE GUARD: a recode may never lose a row. If any observed code fails to map,
+    # the recode refuses itself rather than silently shrinking a denominator.
+    for y, obs in observed.items():
+        unmapped = obs - set(maps.get(y, {}))
+        if unmapped:
+            raise ValueError(
+                f"{m}/{column} {y}: codes {sorted(unmapped)} would be DROPPED. "
+                f"A recode that changes the denominator is wrong by construction.")
+
+    labels = {}
+    for y, lab in labelled.items():
+        for c, l in lab.items():
+            labels.setdefault(maps[y].get(c), l)
+    return {"map": maps, "labels": labels, "audit": audit, "reference_year": ref}
+
+
+def apply_recode(df, recode: dict, column: str, year: int, suffix: str = "_h"):
+    """Apply a build_recode() map to one column. Refuses to lose rows."""
+    import pandas as pd
+    m = recode["map"].get(int(year))
+    if not m:
+        df[f"{column}{suffix}"] = pd.NA
+        return df
+    raw = pd.to_numeric(df[column], errors="coerce")
+    out = raw.map({float(k): v for k, v in m.items()})
+    # never-drop guard, at APPLY time too: a non-null raw code must stay non-null
+    lost = int((raw.notna() & out.isna()).sum())
+    if lost:
+        raise ValueError(
+            f"{column} {year}: recode would drop {lost:,} non-null rows — refused.")
+    df[f"{column}{suffix}"] = out.astype("Int64")
+    return df
 
 
 def normalize_keys(df, cols=KEY_COLS):

@@ -75,6 +75,37 @@ def test_panel_module_02_is_not_advertised():
         assert "02" not in panel.modules_for(rel), f"release {rel} still offers M02"
 
 
+def test_recode_refuses_to_drop_a_code():
+    """THE 100%-SIS REGRESSION. A bulk recoder keyed on label text dropped 2004's
+    UNLABELLED code 0 for p4195, so the denominator collapsed to the people who
+    HAVE insurance and coverage read 100% instead of 15.1%. An unlabelled code is
+    a real category, never a row to delete: a recode that would lose a non-null
+    row must REFUSE ITSELF rather than silently shrink a denominator."""
+    import pytest
+    from perudata import harmonize
+    df = pd.DataFrame({"p4195": [0, 1, 1, 0, 1]})     # code 0 = the unlabelled 'no'
+    bad = {"map": {2004: {1: 1}}, "labels": {}, "audit": []}   # 0 has no mapping
+    with pytest.raises(ValueError, match="drop"):
+        harmonize.apply_recode(df.copy(), bad, "p4195", 2004)
+    good = {"map": {2004: {0: 2, 1: 1}}, "labels": {}, "audit": []}
+    out = harmonize.apply_recode(df.copy(), good, "p4195", 2004)
+    assert out["p4195_h"].notna().all()               # no row lost
+    assert (out["p4195_h"] == 1).sum() == 3           # shares preserved
+
+
+def test_bulk_recode_maps_are_not_shipped():
+    """The fabricated bulk maps must be GONE from the package, not merely disabled.
+    A wrong map that is switched off is one re-enable away from going live."""
+    import pytest
+    from importlib import resources
+
+    from perudata import harmonize
+    p = resources.files("perudata").joinpath("catalogs/enaho_recodes.json.gz")
+    assert not p.is_file(), "the fabricated bulk recode maps are still shipping"
+    with pytest.raises(NotImplementedError):
+        harmonize._recode_maps()
+
+
 def test_crosswalks_parse_and_are_well_formed():
     """A crosswalk that does not parse is a crosswalk that does not exist.
     (Both files shipped malformed once: an unquoted comma inside `recode`
