@@ -342,15 +342,31 @@ def combine(year: int, modules: list[str] | None = None,
     pe_anchor = anchor if anchor in pe_mods else (
         "02" if "02" in pe_mods else (pe_mods[0] if pe_mods else None))
 
+    def _one_row_per(df, keys, module):
+        """A module's GRANULARITY IS NOT CONSTANT ACROSS YEARS. Module 37 carries
+        2.35 rows per household in 2004-2010 and exactly 1.00 from 2014. Blindly
+        drop_duplicates()-ing it (as this function used to) silently threw away
+        57% of the early-year rows. Never dedupe on an assumption -- check, and
+        say so when the assumption is false."""
+        n, g = len(df), df.groupby(keys, dropna=False).ngroups
+        if g and n / g > 1.001:
+            raise ValueError(
+                f"module {module} in {year} has {n/g:.2f} rows per "
+                f"{'household' if len(keys) == 3 else 'person'} ({n:,} rows / "
+                f"{g:,} groups), so it is NOT the granularity combine() assumed. "
+                f"Its granularity changes by year — aggregate it first (see "
+                f"aggregate_item_module) instead of letting the join drop rows.")
+        return df
+
     # ---- household spine ---------------------------------------------------
     base = None
     if hh_mods:
-        base = _load(hh_anchor).drop_duplicates(HH_KEY)
+        base = _one_row_per(_load(hh_anchor), HH_KEY, hh_anchor)
         meta["anchor_household"] = hh_anchor
         meta["steps"].append({"module": hh_anchor, "role": "ANCHOR (universe)",
                               "rows": len(base)})
         for m in [x for x in hh_mods if x != hh_anchor]:
-            d = _load(m).drop_duplicates(HH_KEY)
+            d = _one_row_per(_load(m), HH_KEY, m)
             before = len(base)
             base = base.merge(d, on=HH_KEY, how="left", suffixes=("", f"_m{m}"))
             # how much of the ANCHOR found a partner, and what the other module
@@ -399,12 +415,12 @@ def combine(year: int, modules: list[str] | None = None,
     if not pe_mods:
         raise ValueError("level='person' needs at least one person module "
                          "(e.g. '02')")
-    person = _load(pe_anchor).drop_duplicates(PERSON_KEY)
+    person = _one_row_per(_load(pe_anchor), PERSON_KEY, pe_anchor)
     meta["anchor_person"] = pe_anchor
     meta["steps"].append({"module": pe_anchor, "role": "ANCHOR (person universe)",
                           "rows": len(person)})
     for m in [x for x in pe_mods if x != pe_anchor]:
-        d = _load(m).drop_duplicates(PERSON_KEY)
+        d = _one_row_per(_load(m), PERSON_KEY, m)
         before = len(person)
         person = person.merge(d, on=PERSON_KEY, how="left", suffixes=("", f"_m{m}"))
         hit = d.merge(person[PERSON_KEY], on=PERSON_KEY,

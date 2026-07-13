@@ -53,6 +53,30 @@ def _squash(name: str) -> str:
 YEAR_RE = re.compile(r"^(a[a-z]{0,3}o|anio|year)$")
 
 
+# The expansion factor is ALSO renamed across vintages, module by module. Module
+# 85 (gobernabilidad) alone uses FOUR names:
+#   factor07 (2004-09, 2012-13) | facgob07 (2010-11, 2014) | facgob_p (2020)
+#   famiegob07 (2025) -- 'factor de expansion anual de gobernabilidad', which no
+#   'fac...' substring search finds.
+# So the weight is resolved by SHAPE + VALUE, never by a fixed name.
+WEIGHT_RE = re.compile(r"(fac|peso|factor|expan)")
+
+
+def find_weight_cols(df) -> list[str]:
+    """Every column that behaves like an expansion factor: name looks like one
+    AND the values are positive and large (a weight expands to a population)."""
+    import pandas as pd
+    out = []
+    for c in df.columns:
+        s = _squash(c)
+        if not (WEIGHT_RE.search(s) or s.endswith("gob07")):
+            continue
+        v = pd.to_numeric(df[c], errors="coerce").dropna()
+        if len(v) and (v > 0).mean() > 0.99 and v.median() > 5:
+            out.append(c)
+    return out
+
+
 def find_year_col(df, expect: int | None = None) -> str | None:
     """The year column, whatever INEI spelled or mis-encoded it this vintage.
 

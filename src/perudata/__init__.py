@@ -13,7 +13,7 @@ official poverty series to 0.0pp before you build anything on top.
 Data lands in ./peru_raw by default — override per call with out= or globally
 with the PERUDATA_DIR environment variable.
 """
-from . import eea, enaho, endes, epen, harmonize, panel, validate  # noqa: F401
+from . import dictionary, eea, enaho, endes, epen, harmonize, panel, validate  # noqa: F401
 from ._core import (  # noqa: F401
     CorruptMember,
     NotPublished,
@@ -23,6 +23,6 @@ from ._core import (  # noqa: F401
 from .dataset import dataset  # noqa: F401
 
 __version__ = "0.1.2"
-__all__ = ["dataset", "enaho", "endes", "epen", "eea", "panel", "validate",
+__all__ = ["dataset", "dictionary", "enaho", "endes", "epen", "eea", "panel", "validate",
            "harmonize",
            "PerudataError", "NotPublished", "ServerRefused", "CorruptMember"]

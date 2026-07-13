@@ -1,0 +1,6 @@
+canonical,kind,raw,year_start,year_end,recode,unit,level,status,note
+year,rename,año,2004,2025,,year,household,confirmed,"spelled 'a_o' in 2004 — resolved by shape, not by name"
+cluster,rename,conglome,2004,2025,,id,household,confirmed,JOIN KEY 1/3 — normalized before any join
+dwelling,rename,vivienda,2004,2025,,id,household,confirmed,JOIN KEY 2/3
+household,rename,hogar,2004,2025,,id,household,confirmed,JOIN KEY 3/3
+weight_hh,rename,factor07,2010,2025,,weight,household,confirmed,"household weight. A 2020-only twin `factor_p` also exists (the presencial subsample of the COVID year, when ENAHO was partly by telephone) — every module has one."
