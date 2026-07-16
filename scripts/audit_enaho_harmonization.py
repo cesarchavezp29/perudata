@@ -120,7 +120,20 @@ for mod in sorted(D.module.unique()):
             v = pd.to_numeric(f[c], errors="coerce").dropna()
             if v.empty:
                 continue
-            obs[(c, y)] = {int(x) for x in v.unique()}
+            u = {int(x) for x in v.unique()} if (v % 1 == 0).all() else set()
+            # A VARIABLE IS NOT A CATEGORICAL JUST BECAUSE ITS SIBLINGS ARE LABELLED.
+            # `cand` is every variable INEI ever labelled anywhere, which sweeps in
+            # three shapes that must never receive a label:
+            #  * MEASUREMENTS. p5561c holds 20/40/50/70/80/100 — quantities. Its
+            #    siblings p5561a (si/no) and p5561b (diario/semanal) ARE categorical,
+            #    which is why it got dragged in.
+            #  * CLASSIFICATION NAMESPACES. p505/p506 carry 4-digit CIIU/CIUO codes
+            #    (7526, 6199): the code IS the identity per the published standard.
+            #  * CORRUPTION. p207 (sex) holds ONE row at -126 in 2009 — a Stata int8
+            #    overflow (-128..127), not a third sex. Labelling it invents data.
+            if not u or any(x < 0 for x in u) or max(u) > 99 or len(u) > 30:
+                continue
+            obs[(c, y)] = u
             vc = v.value_counts()
             cnts[(c, y)] = sorted(vc.values.tolist())
             raw_counts[(c, y)] = {int(k): int(n) for k, n in vc.items()}

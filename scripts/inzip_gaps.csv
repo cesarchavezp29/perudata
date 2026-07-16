@@ -1,25 +1,863 @@
 year,module,column,codes,why
-2004,02,p208a1,[0],"inside the declared range, unlabelled: INEI's `pase` convention"
-2005,02,p208a1,[0],"inside the declared range, unlabelled: INEI's `pase` convention"
-2006,02,p208a1,[0],"inside the declared range, unlabelled: INEI's `pase` convention"
-2007,02,p208a1,[0],"inside the declared range, unlabelled: INEI's `pase` convention"
-2008,02,p208a1,[0],"inside the declared range, unlabelled: INEI's `pase` convention"
-2009,02,p208a1,[0],"inside the declared range, unlabelled: INEI's `pase` convention"
-2010,02,p208a1,[0],"inside the declared range, unlabelled: INEI's `pase` convention"
-2010,02,p211,[0],outside the declared range: dictionary and released data disagree — reported
-2011,02,p208a1,[0],"inside the declared range, unlabelled: INEI's `pase` convention"
-2012,02,p208a1,[0],"inside the declared range, unlabelled: INEI's `pase` convention"
-2013,02,p208a1,[0],"inside the declared range, unlabelled: INEI's `pase` convention"
-2013,02,t211,[12],outside the declared range: dictionary and released data disagree — reported
-2014,02,p208a1,[0],"inside the declared range, unlabelled: INEI's `pase` convention"
-2014,02,t211,[12],outside the declared range: dictionary and released data disagree — reported
-2015,02,p208a1,[0],"inside the declared range, unlabelled: INEI's `pase` convention"
-2016,02,p208a1,[0],"inside the declared range, unlabelled: INEI's `pase` convention"
-2017,02,p208a1,[0],"inside the declared range, unlabelled: INEI's `pase` convention"
-2019,02,p203b,[11],outside the declared range: dictionary and released data disagree — reported
-2020,02,p203b,[11],outside the declared range: dictionary and released data disagree — reported
-2021,02,p203b,"[7, 11]",outside the declared range: dictionary and released data disagree — reported
-2022,02,p203b,"[7, 11]",outside the declared range: dictionary and released data disagree — reported
-2023,02,p203b,"[7, 11]",outside the declared range: dictionary and released data disagree — reported
-2024,02,p203b,"[7, 11]",outside the declared range: dictionary and released data disagree — reported
-2025,02,p203b,"[7, 11]",outside the declared range: dictionary and released data disagree — reported
+2004,05,codinfor,"[1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 19, 20]",outside the declared range: dictionary and released data disagree — reported
+2004,05,p5111,[0],"inside the declared range, unlabelled: INEI's `pase` convention"
+2004,05,p5112,[0],"inside the declared range, unlabelled: INEI's `pase` convention"
+2004,05,p5113,[0],"inside the declared range, unlabelled: INEI's `pase` convention"
+2004,05,p5114,[0],"inside the declared range, unlabelled: INEI's `pase` convention"
+2004,05,p5115,[0],"inside the declared range, unlabelled: INEI's `pase` convention"
+2004,05,p5116,[0],"inside the declared range, unlabelled: INEI's `pase` convention"
+2004,05,p5117,[0],"inside the declared range, unlabelled: INEI's `pase` convention"
+2004,05,p5118,[0],"inside the declared range, unlabelled: INEI's `pase` convention"
+2004,05,p5119,[0],"inside the declared range, unlabelled: INEI's `pase` convention"
+2004,05,p5561d,[0],outside the declared range: dictionary and released data disagree — reported
+2004,05,p5562d,[0],outside the declared range: dictionary and released data disagree — reported
+2004,05,p5563d,[0],outside the declared range: dictionary and released data disagree — reported
+2004,05,p5564d,[0],outside the declared range: dictionary and released data disagree — reported
+2004,05,p5565d,[0],outside the declared range: dictionary and released data disagree — reported
+2004,05,p5566d,[0],outside the declared range: dictionary and released data disagree — reported
+2004,05,p560ft1,"[2, 3, 4, 5, 6, 9, 12, 14, 15]",outside the declared range: dictionary and released data disagree — reported
+2004,05,p560ft2,"[1, 2, 3, 4, 5, 6, 9]",outside the declared range: dictionary and released data disagree — reported
+2004,05,p560a2,"[1, 2, 3, 4, 5, 6, 7, 10, 15, 20, 30]",outside the declared range: dictionary and released data disagree — reported
+2004,05,p560a3,"[1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 20, 24]",outside the declared range: dictionary and released data disagree — reported
+2004,05,ocu500,[0],outside the declared range: dictionary and released data disagree — reported
+2005,05,codinfor,"[1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 19]",outside the declared range: dictionary and released data disagree — reported
+2005,05,p5111,[0],"inside the declared range, unlabelled: INEI's `pase` convention"
+2005,05,p5112,[0],"inside the declared range, unlabelled: INEI's `pase` convention"
+2005,05,p5113,[0],"inside the declared range, unlabelled: INEI's `pase` convention"
+2005,05,p5114,[0],"inside the declared range, unlabelled: INEI's `pase` convention"
+2005,05,p5115,[0],"inside the declared range, unlabelled: INEI's `pase` convention"
+2005,05,p5116,[0],"inside the declared range, unlabelled: INEI's `pase` convention"
+2005,05,p5117,[0],"inside the declared range, unlabelled: INEI's `pase` convention"
+2005,05,p5118,[0],"inside the declared range, unlabelled: INEI's `pase` convention"
+2005,05,p5119,[0],"inside the declared range, unlabelled: INEI's `pase` convention"
+2005,05,p551,"[0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 12, 13, 14, 15, 16, 17, 18, 20, 22, 24, 28, 30, 32, 52, 53, 58, 104, 159]",outside the declared range: dictionary and released data disagree — reported
+2005,05,p5561d,[0],outside the declared range: dictionary and released data disagree — reported
+2005,05,p5562d,[0],outside the declared range: dictionary and released data disagree — reported
+2005,05,p5563d,[0],outside the declared range: dictionary and released data disagree — reported
+2005,05,p5564d,[0],outside the declared range: dictionary and released data disagree — reported
+2005,05,p5565d,[0],outside the declared range: dictionary and released data disagree — reported
+2005,05,p5566d,[0],outside the declared range: dictionary and released data disagree — reported
+2005,05,p560ft1,"[2, 3, 4, 5, 6, 7, 9, 11, 12]",outside the declared range: dictionary and released data disagree — reported
+2005,05,p560ft2,"[1, 2, 3, 4, 5, 6, 8]",outside the declared range: dictionary and released data disagree — reported
+2005,05,p560a2,"[1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 12, 14, 20, 30]",outside the declared range: dictionary and released data disagree — reported
+2005,05,p560a3,"[1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 12, 14, 15, 16, 20, 21, 40]",outside the declared range: dictionary and released data disagree — reported
+2005,05,ocu500,[0],outside the declared range: dictionary and released data disagree — reported
+2006,05,codinfor,"[1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17]",outside the declared range: dictionary and released data disagree — reported
+2006,05,p5111,[0],"inside the declared range, unlabelled: INEI's `pase` convention"
+2006,05,p5112,[0],"inside the declared range, unlabelled: INEI's `pase` convention"
+2006,05,p5113,[0],"inside the declared range, unlabelled: INEI's `pase` convention"
+2006,05,p5114,[0],"inside the declared range, unlabelled: INEI's `pase` convention"
+2006,05,p5115,[0],"inside the declared range, unlabelled: INEI's `pase` convention"
+2006,05,p5116,[0],"inside the declared range, unlabelled: INEI's `pase` convention"
+2006,05,p5117,[0],"inside the declared range, unlabelled: INEI's `pase` convention"
+2006,05,p5118,[0],"inside the declared range, unlabelled: INEI's `pase` convention"
+2006,05,p5119,[0],"inside the declared range, unlabelled: INEI's `pase` convention"
+2006,05,p551,"[0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 12, 13, 15, 16, 17, 18, 20, 24, 28, 32, 39, 40, 48, 52, 53, 106]",outside the declared range: dictionary and released data disagree — reported
+2006,05,p5561d,[0],outside the declared range: dictionary and released data disagree — reported
+2006,05,p5562d,[0],outside the declared range: dictionary and released data disagree — reported
+2006,05,p5563d,[0],outside the declared range: dictionary and released data disagree — reported
+2006,05,p5564d,[0],outside the declared range: dictionary and released data disagree — reported
+2006,05,p5565d,[0],outside the declared range: dictionary and released data disagree — reported
+2006,05,p5566d,[0],outside the declared range: dictionary and released data disagree — reported
+2006,05,p560ft1,"[2, 3, 4, 5, 6, 7]",outside the declared range: dictionary and released data disagree — reported
+2006,05,p560ft2,"[1, 2, 3, 4, 5, 6, 7]",outside the declared range: dictionary and released data disagree — reported
+2006,05,p560a2,"[1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 20]",outside the declared range: dictionary and released data disagree — reported
+2006,05,p560a3,"[1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 12, 14, 15, 16, 17, 18, 20, 21, 25, 28, 30, 35]",outside the declared range: dictionary and released data disagree — reported
+2006,05,ocu500,[0],outside the declared range: dictionary and released data disagree — reported
+2007,05,codinfor,"[1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 18, 19, 22, 23]",outside the declared range: dictionary and released data disagree — reported
+2007,05,p5111,[0],"inside the declared range, unlabelled: INEI's `pase` convention"
+2007,05,p5112,[0],"inside the declared range, unlabelled: INEI's `pase` convention"
+2007,05,p5113,[0],"inside the declared range, unlabelled: INEI's `pase` convention"
+2007,05,p5114,[0],"inside the declared range, unlabelled: INEI's `pase` convention"
+2007,05,p5115,[0],"inside the declared range, unlabelled: INEI's `pase` convention"
+2007,05,p5116,[0],"inside the declared range, unlabelled: INEI's `pase` convention"
+2007,05,p5117,[0],"inside the declared range, unlabelled: INEI's `pase` convention"
+2007,05,p5118,[0],"inside the declared range, unlabelled: INEI's `pase` convention"
+2007,05,p5119,[0],"inside the declared range, unlabelled: INEI's `pase` convention"
+2007,05,p5561d,[0],outside the declared range: dictionary and released data disagree — reported
+2007,05,p5562d,[0],outside the declared range: dictionary and released data disagree — reported
+2007,05,p5563d,[0],outside the declared range: dictionary and released data disagree — reported
+2007,05,p5563g,[6],outside the declared range: dictionary and released data disagree — reported
+2007,05,p5564d,[0],outside the declared range: dictionary and released data disagree — reported
+2007,05,p5565d,[0],outside the declared range: dictionary and released data disagree — reported
+2007,05,p5566d,[0],outside the declared range: dictionary and released data disagree — reported
+2007,05,p5567d,[0],outside the declared range: dictionary and released data disagree — reported
+2007,05,p560ft1,"[2, 3, 4, 5, 6, 7]",outside the declared range: dictionary and released data disagree — reported
+2007,05,p560ft2,"[1, 2, 3, 4, 5, 6]",outside the declared range: dictionary and released data disagree — reported
+2007,05,p560a2,"[1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 12, 18, 30]",outside the declared range: dictionary and released data disagree — reported
+2007,05,p560a3,"[1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 14, 15, 16, 18, 20, 21, 25, 30, 35]",outside the declared range: dictionary and released data disagree — reported
+2007,05,p560a4,"[1, 2, 3, 4, 5, 6, 7, 10, 12]",outside the declared range: dictionary and released data disagree — reported
+2007,05,ocu500,[0],outside the declared range: dictionary and released data disagree — reported
+2008,05,codinfor,"[1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 18]",outside the declared range: dictionary and released data disagree — reported
+2008,05,p5111,[0],"inside the declared range, unlabelled: INEI's `pase` convention"
+2008,05,p5112,[0],"inside the declared range, unlabelled: INEI's `pase` convention"
+2008,05,p5113,[0],"inside the declared range, unlabelled: INEI's `pase` convention"
+2008,05,p5114,[0],"inside the declared range, unlabelled: INEI's `pase` convention"
+2008,05,p5115,[0],"inside the declared range, unlabelled: INEI's `pase` convention"
+2008,05,p5116,[0],"inside the declared range, unlabelled: INEI's `pase` convention"
+2008,05,p5117,[0],"inside the declared range, unlabelled: INEI's `pase` convention"
+2008,05,p5118,[0],"inside the declared range, unlabelled: INEI's `pase` convention"
+2008,05,p5119,[0],"inside the declared range, unlabelled: INEI's `pase` convention"
+2008,05,p551,"[1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 14, 15, 16, 19, 20, 24, 28, 32, 36, 44, 48, 52, 88, 98, 104, 144, 250]",outside the declared range: dictionary and released data disagree — reported
+2008,05,p5561d,[0],outside the declared range: dictionary and released data disagree — reported
+2008,05,p5562d,[0],outside the declared range: dictionary and released data disagree — reported
+2008,05,p5563d,[0],outside the declared range: dictionary and released data disagree — reported
+2008,05,p5563g,[6],outside the declared range: dictionary and released data disagree — reported
+2008,05,p5564d,[0],outside the declared range: dictionary and released data disagree — reported
+2008,05,p5565d,[0],outside the declared range: dictionary and released data disagree — reported
+2008,05,p5566d,[0],outside the declared range: dictionary and released data disagree — reported
+2008,05,p5567d,[0],outside the declared range: dictionary and released data disagree — reported
+2008,05,p560ft1,"[1, 2, 3, 4, 5, 6, 8]",outside the declared range: dictionary and released data disagree — reported
+2008,05,p560ft2,"[1, 2, 3, 4, 5, 6, 8]",outside the declared range: dictionary and released data disagree — reported
+2008,05,p560a2,"[1, 2, 3, 4, 5, 6, 7, 8, 10, 12]",outside the declared range: dictionary and released data disagree — reported
+2008,05,p560a3,"[1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 24, 25, 30]",outside the declared range: dictionary and released data disagree — reported
+2008,05,p560a4,"[1, 2, 3, 4, 5, 6, 7, 8, 10, 12, 20, 30]",outside the declared range: dictionary and released data disagree — reported
+2008,05,ocu500,[0],outside the declared range: dictionary and released data disagree — reported
+2009,05,codinfor,"[1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16]",outside the declared range: dictionary and released data disagree — reported
+2009,05,p5111,[0],"inside the declared range, unlabelled: INEI's `pase` convention"
+2009,05,p5112,[0],"inside the declared range, unlabelled: INEI's `pase` convention"
+2009,05,p5113,[0],"inside the declared range, unlabelled: INEI's `pase` convention"
+2009,05,p5114,[0],"inside the declared range, unlabelled: INEI's `pase` convention"
+2009,05,p5115,[0],"inside the declared range, unlabelled: INEI's `pase` convention"
+2009,05,p5116,[0],"inside the declared range, unlabelled: INEI's `pase` convention"
+2009,05,p5117,[0],"inside the declared range, unlabelled: INEI's `pase` convention"
+2009,05,p5118,[0],"inside the declared range, unlabelled: INEI's `pase` convention"
+2009,05,p5119,[0],"inside the declared range, unlabelled: INEI's `pase` convention"
+2009,05,p551,"[0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 20, 21, 22, 24, 28, 30, 40, 44, 52, 61, 85, 384]",outside the declared range: dictionary and released data disagree — reported
+2009,05,p5561d,[0],outside the declared range: dictionary and released data disagree — reported
+2009,05,p5562d,[0],outside the declared range: dictionary and released data disagree — reported
+2009,05,p5563d,[0],outside the declared range: dictionary and released data disagree — reported
+2009,05,p5563g,[6],outside the declared range: dictionary and released data disagree — reported
+2009,05,p5564d,[0],outside the declared range: dictionary and released data disagree — reported
+2009,05,p5565d,[0],outside the declared range: dictionary and released data disagree — reported
+2009,05,p5566d,[0],outside the declared range: dictionary and released data disagree — reported
+2009,05,p5567d,[0],outside the declared range: dictionary and released data disagree — reported
+2009,05,p558a3,[-128],outside the declared range: dictionary and released data disagree — reported
+2009,05,p560ft1,"[2, 3, 4, 5, 6, 7]",outside the declared range: dictionary and released data disagree — reported
+2009,05,p560ft2,"[1, 2, 3, 4, 5, 6, 7]",outside the declared range: dictionary and released data disagree — reported
+2009,05,p560a2,"[1, 2, 3, 4, 5, 6, 7, 10]",outside the declared range: dictionary and released data disagree — reported
+2009,05,p560a3,"[1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 12, 13, 14, 15, 16, 17, 18, 20, 21, 24, 25, 28, 30]",outside the declared range: dictionary and released data disagree — reported
+2009,05,p560a4,"[1, 2, 3, 4, 5, 6, 7]",outside the declared range: dictionary and released data disagree — reported
+2009,05,p207,[-126],outside the declared range: dictionary and released data disagree — reported
+2009,05,ocu500,[0],outside the declared range: dictionary and released data disagree — reported
+2010,05,codinfor,"[1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19]",outside the declared range: dictionary and released data disagree — reported
+2010,05,p5111,[0],"inside the declared range, unlabelled: INEI's `pase` convention"
+2010,05,p5112,[0],"inside the declared range, unlabelled: INEI's `pase` convention"
+2010,05,p5113,[0],"inside the declared range, unlabelled: INEI's `pase` convention"
+2010,05,p5114,[0],"inside the declared range, unlabelled: INEI's `pase` convention"
+2010,05,p5115,[0],"inside the declared range, unlabelled: INEI's `pase` convention"
+2010,05,p5116,[0],"inside the declared range, unlabelled: INEI's `pase` convention"
+2010,05,p5117,[0],"inside the declared range, unlabelled: INEI's `pase` convention"
+2010,05,p5118,[0],"inside the declared range, unlabelled: INEI's `pase` convention"
+2010,05,p5119,[0],"inside the declared range, unlabelled: INEI's `pase` convention"
+2010,05,p551,"[1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 12, 15, 16, 17, 20, 24, 26, 28, 30, 48, 52]",outside the declared range: dictionary and released data disagree — reported
+2010,05,p5561d,[0],outside the declared range: dictionary and released data disagree — reported
+2010,05,p5562d,[0],outside the declared range: dictionary and released data disagree — reported
+2010,05,p5563d,[0],outside the declared range: dictionary and released data disagree — reported
+2010,05,p5563g,[6],outside the declared range: dictionary and released data disagree — reported
+2010,05,p5564d,[0],outside the declared range: dictionary and released data disagree — reported
+2010,05,p5565d,[0],outside the declared range: dictionary and released data disagree — reported
+2010,05,p5566d,[0],outside the declared range: dictionary and released data disagree — reported
+2010,05,p5567d,[0],outside the declared range: dictionary and released data disagree — reported
+2010,05,p560ft1,"[2, 3, 4, 5, 6, 7, 15]",outside the declared range: dictionary and released data disagree — reported
+2010,05,p560ft2,"[1, 2, 3, 4, 5, 6]",outside the declared range: dictionary and released data disagree — reported
+2010,05,p560a2,"[1, 2, 3, 4, 5, 6, 7, 8, 10, 14]",outside the declared range: dictionary and released data disagree — reported
+2010,05,p560a3,"[1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 12, 13, 14, 15, 16, 18, 20, 21, 24, 25, 28, 30, 35]",outside the declared range: dictionary and released data disagree — reported
+2010,05,p560a4,"[1, 2, 3, 4, 6, 8]",outside the declared range: dictionary and released data disagree — reported
+2010,05,ocu500,[0],outside the declared range: dictionary and released data disagree — reported
+2011,05,codinfor,"[1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16]",outside the declared range: dictionary and released data disagree — reported
+2011,05,p504,[2],outside the declared range: dictionary and released data disagree — reported
+2011,05,p5111,[0],"inside the declared range, unlabelled: INEI's `pase` convention"
+2011,05,p5112,[0],"inside the declared range, unlabelled: INEI's `pase` convention"
+2011,05,p5113,[0],"inside the declared range, unlabelled: INEI's `pase` convention"
+2011,05,p5114,[0],"inside the declared range, unlabelled: INEI's `pase` convention"
+2011,05,p5115,[0],"inside the declared range, unlabelled: INEI's `pase` convention"
+2011,05,p5116,[0],"inside the declared range, unlabelled: INEI's `pase` convention"
+2011,05,p5117,[0],"inside the declared range, unlabelled: INEI's `pase` convention"
+2011,05,p5118,[0],"inside the declared range, unlabelled: INEI's `pase` convention"
+2011,05,p5119,[0],"inside the declared range, unlabelled: INEI's `pase` convention"
+2011,05,p546,[9],outside the declared range: dictionary and released data disagree — reported
+2011,05,p551,"[1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 14, 16, 17, 20, 21, 22, 24, 30, 32, 35, 48, 104]",outside the declared range: dictionary and released data disagree — reported
+2011,05,p5561d,[0],outside the declared range: dictionary and released data disagree — reported
+2011,05,p5562d,[0],outside the declared range: dictionary and released data disagree — reported
+2011,05,p5563d,[0],outside the declared range: dictionary and released data disagree — reported
+2011,05,p5563g,[6],outside the declared range: dictionary and released data disagree — reported
+2011,05,p5564d,[0],outside the declared range: dictionary and released data disagree — reported
+2011,05,p5565d,[0],outside the declared range: dictionary and released data disagree — reported
+2011,05,p5566d,[0],outside the declared range: dictionary and released data disagree — reported
+2011,05,p5567d,[0],outside the declared range: dictionary and released data disagree — reported
+2011,05,p560ft1,"[2, 3, 4, 5, 6, 8]",outside the declared range: dictionary and released data disagree — reported
+2011,05,p560ft2,"[1, 2, 3, 4, 5]",outside the declared range: dictionary and released data disagree — reported
+2011,05,p560a2,"[1, 2, 3, 4, 5, 6, 7, 10, 12, 14, 15]",outside the declared range: dictionary and released data disagree — reported
+2011,05,p560a3,"[1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 14, 15, 18, 20, 21, 25]",outside the declared range: dictionary and released data disagree — reported
+2011,05,p560a4,"[1, 2, 3, 4, 5, 7, 10]",outside the declared range: dictionary and released data disagree — reported
+2011,05,ocu500,[0],outside the declared range: dictionary and released data disagree — reported
+2012,05,codinfor,"[1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 18, 20]",outside the declared range: dictionary and released data disagree — reported
+2012,05,p5111,[0],"inside the declared range, unlabelled: INEI's `pase` convention"
+2012,05,p5112,[0],"inside the declared range, unlabelled: INEI's `pase` convention"
+2012,05,p5113,[0],"inside the declared range, unlabelled: INEI's `pase` convention"
+2012,05,p5114,[0],"inside the declared range, unlabelled: INEI's `pase` convention"
+2012,05,p5115,[0],"inside the declared range, unlabelled: INEI's `pase` convention"
+2012,05,p5116,[0],"inside the declared range, unlabelled: INEI's `pase` convention"
+2012,05,p5117,[0],"inside the declared range, unlabelled: INEI's `pase` convention"
+2012,05,p5118,[0],"inside the declared range, unlabelled: INEI's `pase` convention"
+2012,05,p5119,[0],"inside the declared range, unlabelled: INEI's `pase` convention"
+2012,05,p550,[7],outside the declared range: dictionary and released data disagree — reported
+2012,05,p551,"[1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 15, 16, 20, 24, 25]",outside the declared range: dictionary and released data disagree — reported
+2012,05,p5561d,[0],outside the declared range: dictionary and released data disagree — reported
+2012,05,p5562d,[0],outside the declared range: dictionary and released data disagree — reported
+2012,05,p5563d,[0],outside the declared range: dictionary and released data disagree — reported
+2012,05,p5563g,[6],outside the declared range: dictionary and released data disagree — reported
+2012,05,p5564d,[0],outside the declared range: dictionary and released data disagree — reported
+2012,05,p5565d,[0],outside the declared range: dictionary and released data disagree — reported
+2012,05,p5566d,[0],outside the declared range: dictionary and released data disagree — reported
+2012,05,p5567d,[0],outside the declared range: dictionary and released data disagree — reported
+2012,05,ocu500,[0],outside the declared range: dictionary and released data disagree — reported
+2013,05,codinfor,"[1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18]",outside the declared range: dictionary and released data disagree — reported
+2013,05,p5111,[0],"inside the declared range, unlabelled: INEI's `pase` convention"
+2013,05,p5112,[0],"inside the declared range, unlabelled: INEI's `pase` convention"
+2013,05,p5113,[0],"inside the declared range, unlabelled: INEI's `pase` convention"
+2013,05,p5114,[0],"inside the declared range, unlabelled: INEI's `pase` convention"
+2013,05,p5115,[0],"inside the declared range, unlabelled: INEI's `pase` convention"
+2013,05,p5116,[0],"inside the declared range, unlabelled: INEI's `pase` convention"
+2013,05,p5117,[0],"inside the declared range, unlabelled: INEI's `pase` convention"
+2013,05,p5118,[0],"inside the declared range, unlabelled: INEI's `pase` convention"
+2013,05,p5119,[0],"inside the declared range, unlabelled: INEI's `pase` convention"
+2013,05,p541b,[999999],outside the declared range: dictionary and released data disagree — reported
+2013,05,p551,"[1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 14, 15, 16, 17, 18, 20, 24, 26, 31, 32, 36, 40, 43, 48]",outside the declared range: dictionary and released data disagree — reported
+2013,05,p5561d,[0],outside the declared range: dictionary and released data disagree — reported
+2013,05,p5562d,[0],outside the declared range: dictionary and released data disagree — reported
+2013,05,p5563d,[0],outside the declared range: dictionary and released data disagree — reported
+2013,05,p5563g,[6],outside the declared range: dictionary and released data disagree — reported
+2013,05,p5564d,[0],outside the declared range: dictionary and released data disagree — reported
+2013,05,p5565d,[0],outside the declared range: dictionary and released data disagree — reported
+2013,05,p5566d,[0],outside the declared range: dictionary and released data disagree — reported
+2013,05,p5567d,[0],outside the declared range: dictionary and released data disagree — reported
+2013,05,ocu500,[0],outside the declared range: dictionary and released data disagree — reported
+2014,05,codinfor,"[1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16]",outside the declared range: dictionary and released data disagree — reported
+2014,05,p5111,[0],"inside the declared range, unlabelled: INEI's `pase` convention"
+2014,05,p5112,[0],"inside the declared range, unlabelled: INEI's `pase` convention"
+2014,05,p5113,[0],"inside the declared range, unlabelled: INEI's `pase` convention"
+2014,05,p5114,[0],"inside the declared range, unlabelled: INEI's `pase` convention"
+2014,05,p5115,[0],"inside the declared range, unlabelled: INEI's `pase` convention"
+2014,05,p5116,[0],"inside the declared range, unlabelled: INEI's `pase` convention"
+2014,05,p5117,[0],"inside the declared range, unlabelled: INEI's `pase` convention"
+2014,05,p5118,[0],"inside the declared range, unlabelled: INEI's `pase` convention"
+2014,05,p5119,[0],"inside the declared range, unlabelled: INEI's `pase` convention"
+2014,05,p551,"[1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 12, 13, 14, 15, 16, 18, 20, 21, 24, 25, 28, 30, 32, 48]",outside the declared range: dictionary and released data disagree — reported
+2014,05,p5561d,[0],outside the declared range: dictionary and released data disagree — reported
+2014,05,p5562d,[0],outside the declared range: dictionary and released data disagree — reported
+2014,05,p5563c1,[99],outside the declared range: dictionary and released data disagree — reported
+2014,05,p5563d,[0],outside the declared range: dictionary and released data disagree — reported
+2014,05,p5563g,[6],outside the declared range: dictionary and released data disagree — reported
+2014,05,p5564d,[0],outside the declared range: dictionary and released data disagree — reported
+2014,05,p5565d,[0],outside the declared range: dictionary and released data disagree — reported
+2014,05,p5566d,[0],outside the declared range: dictionary and released data disagree — reported
+2014,05,p5567d,[0],outside the declared range: dictionary and released data disagree — reported
+2014,05,p5568d,[0],outside the declared range: dictionary and released data disagree — reported
+2014,05,ocu500,[0],outside the declared range: dictionary and released data disagree — reported
+2015,05,codinfor,"[1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17]",outside the declared range: dictionary and released data disagree — reported
+2015,05,p5111,[0],"inside the declared range, unlabelled: INEI's `pase` convention"
+2015,05,p5112,[0],"inside the declared range, unlabelled: INEI's `pase` convention"
+2015,05,p5113,[0],"inside the declared range, unlabelled: INEI's `pase` convention"
+2015,05,p5114,[0],"inside the declared range, unlabelled: INEI's `pase` convention"
+2015,05,p5115,[0],"inside the declared range, unlabelled: INEI's `pase` convention"
+2015,05,p5116,[0],"inside the declared range, unlabelled: INEI's `pase` convention"
+2015,05,p5117,[0],"inside the declared range, unlabelled: INEI's `pase` convention"
+2015,05,p5118,[0],"inside the declared range, unlabelled: INEI's `pase` convention"
+2015,05,p5119,[0],"inside the declared range, unlabelled: INEI's `pase` convention"
+2015,05,p551,"[1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 15, 16, 20, 21, 23, 24, 27, 30, 35, 36, 42, 48]",outside the declared range: dictionary and released data disagree — reported
+2015,05,p5561d,[0],outside the declared range: dictionary and released data disagree — reported
+2015,05,p5562d,[0],outside the declared range: dictionary and released data disagree — reported
+2015,05,p5563c1,[99],outside the declared range: dictionary and released data disagree — reported
+2015,05,p5563d,[0],outside the declared range: dictionary and released data disagree — reported
+2015,05,p5563g,[6],outside the declared range: dictionary and released data disagree — reported
+2015,05,p5564d,[0],outside the declared range: dictionary and released data disagree — reported
+2015,05,p5565d,[0],outside the declared range: dictionary and released data disagree — reported
+2015,05,p5566d,[0],outside the declared range: dictionary and released data disagree — reported
+2015,05,p5567d,[0],outside the declared range: dictionary and released data disagree — reported
+2015,05,p5568d,[0],outside the declared range: dictionary and released data disagree — reported
+2015,05,ocu500,[0],outside the declared range: dictionary and released data disagree — reported
+2016,05,codinfor,"[1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 18, 19, 20]",outside the declared range: dictionary and released data disagree — reported
+2016,05,p5111,[0],"inside the declared range, unlabelled: INEI's `pase` convention"
+2016,05,p5112,[0],"inside the declared range, unlabelled: INEI's `pase` convention"
+2016,05,p5113,[0],"inside the declared range, unlabelled: INEI's `pase` convention"
+2016,05,p5114,[0],"inside the declared range, unlabelled: INEI's `pase` convention"
+2016,05,p5115,[0],"inside the declared range, unlabelled: INEI's `pase` convention"
+2016,05,p5116,[0],"inside the declared range, unlabelled: INEI's `pase` convention"
+2016,05,p5117,[0],"inside the declared range, unlabelled: INEI's `pase` convention"
+2016,05,p5118,[0],"inside the declared range, unlabelled: INEI's `pase` convention"
+2016,05,p5119,[0],"inside the declared range, unlabelled: INEI's `pase` convention"
+2016,05,p521c,[9],outside the declared range: dictionary and released data disagree — reported
+2016,05,p551,"[1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 12, 14, 15, 16, 17, 18, 20, 21, 22, 24, 25, 26, 28, 30, 36, 37, 40, 45, 48]",outside the declared range: dictionary and released data disagree — reported
+2016,05,p5561d,[0],outside the declared range: dictionary and released data disagree — reported
+2016,05,p5562d,[0],outside the declared range: dictionary and released data disagree — reported
+2016,05,p5563c1,[99],outside the declared range: dictionary and released data disagree — reported
+2016,05,p5563d,[0],outside the declared range: dictionary and released data disagree — reported
+2016,05,p5563g,[6],outside the declared range: dictionary and released data disagree — reported
+2016,05,p5564d,[0],outside the declared range: dictionary and released data disagree — reported
+2016,05,p5565d,[0],outside the declared range: dictionary and released data disagree — reported
+2016,05,p5566d,[0],outside the declared range: dictionary and released data disagree — reported
+2016,05,p5567d,[0],outside the declared range: dictionary and released data disagree — reported
+2016,05,p5568d,[0],outside the declared range: dictionary and released data disagree — reported
+2016,05,ocu500,[0],outside the declared range: dictionary and released data disagree — reported
+2017,05,codinfor,"[1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15]",outside the declared range: dictionary and released data disagree — reported
+2017,05,p505b,[0],outside the declared range: dictionary and released data disagree — reported
+2017,05,p5111,[0],"inside the declared range, unlabelled: INEI's `pase` convention"
+2017,05,p5112,[0],"inside the declared range, unlabelled: INEI's `pase` convention"
+2017,05,p5113,[0],"inside the declared range, unlabelled: INEI's `pase` convention"
+2017,05,p5114,[0],"inside the declared range, unlabelled: INEI's `pase` convention"
+2017,05,p5115,[0],"inside the declared range, unlabelled: INEI's `pase` convention"
+2017,05,p5116,[0],"inside the declared range, unlabelled: INEI's `pase` convention"
+2017,05,p5117,[0],"inside the declared range, unlabelled: INEI's `pase` convention"
+2017,05,p5118,[0],"inside the declared range, unlabelled: INEI's `pase` convention"
+2017,05,p5119,[0],"inside the declared range, unlabelled: INEI's `pase` convention"
+2017,05,p521c,[9],outside the declared range: dictionary and released data disagree — reported
+2017,05,p551,"[1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 12, 14, 15, 16, 18, 20, 21, 24, 25, 28, 30, 40, 44, 45, 48]",outside the declared range: dictionary and released data disagree — reported
+2017,05,p5561d,[0],outside the declared range: dictionary and released data disagree — reported
+2017,05,p5562d,[0],outside the declared range: dictionary and released data disagree — reported
+2017,05,p5563c1,[99],outside the declared range: dictionary and released data disagree — reported
+2017,05,p5563d,[0],outside the declared range: dictionary and released data disagree — reported
+2017,05,p5563g,[6],outside the declared range: dictionary and released data disagree — reported
+2017,05,p5564d,[0],outside the declared range: dictionary and released data disagree — reported
+2017,05,p5565d,[0],outside the declared range: dictionary and released data disagree — reported
+2017,05,p5566d,[0],outside the declared range: dictionary and released data disagree — reported
+2017,05,p5567d,[0],outside the declared range: dictionary and released data disagree — reported
+2017,05,p5568d,[0],outside the declared range: dictionary and released data disagree — reported
+2017,05,ocu500,[0],outside the declared range: dictionary and released data disagree — reported
+2018,05,codinfor,"[1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19]",outside the declared range: dictionary and released data disagree — reported
+2018,05,p505b,[0],outside the declared range: dictionary and released data disagree — reported
+2018,05,p5111,[0],"inside the declared range, unlabelled: INEI's `pase` convention"
+2018,05,p5112,[0],"inside the declared range, unlabelled: INEI's `pase` convention"
+2018,05,p5113,[0],"inside the declared range, unlabelled: INEI's `pase` convention"
+2018,05,p5114,[0],"inside the declared range, unlabelled: INEI's `pase` convention"
+2018,05,p5115,[0],"inside the declared range, unlabelled: INEI's `pase` convention"
+2018,05,p5116,[0],"inside the declared range, unlabelled: INEI's `pase` convention"
+2018,05,p5117,[0],"inside the declared range, unlabelled: INEI's `pase` convention"
+2018,05,p5118,[0],"inside the declared range, unlabelled: INEI's `pase` convention"
+2018,05,p5119,[0],"inside the declared range, unlabelled: INEI's `pase` convention"
+2018,05,p521c,[9],outside the declared range: dictionary and released data disagree — reported
+2018,05,p551,"[1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 12, 13, 14, 15, 16, 18, 20, 21, 22, 24, 25, 28, 30, 32, 36, 40, 44, 48, 60]",outside the declared range: dictionary and released data disagree — reported
+2018,05,p5561d,[0],outside the declared range: dictionary and released data disagree — reported
+2018,05,p5562d,[0],outside the declared range: dictionary and released data disagree — reported
+2018,05,p5563c1,[99],outside the declared range: dictionary and released data disagree — reported
+2018,05,p5563d,[0],outside the declared range: dictionary and released data disagree — reported
+2018,05,p5564d,[0],outside the declared range: dictionary and released data disagree — reported
+2018,05,p5565d,[0],outside the declared range: dictionary and released data disagree — reported
+2018,05,p5566d,[0],outside the declared range: dictionary and released data disagree — reported
+2018,05,p5567d,[0],outside the declared range: dictionary and released data disagree — reported
+2018,05,p5568d,[0],outside the declared range: dictionary and released data disagree — reported
+2018,05,p558d1,"[0, 210215]",outside the declared range: dictionary and released data disagree — reported
+2018,05,r559_04,[3],outside the declared range: dictionary and released data disagree — reported
+2018,05,r559_05,[3],outside the declared range: dictionary and released data disagree — reported
+2018,05,r559_06,[3],outside the declared range: dictionary and released data disagree — reported
+2018,05,r559_07,[3],outside the declared range: dictionary and released data disagree — reported
+2018,05,r559_08,[3],outside the declared range: dictionary and released data disagree — reported
+2018,05,r559_09,[3],outside the declared range: dictionary and released data disagree — reported
+2018,05,r559_10,[3],outside the declared range: dictionary and released data disagree — reported
+2018,05,r559_11,[3],outside the declared range: dictionary and released data disagree — reported
+2018,05,r559_12,[3],outside the declared range: dictionary and released data disagree — reported
+2018,05,r559_13,[3],outside the declared range: dictionary and released data disagree — reported
+2018,05,r559_14,[3],outside the declared range: dictionary and released data disagree — reported
+2018,05,r559_15,[3],outside the declared range: dictionary and released data disagree — reported
+2018,05,ocu500,[0],outside the declared range: dictionary and released data disagree — reported
+2018,05,imputado,[0],outside the declared range: dictionary and released data disagree — reported
+2019,05,codinfor,"[1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17]",outside the declared range: dictionary and released data disagree — reported
+2019,05,p505b,[0],outside the declared range: dictionary and released data disagree — reported
+2019,05,p5111,[0],"inside the declared range, unlabelled: INEI's `pase` convention"
+2019,05,p5112,[0],"inside the declared range, unlabelled: INEI's `pase` convention"
+2019,05,p5113,[0],"inside the declared range, unlabelled: INEI's `pase` convention"
+2019,05,p5114,[0],"inside the declared range, unlabelled: INEI's `pase` convention"
+2019,05,p5115,[0],"inside the declared range, unlabelled: INEI's `pase` convention"
+2019,05,p5116,[0],"inside the declared range, unlabelled: INEI's `pase` convention"
+2019,05,p5117,[0],"inside the declared range, unlabelled: INEI's `pase` convention"
+2019,05,p5118,[0],"inside the declared range, unlabelled: INEI's `pase` convention"
+2019,05,p5119,[0],"inside the declared range, unlabelled: INEI's `pase` convention"
+2019,05,p521c,[9],outside the declared range: dictionary and released data disagree — reported
+2019,05,p551,"[1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 12, 14, 15, 16, 18, 20, 21, 24, 28, 30, 36, 40, 48]",outside the declared range: dictionary and released data disagree — reported
+2019,05,p5561d,[0],outside the declared range: dictionary and released data disagree — reported
+2019,05,p5562d,[0],outside the declared range: dictionary and released data disagree — reported
+2019,05,p5563d,[0],outside the declared range: dictionary and released data disagree — reported
+2019,05,p5564d,[0],outside the declared range: dictionary and released data disagree — reported
+2019,05,p5565d,[0],outside the declared range: dictionary and released data disagree — reported
+2019,05,p5566d,[0],outside the declared range: dictionary and released data disagree — reported
+2019,05,p5567d,[0],outside the declared range: dictionary and released data disagree — reported
+2019,05,p5568d,[0],outside the declared range: dictionary and released data disagree — reported
+2019,05,p558d1,[0],outside the declared range: dictionary and released data disagree — reported
+2019,05,ocu500,[0],outside the declared range: dictionary and released data disagree — reported
+2019,05,r559_04,[3],outside the declared range: dictionary and released data disagree — reported
+2019,05,r559_05,[3],outside the declared range: dictionary and released data disagree — reported
+2019,05,r559_06,[3],outside the declared range: dictionary and released data disagree — reported
+2019,05,r559_07,[3],outside the declared range: dictionary and released data disagree — reported
+2019,05,r559_08,[3],outside the declared range: dictionary and released data disagree — reported
+2019,05,r559_09,[3],outside the declared range: dictionary and released data disagree — reported
+2019,05,r559_10,[3],outside the declared range: dictionary and released data disagree — reported
+2019,05,r559_11,[3],outside the declared range: dictionary and released data disagree — reported
+2019,05,r559_12,[3],outside the declared range: dictionary and released data disagree — reported
+2019,05,r559_13,[3],outside the declared range: dictionary and released data disagree — reported
+2019,05,r559_14,[3],outside the declared range: dictionary and released data disagree — reported
+2019,05,r559_15,[3],outside the declared range: dictionary and released data disagree — reported
+2020,05,codinfor,"[1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16]",outside the declared range: dictionary and released data disagree — reported
+2020,05,p505b,[0],outside the declared range: dictionary and released data disagree — reported
+2020,05,p5111,[0],"inside the declared range, unlabelled: INEI's `pase` convention"
+2020,05,p5112,[0],"inside the declared range, unlabelled: INEI's `pase` convention"
+2020,05,p5113,[0],"inside the declared range, unlabelled: INEI's `pase` convention"
+2020,05,p5114,[0],"inside the declared range, unlabelled: INEI's `pase` convention"
+2020,05,p5115,[0],"inside the declared range, unlabelled: INEI's `pase` convention"
+2020,05,p5116,[0],"inside the declared range, unlabelled: INEI's `pase` convention"
+2020,05,p5117,[0],"inside the declared range, unlabelled: INEI's `pase` convention"
+2020,05,p5118,[0],"inside the declared range, unlabelled: INEI's `pase` convention"
+2020,05,p5119,[0],"inside the declared range, unlabelled: INEI's `pase` convention"
+2020,05,p5561d,[0],outside the declared range: dictionary and released data disagree — reported
+2020,05,p5562d,[0],outside the declared range: dictionary and released data disagree — reported
+2020,05,p5563c1,[99],outside the declared range: dictionary and released data disagree — reported
+2020,05,p5563d,[0],outside the declared range: dictionary and released data disagree — reported
+2020,05,p5563g,[6],outside the declared range: dictionary and released data disagree — reported
+2020,05,p5564d,[0],outside the declared range: dictionary and released data disagree — reported
+2020,05,p5565d,[0],outside the declared range: dictionary and released data disagree — reported
+2020,05,p5566d,[0],outside the declared range: dictionary and released data disagree — reported
+2020,05,p5567d,[0],outside the declared range: dictionary and released data disagree — reported
+2020,05,p5568d,[0],outside the declared range: dictionary and released data disagree — reported
+2020,05,p55610d,[0],outside the declared range: dictionary and released data disagree — reported
+2020,05,p55611d,[0],outside the declared range: dictionary and released data disagree — reported
+2020,05,p55612d,[0],outside the declared range: dictionary and released data disagree — reported
+2020,05,p55613d,[0],outside the declared range: dictionary and released data disagree — reported
+2020,05,p55614d,[0],outside the declared range: dictionary and released data disagree — reported
+2020,05,p558a5,[5],outside the declared range: dictionary and released data disagree — reported
+2020,05,p558e2_2,[3],outside the declared range: dictionary and released data disagree — reported
+2020,05,ocu500,"[0, 4]",outside the declared range: dictionary and released data disagree — reported
+2021,05,codinfor,"[3, 4, 5, 6, 7, 8, 10, 11, 12, 13, 15]",outside the declared range: dictionary and released data disagree — reported
+2021,05,p500i,"[0, 3, 4, 5, 6, 7, 8, 10, 11, 12, 13, 15]",outside the declared range: dictionary and released data disagree — reported
+2021,05,p505b,[0],outside the declared range: dictionary and released data disagree — reported
+2021,05,p513a2,"[0, 3, 4, 5, 6, 7, 8, 9, 10, 11]",outside the declared range: dictionary and released data disagree — reported
+2021,05,p517a,[4],outside the declared range: dictionary and released data disagree — reported
+2021,05,p524a2,[0],outside the declared range: dictionary and released data disagree — reported
+2021,05,p524b2,[0],outside the declared range: dictionary and released data disagree — reported
+2021,05,p524c2,[0],outside the declared range: dictionary and released data disagree — reported
+2021,05,p524d2,[0],outside the declared range: dictionary and released data disagree — reported
+2021,05,p524e2,[0],outside the declared range: dictionary and released data disagree — reported
+2021,05,p5291a,[0],outside the declared range: dictionary and released data disagree — reported
+2021,05,p5291c,[0],outside the declared range: dictionary and released data disagree — reported
+2021,05,p5292a,[0],outside the declared range: dictionary and released data disagree — reported
+2021,05,p5292c,[0],outside the declared range: dictionary and released data disagree — reported
+2021,05,p5293a,[0],outside the declared range: dictionary and released data disagree — reported
+2021,05,p5293c,[0],outside the declared range: dictionary and released data disagree — reported
+2021,05,p5294a,[0],outside the declared range: dictionary and released data disagree — reported
+2021,05,p5294c,[0],outside the declared range: dictionary and released data disagree — reported
+2021,05,p5295a,[0],outside the declared range: dictionary and released data disagree — reported
+2021,05,p5295c,[0],outside the declared range: dictionary and released data disagree — reported
+2021,05,p5296a,[0],outside the declared range: dictionary and released data disagree — reported
+2021,05,p5296c,[0],outside the declared range: dictionary and released data disagree — reported
+2021,05,p5297a,[0],outside the declared range: dictionary and released data disagree — reported
+2021,05,p530b,[0],outside the declared range: dictionary and released data disagree — reported
+2021,05,p538a2,[0],outside the declared range: dictionary and released data disagree — reported
+2021,05,p538b2,[0],outside the declared range: dictionary and released data disagree — reported
+2021,05,p538c2,[0],outside the declared range: dictionary and released data disagree — reported
+2021,05,p538d2,[0],outside the declared range: dictionary and released data disagree — reported
+2021,05,p538e2,[0],outside the declared range: dictionary and released data disagree — reported
+2021,05,p538a_3,[0],outside the declared range: dictionary and released data disagree — reported
+2021,05,p5401a,[0],outside the declared range: dictionary and released data disagree — reported
+2021,05,p5401c,[0],outside the declared range: dictionary and released data disagree — reported
+2021,05,p5402a,[0],outside the declared range: dictionary and released data disagree — reported
+2021,05,p5402c,[0],outside the declared range: dictionary and released data disagree — reported
+2021,05,p5403a,[0],outside the declared range: dictionary and released data disagree — reported
+2021,05,p5403c,[0],outside the declared range: dictionary and released data disagree — reported
+2021,05,p5404a,[0],outside the declared range: dictionary and released data disagree — reported
+2021,05,p5404c,[0],outside the declared range: dictionary and released data disagree — reported
+2021,05,p5405a,[0],outside the declared range: dictionary and released data disagree — reported
+2021,05,p5405c,[0],outside the declared range: dictionary and released data disagree — reported
+2021,05,p5406a,[0],outside the declared range: dictionary and released data disagree — reported
+2021,05,p5406c,[0],outside the declared range: dictionary and released data disagree — reported
+2021,05,p5407a,[0],outside the declared range: dictionary and released data disagree — reported
+2021,05,p541b,[0],outside the declared range: dictionary and released data disagree — reported
+2021,05,p551,"[1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 18, 20, 22, 24, 25, 28, 30, 32, 34, 36, 40, 45, 48]",outside the declared range: dictionary and released data disagree — reported
+2021,05,p5561d,[0],outside the declared range: dictionary and released data disagree — reported
+2021,05,p5562b,[0],outside the declared range: dictionary and released data disagree — reported
+2021,05,p5562d,[0],outside the declared range: dictionary and released data disagree — reported
+2021,05,p5563b,[0],outside the declared range: dictionary and released data disagree — reported
+2021,05,p5563d,[0],outside the declared range: dictionary and released data disagree — reported
+2021,05,p5564b,[0],outside the declared range: dictionary and released data disagree — reported
+2021,05,p5564d,[0],outside the declared range: dictionary and released data disagree — reported
+2021,05,p5565d,[0],outside the declared range: dictionary and released data disagree — reported
+2021,05,p5566d,[0],outside the declared range: dictionary and released data disagree — reported
+2021,05,p5567d,[0],outside the declared range: dictionary and released data disagree — reported
+2021,05,p5568b,[0],outside the declared range: dictionary and released data disagree — reported
+2021,05,p5568d,[0],outside the declared range: dictionary and released data disagree — reported
+2021,05,p5569b,[0],outside the declared range: dictionary and released data disagree — reported
+2021,05,p5569d,[0],outside the declared range: dictionary and released data disagree — reported
+2021,05,p55610d,[0],outside the declared range: dictionary and released data disagree — reported
+2021,05,p55611d,[0],outside the declared range: dictionary and released data disagree — reported
+2021,05,p55612d,[0],outside the declared range: dictionary and released data disagree — reported
+2021,05,p55613d,[0],outside the declared range: dictionary and released data disagree — reported
+2021,05,p55614d,[0],outside the declared range: dictionary and released data disagree — reported
+2021,05,p55617d,[0],outside the declared range: dictionary and released data disagree — reported
+2021,05,p55620d,[0],outside the declared range: dictionary and released data disagree — reported
+2021,05,p55621d,[0],outside the declared range: dictionary and released data disagree — reported
+2021,05,p55622d,[0],outside the declared range: dictionary and released data disagree — reported
+2021,05,p55623d,[0],outside the declared range: dictionary and released data disagree — reported
+2021,05,p55624d,[0],outside the declared range: dictionary and released data disagree — reported
+2021,05,p55625d,[0],outside the declared range: dictionary and released data disagree — reported
+2021,05,p55616d_e,[0],outside the declared range: dictionary and released data disagree — reported
+2021,05,p55619d_e,[0],outside the declared range: dictionary and released data disagree — reported
+2021,05,p55624d_e,[0],outside the declared range: dictionary and released data disagree — reported
+2021,05,p55625d_e,[0],outside the declared range: dictionary and released data disagree — reported
+2021,05,p5578b,[1],outside the declared range: dictionary and released data disagree — reported
+2021,05,p558e2_2,[3],outside the declared range: dictionary and released data disagree — reported
+2021,05,ocu500,"[0, 3, 4]",outside the declared range: dictionary and released data disagree — reported
+2022,05,codinfor,"[1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 18]",outside the declared range: dictionary and released data disagree — reported
+2022,05,p500i,"[0, 3, 4, 5, 6, 7, 8, 10, 11, 12, 13, 14, 15, 16, 18]",outside the declared range: dictionary and released data disagree — reported
+2022,05,p505b,[0],outside the declared range: dictionary and released data disagree — reported
+2022,05,p513a2,"[0, 3, 4, 5, 6, 7, 8, 9, 10, 11]",outside the declared range: dictionary and released data disagree — reported
+2022,05,p524a2,[0],outside the declared range: dictionary and released data disagree — reported
+2022,05,p524b2,[0],outside the declared range: dictionary and released data disagree — reported
+2022,05,p524c2,[0],outside the declared range: dictionary and released data disagree — reported
+2022,05,p524d2,[0],outside the declared range: dictionary and released data disagree — reported
+2022,05,p524e2,[0],outside the declared range: dictionary and released data disagree — reported
+2022,05,p5291a,[0],outside the declared range: dictionary and released data disagree — reported
+2022,05,p5291c,[0],outside the declared range: dictionary and released data disagree — reported
+2022,05,p5292a,[0],outside the declared range: dictionary and released data disagree — reported
+2022,05,p5292c,[0],outside the declared range: dictionary and released data disagree — reported
+2022,05,p5293a,[0],outside the declared range: dictionary and released data disagree — reported
+2022,05,p5293c,[0],outside the declared range: dictionary and released data disagree — reported
+2022,05,p5294a,[0],outside the declared range: dictionary and released data disagree — reported
+2022,05,p5294c,[0],outside the declared range: dictionary and released data disagree — reported
+2022,05,p5295a,[0],outside the declared range: dictionary and released data disagree — reported
+2022,05,p5295c,[0],outside the declared range: dictionary and released data disagree — reported
+2022,05,p5296a,[0],outside the declared range: dictionary and released data disagree — reported
+2022,05,p5296c,[0],outside the declared range: dictionary and released data disagree — reported
+2022,05,p5297a,[0],outside the declared range: dictionary and released data disagree — reported
+2022,05,p530b,[0],outside the declared range: dictionary and released data disagree — reported
+2022,05,p53710,[2022],outside the declared range: dictionary and released data disagree — reported
+2022,05,p538a2,[0],outside the declared range: dictionary and released data disagree — reported
+2022,05,p538b2,[0],outside the declared range: dictionary and released data disagree — reported
+2022,05,p538c2,[0],outside the declared range: dictionary and released data disagree — reported
+2022,05,p538d2,[0],outside the declared range: dictionary and released data disagree — reported
+2022,05,p538e2,[0],outside the declared range: dictionary and released data disagree — reported
+2022,05,p5401a,[0],outside the declared range: dictionary and released data disagree — reported
+2022,05,p5401c,[0],outside the declared range: dictionary and released data disagree — reported
+2022,05,p5402a,[0],outside the declared range: dictionary and released data disagree — reported
+2022,05,p5402c,[0],outside the declared range: dictionary and released data disagree — reported
+2022,05,p5403a,[0],outside the declared range: dictionary and released data disagree — reported
+2022,05,p5403c,[0],outside the declared range: dictionary and released data disagree — reported
+2022,05,p5404a,[0],outside the declared range: dictionary and released data disagree — reported
+2022,05,p5404c,[0],outside the declared range: dictionary and released data disagree — reported
+2022,05,p5405a,[0],outside the declared range: dictionary and released data disagree — reported
+2022,05,p5405c,[0],outside the declared range: dictionary and released data disagree — reported
+2022,05,p5406a,[0],outside the declared range: dictionary and released data disagree — reported
+2022,05,p5406c,[0],outside the declared range: dictionary and released data disagree — reported
+2022,05,p5407a,[0],outside the declared range: dictionary and released data disagree — reported
+2022,05,p541b,[0],outside the declared range: dictionary and released data disagree — reported
+2022,05,p551,"[1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 12, 13, 15, 16, 17, 18, 20, 24, 28, 30, 32, 33, 36, 40, 48, 49]",outside the declared range: dictionary and released data disagree — reported
+2022,05,p5561d,[0],outside the declared range: dictionary and released data disagree — reported
+2022,05,p5562b,[0],outside the declared range: dictionary and released data disagree — reported
+2022,05,p5562d,[0],outside the declared range: dictionary and released data disagree — reported
+2022,05,p5563b,[0],outside the declared range: dictionary and released data disagree — reported
+2022,05,p5563d,[0],outside the declared range: dictionary and released data disagree — reported
+2022,05,p5564b,[0],outside the declared range: dictionary and released data disagree — reported
+2022,05,p5564d,[0],outside the declared range: dictionary and released data disagree — reported
+2022,05,p5565d,[0],outside the declared range: dictionary and released data disagree — reported
+2022,05,p5566d,[0],outside the declared range: dictionary and released data disagree — reported
+2022,05,p5567d,[0],outside the declared range: dictionary and released data disagree — reported
+2022,05,p5568b,[0],outside the declared range: dictionary and released data disagree — reported
+2022,05,p5568d,[0],outside the declared range: dictionary and released data disagree — reported
+2022,05,p5569b,[0],outside the declared range: dictionary and released data disagree — reported
+2022,05,p5569d,[0],outside the declared range: dictionary and released data disagree — reported
+2022,05,p55610d,[0],outside the declared range: dictionary and released data disagree — reported
+2022,05,p55611d,[0],outside the declared range: dictionary and released data disagree — reported
+2022,05,p55612d,[0],outside the declared range: dictionary and released data disagree — reported
+2022,05,p55613d,[0],outside the declared range: dictionary and released data disagree — reported
+2022,05,p55614d,[0],outside the declared range: dictionary and released data disagree — reported
+2022,05,p55620d,[0],outside the declared range: dictionary and released data disagree — reported
+2022,05,p55621d,[0],outside the declared range: dictionary and released data disagree — reported
+2022,05,p55622d,[0],outside the declared range: dictionary and released data disagree — reported
+2022,05,p55623d,[0],outside the declared range: dictionary and released data disagree — reported
+2022,05,p55624d,[0],outside the declared range: dictionary and released data disagree — reported
+2022,05,p55625d,[0],outside the declared range: dictionary and released data disagree — reported
+2022,05,p55626d,[0],outside the declared range: dictionary and released data disagree — reported
+2022,05,p5578b,[1],outside the declared range: dictionary and released data disagree — reported
+2022,05,p558e2_2,[3],outside the declared range: dictionary and released data disagree — reported
+2023,05,codinfor,"[1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 18, 19, 20, 21]",outside the declared range: dictionary and released data disagree — reported
+2023,05,p500i,"[0, 3, 4, 5, 6, 7, 8, 10, 11, 12, 13, 14, 15, 16, 18, 19, 20, 21]",outside the declared range: dictionary and released data disagree — reported
+2023,05,p505b,[0],outside the declared range: dictionary and released data disagree — reported
+2023,05,p513a2,"[0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11]",outside the declared range: dictionary and released data disagree — reported
+2023,05,p521d,"[5, 6]",outside the declared range: dictionary and released data disagree — reported
+2023,05,p524a2,[0],outside the declared range: dictionary and released data disagree — reported
+2023,05,p524b2,[0],outside the declared range: dictionary and released data disagree — reported
+2023,05,p524c2,[0],outside the declared range: dictionary and released data disagree — reported
+2023,05,p524d2,[0],outside the declared range: dictionary and released data disagree — reported
+2023,05,p524e2,[0],outside the declared range: dictionary and released data disagree — reported
+2023,05,p5291a,[0],outside the declared range: dictionary and released data disagree — reported
+2023,05,p5291c,[0],outside the declared range: dictionary and released data disagree — reported
+2023,05,p5292a,[0],outside the declared range: dictionary and released data disagree — reported
+2023,05,p5292c,[0],outside the declared range: dictionary and released data disagree — reported
+2023,05,p5293a,[0],outside the declared range: dictionary and released data disagree — reported
+2023,05,p5293c,[0],outside the declared range: dictionary and released data disagree — reported
+2023,05,p5294a,[0],outside the declared range: dictionary and released data disagree — reported
+2023,05,p5294c,[0],outside the declared range: dictionary and released data disagree — reported
+2023,05,p5295a,[0],outside the declared range: dictionary and released data disagree — reported
+2023,05,p5295c,[0],outside the declared range: dictionary and released data disagree — reported
+2023,05,p5296a,[0],outside the declared range: dictionary and released data disagree — reported
+2023,05,p5296c,[0],outside the declared range: dictionary and released data disagree — reported
+2023,05,p5297a,[0],outside the declared range: dictionary and released data disagree — reported
+2023,05,p530b,[0],outside the declared range: dictionary and released data disagree — reported
+2023,05,p538a2,[0],outside the declared range: dictionary and released data disagree — reported
+2023,05,p538b2,[0],outside the declared range: dictionary and released data disagree — reported
+2023,05,p538c2,[0],outside the declared range: dictionary and released data disagree — reported
+2023,05,p538d2,[0],outside the declared range: dictionary and released data disagree — reported
+2023,05,p538e2,[0],outside the declared range: dictionary and released data disagree — reported
+2023,05,p5401a,[0],outside the declared range: dictionary and released data disagree — reported
+2023,05,p5401c,[0],outside the declared range: dictionary and released data disagree — reported
+2023,05,p5402a,[0],outside the declared range: dictionary and released data disagree — reported
+2023,05,p5402c,[0],outside the declared range: dictionary and released data disagree — reported
+2023,05,p5403a,[0],outside the declared range: dictionary and released data disagree — reported
+2023,05,p5403c,[0],outside the declared range: dictionary and released data disagree — reported
+2023,05,p5404a,[0],outside the declared range: dictionary and released data disagree — reported
+2023,05,p5404c,[0],outside the declared range: dictionary and released data disagree — reported
+2023,05,p5405a,[0],outside the declared range: dictionary and released data disagree — reported
+2023,05,p5406a,[0],outside the declared range: dictionary and released data disagree — reported
+2023,05,p5406c,[0],outside the declared range: dictionary and released data disagree — reported
+2023,05,p5407a,[0],outside the declared range: dictionary and released data disagree — reported
+2023,05,p541b,[0],outside the declared range: dictionary and released data disagree — reported
+2023,05,p550_gi,"[1, 2, 3, 4, 5, 6]",outside the declared range: dictionary and released data disagree — reported
+2023,05,p5561d,[0],outside the declared range: dictionary and released data disagree — reported
+2023,05,p5562b,[0],outside the declared range: dictionary and released data disagree — reported
+2023,05,p5562d,[0],outside the declared range: dictionary and released data disagree — reported
+2023,05,p5563b,[0],outside the declared range: dictionary and released data disagree — reported
+2023,05,p5563d,[0],outside the declared range: dictionary and released data disagree — reported
+2023,05,p5563f,[0],outside the declared range: dictionary and released data disagree — reported
+2023,05,p5563g,[0],outside the declared range: dictionary and released data disagree — reported
+2023,05,p5564b,[0],outside the declared range: dictionary and released data disagree — reported
+2023,05,p5564d,[0],outside the declared range: dictionary and released data disagree — reported
+2023,05,p5565b,[0],outside the declared range: dictionary and released data disagree — reported
+2023,05,p5565d,[0],outside the declared range: dictionary and released data disagree — reported
+2023,05,p5566d,[0],outside the declared range: dictionary and released data disagree — reported
+2023,05,p5567d,[0],outside the declared range: dictionary and released data disagree — reported
+2023,05,p5568b,[0],outside the declared range: dictionary and released data disagree — reported
+2023,05,p5568d,[0],outside the declared range: dictionary and released data disagree — reported
+2023,05,p5569d,[0],outside the declared range: dictionary and released data disagree — reported
+2023,05,p55610d,[0],outside the declared range: dictionary and released data disagree — reported
+2023,05,p55611d,[0],outside the declared range: dictionary and released data disagree — reported
+2023,05,p55612d,[0],outside the declared range: dictionary and released data disagree — reported
+2023,05,p55613d,[0],outside the declared range: dictionary and released data disagree — reported
+2023,05,p55614d,[0],outside the declared range: dictionary and released data disagree — reported
+2023,05,p55620d,[0],outside the declared range: dictionary and released data disagree — reported
+2023,05,p55621d,[0],outside the declared range: dictionary and released data disagree — reported
+2023,05,p55622d,[0],outside the declared range: dictionary and released data disagree — reported
+2023,05,p55623d,[0],outside the declared range: dictionary and released data disagree — reported
+2023,05,p55624d,[0],outside the declared range: dictionary and released data disagree — reported
+2023,05,p55626d,[0],outside the declared range: dictionary and released data disagree — reported
+2023,05,p55628c,"[50, 100, 200, 210, 250, 300, 400, 550, 650, 900, 950, 1500, 1600]",outside the declared range: dictionary and released data disagree — reported
+2023,05,p5578b,[1],outside the declared range: dictionary and released data disagree — reported
+2023,05,p558e2_2,[3],outside the declared range: dictionary and released data disagree — reported
+2024,05,codinfor,"[1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 16]",outside the declared range: dictionary and released data disagree — reported
+2024,05,p500i,"[0, 3, 4, 5, 6, 7, 8, 10, 11, 12, 13, 14, 16]",outside the declared range: dictionary and released data disagree — reported
+2024,05,p505b,[0],outside the declared range: dictionary and released data disagree — reported
+2024,05,p513a2,"[0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11]",outside the declared range: dictionary and released data disagree — reported
+2024,05,p524a2,[0],outside the declared range: dictionary and released data disagree — reported
+2024,05,p524b2,[0],outside the declared range: dictionary and released data disagree — reported
+2024,05,p524c2,[0],outside the declared range: dictionary and released data disagree — reported
+2024,05,p524d2,[0],outside the declared range: dictionary and released data disagree — reported
+2024,05,p524e2,[0],outside the declared range: dictionary and released data disagree — reported
+2024,05,p5291a,[0],outside the declared range: dictionary and released data disagree — reported
+2024,05,p5291c,[0],outside the declared range: dictionary and released data disagree — reported
+2024,05,p5292a,[0],outside the declared range: dictionary and released data disagree — reported
+2024,05,p5292c,[0],outside the declared range: dictionary and released data disagree — reported
+2024,05,p5293a,[0],outside the declared range: dictionary and released data disagree — reported
+2024,05,p5293c,[0],outside the declared range: dictionary and released data disagree — reported
+2024,05,p5294a,[0],outside the declared range: dictionary and released data disagree — reported
+2024,05,p5294c,[0],outside the declared range: dictionary and released data disagree — reported
+2024,05,p5295a,[0],outside the declared range: dictionary and released data disagree — reported
+2024,05,p5295c,[0],outside the declared range: dictionary and released data disagree — reported
+2024,05,p5296a,[0],outside the declared range: dictionary and released data disagree — reported
+2024,05,p5296c,[0],outside the declared range: dictionary and released data disagree — reported
+2024,05,p530b,[0],outside the declared range: dictionary and released data disagree — reported
+2024,05,p538a2,[0],outside the declared range: dictionary and released data disagree — reported
+2024,05,p538b2,[0],outside the declared range: dictionary and released data disagree — reported
+2024,05,p538d2,[0],outside the declared range: dictionary and released data disagree — reported
+2024,05,p538e2,[0],outside the declared range: dictionary and released data disagree — reported
+2024,05,p5401a,[0],outside the declared range: dictionary and released data disagree — reported
+2024,05,p5401c,[0],outside the declared range: dictionary and released data disagree — reported
+2024,05,p5402a,[0],outside the declared range: dictionary and released data disagree — reported
+2024,05,p5402c,[0],outside the declared range: dictionary and released data disagree — reported
+2024,05,p5403a,[0],outside the declared range: dictionary and released data disagree — reported
+2024,05,p5403c,[0],outside the declared range: dictionary and released data disagree — reported
+2024,05,p5404a,[0],outside the declared range: dictionary and released data disagree — reported
+2024,05,p5404c,[0],outside the declared range: dictionary and released data disagree — reported
+2024,05,p5405a,[0],outside the declared range: dictionary and released data disagree — reported
+2024,05,p5406a,[0],outside the declared range: dictionary and released data disagree — reported
+2024,05,p5406c,[0],outside the declared range: dictionary and released data disagree — reported
+2024,05,p5407a,[0],outside the declared range: dictionary and released data disagree — reported
+2024,05,p541b,[0],outside the declared range: dictionary and released data disagree — reported
+2024,05,p550_1,[2],outside the declared range: dictionary and released data disagree — reported
+2024,05,p550_gi,"[1, 2, 3, 4, 5, 6]",outside the declared range: dictionary and released data disagree — reported
+2024,05,p5561b,[0],outside the declared range: dictionary and released data disagree — reported
+2024,05,p5561d,[0],outside the declared range: dictionary and released data disagree — reported
+2024,05,p5562b,[0],outside the declared range: dictionary and released data disagree — reported
+2024,05,p5562d,[0],outside the declared range: dictionary and released data disagree — reported
+2024,05,p5563b,[0],outside the declared range: dictionary and released data disagree — reported
+2024,05,p5563d,[0],outside the declared range: dictionary and released data disagree — reported
+2024,05,p5563g,[0],outside the declared range: dictionary and released data disagree — reported
+2024,05,p5564b,[0],outside the declared range: dictionary and released data disagree — reported
+2024,05,p5564d,[0],outside the declared range: dictionary and released data disagree — reported
+2024,05,p5565b,[0],outside the declared range: dictionary and released data disagree — reported
+2024,05,p5565d,[0],outside the declared range: dictionary and released data disagree — reported
+2024,05,p5566b,[0],outside the declared range: dictionary and released data disagree — reported
+2024,05,p5567b,[0],outside the declared range: dictionary and released data disagree — reported
+2024,05,p5568b,[0],outside the declared range: dictionary and released data disagree — reported
+2024,05,p5569a,[0],outside the declared range: dictionary and released data disagree — reported
+2024,05,p5569b,[0],outside the declared range: dictionary and released data disagree — reported
+2024,05,p5569d,[0],outside the declared range: dictionary and released data disagree — reported
+2024,05,p55610a,[0],outside the declared range: dictionary and released data disagree — reported
+2024,05,p55610b,[0],outside the declared range: dictionary and released data disagree — reported
+2024,05,p55610d,[0],outside the declared range: dictionary and released data disagree — reported
+2024,05,p55611a,[0],outside the declared range: dictionary and released data disagree — reported
+2024,05,p55611b,[0],outside the declared range: dictionary and released data disagree — reported
+2024,05,p55611d,[0],outside the declared range: dictionary and released data disagree — reported
+2024,05,p55612a,[0],outside the declared range: dictionary and released data disagree — reported
+2024,05,p55612b,[0],outside the declared range: dictionary and released data disagree — reported
+2024,05,p55612d,[0],outside the declared range: dictionary and released data disagree — reported
+2024,05,p55613a,[0],outside the declared range: dictionary and released data disagree — reported
+2024,05,p55613b,[0],outside the declared range: dictionary and released data disagree — reported
+2024,05,p55613d,[0],outside the declared range: dictionary and released data disagree — reported
+2024,05,p55614a,[0],outside the declared range: dictionary and released data disagree — reported
+2024,05,p55614b,[0],outside the declared range: dictionary and released data disagree — reported
+2024,05,p55614d,[0],outside the declared range: dictionary and released data disagree — reported
+2024,05,p55620a,[0],outside the declared range: dictionary and released data disagree — reported
+2024,05,p55620b,[0],outside the declared range: dictionary and released data disagree — reported
+2024,05,p55620d,[0],outside the declared range: dictionary and released data disagree — reported
+2024,05,p55621a,[0],outside the declared range: dictionary and released data disagree — reported
+2024,05,p55621b,[0],outside the declared range: dictionary and released data disagree — reported
+2024,05,p55621d,[0],outside the declared range: dictionary and released data disagree — reported
+2024,05,p55622a,[0],outside the declared range: dictionary and released data disagree — reported
+2024,05,p55622b,[0],outside the declared range: dictionary and released data disagree — reported
+2024,05,p55622d,[0],outside the declared range: dictionary and released data disagree — reported
+2024,05,p55623a,[0],outside the declared range: dictionary and released data disagree — reported
+2024,05,p55623b,[0],outside the declared range: dictionary and released data disagree — reported
+2024,05,p55623d,[0],outside the declared range: dictionary and released data disagree — reported
+2024,05,p55624a,[0],outside the declared range: dictionary and released data disagree — reported
+2024,05,p55624b,[0],outside the declared range: dictionary and released data disagree — reported
+2024,05,p55624d,[0],outside the declared range: dictionary and released data disagree — reported
+2024,05,p55625a,[0],outside the declared range: dictionary and released data disagree — reported
+2024,05,p55625d,[0],outside the declared range: dictionary and released data disagree — reported
+2024,05,p55625e,[0],outside the declared range: dictionary and released data disagree — reported
+2024,05,p55626b,[0],outside the declared range: dictionary and released data disagree — reported
+2024,05,p55626d,[0],outside the declared range: dictionary and released data disagree — reported
+2024,05,p55627a,[0],outside the declared range: dictionary and released data disagree — reported
+2024,05,p55627c,"[0, 150, 200, 300, 400, 600, 700, 800, 1200]",outside the declared range: dictionary and released data disagree — reported
+2024,05,p55628a,[0],outside the declared range: dictionary and released data disagree — reported
+2024,05,p55628c,[0],outside the declared range: dictionary and released data disagree — reported
+2024,05,p5578b,[1],outside the declared range: dictionary and released data disagree — reported
+2024,05,p558f1a,[6],outside the declared range: dictionary and released data disagree — reported
+2024,05,p558f1b,[1],outside the declared range: dictionary and released data disagree — reported
+2024,05,p558g1,"[2, 6, 9]",outside the declared range: dictionary and released data disagree — reported
+2024,05,p558h3_6,[1],outside the declared range: dictionary and released data disagree — reported
+2024,05,p558h4_6,[1],outside the declared range: dictionary and released data disagree — reported
+2024,05,p558h5_6,[1],outside the declared range: dictionary and released data disagree — reported
+2024,05,p558h9_6,[1],outside the declared range: dictionary and released data disagree — reported
+2024,05,d55625c,"[604, 605, 606, 607, 609, 611, 612, 619]",outside the declared range: dictionary and released data disagree — reported
+2025,05,codinfor,"[1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13]",outside the declared range: dictionary and released data disagree — reported
+2025,05,p505b,[0],outside the declared range: dictionary and released data disagree — reported
+2025,05,p513a2,"[0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11]",outside the declared range: dictionary and released data disagree — reported
+2025,05,p519,[3],outside the declared range: dictionary and released data disagree — reported
+2025,05,p524a2,[0],outside the declared range: dictionary and released data disagree — reported
+2025,05,p524b2,[0],outside the declared range: dictionary and released data disagree — reported
+2025,05,p524c2,[0],outside the declared range: dictionary and released data disagree — reported
+2025,05,p524d2,[0],outside the declared range: dictionary and released data disagree — reported
+2025,05,p524e2,[0],outside the declared range: dictionary and released data disagree — reported
+2025,05,p5291a,[0],outside the declared range: dictionary and released data disagree — reported
+2025,05,p5291c,[0],outside the declared range: dictionary and released data disagree — reported
+2025,05,p5292a,[0],outside the declared range: dictionary and released data disagree — reported
+2025,05,p5292c,[0],outside the declared range: dictionary and released data disagree — reported
+2025,05,p5293a,[0],outside the declared range: dictionary and released data disagree — reported
+2025,05,p5293c,[0],outside the declared range: dictionary and released data disagree — reported
+2025,05,p5294a,[0],outside the declared range: dictionary and released data disagree — reported
+2025,05,p5294c,[0],outside the declared range: dictionary and released data disagree — reported
+2025,05,p5295a,[0],outside the declared range: dictionary and released data disagree — reported
+2025,05,p5295c,[0],outside the declared range: dictionary and released data disagree — reported
+2025,05,p5296a,[0],outside the declared range: dictionary and released data disagree — reported
+2025,05,p5296c,[0],outside the declared range: dictionary and released data disagree — reported
+2025,05,p5297a,[0],outside the declared range: dictionary and released data disagree — reported
+2025,05,p530b,[0],outside the declared range: dictionary and released data disagree — reported
+2025,05,p538a2,[0],outside the declared range: dictionary and released data disagree — reported
+2025,05,p538b2,[0],outside the declared range: dictionary and released data disagree — reported
+2025,05,p538c2,[0],outside the declared range: dictionary and released data disagree — reported
+2025,05,p538d2,[0],outside the declared range: dictionary and released data disagree — reported
+2025,05,p538e2,[0],outside the declared range: dictionary and released data disagree — reported
+2025,05,p5401a,[0],outside the declared range: dictionary and released data disagree — reported
+2025,05,p5401c,[0],outside the declared range: dictionary and released data disagree — reported
+2025,05,p5402a,[0],outside the declared range: dictionary and released data disagree — reported
+2025,05,p5402c,[0],outside the declared range: dictionary and released data disagree — reported
+2025,05,p5403a,[0],outside the declared range: dictionary and released data disagree — reported
+2025,05,p5403c,[0],outside the declared range: dictionary and released data disagree — reported
+2025,05,p5404a,[0],outside the declared range: dictionary and released data disagree — reported
+2025,05,p5404c,[0],outside the declared range: dictionary and released data disagree — reported
+2025,05,p5405a,[0],outside the declared range: dictionary and released data disagree — reported
+2025,05,p5406a,[0],outside the declared range: dictionary and released data disagree — reported
+2025,05,p5406c,[0],outside the declared range: dictionary and released data disagree — reported
+2025,05,p5407a,[0],outside the declared range: dictionary and released data disagree — reported
+2025,05,p541b,[0],outside the declared range: dictionary and released data disagree — reported
+2025,05,p551,"[1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 12, 14, 15, 16, 20, 21, 24, 28, 30, 35, 36, 40, 45, 48]",outside the declared range: dictionary and released data disagree — reported
+2025,05,p5561a,[0],outside the declared range: dictionary and released data disagree — reported
+2025,05,p5561b,[0],outside the declared range: dictionary and released data disagree — reported
+2025,05,p5561d,[0],outside the declared range: dictionary and released data disagree — reported
+2025,05,p5562a,[0],outside the declared range: dictionary and released data disagree — reported
+2025,05,p5562b,[0],outside the declared range: dictionary and released data disagree — reported
+2025,05,p5562d,[0],outside the declared range: dictionary and released data disagree — reported
+2025,05,p5563a,[0],outside the declared range: dictionary and released data disagree — reported
+2025,05,p5563b,[0],outside the declared range: dictionary and released data disagree — reported
+2025,05,p5563d,[0],outside the declared range: dictionary and released data disagree — reported
+2025,05,p5563f,[0],outside the declared range: dictionary and released data disagree — reported
+2025,05,p5563g,[0],outside the declared range: dictionary and released data disagree — reported
+2025,05,p5564a,[0],outside the declared range: dictionary and released data disagree — reported
+2025,05,p5564b,[0],outside the declared range: dictionary and released data disagree — reported
+2025,05,p5564d,[0],outside the declared range: dictionary and released data disagree — reported
+2025,05,p5565a,[0],outside the declared range: dictionary and released data disagree — reported
+2025,05,p5565b,[0],outside the declared range: dictionary and released data disagree — reported
+2025,05,p5565d,[0],outside the declared range: dictionary and released data disagree — reported
+2025,05,p5566a,[0],outside the declared range: dictionary and released data disagree — reported
+2025,05,p5566b,[0],outside the declared range: dictionary and released data disagree — reported
+2025,05,p5566d,[0],outside the declared range: dictionary and released data disagree — reported
+2025,05,p5567a,[0],outside the declared range: dictionary and released data disagree — reported
+2025,05,p5567b,[0],outside the declared range: dictionary and released data disagree — reported
+2025,05,p5567d,[0],outside the declared range: dictionary and released data disagree — reported
+2025,05,p5568a,[0],outside the declared range: dictionary and released data disagree — reported
+2025,05,p5568b,[0],outside the declared range: dictionary and released data disagree — reported
+2025,05,p5568d,[0],outside the declared range: dictionary and released data disagree — reported
+2025,05,p5569a,[0],outside the declared range: dictionary and released data disagree — reported
+2025,05,p5569b,[0],outside the declared range: dictionary and released data disagree — reported
+2025,05,p5569d,[0],outside the declared range: dictionary and released data disagree — reported
+2025,05,p55610a,[0],outside the declared range: dictionary and released data disagree — reported
+2025,05,p55610b,[0],outside the declared range: dictionary and released data disagree — reported
+2025,05,p55610d,[0],outside the declared range: dictionary and released data disagree — reported
+2025,05,p55611a,[0],outside the declared range: dictionary and released data disagree — reported
+2025,05,p55611b,[0],outside the declared range: dictionary and released data disagree — reported
+2025,05,p55611d,[0],outside the declared range: dictionary and released data disagree — reported
+2025,05,p55612a,[0],outside the declared range: dictionary and released data disagree — reported
+2025,05,p55612b,[0],outside the declared range: dictionary and released data disagree — reported
+2025,05,p55612d,[0],outside the declared range: dictionary and released data disagree — reported
+2025,05,p55613a,[0],outside the declared range: dictionary and released data disagree — reported
+2025,05,p55613b,[0],outside the declared range: dictionary and released data disagree — reported
+2025,05,p55613d,[0],outside the declared range: dictionary and released data disagree — reported
+2025,05,p55614a,[0],outside the declared range: dictionary and released data disagree — reported
+2025,05,p55614b,[0],outside the declared range: dictionary and released data disagree — reported
+2025,05,p55614d,[0],outside the declared range: dictionary and released data disagree — reported
+2025,05,p55620a,[0],outside the declared range: dictionary and released data disagree — reported
+2025,05,p55620b,[0],outside the declared range: dictionary and released data disagree — reported
+2025,05,p55620d,[0],outside the declared range: dictionary and released data disagree — reported
+2025,05,p55621a,[0],outside the declared range: dictionary and released data disagree — reported
+2025,05,p55621b,[0],outside the declared range: dictionary and released data disagree — reported
+2025,05,p55621d,[0],outside the declared range: dictionary and released data disagree — reported
+2025,05,p55622a,[0],outside the declared range: dictionary and released data disagree — reported
+2025,05,p55622b,[0],outside the declared range: dictionary and released data disagree — reported
+2025,05,p55622d,[0],outside the declared range: dictionary and released data disagree — reported
+2025,05,p55623a,[0],outside the declared range: dictionary and released data disagree — reported
+2025,05,p55623b,[0],outside the declared range: dictionary and released data disagree — reported
+2025,05,p55623d,[0],outside the declared range: dictionary and released data disagree — reported
+2025,05,p55627b,[0],outside the declared range: dictionary and released data disagree — reported
+2025,05,p55627d,[0],outside the declared range: dictionary and released data disagree — reported
+2025,05,p55628b,[0],outside the declared range: dictionary and released data disagree — reported
+2025,05,p55628d,[0],outside the declared range: dictionary and released data disagree — reported
+2025,05,p5574b,[1],outside the declared range: dictionary and released data disagree — reported
+2025,05,p5578b,[1],outside the declared range: dictionary and released data disagree — reported
+2025,05,p558h4_7,[7],outside the declared range: dictionary and released data disagree — reported
+2025,05,p558h8_8,[8],outside the declared range: dictionary and released data disagree — reported

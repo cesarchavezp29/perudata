@@ -97,6 +97,24 @@ for mod in MODULES:
             u = {int(x) for x in v.unique()}
             if len(u) > 30:
                 continue
+            # NOT EVERY SMALL INTEGER SET IS A CATEGORY. Three shapes get wrongly
+            # swept in, and labelling any of them would invent data:
+            #  * MEASUREMENTS that happen to be coarse. p5561c holds 20/40/50/70/
+            #    80/100 -- quantities, not codes. A category set is contiguous from
+            #    a small base; a measurement is sparse and spread.
+            #  * CLASSIFICATION NAMESPACES. p505/p506 hold 4-digit CIIU/CIUO codes
+            #    (7526, 6199). The code IS the identity per the published standard;
+            #    nobody labels those in a .dta.
+            #  * CORRUPTION. p207 (sex) holds a single -126 row in 2009 -- the
+            #    signature of a Stata int8 overflow (-128..127), not a third sex.
+            if any(x < 0 for x in u):
+                declined.append({"module": mod, "column": col, "year": y,
+                                 "code": min(u),
+                                 "why": "negative code in a categorical — likely an "
+                                        "int8 overflow artifact, never a category"})
+                continue
+            if max(u) > 99 or (len(u) > 2 and max(u) > 3 * len(u) + 10):
+                continue          # a measurement or a classification code, not a category
             obs[y] = u
             l = dic.value_labels(col, y, mod)
             if l:
@@ -179,6 +197,43 @@ for mod in MODULES:
                             f"other value is available to it."),
                     })
                     continue
+                # RULE 6: THE NULL BECAME A ZERO. INEI changed how it encodes "not
+                # applicable" -- from a MISSING VALUE to an explicit 0 -- while
+                # leaving the label untouched.
+                # PROOF, and it is exact: in the years without code 0 the variable
+                # carries NULLS for non-respondents; in the years WITH code 0 the
+                # null count drops to EXACTLY ZERO and code 0 appears in its place.
+                # Same concept, new representation.
+                # (p55610a: 2019-2023 hold {1,2} with 86-128 nulls; 2024/2025 hold
+                # {0,1,2} with 0 nulls and the same {1: si, 2: no} label. 76 of
+                # module 05's blockers are this one pattern.)
+                if code == 0 and y in obs:
+                    fy = frames.get(y)
+                    nulls_now = int(pd.to_numeric(fy[col], errors="coerce").isna().sum())                         if fy is not None and col in fy.columns else -1
+                    others = [yy for yy in obs if 0 not in obs[yy]]
+                    nulls_before = []
+                    for yy in others:
+                        fo = frames.get(yy)
+                        if fo is not None and col in fo.columns:
+                            nulls_before.append(
+                                int(pd.to_numeric(fo[col], errors="coerce").isna().sum()))
+                    if (nulls_now == 0 and nulls_before
+                            and all(n > 0 for n in nulls_before)):
+                        rows.append({
+                            "module": mod, "column": col, "year": y, "code": 0,
+                            "label": "No aplica", "status": "verified",
+                            "evidence": (
+                                f"THE NULL BECAME A ZERO. INEI changed how it "
+                                f"encodes 'not applicable' for {col}: in "
+                                f"{sorted(others)[:4]} the variable carries NULLS "
+                                f"for non-respondents ({sorted(nulls_before)[:4]} of "
+                                f"them) and NO code 0; in {y} the null count is "
+                                f"EXACTLY ZERO and code 0 appears in their place, "
+                                f"while the label is unchanged. Same concept, new "
+                                f"representation — the nulls did not vanish, they "
+                                f"were re-encoded."),
+                        })
+                        continue
                 # RULE 1: unlabelled but INSIDE the dictionary's declared range
                 if lo_hi and lo_hi[0] <= code <= lo_hi[1] and code == 0:
                     rows.append({
