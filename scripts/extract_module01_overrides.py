@@ -36,12 +36,15 @@ MODULE = "01"
 
 # a variable header line: NAME  len  dec  type  description
 HEADER = re.compile(r"^([A-Z][A-Z0-9_$]{1,12})\s+\d+\s+\d+\s+[NAC]\s+(.+?)\s*$")
-# a category line inside its block. TWO FORMATS across vintages, and matching only
-# one silently yields ZERO for the years that use the other:
-#   2018-2019: "   1 Casa independiente"    (code, space, label)
-#   2021-2023: "   1.Casa independiente"    (code, DOT, label)
-CATEGORY = re.compile(r"^\s{4,}(\d{1,4})\s*[.\-]?\s+?(\S.*?)\s*$|"
-                      r"^\s{4,}(\d{1,4})\.(\S.*?)\s*$")
+# A category line inside a variable's block. DO NOT KEY ON INDENTATION: it is an
+# artifact of PDF text extraction, not of the document. pdfplumber preserves the
+# leading spaces for 2015-2023 but collapses them entirely for 2005-2014, so a
+# rule requiring "^\s{4,}" matched NOTHING in ten years' dictionaries -- silently,
+# certifying zero while the tables sat right there in the text.
+# Key on STRUCTURE instead: a header opens a block, `Rango` closes it, and inside
+# a block a line that is just "<code><sep><label>" is a category. Both separators
+# occur: "1 Casa independiente" (<=2019) and "1.Casa independiente" (2021+).
+CATEGORY = re.compile(r"^\s*(\d{1,4})\s*[.\-]?\s*([A-Za-zÁÉÍÓÚÑáéíóúñ¿(].*?)\s*$")
 RANGE = re.compile(r"^\s*Rango\s*:\s*(\d+)\s*[-–]\s*(\d+)", re.I)
 
 
@@ -70,15 +73,38 @@ def parse_dictionary(path: Path) -> tuple[dict, dict]:
             continue
         c = CATEGORY.match(line)
         if c:
-            code = int(c.group(1) or c.group(3))
-            lab = (c.group(2) or c.group(4) or "").strip()
+            code, lab = int(c.group(1)), c.group(2).strip()
             if lab and not lab[0].isdigit():
-                out[cur][code] = lab
+                out[cur].setdefault(code, lab)   # first wins: later lines wrap
     return {k: v for k, v in out.items() if v}, rng
 
 
-years = [y for y in enaho.years() if (SRC / f"ENAHO_{y}_Diccionario.txt").exists()]
-print(f"official dictionaries available: {years}")
+def is_enaho_dictionary(path: Path) -> bool:
+    """Guard: is this document actually ENAHO's dictionary?
+
+    The `{year}-55` URL pattern serves the EPEN (employment survey) dictionary for
+    some years, not ENAHO. It downloads fine, it is a valid PDF, it is called
+    Diccionario.pdf -- and it defines a DIFFERENT survey's variables. Feeding it in
+    would certify labels from the wrong instrument onto ENAHO columns wherever a
+    variable name happens to collide. A file being present and parseable is not
+    evidence that it is the right file.
+    """
+    head = path.read_text(encoding="utf-8", errors="replace")[:4000].upper()
+    if "EMPLEO NACIONAL" in head or "EPEN" in head:
+        return False
+    return "ENAHO" in head
+
+
+years = []
+for y in enaho.years():
+    t = SRC / f"ENAHO_{y}_Diccionario.txt"
+    if not t.exists():
+        continue
+    if not is_enaho_dictionary(t):
+        print(f"[SKIP] {y}: this document is NOT ENAHO's dictionary — refusing it")
+        continue
+    years.append(y)
+print(f"official ENAHO dictionaries available: {years}")
 
 rows, skipped = [], []
 for y in years:
