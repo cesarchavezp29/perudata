@@ -1,0 +1,591 @@
+module,column,verdict,reason,years,ref_year
+22,dominio,UNRESOLVED_MAPPING,"years without value labels: [2004, 2006, 2008, 2009, 2010, 2011, 2012, 2013]",14,
+22,estrato,UNRESOLVED_MAPPING,"years without value labels: [2004, 2006, 2008, 2009, 2010, 2011, 2012, 2013]",14,
+22,p20001a,UNRESOLVED_MAPPING,"years without value labels: [2004, 2006]",3,
+22,p20001b,UNRESOLVED_MAPPING,"years without value labels: [2004, 2006]; observed codes without labels: {2005: [0]}",3,
+22,p20001c,UNRESOLVED_MAPPING,"years without value labels: [2004, 2006]; observed codes without labels: {2005: [0]}",3,
+22,p20002,UNRESOLVED_MAPPING,"years without value labels: [2004, 2006]",3,
+22,p20003,UNRESOLVED_MAPPING,years without value labels: [2004],1,
+22,p20004,UNRESOLVED_MAPPING,years without value labels: [2004],1,
+22,p20005,UNRESOLVED_MAPPING,years without value labels: [2004],1,
+22,p2100a,UNRESOLVED_MAPPING,"years without value labels: [2004, 2006, 2011]; observed codes without labels: {2005: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20], 2007: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25], 2008: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25], 2009: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25], 2010: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40], 2012: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39], 2013: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43], 2014: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40], 2015: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48], 2020: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45], 2025: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31, 32, 33, 34, 35, 36, 37, 38, 39, 40, 41]}",14,
+22,p2100b,UNRESOLVED_MAPPING,"years without value labels: [2004, 2005, 2006, 2007, 2008, 2009, 2010, 2011, 2012, 2013, 2014, 2015, 2020]; observed codes without labels: {2025: [1101, 1102, 1103, 1104, 1106, 1107, 1108, 1109, 1110, 1111, 1112, 1114, 1115, 1116, 1117, 1119, 1120, 1121, 1122, 1123, 1124, 1125, 1126, 1127, 1128, 1129, 1130, 1131, 1132, 1133, 1134, 1135, 1136, 1137, 1138, 1139, 1140, 1141, 1142, 1143, 1144, 1145, 1146, 1147, 1148, 1149, 1150, 1151, 1152, 1153, 1154, 1155, 1156, 1157, 1158, 1159, 1160, 1161, 1162, 1163, 1164, 1165, 1167, 1168, 1199, 1201, 1202, 1203, 1204, 1205, 1206, 1207, 1208, 1209, 1212, 1213, 1214, 1215, 1218, 1219, 1220, 1222, 1224, 1225, 1226, 1228, 1231, 1232, 1233, 1236, 1238, 1239, 1240, 1241, 1242, 1243, 1248, 1249, 1250, 1251, 1252, 1255, 1256, 1299, 1301, 1302, 1303, 1304, 1305, 1306, 1307, 1308, 1309, 1310, 1399, 1401, 1402, 1403, 1404, 1405, 1406, 1407, 1408, 1409, 1410, 1411, 1412, 1413, 1414, 1415, 1416, 1417, 1418, 1419, 1420, 1421, 1422, 1423, 1424, 1425, 1426, 1427, 1428, 1429, 1430, 1431, 1432, 1433, 1434, 1499, 1501, 1502, 1503, 1504, 1505, 1506, 1507, 1508, 1509, 1510, 1511, 1513, 1599, 1601, 1602, 1603, 1604, 1605, 1606, 1607, 1608, 1609, 1610, 1611, 1612, 1613, 1614, 1616, 1617, 1699, 1701, 1702, 1703, 1704, 1706, 1707, 1708, 1709, 1799, 1802, 1805, 1807, 1809, 1810, 1811, 1812, 1813, 1818, 1819, 1822, 1825, 1827, 1828, 1829, 1830, 1831, 1833, 1834, 1835, 1836, 1841, 1842, 1847, 1849, 1850, 1853, 1899]}",14,
+22,periodo,UNRESOLVED_MAPPING,"years without value labels: [2004, 2005, 2006, 2007, 2008, 2009, 2010, 2011, 2012, 2013]",14,
+22,tipocuestionario,VERIFIED_MAPPING,,1,2020
+22,tipoentrevista,VERIFIED_MAPPING,,1,2020
+23,dominio,UNRESOLVED_MAPPING,"years without value labels: [2004, 2006, 2008, 2009, 2010, 2011, 2012, 2013]",14,
+23,estrato,UNRESOLVED_MAPPING,"years without value labels: [2004, 2006, 2008, 2009, 2010, 2011, 2012, 2013]",14,
+23,p20001a,UNRESOLVED_MAPPING,"years without value labels: [2004, 2006]",3,
+23,p20001b,UNRESOLVED_MAPPING,"years without value labels: [2004, 2006]; observed codes without labels: {2005: [0]}",3,
+23,p20001c,UNRESOLVED_MAPPING,"years without value labels: [2004, 2006]; observed codes without labels: {2005: [0]}",3,
+23,p20002,UNRESOLVED_MAPPING,"years without value labels: [2004, 2006]",3,
+23,p20003,UNRESOLVED_MAPPING,years without value labels: [2004],1,
+23,p20004,UNRESOLVED_MAPPING,years without value labels: [2004],1,
+23,p20005,UNRESOLVED_MAPPING,years without value labels: [2004],1,
+23,p2200,UNRESOLVED_MAPPING,"years without value labels: [2004, 2006]",3,
+23,p2200a,UNRESOLVED_MAPPING,"years without value labels: [2004, 2006, 2011]; observed codes without labels: {2005: [1, 2, 3, 4, 5], 2007: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12], 2008: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12], 2009: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15], 2010: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15], 2012: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15], 2013: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15], 2014: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15], 2015: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15], 2020: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21], 2025: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24]}",14,
+23,periodo,UNRESOLVED_MAPPING,"years without value labels: [2007, 2008, 2009, 2010, 2011, 2012, 2013]",11,
+23,tipocuestionario,VERIFIED_MAPPING,,1,2020
+23,tipoentrevista,VERIFIED_MAPPING,,1,2020
+24,dominio,UNRESOLVED_MAPPING,"years without value labels: [2004, 2006, 2008, 2009, 2010, 2011, 2012, 2013]",14,
+24,estrato,UNRESOLVED_MAPPING,"years without value labels: [2004, 2006, 2008, 2009, 2010, 2011, 2012, 2013]",14,
+24,p20001a,UNRESOLVED_MAPPING,"years without value labels: [2004, 2006]; observed codes without labels: {2005: [0]}",3,
+24,p20001b,UNRESOLVED_MAPPING,"years without value labels: [2004, 2006]; observed codes without labels: {2005: [0]}",3,
+24,p20001c,UNRESOLVED_MAPPING,"years without value labels: [2004, 2006]",3,
+24,p20002,UNRESOLVED_MAPPING,"years without value labels: [2004, 2006]",3,
+24,p20003,UNRESOLVED_MAPPING,years without value labels: [2004],1,
+24,p20004,UNRESOLVED_MAPPING,years without value labels: [2004],1,
+24,p20005,UNRESOLVED_MAPPING,years without value labels: [2004],1,
+24,p2300a,UNRESOLVED_MAPPING,"years without value labels: [2004, 2006, 2011]; observed codes without labels: {2005: [1, 2, 3, 4, 5, 6], 2007: [1, 2, 3, 4, 5, 6], 2008: [1, 2, 3, 4, 5, 6], 2009: [1, 2, 3, 4, 5, 6, 7, 8], 2010: [1, 2, 3, 4, 5, 6, 7, 8], 2012: [1, 2, 3, 4, 5, 6, 7, 8], 2013: [1, 2, 3, 4, 5, 6], 2014: [1, 2, 3, 4, 5, 6, 7], 2015: [1, 2, 3, 4, 5, 6, 7], 2020: [1, 2, 3, 4, 5, 6], 2025: [1, 2, 3, 4, 5, 6, 7, 8]}",14,
+24,p2300b,UNRESOLVED_MAPPING,"years without value labels: [2004, 2005, 2006, 2007, 2008, 2009, 2010, 2011, 2012, 2013, 2014, 2015, 2020]; observed codes without labels: {2025: [2001, 2002, 2003, 2006, 2008, 2009, 2010, 2012, 2013, 2014, 2015, 2018, 2019, 2020, 2021, 2022, 2026, 2027, 2099]}",14,
+24,periodo,UNRESOLVED_MAPPING,"years without value labels: [2004, 2006, 2007, 2008, 2009, 2010, 2011, 2012, 2013]",14,
+24,tipocuestionario,VERIFIED_MAPPING,,1,2020
+24,tipoentrevista,VERIFIED_MAPPING,,1,2020
+25,dominio,UNRESOLVED_MAPPING,"years without value labels: [2006, 2011]",14,
+25,estrato,UNRESOLVED_MAPPING,"years without value labels: [2006, 2011]",14,
+25,p20001a,UNRESOLVED_MAPPING,"years without value labels: [2006]; observed codes without labels: {2004: [0], 2005: [0]}",3,
+25,p20001b,UNRESOLVED_MAPPING,years without value labels: [2006]; observed codes without labels: {2005: [0]},3,
+25,p20001c,UNRESOLVED_MAPPING,"years without value labels: [2006]; observed codes without labels: {2004: [0], 2005: [0]}",3,
+25,p20002,UNRESOLVED_MAPPING,years without value labels: [2006],3,
+25,p20003,VERIFIED_MAPPING,,1,2004
+25,p20004,VERIFIED_MAPPING,,1,2004
+25,p20005,VERIFIED_MAPPING,,1,2004
+25,periodo,UNRESOLVED_MAPPING,"years without value labels: [2006, 2007, 2008, 2009, 2010, 2011, 2012, 2013]",13,
+25,tipocuestionario,VERIFIED_MAPPING,,1,2020
+25,tipoentrevista,VERIFIED_MAPPING,,1,2020
+26,dominio,UNRESOLVED_MAPPING,"years without value labels: [2004, 2006, 2008, 2009, 2010, 2011, 2012, 2013, 2015]",14,
+26,estrato,UNRESOLVED_MAPPING,"years without value labels: [2004, 2006, 2008, 2009, 2010, 2011, 2012, 2013, 2015]",14,
+26,p20001a,UNRESOLVED_MAPPING,"years without value labels: [2004, 2006]; observed codes without labels: {2005: [0]}",3,
+26,p20001b,UNRESOLVED_MAPPING,"years without value labels: [2004, 2006]",3,
+26,p20001c,UNRESOLVED_MAPPING,"years without value labels: [2004, 2006]; observed codes without labels: {2005: [0]}",3,
+26,p20002,UNRESOLVED_MAPPING,"years without value labels: [2004, 2006]",3,
+26,p2500a,UNRESOLVED_MAPPING,"years without value labels: [2004, 2006, 2011]; observed codes without labels: {2005: [1, 2, 3, 4, 5, 6, 7, 8], 2007: [1, 2, 3, 4, 5, 6, 7, 8, 9], 2008: [1, 2, 3, 4, 5, 6, 7, 8], 2009: [1, 2, 3, 4, 5, 6, 7, 8, 9], 2010: [1, 2, 3, 4, 5, 6, 7, 8], 2012: [1, 2, 3, 4, 5, 6, 7, 8, 9], 2013: [1, 2, 3, 4, 5, 6, 7, 8, 9], 2014: [1, 2, 3, 4, 5, 6, 7, 8, 9], 2015: [1, 2, 3, 4, 5, 6, 7, 8, 9], 2020: [1, 2, 3, 4, 5, 6, 7, 8], 2025: [1, 2, 3, 4, 5, 6, 7, 8, 9]}",14,
+26,p2500b,UNRESOLVED_MAPPING,"years without value labels: [2004, 2005, 2006, 2007, 2008, 2009, 2010, 2011, 2012, 2013, 2014, 2015, 2020]; observed codes without labels: {2025: [3100, 3200, 3300, 3400, 3500, 3600, 3700, 3801, 3802, 3900]}",14,
+26,periodo,UNRESOLVED_MAPPING,"years without value labels: [2004, 2005, 2006, 2007, 2008, 2009, 2010, 2011, 2012, 2013]",14,
+26,tipocuestionario,VERIFIED_MAPPING,,1,2020
+26,tipoentrevista,VERIFIED_MAPPING,,1,2020
+27,dominio,UNRESOLVED_MAPPING,"years without value labels: [2004, 2006, 2008, 2009, 2010, 2011, 2012, 2013]",14,
+27,estrato,UNRESOLVED_MAPPING,"years without value labels: [2004, 2006, 2008, 2009, 2010, 2011, 2012, 2013]",14,
+27,p20001a,UNRESOLVED_MAPPING,"years without value labels: [2004, 2006]; observed codes without labels: {2005: [0]}",3,
+27,p20001b,UNRESOLVED_MAPPING,"years without value labels: [2004, 2006]",3,
+27,p20001c,UNRESOLVED_MAPPING,"years without value labels: [2004, 2006]; observed codes without labels: {2005: [0]}",3,
+27,p20002,UNRESOLVED_MAPPING,"years without value labels: [2004, 2006]",3,
+27,p20003,UNRESOLVED_MAPPING,years without value labels: [2004],1,
+27,p20004,UNRESOLVED_MAPPING,years without value labels: [2004],1,
+27,p20005,UNRESOLVED_MAPPING,years without value labels: [2004],1,
+27,p2600,UNRESOLVED_MAPPING,"years without value labels: [2004, 2006]",3,
+27,p2600a,UNRESOLVED_MAPPING,"years without value labels: [2004, 2006, 2011]; observed codes without labels: {2005: [1, 2, 3, 4, 5, 6], 2007: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11], 2008: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10], 2009: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12], 2010: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12], 2012: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11], 2013: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10], 2014: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10], 2015: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12], 2020: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12], 2025: [1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11]}",14,
+27,p2600b,UNRESOLVED_MAPPING,"years without value labels: [2004, 2005, 2006, 2007, 2008, 2009, 2010, 2011, 2012, 2013, 2014, 2015, 2020]; observed codes without labels: {2025: [4103, 4104, 4109, 4113, 4114, 4115, 4116, 4117, 4118, 4119, 4121, 4122, 4125, 4126, 4127, 4199, 4201, 4299]}",14,
+27,periodo,UNRESOLVED_MAPPING,"years without value labels: [2004, 2006, 2007, 2008, 2009, 2010, 2011, 2012, 2013]",14,
+27,tipocuestionario,VERIFIED_MAPPING,,1,2020
+27,tipoentrevista,VERIFIED_MAPPING,,1,2020
+28,dominio,UNRESOLVED_MAPPING,"years without value labels: [2004, 2006, 2008, 2009, 2010, 2011, 2012, 2013]",14,
+28,estrato,UNRESOLVED_MAPPING,"years without value labels: [2004, 2006, 2008, 2009, 2010, 2011, 2012, 2013]",14,
+28,p20001a,UNRESOLVED_MAPPING,"years without value labels: [2004, 2006]; observed codes without labels: {2005: [0]}",3,
+28,p20001b,UNRESOLVED_MAPPING,"years without value labels: [2004, 2006]; observed codes without labels: {2005: [0]}",3,
+28,p20001c,UNRESOLVED_MAPPING,"years without value labels: [2004, 2006]; observed codes without labels: {2005: [0]}",3,
+28,p20002,UNRESOLVED_MAPPING,"years without value labels: [2004, 2006]",3,
+28,p20003,UNRESOLVED_MAPPING,years without value labels: [2004],1,
+28,p20004,UNRESOLVED_MAPPING,years without value labels: [2004],1,
+28,p20005,UNRESOLVED_MAPPING,years without value labels: [2004],1,
+28,periodo,UNRESOLVED_MAPPING,"years without value labels: [2004, 2005, 2006, 2007, 2008, 2009, 2010, 2011, 2012, 2013]",14,
+28,tipocuestionario,VERIFIED_MAPPING,,1,2020
+28,tipoentrevista,VERIFIED_MAPPING,,1,2020
+37,dominio,UNRESOLVED_MAPPING,"years without value labels: [2004, 2006, 2007, 2008, 2009, 2010, 2011, 2012, 2013, 2015]",14,
+37,estrato,UNRESOLVED_MAPPING,"years without value labels: [2004, 2006, 2007, 2008, 2009, 2010, 2011, 2012, 2013, 2015]",14,
+37,p701_01,VERIFIED_MAPPING,,6,2025
+37,p701_02,VERIFIED_MAPPING,,6,2025
+37,p701_03,VERIFIED_MAPPING,,6,2025
+37,p701_04,VERIFIED_MAPPING,,6,2025
+37,p701_05,VERIFIED_MAPPING,,6,2025
+37,p701_06,VERIFIED_MAPPING,,6,2025
+37,p701_07,VERIFIED_MAPPING,,6,2025
+37,p701_08,VERIFIED_MAPPING,,6,2025
+37,p701_09,VERIFIED_MAPPING,,6,2025
+37,p701_10,VERIFIED_MAPPING,,4,2025
+37,p701_11,VERIFIED_MAPPING,,2,2013
+37,p703,UNRESOLVED_MAPPING,"years without value labels: [2004, 2006, 2011]",8,
+37,p704,UNRESOLVED_MAPPING,"years without value labels: [2004, 2006, 2011]",8,
+37,p705,UNRESOLVED_MAPPING,"years without value labels: [2004, 2006, 2011]",8,
+37,p705a,UNRESOLVED_MAPPING,"years without value labels: [2004, 2006]",3,
+37,p706,UNRESOLVED_MAPPING,"years without value labels: [2004, 2006]",3,
+37,p7061,UNRESOLVED_MAPPING,years without value labels: [2011],5,
+37,p7062,UNRESOLVED_MAPPING,years without value labels: [2011],5,
+37,p7063,UNRESOLVED_MAPPING,years without value labels: [2011],5,
+37,p7064,UNRESOLVED_MAPPING,years without value labels: [2011],5,
+37,p7065,UNRESOLVED_MAPPING,years without value labels: [2011],5,
+37,p706a,UNRESOLVED_MAPPING,"years without value labels: [2004, 2006]",3,
+37,p706a1,UNRESOLVED_MAPPING,years without value labels: [2011],5,
+37,p706a2,UNRESOLVED_MAPPING,"years without value labels: [2011]; observed codes without labels: {2007: [1], 2008: [1], 2009: [1], 2010: [1]}",5,
+37,p706a3,UNRESOLVED_MAPPING,"years without value labels: [2011]; observed codes without labels: {2007: [1], 2008: [1], 2009: [1], 2010: [1]}",5,
+37,p706a4,UNRESOLVED_MAPPING,"years without value labels: [2011]; observed codes without labels: {2007: [1], 2008: [1], 2009: [1], 2010: [1]}",5,
+37,p707,UNRESOLVED_MAPPING,years without value labels: [2004],1,
+37,p708a,UNRESOLVED_MAPPING,"years without value labels: [2004, 2006]",3,
+37,p708b,UNRESOLVED_MAPPING,"years without value labels: [2004, 2006]",3,
+37,p710_01,VERIFIED_MAPPING,,6,2025
+37,p710_02,VERIFIED_MAPPING,,6,2025
+37,p710_03,VERIFIED_MAPPING,,6,2025
+37,p710_04,VERIFIED_MAPPING,,6,2025
+37,p710_05,VERIFIED_MAPPING,,6,2025
+37,p710_06,VERIFIED_MAPPING,,6,2025
+37,p710_07,VERIFIED_MAPPING,,6,2025
+37,p710_08,VERIFIED_MAPPING,,6,2025
+37,p710_09,VERIFIED_MAPPING,,5,2020
+37,p710_10,VERIFIED_MAPPING,,6,2025
+37,p710_11,VERIFIED_MAPPING,,6,2025
+37,p710_12,UNRESOLVED_MAPPING,"observed codes without labels: {2012: [0], 2014: [12], 2015: [12]}",6,
+37,p710_13,UNRESOLVED_MAPPING,"observed codes without labels: {2012: [0], 2014: [13], 2015: [13]}",6,
+37,p710_14,UNRESOLVED_MAPPING,"observed codes without labels: {2014: [14], 2015: [14]}",4,
+37,p710_15,VERIFIED_MAPPING,,2,2025
+37,p710_16,VERIFIED_MAPPING,,1,2020
+37,p710_17,VERIFIED_MAPPING,,1,2020
+37,p710_18,VERIFIED_MAPPING,,1,2020
+37,p710_19,VERIFIED_MAPPING,,1,2020
+37,p710_20,VERIFIED_MAPPING,,2,2025
+37,p710_21,VERIFIED_MAPPING,,2,2025
+37,p710_22,VERIFIED_MAPPING,,1,2020
+37,p710_28,VERIFIED_MAPPING,,1,2025
+37,p710_29,VERIFIED_MAPPING,,1,2025
+37,p710_33,VERIFIED_MAPPING,,1,2025
+37,p710_34,VERIFIED_MAPPING,,1,2025
+37,ticuest0,UNRESOLVED_MAPPING,years without value labels: [2011],2,
+37,ticuest01,UNRESOLVED_MAPPING,years without value labels: [2015],5,
+37,tipocuestionario,VERIFIED_MAPPING,,1,2020
+37,tipoentrevista,VERIFIED_MAPPING,,1,2020
+77,activida,UNRESOLVED_MAPPING,"years without value labels: [2004, 2005, 2006, 2007, 2008, 2009, 2010, 2011, 2012, 2013, 2014, 2015, 2020]; observed codes without labels: {2025: [1, 2]}",14,
+77,dominio,UNRESOLVED_MAPPING,"years without value labels: [2004, 2011]",14,
+77,e23a,UNRESOLVED_MAPPING,"years without value labels: [2007, 2008, 2009, 2010, 2011, 2012, 2013]",11,
+77,e23c,UNRESOLVED_MAPPING,years without value labels: [2011],11,
+77,estrato,UNRESOLVED_MAPPING,"years without value labels: [2004, 2011]",14,
+77,frecuen,VERIFIED_MAPPING,,2,2006
+77,modulo,VERIFIED_MAPPING,,2,2006
+77,periodo,UNRESOLVED_MAPPING,years without value labels: [2011],11,
+77,tipocuestionario,VERIFIED_MAPPING,,1,2020
+77,tipoentrevista,VERIFIED_MAPPING,,1,2020
+78,dominio,UNRESOLVED_MAPPING,"years without value labels: [2004, 2006, 2011]",14,
+78,estrato,UNRESOLVED_MAPPING,"years without value labels: [2004, 2006, 2011]",14,
+78,p606d,UNRESOLVED_MAPPING,"years without value labels: [2004, 2006, 2011]",14,
+78,p606e1,UNRESOLVED_MAPPING,"years without value labels: [2004, 2006, 2011]",14,
+78,p606e2,UNRESOLVED_MAPPING,"years without value labels: [2004, 2006, 2011]",14,
+78,p606e3,UNRESOLVED_MAPPING,"years without value labels: [2004, 2006, 2011]",14,
+78,p606e4,UNRESOLVED_MAPPING,"years without value labels: [2004, 2006, 2011]",14,
+78,p606e5,UNRESOLVED_MAPPING,"years without value labels: [2004, 2006, 2011]",14,
+78,p606e6,UNRESOLVED_MAPPING,"years without value labels: [2004, 2006, 2011]",14,
+78,p606e7,UNRESOLVED_MAPPING,"years without value labels: [2004, 2006, 2011]",14,
+78,p606e8,UNRESOLVED_MAPPING,"years without value labels: [2004, 2006, 2011]",14,
+78,p606ee,UNRESOLVED_MAPPING,"years without value labels: [2004, 2006, 2011]",14,
+78,p606n,UNRESOLVED_MAPPING,"years without value labels: [2004, 2006, 2011]",14,
+78,ticuest0,UNRESOLVED_MAPPING,years without value labels: [2011],2,
+78,ticuest01,VERIFIED_MAPPING,,5,2025
+78,tipocuestionario,VERIFIED_MAPPING,,1,2020
+78,tipoentrevista,VERIFIED_MAPPING,,1,2020
+84,dominio,UNRESOLVED_MAPPING,"years without value labels: [2004, 2006, 2011]",14,
+84,estrato,UNRESOLVED_MAPPING,"years without value labels: [2004, 2006, 2011]",14,
+84,p801_1,UNRESOLVED_MAPPING,"years without value labels: [2004, 2006, 2011]; observed codes without labels: {2007: [0], 2008: [0], 2009: [0], 2010: [0], 2012: [0], 2014: [0], 2015: [0], 2020: [0]}",14,
+84,p801_10,UNRESOLVED_MAPPING,"years without value labels: [2004, 2006, 2011]; observed codes without labels: {2007: [0], 2008: [0], 2009: [0], 2010: [0], 2012: [0], 2014: [0], 2015: [0], 2020: [0]}",14,
+84,p801_11,UNRESOLVED_MAPPING,"years without value labels: [2004, 2006, 2011]; observed codes without labels: {2007: [0], 2008: [0], 2009: [0], 2010: [0], 2012: [0], 2014: [0], 2015: [0], 2020: [0]}",14,
+84,p801_12,UNRESOLVED_MAPPING,"years without value labels: [2004, 2006, 2011]; observed codes without labels: {2007: [0], 2008: [0], 2009: [0], 2010: [0], 2012: [0], 2014: [0], 2015: [0], 2020: [0]}",14,
+84,p801_13,UNRESOLVED_MAPPING,"years without value labels: [2004, 2006, 2011]; observed codes without labels: {2007: [0], 2008: [0], 2009: [0], 2010: [0], 2012: [0], 2014: [0, 13], 2015: [0], 2020: [0]}",14,
+84,p801_14,UNRESOLVED_MAPPING,"years without value labels: [2004, 2006, 2011]; observed codes without labels: {2007: [0], 2008: [0], 2009: [0], 2010: [0], 2012: [0], 2014: [0, 14], 2015: [0], 2020: [0]}",14,
+84,p801_15,UNRESOLVED_MAPPING,"years without value labels: [2004, 2006, 2011]; observed codes without labels: {2007: [0], 2008: [0], 2009: [0], 2010: [0], 2012: [0], 2014: [0, 15], 2015: [0], 2020: [0]}",14,
+84,p801_16,UNRESOLVED_MAPPING,"years without value labels: [2004, 2006, 2011]; observed codes without labels: {2007: [0], 2008: [0], 2009: [0], 2010: [0], 2012: [0], 2014: [0, 16], 2015: [0], 2020: [0]}",14,
+84,p801_17,UNRESOLVED_MAPPING,"years without value labels: [2004, 2006, 2011]; observed codes without labels: {2007: [0], 2008: [0], 2009: [0], 2010: [0], 2012: [0], 2014: [0, 17], 2015: [0], 2020: [0]}",14,
+84,p801_18,UNRESOLVED_MAPPING,"years without value labels: [2004, 2006, 2011]; observed codes without labels: {2007: [0], 2008: [0], 2009: [0], 2010: [0], 2012: [0], 2014: [0], 2015: [0], 2020: [0]}",14,
+84,p801_19,UNRESOLVED_MAPPING,"years without value labels: [2011]; observed codes without labels: {2007: [0], 2008: [0], 2009: [0], 2010: [0], 2012: [0], 2014: [0], 2015: [0], 2020: [0]}",11,
+84,p801_2,UNRESOLVED_MAPPING,"years without value labels: [2004, 2006, 2011]; observed codes without labels: {2007: [0], 2008: [0], 2009: [0], 2010: [0], 2012: [0], 2014: [0], 2015: [0], 2020: [0]}",14,
+84,p801_20,UNRESOLVED_MAPPING,observed codes without labels: {2020: [0]},2,
+84,p801_3,UNRESOLVED_MAPPING,"years without value labels: [2004, 2006, 2011]; observed codes without labels: {2007: [0], 2008: [0], 2009: [0], 2010: [0], 2012: [0], 2014: [0], 2015: [0], 2020: [0]}",14,
+84,p801_4,UNRESOLVED_MAPPING,"years without value labels: [2004, 2006, 2011]; observed codes without labels: {2007: [0], 2008: [0], 2009: [0], 2010: [0], 2012: [0], 2014: [0], 2015: [0], 2020: [0]}",14,
+84,p801_5,UNRESOLVED_MAPPING,"years without value labels: [2004, 2006, 2011]; observed codes without labels: {2007: [0], 2008: [0], 2009: [0], 2010: [0], 2012: [0], 2014: [0], 2015: [0], 2020: [0]}",14,
+84,p801_6,UNRESOLVED_MAPPING,"years without value labels: [2004, 2006, 2011]; observed codes without labels: {2007: [0], 2008: [0], 2009: [0], 2010: [0], 2012: [0], 2014: [0], 2015: [0], 2020: [0]}",14,
+84,p801_7,UNRESOLVED_MAPPING,"years without value labels: [2004, 2006, 2011]; observed codes without labels: {2007: [0], 2008: [0], 2009: [0], 2010: [0], 2012: [0], 2014: [0], 2015: [0], 2020: [0]}",14,
+84,p801_8,UNRESOLVED_MAPPING,"years without value labels: [2004, 2006, 2011]; observed codes without labels: {2007: [0], 2008: [0], 2009: [0], 2010: [0], 2012: [0], 2014: [0], 2015: [0], 2020: [0]}",14,
+84,p801_9,UNRESOLVED_MAPPING,"years without value labels: [2004, 2006, 2011]; observed codes without labels: {2007: [0], 2008: [0], 2009: [0], 2010: [0], 2012: [0], 2014: [0], 2015: [0], 2020: [0]}",14,
+84,p806,UNRESOLVED_MAPPING,"years without value labels: [2004, 2006, 2011]",14,
+84,ticuest0,UNRESOLVED_MAPPING,years without value labels: [2011],2,
+84,ticuest01,VERIFIED_MAPPING,,5,2025
+84,tipocuestionario,VERIFIED_MAPPING,,1,2020
+84,tipoentrevista,VERIFIED_MAPPING,,1,2020
+85,dominio,UNRESOLVED_MAPPING,"years without value labels: [2006, 2011, 2012, 2013]",14,
+85,estrato,UNRESOLVED_MAPPING,"years without value labels: [2006, 2011, 2012, 2013]",14,
+85,p10,UNRESOLVED_MAPPING,years without value labels: [2006],3,
+85,p10_1,UNRESOLVED_MAPPING,years without value labels: [2011],9,
+85,p10_2,UNRESOLVED_MAPPING,years without value labels: [2011],9,
+85,p10_3,UNRESOLVED_MAPPING,years without value labels: [2011],9,
+85,p10_4,UNRESOLVED_MAPPING,years without value labels: [2011],9,
+85,p11,UNRESOLVED_MAPPING,years without value labels: [2006],3,
+85,p11_1,UNRESOLVED_MAPPING,years without value labels: [2011],5,
+85,p11_2,UNRESOLVED_MAPPING,years without value labels: [2011]; observed codes without labels: {2007: [2]},5,
+85,p11_3,UNRESOLVED_MAPPING,years without value labels: [2011]; observed codes without labels: {2007: [3]},5,
+85,p11_4,UNRESOLVED_MAPPING,years without value labels: [2011]; observed codes without labels: {2007: [4]},5,
+85,p11_5,UNRESOLVED_MAPPING,years without value labels: [2011]; observed codes without labels: {2007: [5]},5,
+85,p11_6,UNRESOLVED_MAPPING,years without value labels: [2011]; observed codes without labels: {2007: [6]},5,
+85,p11_7,UNRESOLVED_MAPPING,years without value labels: [2011]; observed codes without labels: {2007: [8]},5,
+85,p12,UNRESOLVED_MAPPING,"years without value labels: [2004, 2005, 2006, 2011]; observed codes without labels: {2007: [0]}",8,
+85,p13,UNRESOLVED_MAPPING,years without value labels: [2006],3,
+85,p13_1,UNRESOLVED_MAPPING,years without value labels: [2011],5,
+85,p13_2,UNRESOLVED_MAPPING,years without value labels: [2011],5,
+85,p13_3,UNRESOLVED_MAPPING,years without value labels: [2011],5,
+85,p13_4,UNRESOLVED_MAPPING,years without value labels: [2011],5,
+85,p13_5,UNRESOLVED_MAPPING,years without value labels: [2011],5,
+85,p13_6,UNRESOLVED_MAPPING,years without value labels: [2011],5,
+85,p13_7,UNRESOLVED_MAPPING,years without value labels: [2011],5,
+85,p14,UNRESOLVED_MAPPING,"years without value labels: [2006, 2011]",8,
+85,p14a,VERIFIED_MAPPING,,1,2004
+85,p15,UNRESOLVED_MAPPING,years without value labels: [2011],5,
+85,p16,UNRESOLVED_MAPPING,years without value labels: [2011],5,
+85,p17,UNRESOLVED_MAPPING,years without value labels: [2011],5,
+85,p18,UNRESOLVED_MAPPING,years without value labels: [2011],5,
+85,p19,UNRESOLVED_MAPPING,years without value labels: [2011],5,
+85,p1_01,UNRESOLVED_MAPPING,years without value labels: [2011],9,
+85,p1_02,UNRESOLVED_MAPPING,years without value labels: [2011],9,
+85,p1_03,UNRESOLVED_MAPPING,years without value labels: [2011],9,
+85,p1_04,UNRESOLVED_MAPPING,years without value labels: [2011],9,
+85,p1_05,UNRESOLVED_MAPPING,years without value labels: [2011],9,
+85,p1_06,UNRESOLVED_MAPPING,years without value labels: [2011],9,
+85,p1_07,UNRESOLVED_MAPPING,years without value labels: [2011],9,
+85,p1_08,UNRESOLVED_MAPPING,years without value labels: [2011],9,
+85,p1_09,UNRESOLVED_MAPPING,years without value labels: [2011],9,
+85,p1_10,UNRESOLVED_MAPPING,years without value labels: [2011],9,
+85,p1_11,UNRESOLVED_MAPPING,years without value labels: [2011],9,
+85,p1_12,UNRESOLVED_MAPPING,years without value labels: [2011],9,
+85,p1_13,UNRESOLVED_MAPPING,years without value labels: [2011],9,
+85,p1_14,UNRESOLVED_MAPPING,years without value labels: [2011],9,
+85,p1_15,UNRESOLVED_MAPPING,years without value labels: [2011],9,
+85,p1_16,UNRESOLVED_MAPPING,years without value labels: [2011],9,
+85,p1_17,VERIFIED_MAPPING,,4,2025
+85,p1_18,VERIFIED_MAPPING,,4,2025
+85,p1_19,VERIFIED_MAPPING,,4,2025
+85,p1_20,VERIFIED_MAPPING,,4,2025
+85,p1_21,VERIFIED_MAPPING,,4,2025
+85,p203,UNRESOLVED_MAPPING,years without value labels: [2006],2,
+85,p203_01,VERIFIED_MAPPING,,4,2025
+85,p204,UNRESOLVED_MAPPING,years without value labels: [2006],2,
+85,p204_01,VERIFIED_MAPPING,,4,2025
+85,p205,UNRESOLVED_MAPPING,years without value labels: [2006],2,
+85,p205_01,VERIFIED_MAPPING,,4,2025
+85,p206,NO_OBSERVED_DATA,column has no non-null raw observations in available years,0,
+85,p206_01,VERIFIED_MAPPING,,1,2025
+85,p207,UNRESOLVED_MAPPING,years without value labels: [2006],2,
+85,p207_01,VERIFIED_MAPPING,,4,2025
+85,p209,UNRESOLVED_MAPPING,years without value labels: [2006],2,
+85,p209_01,VERIFIED_MAPPING,,4,2025
+85,p20_1,UNRESOLVED_MAPPING,years without value labels: [2011],5,
+85,p20_2,UNRESOLVED_MAPPING,years without value labels: [2011]; observed codes without labels: {2007: [2]},5,
+85,p20_3,UNRESOLVED_MAPPING,years without value labels: [2011]; observed codes without labels: {2007: [3]},5,
+85,p20_4,UNRESOLVED_MAPPING,years without value labels: [2011]; observed codes without labels: {2007: [4]},5,
+85,p20_5,UNRESOLVED_MAPPING,years without value labels: [2011]; observed codes without labels: {2007: [5]},5,
+85,p21,UNRESOLVED_MAPPING,years without value labels: [2011],9,
+85,p21a,UNRESOLVED_MAPPING,years without value labels: [2011],2,
+85,p21b,UNRESOLVED_MAPPING,years without value labels: [2011]; observed codes without labels: {2010: [9]},2,
+85,p21c,UNRESOLVED_MAPPING,years without value labels: [2011]; observed codes without labels: {2010: [9]},2,
+85,p22,UNRESOLVED_MAPPING,years without value labels: [2011],5,
+85,p221_1,VERIFIED_MAPPING,,2,2015
+85,p221_2,VERIFIED_MAPPING,,2,2015
+85,p221_3,VERIFIED_MAPPING,,2,2015
+85,p221_4,VERIFIED_MAPPING,,2,2015
+85,p221_5,VERIFIED_MAPPING,,2,2015
+85,p221_6,VERIFIED_MAPPING,,2,2015
+85,p221_7,VERIFIED_MAPPING,,2,2015
+85,p221_8,VERIFIED_MAPPING,,2,2015
+85,p221_9,VERIFIED_MAPPING,,2,2015
+85,p22_1_01,VERIFIED_MAPPING,,2,2025
+85,p22_1_02,VERIFIED_MAPPING,,2,2025
+85,p22_1_03,VERIFIED_MAPPING,,2,2025
+85,p22_1_04,VERIFIED_MAPPING,,2,2025
+85,p22_1_05,VERIFIED_MAPPING,,2,2025
+85,p22_1_06,VERIFIED_MAPPING,,2,2025
+85,p22_1_07,VERIFIED_MAPPING,,2,2025
+85,p22_1_08,VERIFIED_MAPPING,,2,2025
+85,p22_1_09,VERIFIED_MAPPING,,2,2025
+85,p22_1_10,VERIFIED_MAPPING,,2,2025
+85,p22_1_11,VERIFIED_MAPPING,,2,2025
+85,p22_1_12,VERIFIED_MAPPING,,2,2025
+85,p22a_1,VERIFIED_MAPPING,,2,2015
+85,p22a_10_01,VERIFIED_MAPPING,,2,2025
+85,p22a_10_02,VERIFIED_MAPPING,,2,2025
+85,p22a_10_03,VERIFIED_MAPPING,,2,2025
+85,p22a_10_04,VERIFIED_MAPPING,,2,2025
+85,p22a_10_05,VERIFIED_MAPPING,,2,2025
+85,p22a_10_06,VERIFIED_MAPPING,,2,2025
+85,p22a_10_07,VERIFIED_MAPPING,,2,2025
+85,p22a_10_08,VERIFIED_MAPPING,,2,2025
+85,p22a_10_09,VERIFIED_MAPPING,,2,2025
+85,p22a_10_10,VERIFIED_MAPPING,,2,2025
+85,p22a_10_11,VERIFIED_MAPPING,,2,2025
+85,p22a_10_12,VERIFIED_MAPPING,,2,2025
+85,p22a_11_01,VERIFIED_MAPPING,,2,2025
+85,p22a_11_02,VERIFIED_MAPPING,,2,2025
+85,p22a_11_03,VERIFIED_MAPPING,,2,2025
+85,p22a_11_04,VERIFIED_MAPPING,,2,2025
+85,p22a_11_05,VERIFIED_MAPPING,,2,2025
+85,p22a_11_06,VERIFIED_MAPPING,,2,2025
+85,p22a_11_07,VERIFIED_MAPPING,,2,2025
+85,p22a_11_08,VERIFIED_MAPPING,,2,2025
+85,p22a_11_09,VERIFIED_MAPPING,,2,2025
+85,p22a_11_10,VERIFIED_MAPPING,,2,2025
+85,p22a_11_11,VERIFIED_MAPPING,,2,2025
+85,p22a_11_12,VERIFIED_MAPPING,,2,2025
+85,p22a_1_01,VERIFIED_MAPPING,,2,2025
+85,p22a_1_02,VERIFIED_MAPPING,,2,2025
+85,p22a_1_03,VERIFIED_MAPPING,,2,2025
+85,p22a_1_04,VERIFIED_MAPPING,,2,2025
+85,p22a_1_05,VERIFIED_MAPPING,,2,2025
+85,p22a_1_06,VERIFIED_MAPPING,,2,2025
+85,p22a_1_07,VERIFIED_MAPPING,,2,2025
+85,p22a_1_08,VERIFIED_MAPPING,,2,2025
+85,p22a_1_09,VERIFIED_MAPPING,,2,2025
+85,p22a_1_10,VERIFIED_MAPPING,,2,2025
+85,p22a_1_11,VERIFIED_MAPPING,,2,2025
+85,p22a_1_12,VERIFIED_MAPPING,,2,2025
+85,p22a_2,VERIFIED_MAPPING,,2,2015
+85,p22a_2_01,VERIFIED_MAPPING,,2,2025
+85,p22a_2_02,VERIFIED_MAPPING,,2,2025
+85,p22a_2_03,VERIFIED_MAPPING,,2,2025
+85,p22a_2_04,VERIFIED_MAPPING,,2,2025
+85,p22a_2_05,VERIFIED_MAPPING,,2,2025
+85,p22a_2_06,VERIFIED_MAPPING,,2,2025
+85,p22a_2_07,VERIFIED_MAPPING,,2,2025
+85,p22a_2_08,VERIFIED_MAPPING,,2,2025
+85,p22a_2_09,VERIFIED_MAPPING,,2,2025
+85,p22a_2_10,VERIFIED_MAPPING,,2,2025
+85,p22a_2_11,VERIFIED_MAPPING,,2,2025
+85,p22a_2_12,VERIFIED_MAPPING,,2,2025
+85,p22a_3,VERIFIED_MAPPING,,2,2015
+85,p22a_3_01,VERIFIED_MAPPING,,2,2025
+85,p22a_3_02,VERIFIED_MAPPING,,2,2025
+85,p22a_3_03,VERIFIED_MAPPING,,2,2025
+85,p22a_3_04,VERIFIED_MAPPING,,2,2025
+85,p22a_3_05,VERIFIED_MAPPING,,2,2025
+85,p22a_3_06,VERIFIED_MAPPING,,2,2025
+85,p22a_3_07,VERIFIED_MAPPING,,2,2025
+85,p22a_3_08,VERIFIED_MAPPING,,2,2025
+85,p22a_3_09,VERIFIED_MAPPING,,2,2025
+85,p22a_3_10,VERIFIED_MAPPING,,2,2025
+85,p22a_3_11,VERIFIED_MAPPING,,2,2025
+85,p22a_3_12,VERIFIED_MAPPING,,2,2025
+85,p22a_4,VERIFIED_MAPPING,,2,2015
+85,p22a_4_01,VERIFIED_MAPPING,,2,2025
+85,p22a_4_02,VERIFIED_MAPPING,,2,2025
+85,p22a_4_03,VERIFIED_MAPPING,,2,2025
+85,p22a_4_04,VERIFIED_MAPPING,,2,2025
+85,p22a_4_05,VERIFIED_MAPPING,,2,2025
+85,p22a_4_06,VERIFIED_MAPPING,,2,2025
+85,p22a_4_07,VERIFIED_MAPPING,,2,2025
+85,p22a_4_08,VERIFIED_MAPPING,,2,2025
+85,p22a_4_09,VERIFIED_MAPPING,,2,2025
+85,p22a_4_10,VERIFIED_MAPPING,,2,2025
+85,p22a_4_11,VERIFIED_MAPPING,,2,2025
+85,p22a_4_12,VERIFIED_MAPPING,,2,2025
+85,p22a_5,VERIFIED_MAPPING,,2,2015
+85,p22a_5_01,VERIFIED_MAPPING,,2,2025
+85,p22a_5_02,VERIFIED_MAPPING,,2,2025
+85,p22a_5_03,VERIFIED_MAPPING,,2,2025
+85,p22a_5_04,VERIFIED_MAPPING,,2,2025
+85,p22a_5_05,VERIFIED_MAPPING,,2,2025
+85,p22a_5_06,VERIFIED_MAPPING,,2,2025
+85,p22a_5_07,VERIFIED_MAPPING,,2,2025
+85,p22a_5_08,VERIFIED_MAPPING,,2,2025
+85,p22a_5_09,VERIFIED_MAPPING,,2,2025
+85,p22a_5_10,VERIFIED_MAPPING,,2,2025
+85,p22a_5_11,VERIFIED_MAPPING,,2,2025
+85,p22a_5_12,VERIFIED_MAPPING,,2,2025
+85,p22a_6,VERIFIED_MAPPING,,2,2015
+85,p22a_6_01,VERIFIED_MAPPING,,2,2025
+85,p22a_6_02,VERIFIED_MAPPING,,2,2025
+85,p22a_6_03,VERIFIED_MAPPING,,2,2025
+85,p22a_6_04,VERIFIED_MAPPING,,2,2025
+85,p22a_6_05,VERIFIED_MAPPING,,2,2025
+85,p22a_6_06,VERIFIED_MAPPING,,2,2025
+85,p22a_6_07,VERIFIED_MAPPING,,2,2025
+85,p22a_6_08,VERIFIED_MAPPING,,2,2025
+85,p22a_6_09,VERIFIED_MAPPING,,2,2025
+85,p22a_6_10,VERIFIED_MAPPING,,2,2025
+85,p22a_6_11,VERIFIED_MAPPING,,2,2025
+85,p22a_6_12,VERIFIED_MAPPING,,2,2025
+85,p22a_7,VERIFIED_MAPPING,,2,2015
+85,p22a_7_01,VERIFIED_MAPPING,,2,2025
+85,p22a_7_02,VERIFIED_MAPPING,,2,2025
+85,p22a_7_03,VERIFIED_MAPPING,,2,2025
+85,p22a_7_04,VERIFIED_MAPPING,,2,2025
+85,p22a_7_05,VERIFIED_MAPPING,,2,2025
+85,p22a_7_06,VERIFIED_MAPPING,,2,2025
+85,p22a_7_07,VERIFIED_MAPPING,,2,2025
+85,p22a_7_08,VERIFIED_MAPPING,,2,2025
+85,p22a_7_09,VERIFIED_MAPPING,,2,2025
+85,p22a_7_10,VERIFIED_MAPPING,,2,2025
+85,p22a_7_11,VERIFIED_MAPPING,,2,2025
+85,p22a_7_12,VERIFIED_MAPPING,,2,2025
+85,p22a_8,VERIFIED_MAPPING,,2,2015
+85,p22a_8_01,VERIFIED_MAPPING,,2,2025
+85,p22a_8_02,VERIFIED_MAPPING,,2,2025
+85,p22a_8_03,VERIFIED_MAPPING,,2,2025
+85,p22a_8_04,VERIFIED_MAPPING,,2,2025
+85,p22a_8_05,VERIFIED_MAPPING,,2,2025
+85,p22a_8_06,VERIFIED_MAPPING,,2,2025
+85,p22a_8_07,VERIFIED_MAPPING,,2,2025
+85,p22a_8_08,VERIFIED_MAPPING,,2,2025
+85,p22a_8_09,VERIFIED_MAPPING,,2,2025
+85,p22a_8_10,VERIFIED_MAPPING,,2,2025
+85,p22a_8_11,VERIFIED_MAPPING,,2,2025
+85,p22a_8_12,VERIFIED_MAPPING,,2,2025
+85,p22a_9,VERIFIED_MAPPING,,2,2015
+85,p22a_9_01,VERIFIED_MAPPING,,2,2025
+85,p22a_9_02,VERIFIED_MAPPING,,2,2025
+85,p22a_9_03,VERIFIED_MAPPING,,2,2025
+85,p22a_9_04,VERIFIED_MAPPING,,2,2025
+85,p22a_9_05,VERIFIED_MAPPING,,2,2025
+85,p22a_9_06,VERIFIED_MAPPING,,2,2025
+85,p22a_9_07,VERIFIED_MAPPING,,2,2025
+85,p22a_9_08,VERIFIED_MAPPING,,2,2025
+85,p22a_9_09,VERIFIED_MAPPING,,2,2025
+85,p22a_9_10,VERIFIED_MAPPING,,2,2025
+85,p22a_9_11,VERIFIED_MAPPING,,2,2025
+85,p22a_9_12,VERIFIED_MAPPING,,2,2025
+85,p23,UNRESOLVED_MAPPING,years without value labels: [2011],5,
+85,p23b,UNRESOLVED_MAPPING,"years without value labels: [2011, 2012, 2013]",7,
+85,p23c,VERIFIED_MAPPING,,2,2013
+85,p23e,VERIFIED_MAPPING,,2,2013
+85,p23f,VERIFIED_MAPPING,,2,2013
+85,p2_1_01,UNRESOLVED_MAPPING,"years without value labels: [2011, 2014, 2015]",9,
+85,p2_1_02,UNRESOLVED_MAPPING,"years without value labels: [2011, 2014, 2015]; observed codes without labels: {2007: [2]}",9,
+85,p2_1_03,UNRESOLVED_MAPPING,"years without value labels: [2011, 2014, 2015]; observed codes without labels: {2007: [3]}",9,
+85,p2_1_04,UNRESOLVED_MAPPING,"years without value labels: [2011, 2014, 2015]; observed codes without labels: {2007: [4]}",9,
+85,p2_1_05,UNRESOLVED_MAPPING,"years without value labels: [2011, 2014, 2015]; observed codes without labels: {2007: [5]}",9,
+85,p2_1_06,UNRESOLVED_MAPPING,"years without value labels: [2011, 2014, 2015]; observed codes without labels: {2007: [6]}",9,
+85,p2_1_07,UNRESOLVED_MAPPING,"years without value labels: [2011, 2014, 2015]; observed codes without labels: {2007: [7]}",9,
+85,p2_1_08,UNRESOLVED_MAPPING,"years without value labels: [2011, 2014, 2015]; observed codes without labels: {2007: [8]}",9,
+85,p2_1_09,UNRESOLVED_MAPPING,"years without value labels: [2011, 2014, 2015]; observed codes without labels: {2007: [9]}",9,
+85,p2_1_10,UNRESOLVED_MAPPING,"years without value labels: [2011, 2014, 2015]; observed codes without labels: {2007: [10]}",9,
+85,p2_1_11,UNRESOLVED_MAPPING,"years without value labels: [2011, 2014, 2015]; observed codes without labels: {2007: [11]}",9,
+85,p2_1_12,UNRESOLVED_MAPPING,"years without value labels: [2011, 2014, 2015]; observed codes without labels: {2007: [12]}",9,
+85,p2_1_13,UNRESOLVED_MAPPING,"years without value labels: [2011, 2014, 2015]; observed codes without labels: {2007: [13]}",9,
+85,p2_1_14,UNRESOLVED_MAPPING,"years without value labels: [2011, 2014, 2015]; observed codes without labels: {2007: [14]}",9,
+85,p2_1_15,UNRESOLVED_MAPPING,"years without value labels: [2011, 2014, 2015]; observed codes without labels: {2007: [15]}",9,
+85,p2_1_16,UNRESOLVED_MAPPING,"years without value labels: [2011, 2014, 2015]; observed codes without labels: {2007: [16]}",9,
+85,p2_1_17,UNRESOLVED_MAPPING,"years without value labels: [2014, 2015]; observed codes without labels: {2020: [17], 2025: [17]}",4,
+85,p2a1_1,VERIFIED_MAPPING,,4,2025
+85,p2a1_2,VERIFIED_MAPPING,,4,2025
+85,p2a1_3,VERIFIED_MAPPING,,4,2025
+85,p2a1_4,VERIFIED_MAPPING,,4,2025
+85,p2b_01,VERIFIED_MAPPING,,1,2020
+85,p2b_02,VERIFIED_MAPPING,,1,2020
+85,p2b_03,VERIFIED_MAPPING,,1,2020
+85,p2b_04,VERIFIED_MAPPING,,1,2020
+85,p2b_05,VERIFIED_MAPPING,,1,2020
+85,p2b_06,VERIFIED_MAPPING,,1,2020
+85,p2b_07,VERIFIED_MAPPING,,1,2020
+85,p2b_08,VERIFIED_MAPPING,,1,2020
+85,p2b_09,VERIFIED_MAPPING,,1,2020
+85,p2b_10,VERIFIED_MAPPING,,1,2020
+85,p2b_11,VERIFIED_MAPPING,,1,2020
+85,p2b_12,VERIFIED_MAPPING,,1,2020
+85,p2b_13,VERIFIED_MAPPING,,1,2020
+85,p2b_14,VERIFIED_MAPPING,,1,2020
+85,p2b_15,VERIFIED_MAPPING,,1,2020
+85,p2b_16,VERIFIED_MAPPING,,1,2020
+85,p2b_17,VERIFIED_MAPPING,,1,2020
+85,p2c_01,VERIFIED_MAPPING,,1,2020
+85,p2c_02,VERIFIED_MAPPING,,1,2020
+85,p2c_03,VERIFIED_MAPPING,,1,2020
+85,p2c_04,VERIFIED_MAPPING,,1,2020
+85,p2c_05,VERIFIED_MAPPING,,1,2020
+85,p2c_06,VERIFIED_MAPPING,,1,2020
+85,p2c_07,VERIFIED_MAPPING,,1,2020
+85,p2c_08,VERIFIED_MAPPING,,1,2020
+85,p2c_09,VERIFIED_MAPPING,,1,2020
+85,p2c_10,VERIFIED_MAPPING,,1,2020
+85,p2c_11,VERIFIED_MAPPING,,1,2020
+85,p2c_12,VERIFIED_MAPPING,,1,2020
+85,p2c_13,VERIFIED_MAPPING,,1,2020
+85,p2c_14,VERIFIED_MAPPING,,1,2020
+85,p2c_15,VERIFIED_MAPPING,,1,2020
+85,p2c_16,VERIFIED_MAPPING,,1,2020
+85,p2c_17,VERIFIED_MAPPING,,1,2020
+85,p2d_01,VERIFIED_MAPPING,,1,2020
+85,p2d_02,VERIFIED_MAPPING,,1,2020
+85,p2d_03,VERIFIED_MAPPING,,1,2020
+85,p2d_04,VERIFIED_MAPPING,,1,2020
+85,p2d_05,VERIFIED_MAPPING,,1,2020
+85,p2d_06,VERIFIED_MAPPING,,1,2020
+85,p2d_07,VERIFIED_MAPPING,,1,2020
+85,p2d_08,VERIFIED_MAPPING,,1,2020
+85,p2d_09,VERIFIED_MAPPING,,1,2020
+85,p2d_10,VERIFIED_MAPPING,,1,2020
+85,p2d_11,NO_OBSERVED_DATA,column has no non-null raw observations in available years,0,
+85,p2d_12,VERIFIED_MAPPING,,1,2020
+85,p2d_13,VERIFIED_MAPPING,,1,2020
+85,p2d_14,VERIFIED_MAPPING,,1,2020
+85,p2d_15,VERIFIED_MAPPING,,1,2020
+85,p2d_16,VERIFIED_MAPPING,,1,2020
+85,p2d_17,VERIFIED_MAPPING,,1,2020
+85,p2e_01,VERIFIED_MAPPING,,1,2020
+85,p2e_02,VERIFIED_MAPPING,,1,2020
+85,p2e_03,VERIFIED_MAPPING,,1,2020
+85,p2e_04,VERIFIED_MAPPING,,1,2020
+85,p2e_05,VERIFIED_MAPPING,,1,2020
+85,p2e_06,VERIFIED_MAPPING,,1,2020
+85,p2e_07,VERIFIED_MAPPING,,1,2020
+85,p2e_08,VERIFIED_MAPPING,,1,2020
+85,p2e_09,VERIFIED_MAPPING,,1,2020
+85,p2e_10,VERIFIED_MAPPING,,1,2020
+85,p2e_11,NO_OBSERVED_DATA,column has no non-null raw observations in available years,0,
+85,p2e_12,VERIFIED_MAPPING,,1,2020
+85,p2e_13,VERIFIED_MAPPING,,1,2020
+85,p2e_14,VERIFIED_MAPPING,,1,2020
+85,p2e_15,VERIFIED_MAPPING,,1,2020
+85,p2e_16,VERIFIED_MAPPING,,1,2020
+85,p2e_17,VERIFIED_MAPPING,,1,2020
+85,p2f_01,VERIFIED_MAPPING,,1,2020
+85,p2f_02,VERIFIED_MAPPING,,1,2020
+85,p2f_03,VERIFIED_MAPPING,,1,2020
+85,p2f_04,VERIFIED_MAPPING,,1,2020
+85,p2f_05,VERIFIED_MAPPING,,1,2020
+85,p2f_06,VERIFIED_MAPPING,,1,2020
+85,p2f_07,VERIFIED_MAPPING,,1,2020
+85,p2f_08,VERIFIED_MAPPING,,1,2020
+85,p2f_09,VERIFIED_MAPPING,,1,2020
+85,p2f_10,VERIFIED_MAPPING,,1,2020
+85,p2f_11,VERIFIED_MAPPING,,1,2020
+85,p2f_12,VERIFIED_MAPPING,,1,2020
+85,p2f_13,VERIFIED_MAPPING,,1,2020
+85,p2f_14,VERIFIED_MAPPING,,1,2020
+85,p2f_15,VERIFIED_MAPPING,,1,2020
+85,p2f_16,VERIFIED_MAPPING,,1,2020
+85,p2f_17,VERIFIED_MAPPING,,1,2020
+85,p3,UNRESOLVED_MAPPING,years without value labels: [2011]; observed codes without labels: {2007: [0]},9,
+85,p301_01,VERIFIED_MAPPING,,4,2025
+85,p301a,UNRESOLVED_MAPPING,years without value labels: [2006],2,
+85,p4,UNRESOLVED_MAPPING,years without value labels: [2011],9,
+85,p5_1,UNRESOLVED_MAPPING,"years without value labels: [2011, 2014, 2015]",9,
+85,p5_2,UNRESOLVED_MAPPING,"years without value labels: [2011, 2014, 2015]; observed codes without labels: {2007: [2]}",9,
+85,p5_3,UNRESOLVED_MAPPING,"years without value labels: [2011, 2014, 2015]; observed codes without labels: {2007: [3]}",9,
+85,p5_4,UNRESOLVED_MAPPING,"years without value labels: [2011, 2014, 2015]; observed codes without labels: {2007: [4]}",9,
+85,p5_5,UNRESOLVED_MAPPING,"years without value labels: [2011, 2014, 2015]; observed codes without labels: {2007: [5]}",9,
+85,p6,UNRESOLVED_MAPPING,"years without value labels: [2006, 2011]",12,
+85,p7,UNRESOLVED_MAPPING,"years without value labels: [2006, 2011]",12,
+85,p8_1,UNRESOLVED_MAPPING,"years without value labels: [2004, 2005, 2006, 2011, 2014, 2015]",12,
+85,p8_2,UNRESOLVED_MAPPING,"years without value labels: [2006, 2011, 2014, 2015]; observed codes without labels: {2007: [2]}",12,
+85,p8_3,UNRESOLVED_MAPPING,"years without value labels: [2011, 2014, 2015]; observed codes without labels: {2007: [3]}",9,
+85,p8_4,UNRESOLVED_MAPPING,"years without value labels: [2011, 2014, 2015]; observed codes without labels: {2007: [4]}",9,
+85,p9,UNRESOLVED_MAPPING,"years without value labels: [2006, 2011]; observed codes without labels: {2007: [0], 2020: [5]}",12,
+85,pp6,VERIFIED_MAPPING,,1,2004
+85,servic_a,VERIFIED_MAPPING,,1,2004
+85,servicia,UNRESOLVED_MAPPING,years without value labels: [2006],2,
+85,servicib,NO_OBSERVED_DATA,column has no non-null raw observations in available years,0,
+85,servicio,VERIFIED_MAPPING,,1,2004
+85,t01b_23f,VERIFIED_MAPPING,,1,2013
+85,t22a_1,VERIFIED_MAPPING,,1,2015
+85,t22a_2,VERIFIED_MAPPING,,1,2015
+85,t22a_3,VERIFIED_MAPPING,,1,2015
+85,t22a_4,VERIFIED_MAPPING,,1,2015
+85,t22a_5,VERIFIED_MAPPING,,1,2015
+85,t22a_6,VERIFIED_MAPPING,,1,2015
+85,t22a_7,VERIFIED_MAPPING,,1,2015
+85,t22a_8,VERIFIED_MAPPING,,1,2015
+85,t22a_9,VERIFIED_MAPPING,,1,2015
+85,t2_1_16,VERIFIED_MAPPING,,1,2015
+85,ticuest0,UNRESOLVED_MAPPING,years without value labels: [2011],2,
+85,ticuest01b,VERIFIED_MAPPING,,5,2025
+85,tipocuestionario,VERIFIED_MAPPING,,1,2020
+85,tipoentrevista,VERIFIED_MAPPING,,1,2020

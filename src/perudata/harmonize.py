@@ -126,7 +126,8 @@ def available() -> list[str]:
     """Which HAND-CONFIRMED (survey, module) crosswalks exist."""
     d = resources.files("perudata").joinpath("crosswalks")
     return sorted(Path(str(p)).stem for p in d.iterdir()
-                  if str(p).endswith(".csv") and "_auto_" not in str(p))
+                  if str(p).endswith(".csv") and "_auto_" not in str(p)
+                  and "_label_overrides" not in str(p))
 
 
 def stability(module: str | int, status: str | None = None):
@@ -199,6 +200,47 @@ def _recode_maps():
         "never-drop-a-code / anchor-on-code / carry-forward invariants.")
 
 
+_OVERRIDES = None
+
+
+def label_overrides(module: str | int | None = None):
+    """VERIFIED value labels that INEI's own .dta omits, with their evidence.
+
+    Some year-variables ship no value labels at all, or ship an INCOMPLETE set —
+    ENAHO 2016's dictionary declares estrsocial as range 1-5 and omits code 6,
+    while the released microdata contains 12,952 records AT code 6. Without a
+    label there is nothing to align, so the year cannot be recoded and its data
+    is stranded.
+
+    This is the label source of last resort, and it is EVIDENCE-GATED: a row is
+    only usable when status == 'verified', which requires an official dictionary,
+    a questionnaire, or a deterministic same-year proof. Candidates never qualify.
+    (estrsocial=6 is 'rural' because it holds iff estrato is rural (6/7/8) across
+    ALL 36,785 released 2016 records, zero mismatches — plus the 2017 dictionary
+    defines 6=RURAL explicitly. That is proof from the same year's data, not an
+    inference carried from a neighbour.)
+    """
+    global _OVERRIDES
+    import pandas as pd
+    if _OVERRIDES is None:
+        p = resources.files("perudata").joinpath(
+            "crosswalks/enaho_label_overrides.csv")
+        if not p.is_file():
+            _OVERRIDES = pd.DataFrame(
+                columns=["module", "column", "year", "code", "label", "status",
+                         "evidence"])
+        else:
+            with p.open("r", encoding="utf-8-sig") as f:
+                d = pd.read_csv(f, dtype={"module": str, "column": str,
+                                          "status": str})
+            d["module"] = d["module"].str.zfill(2)
+            _OVERRIDES = d[d["status"] == "verified"].copy()   # evidence gate
+    out = _OVERRIDES
+    if module is not None:
+        out = out[out["module"] == str(module).zfill(2)]
+    return out.copy()
+
+
 def _norm_label(s: str) -> str:
     """Normalize a value label for ALIGNMENT ONLY (never for identity).
 
@@ -231,10 +273,10 @@ def build_recode(module: str | int, column: str, years: list[int] | None = None,
        split one concept in two the moment INEI reworded it ('seguro integral de
        salud' -> '... (SIS)').
 
-    3. CARRY FORWARD ON A CODE-SET MATCH. A year with no labels whose observed code
-       set equals a labelled year's is the SAME coding: carry that map. 2019 ships
-       no labels but its {1,2} is 2012's {1,2} -- returning NA there made the
-       harmonized column worse than the raw one.
+    3. POPULATED IMPLIES VERIFIABLE. Equal code sets do not establish equal category
+       identities: an unlabelled {1,2} year may silently reverse yes/no. Until a
+       check can prove that such a reversal would be detectable, unlabelled years
+       remain unmapped and the harmonized column is NA there.
 
     Returns {year: {raw_code: canonical_code}} plus 'labels' and 'audit'.
     """
@@ -245,6 +287,8 @@ def build_recode(module: str | int, column: str, years: list[int] | None = None,
     m = str(module).zfill(2)
     years = years or [y for y in _enaho.years() if _enaho.path(y, m, out).exists()]
 
+    ov = label_overrides(m)
+    ov = ov[ov["column"] == column] if len(ov) else ov
     labelled, observed = {}, {}
     for y in years:
         try:
@@ -255,8 +299,17 @@ def build_recode(module: str | int, column: str, years: list[int] | None = None,
             continue
         observed[y] = {int(x) for x in v.dropna().unique()}
         vl = _dic.value_labels(column, y, m)
-        if vl:
-            labelled[y] = {int(float(k)): _norm_label(v) for k, v in vl.items()}
+        lab = {int(float(k)): _norm_label(v) for k, v in vl.items()} if vl else {}
+        # VERIFIED overrides supply what INEI's .dta omits. They are additive: a
+        # label INEI ships always wins, an override only fills a hole. This is what
+        # rescues a year whose labels are missing or incomplete (ENAHO 2016
+        # estrsocial: the dictionary declares 1-5 and omits code 6, while 12,952
+        # records sit AT code 6).
+        for _, o in ov[ov["year"].astype(int) == y].iterrows():
+            c = int(float(o["code"]))
+            lab.setdefault(c, _norm_label(o["label"]))
+        if lab:
+            labelled[y] = lab
     if not observed:
         raise FileNotFoundError(f"{m}/{column}: no downloaded year has this column")
 
@@ -269,7 +322,10 @@ def build_recode(module: str | int, column: str, years: list[int] | None = None,
 
     maps, audit = {ref: dict(canon)}, []
     for y in sorted(observed):
-        if y == ref:
+        # Unlabelled years cannot establish category identity. Absence from maps
+        # is what makes apply_recode emit NA; code equality cannot rule out a
+        # silent reversal.
+        if y == ref or y not in labelled:
             continue
         ym = {}
         for c in sorted(observed[y]):
@@ -318,31 +374,16 @@ def build_recode(module: str | int, column: str, years: list[int] | None = None,
     # raw one at least announces itself as unmapped, while a confidently-labelled
     # flipped column is exactly the failure this whole filter exists to prevent --
     # and a warning in .attrs does not reach the person doing df.groupby.
-    for y in sorted(observed):
-        if y in labelled:
-            continue
-        same = [yy for yy in labelled if observed.get(yy) == observed[y]]
-        if not same:
-            audit.append({"year": y, "raw": None, "canonical": None,
-                          "why": "no labels and no code-set match — left NA"})
-            continue
-        src = max(same)
-        lo = [yy for yy in labelled if yy < y]
-        hi = [yy for yy in labelled if yy > y]
-        if not lo or not hi:
-            # extrapolation, not interpolation: nothing brackets it
-            audit.append({"year": y, "raw": None, "canonical": None,
-                          "why": "carry not bracketed on both sides (extrapolation)"
-                                 " — left NA, not asserted"})
-            continue
-        maps[y] = dict(maps[src])
+    for y in sorted(set(observed) - set(labelled)):
+        # Matching code sets and a two-sided bracket do not prove detectability.
         audit.append({"year": y, "raw": None, "canonical": None,
-                      "why": f"no labels; code set equals {src} — map carried, "
-                             f"bracketed by {lo[-1]} and {hi[0]}"})
-
+                      "why": "no value labels; category identity unverifiable - "
+                             "left NA, not stabilized"})
     # THE GUARD: a recode may never lose a row. If any observed code fails to map,
     # the recode refuses itself rather than silently shrinking a denominator.
     for y, obs in observed.items():
+        if y not in maps:  # intentionally unmapped; apply_recode emits all NA
+            continue
         unmapped = obs - set(maps.get(y, {}))
         if unmapped:
             raise ValueError(
@@ -356,20 +397,55 @@ def build_recode(module: str | int, column: str, years: list[int] | None = None,
     return {"map": maps, "labels": labels, "audit": audit, "reference_year": ref}
 
 
-def apply_recode(df, recode: dict, column: str, year: int, suffix: str = "_h"):
-    """Apply a build_recode() map to one column. Refuses to lose rows."""
+def apply_recode(df, recode: dict, column: str, year: int, suffix: str = "_h",
+                 strict: bool = False):
+    """Apply a build_recode() map to one column. Never loses a row.
+
+    THE GRADED CONTRACT — three outcomes, kept strictly apart:
+
+      resolved      -> the `_h` column carries canonical codes that mean ONE thing
+                       across every year.
+      unresolved    -> `_h` is NA and the reason is recorded. NA here means "we
+                       could not certify this year", NEVER "the source was empty".
+      partial map   -> ALWAYS raises. The year IS resolved but some observed code
+                       has no entry, so those rows would vanish and shrink the
+                       denominator. That is the 100%-SIS bug and it is a bug in the
+                       map, not a judgement call.
+
+    strict=True turns the unresolved case into a raise too, for callers who would
+    rather the build stop than accept a gap.
+
+    WHY THE RAISE IS OPT-IN. Making it the default means
+    dataset(range(2004, 2026), '04', harmonize=True) cannot run at all -- 2019
+    ships no labels for p4195 -- so the package would refuse its own flagship call
+    until every one of ~1,900 unresolved mappings is hand-certified. A package that
+    raises on its main path is worse than one that returns a marked NA next to a
+    status. The certification grind (see label_overrides) closes the gaps; it must
+    not block the package while it runs.
+    """
     import pandas as pd
     m = recode["map"].get(int(year))
+    raw = pd.to_numeric(df[column], errors="coerce")
     if not m:
+        if strict and raw.notna().any():
+            raise ValueError(
+                f"{column} {year}: {int(raw.notna().sum()):,} raw observations but "
+                f"category identity is unresolved. strict=True refuses to emit a "
+                f"gap — certify the year's labels (see harmonize.label_overrides) "
+                f"or use strict=False for a marked NA.")
         df[f"{column}{suffix}"] = pd.NA
         return df
-    raw = pd.to_numeric(df[column], errors="coerce")
     out = raw.map({float(k): v for k, v in m.items()})
-    # never-drop guard, at APPLY time too: a non-null raw code must stay non-null
+    # NEVER-DROP GUARD. This is for a PARTIAL map only -- the unresolved year is
+    # handled above. Conflating the two is how an unconditional hard-fail creeps
+    # back in through the default path.
     lost = int((raw.notna() & out.isna()).sum())
     if lost:
+        unmapped = sorted({int(x) for x in raw[raw.notna() & out.isna()].unique()})
         raise ValueError(
-            f"{column} {year}: recode would drop {lost:,} non-null rows — refused.")
+            f"{column} {year}: recode would drop {lost:,} non-null rows (codes "
+            f"{unmapped} have no entry in a map covering {sorted(m)[:6]}) — "
+            f"refused. A partial map is a bug in the map.")
     df[f"{column}{suffix}"] = out.astype("Int64")
     return df
 

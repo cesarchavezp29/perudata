@@ -93,6 +93,54 @@ def test_recode_refuses_to_drop_a_code():
     assert (out["p4195_h"] == 1).sum() == 3           # shares preserved
 
 
+def test_unlabelled_bracketed_year_blocks_output_until_resolved(monkeypatch):
+    """Observed raw data may not be converted to safety-generated NA."""
+    import pytest
+    from perudata import dictionary, enaho, harmonize
+
+    frames = {
+        2019: pd.DataFrame({"answer": [1, 2, 1]}),
+        2020: pd.DataFrame({"answer": [1, 2, 2]}),
+        2021: pd.DataFrame({"answer": [1, 2, 1]}),
+    }
+    labels = {
+        2019: {1: "si", 2: "no"},
+        2020: {},
+        2021: {1: "si", 2: "no"},
+    }
+    monkeypatch.setattr(enaho, "load",
+                        lambda year, module, **kwargs: frames[year])
+    monkeypatch.setattr(dictionary, "value_labels",
+                        lambda column, year, module: labels[year])
+
+    recode = harmonize.build_recode("01", "answer",
+                                    years=[2019, 2020, 2021])
+    # 2020 ships no labels, so its category identity is UNRESOLVED. An equal code
+    # set {1,2} does not prove equal meaning — the year could be silently reversed.
+    assert 2020 not in recode["map"]
+
+    # DEFAULT: a marked NA, and the package still builds. Making this raise would
+    # break dataset(range(2004,2026), '04') outright, because 2019 ships no labels
+    # for p4195 — a package that refuses its own flagship call is worse than one
+    # that hands back a gap it has told you about.
+    out = harmonize.apply_recode(frames[2020].copy(), recode, "answer", 2020)
+    assert out["answer_h"].isna().all()
+
+    # OPT-IN: strict=True for callers who would rather stop than accept the gap.
+    with pytest.raises(ValueError, match="category identity is unresolved"):
+        harmonize.apply_recode(frames[2020].copy(), recode, "answer", 2020,
+                               strict=True)
+
+
+def test_unmapped_year_is_na_only_when_raw_data_is_missing():
+    """NA is allowed for genuine source missingness, not mapping uncertainty."""
+    from perudata import harmonize
+
+    raw = pd.DataFrame({"answer": [pd.NA, pd.NA]})
+    recode = {"map": {}, "labels": {}, "audit": []}
+    out = harmonize.apply_recode(raw, recode, "answer", 2020)
+    assert out["answer_h"].isna().all()
+
 def test_the_recode_guards_are_alive_not_decorative():
     """CERTIFY THE CERTIFIER. One check in the recode filter compared a value to
     ITSELF and could never fire — a dead guard that looks alive is worse than no
@@ -114,6 +162,37 @@ def test_the_recode_guards_are_alive_not_decorative():
     assert out["v_h"].notna().all()
     assert sorted(out["v_h"].value_counts().tolist()) == sorted(
         df["v"].value_counts().tolist())          # zero share drift, exactly
+
+
+def test_label_overrides_are_evidence_gated_and_shipped():
+    """The overrides supply labels INEI's own .dta omits (ENAHO 2016 declares
+    estrsocial as range 1-5 and omits code 6, while 12,952 records sit AT code 6).
+    They must SHIP, and only 'verified' rows may ever be used — a candidate is a
+    guess wearing a manifest."""
+    from perudata import harmonize
+    ov = harmonize.label_overrides()
+    assert len(ov), "the verified label overrides are not shipping"
+    assert set(ov["status"]) == {"verified"}, "a non-verified override leaked in"
+    assert ov["evidence"].str.len().gt(20).all(), "an override carries no evidence"
+    assert len(harmonize.label_overrides("34")) >= 1
+
+
+def test_unresolved_year_is_NA_by_default_and_raises_only_when_asked():
+    """THE GRADED CONTRACT. A year with raw data but no verified mapping comes back
+    NA by default so the package still BUILDS, and raises only under strict=True.
+    Making the raise the default breaks dataset(range(2004,2026), '04') outright —
+    2019 ships no labels for p4195 — and a package that refuses its own flagship
+    call is worse than one that returns a marked NA."""
+    import pytest
+    from perudata import harmonize
+    df = pd.DataFrame({"v": [1, 2, 1]})
+    rc = {"map": {2024: {1: 1, 2: 2}}}            # 2019 deliberately unmapped
+
+    out = harmonize.apply_recode(df.copy(), rc, "v", 2019)          # default
+    assert out["v_h"].isna().all()                                  # NA, not a guess
+
+    with pytest.raises(ValueError, match="category identity is unresolved"):
+        harmonize.apply_recode(df.copy(), rc, "v", 2019, strict=True)
 
 
 def test_bulk_recode_maps_are_not_shipped():
@@ -265,3 +344,44 @@ def test_panel_wide_to_long_suffixed_anchor():
     assert len(long) == 10
     assert list(long.columns).count("conglome") == 1
     assert "pobreza" in long.columns
+
+
+def test_p203b_is_harmonized_without_changing_or_dropping_codes():
+    import pandas as pd
+    from perudata import harmonize
+
+    raw = pd.DataFrame({"p203b": [1, 2, 3, 6, 7, 11, pd.NA]})
+    out, coverage = harmonize.apply(raw, "enaho", "02", year=2023)
+
+    assert out["family_nucleus_relationship"].tolist() == raw["p203b"].tolist()
+    row = coverage.loc[
+        coverage["canonical"] == "family_nucleus_relationship"
+    ].iloc[0]
+    assert bool(row["resolved"])
+    assert row["raw"] == "p203b"
+
+
+def test_official_override_tables_are_not_shifted():
+    import pandas as pd
+    from pathlib import Path
+
+    path = Path(__file__).parents[1] / "src/perudata/crosswalks/enaho_label_overrides.csv"
+    ov = pd.read_csv(path, dtype={"module": str, "year": int, "code": int})
+    ov["module"] = ov["module"].str.zfill(2)
+    lookup = ov.set_index(["module", "column", "year", "code"])["label"]
+
+    assert lookup[("02", "dominio", 2004, 1)] == "Costa Norte"
+    assert lookup[("02", "dominio", 2004, 8)] == "Lima Metropolitana"
+    assert lookup[("02", "p203b", 2006, 1)] == "Jefe de hogar"
+    assert lookup[("02", "p217", 2004, 1)] == "Viaje"
+
+
+def test_classification_maps_preserve_namespace_code_identity():
+    import json
+    from pathlib import Path
+
+    path = Path(__file__).parents[1] / "scripts/recodes_passed.json"
+    maps = json.loads(path.read_text(encoding="utf-8"))["02"]
+    for column in ("ocupac_r3", "ocupac_r4", "rama_3", "rama_4", "rama_r3", "rama_r4"):
+        for year_map in maps[column]["map"].values():
+            assert all(int(raw) == canonical for raw, canonical in year_map.items())

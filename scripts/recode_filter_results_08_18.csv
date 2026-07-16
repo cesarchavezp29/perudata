@@ -1,0 +1,151 @@
+module,column,verdict,reason,years,ref_year
+08,dominio,UNRESOLVED_MAPPING,"years without value labels: [2004, 2006]",15,
+08,estrato,UNRESOLVED_MAPPING,"years without value labels: [2004, 2006]",15,
+08,p602,UNRESOLVED_MAPPING,"years without value labels: [2004, 2005, 2006]",15,
+08,p602d,UNRESOLVED_MAPPING,"years without value labels: [2004, 2006]",3,
+08,p602d1_3,VERIFIED_MAPPING,,1,2025
+08,p602da,VERIFIED_MAPPING,,12,2025
+08,p602db,UNRESOLVED_MAPPING,"observed codes without labels: {2008: [2], 2009: [2], 2010: [2], 2011: [2], 2012: [0], 2014: [0], 2015: [0]}",12,
+08,p602dc,UNRESOLVED_MAPPING,"observed codes without labels: {2008: [3], 2009: [3], 2010: [3], 2011: [3], 2012: [0], 2014: [0], 2015: [0]}",12,
+08,p602n,UNRESOLVED_MAPPING,"years without value labels: [2004, 2006]",15,
+08,ticuest0,VERIFIED_MAPPING,,2,2012
+08,ticuest01,UNRESOLVED_MAPPING,observed codes without labels: {2016: [3]},6,
+08,tipocuestionario,VERIFIED_MAPPING,,1,2020
+08,tipoentrevista,VERIFIED_MAPPING,,1,2020
+09,dominio,UNRESOLVED_MAPPING,"years without value labels: [2004, 2006]",15,
+09,estrato,UNRESOLVED_MAPPING,"years without value labels: [2004, 2006]",15,
+09,p603,UNRESOLVED_MAPPING,"years without value labels: [2004, 2006]",15,
+09,p603a1,UNRESOLVED_MAPPING,"years without value labels: [2004, 2006]",15,
+09,p603a2,UNRESOLVED_MAPPING,"years without value labels: [2004, 2006]",15,
+09,p603a3,UNRESOLVED_MAPPING,"years without value labels: [2004, 2006]",15,
+09,p603a4,UNRESOLVED_MAPPING,"years without value labels: [2004, 2006]",15,
+09,p603a5,UNRESOLVED_MAPPING,"years without value labels: [2004, 2006]",15,
+09,p603a6,UNRESOLVED_MAPPING,"years without value labels: [2004, 2006]",15,
+09,p603a7,UNRESOLVED_MAPPING,"years without value labels: [2004, 2006]",15,
+09,p603a8,UNRESOLVED_MAPPING,"years without value labels: [2004, 2006]",15,
+09,p603aa,UNRESOLVED_MAPPING,"years without value labels: [2004, 2006]; observed codes without labels: {2005: [99], 2007: [99], 2008: [99], 2009: [99], 2010: [99], 2011: [99], 2012: [99], 2014: [99], 2015: [99], 2016: [99]}",15,
+09,p603n,UNRESOLVED_MAPPING,"years without value labels: [2004, 2006]",15,
+09,ticuest0,VERIFIED_MAPPING,,2,2012
+09,ticuest01,UNRESOLVED_MAPPING,observed codes without labels: {2016: [3]},6,
+09,tipocuestionario,VERIFIED_MAPPING,,1,2020
+09,tipoentrevista,VERIFIED_MAPPING,,1,2020
+10,dominio,UNRESOLVED_MAPPING,"years without value labels: [2004, 2006]",15,
+10,estrato,UNRESOLVED_MAPPING,"years without value labels: [2004, 2006]",15,
+10,p604,UNRESOLVED_MAPPING,"years without value labels: [2004, 2006]",15,
+10,p604a1,UNRESOLVED_MAPPING,"years without value labels: [2004, 2006]",15,
+10,p604a2,UNRESOLVED_MAPPING,"years without value labels: [2004, 2006]",15,
+10,p604a3,UNRESOLVED_MAPPING,"years without value labels: [2004, 2006]",15,
+10,p604a4,UNRESOLVED_MAPPING,"years without value labels: [2004, 2006]",15,
+10,p604a5,UNRESOLVED_MAPPING,"years without value labels: [2004, 2006]",15,
+10,p604a6,UNRESOLVED_MAPPING,"years without value labels: [2004, 2006]",15,
+10,p604a7,UNRESOLVED_MAPPING,"years without value labels: [2004, 2006]",15,
+10,p604a8,UNRESOLVED_MAPPING,"years without value labels: [2004, 2006]",15,
+10,p604aa,UNRESOLVED_MAPPING,"years without value labels: [2004, 2006]; observed codes without labels: {2008: [9], 2009: [9], 2010: [9], 2011: [9], 2012: [9], 2015: [9]}",15,
+10,p604n,UNRESOLVED_MAPPING,"years without value labels: [2004, 2006]",15,
+10,ticuest0,VERIFIED_MAPPING,,2,2012
+10,ticuest01,UNRESOLVED_MAPPING,observed codes without labels: {2016: [3]},6,
+10,tipocuestionario,VERIFIED_MAPPING,,1,2020
+10,tipoentrevista,VERIFIED_MAPPING,,1,2020
+11,dominio,UNRESOLVED_MAPPING,"years without value labels: [2004, 2006]",14,
+11,estrato,UNRESOLVED_MAPPING,"years without value labels: [2004, 2006]",14,
+11,p605,UNRESOLVED_MAPPING,"years without value labels: [2004, 2006]",14,
+11,p605a1,UNRESOLVED_MAPPING,"years without value labels: [2004, 2006]",14,
+11,p605a2,UNRESOLVED_MAPPING,"years without value labels: [2004, 2006]",14,
+11,p605a3,UNRESOLVED_MAPPING,"years without value labels: [2004, 2006]",14,
+11,p605a4,UNRESOLVED_MAPPING,"years without value labels: [2004, 2006]",14,
+11,p605a5,UNRESOLVED_MAPPING,"years without value labels: [2004, 2006]",14,
+11,p605a6,UNRESOLVED_MAPPING,"years without value labels: [2004, 2006]",14,
+11,p605n,UNRESOLVED_MAPPING,"years without value labels: [2004, 2006]",14,
+11,ticuest0,VERIFIED_MAPPING,,2,2012
+11,ticuest01,VERIFIED_MAPPING,,5,2025
+11,tipocuestionario,VERIFIED_MAPPING,,1,2020
+11,tipoentrevista,VERIFIED_MAPPING,,1,2020
+12,dominio,UNRESOLVED_MAPPING,"years without value labels: [2004, 2006]",14,
+12,estrato,UNRESOLVED_MAPPING,"years without value labels: [2004, 2006]",14,
+12,p606,UNRESOLVED_MAPPING,"years without value labels: [2004, 2006]; observed codes without labels: {2008: [9], 2009: [9], 2010: [9], 2011: [9], 2012: [9], 2013: [9]}",14,
+12,p606a1,UNRESOLVED_MAPPING,"years without value labels: [2004, 2006]",14,
+12,p606a2,UNRESOLVED_MAPPING,"years without value labels: [2004, 2006]",14,
+12,p606a3,UNRESOLVED_MAPPING,"years without value labels: [2004, 2006]",14,
+12,p606a4,UNRESOLVED_MAPPING,"years without value labels: [2004, 2006]",14,
+12,p606a5,UNRESOLVED_MAPPING,"years without value labels: [2004, 2006]",14,
+12,p606a6,UNRESOLVED_MAPPING,"years without value labels: [2004, 2006]",14,
+12,p606a7,UNRESOLVED_MAPPING,"years without value labels: [2004, 2006]",14,
+12,p606a8,UNRESOLVED_MAPPING,"years without value labels: [2004, 2006]",14,
+12,p606aa,UNRESOLVED_MAPPING,"years without value labels: [2004, 2006]; observed codes without labels: {2005: [99]}",14,
+12,p606n,UNRESOLVED_MAPPING,"years without value labels: [2004, 2006]",14,
+12,ticuest0,VERIFIED_MAPPING,,2,2012
+12,ticuest01,VERIFIED_MAPPING,,5,2025
+12,tipocuestionario,VERIFIED_MAPPING,,1,2020
+12,tipoentrevista,VERIFIED_MAPPING,,1,2020
+13,dominio,UNRESOLVED_MAPPING,"years without value labels: [2004, 2011]",14,
+13,estrato,UNRESOLVED_MAPPING,"years without value labels: [2004, 2011]",14,
+13,p607,UNRESOLVED_MAPPING,"years without value labels: [2004, 2011]",14,
+13,p607a1,UNRESOLVED_MAPPING,"years without value labels: [2004, 2011]",14,
+13,p607a2,UNRESOLVED_MAPPING,"years without value labels: [2004, 2011]",14,
+13,p607a3,UNRESOLVED_MAPPING,"years without value labels: [2004, 2011]",14,
+13,p607a4,UNRESOLVED_MAPPING,"years without value labels: [2004, 2011]",14,
+13,p607a5,UNRESOLVED_MAPPING,"years without value labels: [2004, 2011]",14,
+13,p607a6,UNRESOLVED_MAPPING,"years without value labels: [2004, 2011]",14,
+13,p607a7,UNRESOLVED_MAPPING,"years without value labels: [2004, 2011]",14,
+13,p607a8,UNRESOLVED_MAPPING,"years without value labels: [2004, 2011]",14,
+13,p607aa,UNRESOLVED_MAPPING,years without value labels: [2011],11,
+13,p607ee,UNRESOLVED_MAPPING,years without value labels: [2004],3,
+13,p607n,UNRESOLVED_MAPPING,"years without value labels: [2004, 2011]",14,
+13,ticuest0,UNRESOLVED_MAPPING,years without value labels: [2011],2,
+13,ticuest01,VERIFIED_MAPPING,,5,2025
+13,tipocuestionario,VERIFIED_MAPPING,,1,2020
+13,tipoentrevista,VERIFIED_MAPPING,,1,2020
+15,dominio,UNRESOLVED_MAPPING,"years without value labels: [2004, 2006, 2011]",14,
+15,estrato,UNRESOLVED_MAPPING,"years without value labels: [2004, 2006, 2011]",14,
+15,p609,UNRESOLVED_MAPPING,"years without value labels: [2004, 2006, 2011]",14,
+15,p609n,UNRESOLVED_MAPPING,"years without value labels: [2004, 2006, 2011]",14,
+15,ticuest0,UNRESOLVED_MAPPING,years without value labels: [2011],2,
+15,ticuest01,VERIFIED_MAPPING,,5,2025
+15,tipocuestionario,VERIFIED_MAPPING,,1,2020
+15,tipoentrevista,VERIFIED_MAPPING,,1,2020
+16,dominio,UNRESOLVED_MAPPING,"years without value labels: [2004, 2006, 2011]",14,
+16,estrato,UNRESOLVED_MAPPING,"years without value labels: [2004, 2006, 2011]",14,
+16,p610,UNRESOLVED_MAPPING,"years without value labels: [2004, 2006, 2011]",14,
+16,p610a1,UNRESOLVED_MAPPING,"years without value labels: [2004, 2006, 2011]",14,
+16,p610a2,UNRESOLVED_MAPPING,"years without value labels: [2004, 2006, 2011]",14,
+16,p610a3,UNRESOLVED_MAPPING,"years without value labels: [2004, 2006, 2011]",14,
+16,p610a4,UNRESOLVED_MAPPING,"years without value labels: [2004, 2006, 2011]",14,
+16,p610a5,UNRESOLVED_MAPPING,"years without value labels: [2004, 2006, 2011]",14,
+16,p610a6,UNRESOLVED_MAPPING,"years without value labels: [2004, 2006, 2011]",14,
+16,p610a7,UNRESOLVED_MAPPING,"years without value labels: [2004, 2006, 2011]",14,
+16,p610a8,UNRESOLVED_MAPPING,"years without value labels: [2004, 2006, 2011]",14,
+16,p610aa,UNRESOLVED_MAPPING,"years without value labels: [2004, 2006, 2011]",14,
+16,p610n,UNRESOLVED_MAPPING,"years without value labels: [2004, 2006, 2011]",14,
+16,ticuest0,UNRESOLVED_MAPPING,years without value labels: [2011],2,
+16,ticuest01,VERIFIED_MAPPING,,5,2025
+16,tipocuestionario,VERIFIED_MAPPING,,1,2020
+16,tipoentrevista,VERIFIED_MAPPING,,1,2020
+17,dominio,UNRESOLVED_MAPPING,"years without value labels: [2004, 2006, 2011]",14,
+17,estrato,UNRESOLVED_MAPPING,"years without value labels: [2004, 2006, 2011]",14,
+17,p611,UNRESOLVED_MAPPING,"years without value labels: [2004, 2006, 2011]",14,
+17,p611a1,UNRESOLVED_MAPPING,"years without value labels: [2004, 2006, 2011]",14,
+17,p611a2,UNRESOLVED_MAPPING,"years without value labels: [2004, 2006, 2011]",14,
+17,p611a3,UNRESOLVED_MAPPING,"years without value labels: [2004, 2006, 2011]",14,
+17,p611a4,UNRESOLVED_MAPPING,"years without value labels: [2004, 2006, 2011]",14,
+17,p611a5,UNRESOLVED_MAPPING,"years without value labels: [2004, 2006, 2011]",14,
+17,p611a6,UNRESOLVED_MAPPING,"years without value labels: [2004, 2006, 2011]",14,
+17,p611a7,UNRESOLVED_MAPPING,"years without value labels: [2004, 2006, 2011]",14,
+17,p611aa,UNRESOLVED_MAPPING,"years without value labels: [2004, 2006, 2011]",14,
+17,p611n,UNRESOLVED_MAPPING,"years without value labels: [2004, 2006, 2011]",14,
+17,t611n,UNRESOLVED_MAPPING,"years without value labels: [2004, 2006, 2011]",14,
+17,ticuest0,UNRESOLVED_MAPPING,years without value labels: [2011],2,
+17,ticuest01,VERIFIED_MAPPING,,5,2025
+17,tipocuestionario,VERIFIED_MAPPING,,1,2020
+17,tipoentrevista,VERIFIED_MAPPING,,1,2020
+18,dominio,UNRESOLVED_MAPPING,"years without value labels: [2004, 2006, 2011]",14,
+18,estrato,UNRESOLVED_MAPPING,"years without value labels: [2004, 2006, 2011]",14,
+18,p612,UNRESOLVED_MAPPING,"years without value labels: [2004, 2006, 2011]",14,
+18,p612b,UNRESOLVED_MAPPING,"years without value labels: [2004, 2006, 2011]",14,
+18,p612d,NO_OBSERVED_DATA,column has no non-null raw observations in available years,0,
+18,p612e,NO_OBSERVED_DATA,column has no non-null raw observations in available years,0,
+18,p612f,NO_OBSERVED_DATA,column has no non-null raw observations in available years,0,
+18,p612n,UNRESOLVED_MAPPING,"years without value labels: [2004, 2006, 2011]",14,
+18,ticuest0,UNRESOLVED_MAPPING,years without value labels: [2011],2,
+18,ticuest01,VERIFIED_MAPPING,,5,2025
+18,tipocuestionario,VERIFIED_MAPPING,,1,2020
+18,tipoentrevista,VERIFIED_MAPPING,,1,2020
