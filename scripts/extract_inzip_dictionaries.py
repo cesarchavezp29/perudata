@@ -96,7 +96,7 @@ def parse(text: str) -> tuple[dict, dict]:
     return {k: v for k, v in out.items() if v}, rng
 
 
-years = [int(a) for a in sys.argv[1:] if a.isdigit()] or [2025]
+years = [int(a) for a in sys.argv[1:] if a.isdigit()] or list(enaho.years())
 modules = os.environ.get("PERUDATA_MODULES", "01").split(",")
 
 rows, gaps = [], []

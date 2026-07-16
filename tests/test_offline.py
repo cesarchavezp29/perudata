@@ -186,6 +186,41 @@ def test_canonical_labels_are_never_keyed_on_none(monkeypatch):
     assert all(isinstance(k, int) for k in rc["labels"])
 
 
+def test_every_override_carries_real_evidence():
+    """The override manifest is the ONLY place where a human judgement enters the
+    harmonized data, so every row must carry the evidence that justifies it. This
+    is what separates a certification from a guess with a manifest.
+
+    The evidence classes, each PROVEN on a real case in module 01 — and note that
+    they contradict each other, which is why none of this can be automated blind:
+      * the .dta LABEL is wrong (p1142 labels code 2; code 2 exists in no year)
+      * the DICTIONARY is wrong (p107a21 declares '2 Si'; the data holds 1)
+      * BOTH are wrong and only behaviour settles it (p1138 2007 code 8)
+    """
+    from perudata import harmonize
+    ov = harmonize.label_overrides()
+    assert set(ov["status"]) == {"verified"}
+    # no row may cite a bare assertion
+    weak = ov[ov["evidence"].str.len() < 40]
+    assert weak.empty, f"{len(weak)} override(s) carry no real evidence"
+    # Every row must name a SOURCE or exhibit a PROOF. The two are different and
+    # both are legitimate:
+    #   source  — an INEI document or INEI's own label in another vintage
+    #   proof   — a deterministic statement about the released data itself, e.g.
+    #             "all 128 released P203B=11 observations also have P203=11", or
+    #             "estrsocial=6 iff estrato is rural in all 36,785 records". Those
+    #             cite no document because they need none: the data settles it.
+    import re
+    pat = re.compile(
+        r"diccionario|dictionary|label|testimony|rango|range|cross-check|"
+        r"behavioural|declared|official|observations|records|iff|"
+        r"defines|scheme|convention|%|manual|cuestionario|questionnaire|page", re.I)
+    unsourced = ov[~ov["evidence"].str.contains(pat)]
+    assert unsourced.empty, (
+        f"{len(unsourced)} override(s) name neither a source nor a proof: "
+        f"{unsourced[['column', 'year']].head(3).to_dict('records')}")
+
+
 def test_label_overrides_are_evidence_gated_and_shipped():
     """The overrides supply labels INEI's own .dta omits (ENAHO 2016 declares
     estrsocial as range 1-5 and omits code 6, while 12,952 records sit AT code 6).
