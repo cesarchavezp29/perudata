@@ -114,12 +114,12 @@ module,column,verdict,reason,years,ref_year
 01,p1137,VERIFIED_MAPPING,,16,2025
 01,p1138,UNRESOLVED_MAPPING,observed codes without labels: {2007: [8]},13,
 01,p1139,VERIFIED_MAPPING,,3,2025
-01,p113a,UNRESOLVED_MAPPING,"years without value labels: [2004, 2005, 2006, 2007]; observed codes without labels: {2011: [0], 2013: [0], 2020: [9], 2024: [9]}",16,
+01,p113a,UNRESOLVED_MAPPING,"years without value labels: [2004, 2005, 2006, 2007]; observed codes without labels: {2020: [9], 2024: [9]}",16,
 01,p1141,VERIFIED_MAPPING,,16,2025
-01,p1142,UNRESOLVED_MAPPING,"observed codes without labels: {2006: [1], 2007: [1]}",16,
-01,p1143,UNRESOLVED_MAPPING,"observed codes without labels: {2006: [1], 2007: [1]}",16,
-01,p1144,UNRESOLVED_MAPPING,"observed codes without labels: {2006: [1], 2007: [1]}",16,
-01,p1145,UNRESOLVED_MAPPING,"observed codes without labels: {2006: [1], 2007: [1]}",16,
+01,p1142,VERIFIED_MAPPING,,16,2025
+01,p1143,VERIFIED_MAPPING,,16,2025
+01,p1144,VERIFIED_MAPPING,,16,2025
+01,p1145,VERIFIED_MAPPING,,16,2025
 01,p1146,VERIFIED_MAPPING,,1,2025
 01,p114b1,VERIFIED_MAPPING,,2,2025
 01,p114b2,VERIFIED_MAPPING,,2,2025
