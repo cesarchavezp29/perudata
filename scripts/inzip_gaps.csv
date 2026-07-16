@@ -1,0 +1,77 @@
+year,module,column,codes,why
+2004,01,panel,[0],outside the declared range: dictionary and released data disagree — reported
+2004,01,p10811,[0],"inside the declared range, unlabelled: INEI's `pase` convention"
+2004,01,p10821,[0],outside the declared range: dictionary and released data disagree — reported
+2004,01,p10831,[0],outside the declared range: dictionary and released data disagree — reported
+2004,01,p1121,[0],"inside the declared range, unlabelled: INEI's `pase` convention"
+2004,01,p1122,[0],"inside the declared range, unlabelled: INEI's `pase` convention"
+2004,01,p1123,[0],"inside the declared range, unlabelled: INEI's `pase` convention"
+2004,01,p1124,[0],"inside the declared range, unlabelled: INEI's `pase` convention"
+2004,01,p1125,[0],"inside the declared range, unlabelled: INEI's `pase` convention"
+2004,01,p1126,[0],"inside the declared range, unlabelled: INEI's `pase` convention"
+2004,01,p1127,[0],"inside the declared range, unlabelled: INEI's `pase` convention"
+2004,01,p1131,[0],"inside the declared range, unlabelled: INEI's `pase` convention"
+2004,01,p1132,[0],"inside the declared range, unlabelled: INEI's `pase` convention"
+2004,01,p1133,[0],"inside the declared range, unlabelled: INEI's `pase` convention"
+2004,01,p1134,[0],"inside the declared range, unlabelled: INEI's `pase` convention"
+2004,01,p1135,[0],"inside the declared range, unlabelled: INEI's `pase` convention"
+2004,01,p1136,[0],"inside the declared range, unlabelled: INEI's `pase` convention"
+2004,01,p1137,[0],"inside the declared range, unlabelled: INEI's `pase` convention"
+2004,01,p1141,[0],"inside the declared range, unlabelled: INEI's `pase` convention"
+2004,01,p1142,[0],"inside the declared range, unlabelled: INEI's `pase` convention"
+2004,01,p1143,[0],"inside the declared range, unlabelled: INEI's `pase` convention"
+2004,01,p1144,[0],"inside the declared range, unlabelled: INEI's `pase` convention"
+2004,01,p1145,[0],"inside the declared range, unlabelled: INEI's `pase` convention"
+2004,01,p613,[9],outside the declared range: dictionary and released data disagree — reported
+2005,01,panel,[0],outside the declared range: dictionary and released data disagree — reported
+2005,01,p10811,[0],"inside the declared range, unlabelled: INEI's `pase` convention"
+2005,01,p10821,[0],outside the declared range: dictionary and released data disagree — reported
+2005,01,p10831,[0],outside the declared range: dictionary and released data disagree — reported
+2005,01,p1121,[0],"inside the declared range, unlabelled: INEI's `pase` convention"
+2005,01,p1122,[0],"inside the declared range, unlabelled: INEI's `pase` convention"
+2005,01,p1123,[0],"inside the declared range, unlabelled: INEI's `pase` convention"
+2005,01,p1124,[0],"inside the declared range, unlabelled: INEI's `pase` convention"
+2005,01,p1125,[0],"inside the declared range, unlabelled: INEI's `pase` convention"
+2005,01,p1126,[0],"inside the declared range, unlabelled: INEI's `pase` convention"
+2005,01,p1127,[0],"inside the declared range, unlabelled: INEI's `pase` convention"
+2005,01,p1131,[0],"inside the declared range, unlabelled: INEI's `pase` convention"
+2005,01,p1132,[0],"inside the declared range, unlabelled: INEI's `pase` convention"
+2005,01,p1133,[0],"inside the declared range, unlabelled: INEI's `pase` convention"
+2005,01,p1134,[0],"inside the declared range, unlabelled: INEI's `pase` convention"
+2005,01,p1135,[0],"inside the declared range, unlabelled: INEI's `pase` convention"
+2005,01,p1136,[0],"inside the declared range, unlabelled: INEI's `pase` convention"
+2005,01,p1137,[0],"inside the declared range, unlabelled: INEI's `pase` convention"
+2005,01,p1141,[0],"inside the declared range, unlabelled: INEI's `pase` convention"
+2005,01,p1142,[0],"inside the declared range, unlabelled: INEI's `pase` convention"
+2005,01,p1143,[0],"inside the declared range, unlabelled: INEI's `pase` convention"
+2005,01,p1144,[0],"inside the declared range, unlabelled: INEI's `pase` convention"
+2005,01,p1145,[0],"inside the declared range, unlabelled: INEI's `pase` convention"
+2005,01,p613,[9],outside the declared range: dictionary and released data disagree — reported
+2020,01,p107e,[2],outside the declared range: dictionary and released data disagree — reported
+2020,01,p110,[8],outside the declared range: dictionary and released data disagree — reported
+2020,01,p110c,[2],"inside the declared range, unlabelled: INEI's `pase` convention"
+2020,01,p110c3,"[1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 17, 18, 19, 20, 23, 24]","inside the declared range, unlabelled: INEI's `pase` convention"
+2020,01,p1121,[0],"inside the declared range, unlabelled: INEI's `pase` convention"
+2020,01,p1123,[0],"inside the declared range, unlabelled: INEI's `pase` convention"
+2020,01,p1124,[0],"inside the declared range, unlabelled: INEI's `pase` convention"
+2020,01,p1125,[0],"inside the declared range, unlabelled: INEI's `pase` convention"
+2020,01,p1126,[0],"inside the declared range, unlabelled: INEI's `pase` convention"
+2020,01,p1127,[0],"inside the declared range, unlabelled: INEI's `pase` convention"
+2020,01,p1131,[0],"inside the declared range, unlabelled: INEI's `pase` convention"
+2020,01,p1132,[0],outside the declared range: dictionary and released data disagree — reported
+2020,01,p1133,[0],"inside the declared range, unlabelled: INEI's `pase` convention"
+2020,01,p1135,[0],"inside the declared range, unlabelled: INEI's `pase` convention"
+2020,01,p1136,[0],"inside the declared range, unlabelled: INEI's `pase` convention"
+2020,01,p1137,[0],"inside the declared range, unlabelled: INEI's `pase` convention"
+2020,01,p1138,[0],"inside the declared range, unlabelled: INEI's `pase` convention"
+2020,01,p1141,[0],"inside the declared range, unlabelled: INEI's `pase` convention"
+2020,01,p1142,[0],"inside the declared range, unlabelled: INEI's `pase` convention"
+2020,01,p1143,[0],"inside the declared range, unlabelled: INEI's `pase` convention"
+2020,01,p1144,[0],"inside the declared range, unlabelled: INEI's `pase` convention"
+2020,01,p1145,[0],"inside the declared range, unlabelled: INEI's `pase` convention"
+2024,01,p104,"[1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15]",outside the declared range: dictionary and released data disagree — reported
+2024,01,p104a,"[0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 12]",outside the declared range: dictionary and released data disagree — reported
+2024,01,p110c1,"[1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24]","inside the declared range, unlabelled: INEI's `pase` convention"
+2024,01,p110c2,"[1, 2, 3, 4, 5, 6]","inside the declared range, unlabelled: INEI's `pase` convention"
+2024,01,p110c3,"[1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 24]","inside the declared range, unlabelled: INEI's `pase` convention"
+2024,01,p113a,[9],outside the declared range: dictionary and released data disagree — reported
