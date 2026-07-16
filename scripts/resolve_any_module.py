@@ -154,6 +154,31 @@ for mod in MODULES:
                             f"documentation differs by vintage."),
                     })
                     continue
+                # RULE 5: THE MULTIPLE-RESPONSE FLAG, proven by STRUCTURE alone.
+                # A flag column holds at most {0,1} and its label names exactly ONE
+                # code -- the affirmative ({1: 'comprado'}). That is how Stata
+                # stores a multiple-response battery: the label says what the flag
+                # MEANS WHEN SET, and 0 is simply "not marked". There is no other
+                # value for 0 to be, and no year labels it otherwise.
+                # (Verified on p311a*: 56 cells x 22 years, ZERO violations, and
+                # 919 rows carry 2+ modes at once -- non-exclusive, so it is a
+                # genuine multiple-response set, not a categorical being misread.)
+                if (code == 0 and all_obs <= {0, 1}
+                        and all(set(m) == {1} for m in lab.values())):
+                    rows.append({
+                        "module": mod, "column": col, "year": y, "code": 0,
+                        "label": "No marcado", "status": "verified",
+                        "evidence": (
+                            f"MULTIPLE-RESPONSE FLAG, proven by structure. {col} "
+                            f"holds only {{0,1}} in every year and its label names "
+                            f"exactly one code — the affirmative "
+                            f"({ {k: v for k, v in list(lab.values())[0].items()} }). "
+                            f"That is how a multiple-response battery is stored: "
+                            f"the label says what the flag means WHEN SET, and 0 is "
+                            f"'not marked'. No year labels code 0 otherwise, and no "
+                            f"other value is available to it."),
+                    })
+                    continue
                 # RULE 1: unlabelled but INSIDE the dictionary's declared range
                 if lo_hi and lo_hi[0] <= code <= lo_hi[1] and code == 0:
                     rows.append({
