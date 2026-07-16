@@ -1,37 +1,197 @@
 module,column,verdict,reason,years,ref_year
-02,codtarea,VERIFIED_MAPPING,,14,2025
-02,codtiempo,VERIFIED_MAPPING,,14,2025
-02,dominio,VERIFIED_MAPPING,,22,2025
-02,estrato,VERIFIED_MAPPING,,22,2025
-02,ocupac_r3,VERIFIED_MAPPING,,14,2025
-02,ocupac_r4,VERIFIED_MAPPING,,14,2025
-02,p203,VERIFIED_MAPPING,,22,2025
-02,p203b,VERIFIED_MAPPING,,22,2025
-02,p204,VERIFIED_MAPPING,,22,2025
-02,p205,VERIFIED_MAPPING,,22,2025
-02,p206,VERIFIED_MAPPING,,22,2025
-02,p207,VERIFIED_MAPPING,,22,2025
-02,p208a1,VERIFIED_MAPPING,,14,2017
-02,p208b1,VERIFIED_MAPPING,,4,2011
-02,p208c1,VERIFIED_MAPPING,,4,2011
-02,p208d1,VERIFIED_MAPPING,,4,2011
-02,p209,VERIFIED_MAPPING,,22,2025
-02,p210,VERIFIED_MAPPING,,22,2025
-02,p211,VERIFIED_MAPPING,,8,2011
-02,p211a,VERIFIED_MAPPING,,14,2025
-02,p217,VERIFIED_MAPPING,,21,2025
-02,rama_3,VERIFIED_MAPPING,,8,2019
-02,rama_4,VERIFIED_MAPPING,,8,2019
-02,rama_r3,VERIFIED_MAPPING,,6,2025
-02,rama_r4,VERIFIED_MAPPING,,6,2025
-02,t211,VERIFIED_MAPPING,,22,2025
-02,ticuest01,VERIFIED_MAPPING,,15,2025
-02,tipocuestionario,VERIFIED_MAPPING,,2,2021
-02,tipoentrevista,VERIFIED_MAPPING,,1,2020
-34,dominio,VERIFIED_MAPPING,,22,2025
-34,estrato,VERIFIED_MAPPING,,22,2025
-34,estrsocial,VERIFIED_MAPPING,,12,2025
-34,pobreza,VERIFIED_MAPPING,,22,2025
-34,pobrezav,VERIFIED_MAPPING,,6,2025
-34,tipocuestionario,VERIFIED_MAPPING,,1,2020
-34,tipoentrevista,VERIFIED_MAPPING,,1,2020
+01,dominio,VERIFIED_MAPPING,,16,2025
+01,estrato,VERIFIED_MAPPING,,16,2025
+01,estrsocial,VERIFIED_MAPPING,,2,2015
+01,nbi1,VERIFIED_MAPPING,,16,2025
+01,nbi2,VERIFIED_MAPPING,,16,2025
+01,nbi3,UNRESOLVED_MAPPING,years without value labels: [2012],16,
+01,nbi4,VERIFIED_MAPPING,,16,2025
+01,nbi5,VERIFIED_MAPPING,,16,2025
+01,p101,VERIFIED_MAPPING,,16,2025
+01,p101a,VERIFIED_MAPPING,,3,2006
+01,p102,VERIFIED_MAPPING,,16,2025
+01,p103,VERIFIED_MAPPING,,16,2025
+01,p103a,VERIFIED_MAPPING,,16,2025
+01,p104b1,VERIFIED_MAPPING,,8,2025
+01,p104b2,VERIFIED_MAPPING,,8,2025
+01,p105a,VERIFIED_MAPPING,,16,2025
+01,p106a,VERIFIED_MAPPING,,16,2025
+01,p106b,VERIFIED_MAPPING,,8,2025
+01,p107,VERIFIED_MAPPING,,3,2006
+01,p107a11,VERIFIED_MAPPING,,5,2011
+01,p107a14,UNRESOLVED_MAPPING,"years without value labels: [2007, 2009, 2010, 2011]; observed codes without labels: {2008: [0]}",5,
+01,p107a21,UNRESOLVED_MAPPING,"observed codes without labels: {2007: [1], 2008: [1], 2009: [1], 2010: [1], 2011: [1]}",5,
+01,p107a24,UNRESOLVED_MAPPING,"years without value labels: [2007, 2009, 2010, 2011]; observed codes without labels: {2008: [0]}",5,
+01,p107a31,UNRESOLVED_MAPPING,"observed codes without labels: {2007: [1], 2008: [1], 2009: [1], 2010: [1], 2011: [1]}",5,
+01,p107a34,UNRESOLVED_MAPPING,"years without value labels: [2007, 2009, 2010, 2011]; observed codes without labels: {2008: [0]}",5,
+01,p107a41,UNRESOLVED_MAPPING,"observed codes without labels: {2007: [1], 2008: [1], 2009: [1], 2010: [1], 2011: [1]}",5,
+01,p107b1,VERIFIED_MAPPING,,8,2025
+01,p107b2,VERIFIED_MAPPING,,8,2025
+01,p107b3,VERIFIED_MAPPING,,8,2025
+01,p107b4,VERIFIED_MAPPING,,8,2025
+01,p107c11,UNRESOLVED_MAPPING,years without value labels: [2025]; observed codes without labels: {2024: [0]},8,
+01,p107c110,UNRESOLVED_MAPPING,years without value labels: [2025]; observed codes without labels: {2024: [0]},3,
+01,p107c12,UNRESOLVED_MAPPING,years without value labels: [2025]; observed codes without labels: {2024: [0]},8,
+01,p107c13,UNRESOLVED_MAPPING,"years without value labels: [2025]; observed codes without labels: {2024: [0, 3]}",8,
+01,p107c14,UNRESOLVED_MAPPING,"years without value labels: [2025]; observed codes without labels: {2024: [0, 4]}",8,
+01,p107c15,VERIFIED_MAPPING,,4,2015
+01,p107c16,UNRESOLVED_MAPPING,"years without value labels: [2025]; observed codes without labels: {2024: [0, 6]}",8,
+01,p107c17,UNRESOLVED_MAPPING,"years without value labels: [2025]; observed codes without labels: {2024: [0, 7]}",8,
+01,p107c18,UNRESOLVED_MAPPING,years without value labels: [2025]; observed codes without labels: {2024: [0]},5,
+01,p107c19,UNRESOLVED_MAPPING,"years without value labels: [2025]; observed codes without labels: {2024: [0, 9]}",4,
+01,p107c21,UNRESOLVED_MAPPING,years without value labels: [2025]; observed codes without labels: {2024: [0]},8,
+01,p107c210,UNRESOLVED_MAPPING,years without value labels: [2025]; observed codes without labels: {2024: [0]},3,
+01,p107c22,UNRESOLVED_MAPPING,years without value labels: [2025]; observed codes without labels: {2024: [0]},8,
+01,p107c23,UNRESOLVED_MAPPING,"years without value labels: [2025]; observed codes without labels: {2024: [0, 3]}",8,
+01,p107c24,UNRESOLVED_MAPPING,"years without value labels: [2025]; observed codes without labels: {2024: [0, 4]}",8,
+01,p107c25,VERIFIED_MAPPING,,4,2015
+01,p107c26,UNRESOLVED_MAPPING,years without value labels: [2025]; observed codes without labels: {2024: [0]},8,
+01,p107c27,UNRESOLVED_MAPPING,"years without value labels: [2025]; observed codes without labels: {2024: [0, 7]}",8,
+01,p107c28,UNRESOLVED_MAPPING,"years without value labels: [2025]; observed codes without labels: {2024: [0, 8]}",5,
+01,p107c29,UNRESOLVED_MAPPING,"years without value labels: [2025]; observed codes without labels: {2024: [0, 9]}",4,
+01,p107c31,UNRESOLVED_MAPPING,years without value labels: [2025]; observed codes without labels: {2024: [0]},8,
+01,p107c310,UNRESOLVED_MAPPING,"years without value labels: [2025]; observed codes without labels: {2024: [0, 10]}",3,
+01,p107c32,UNRESOLVED_MAPPING,years without value labels: [2025]; observed codes without labels: {2024: [0]},8,
+01,p107c33,UNRESOLVED_MAPPING,"years without value labels: [2025]; observed codes without labels: {2024: [0, 3]}",8,
+01,p107c34,UNRESOLVED_MAPPING,"years without value labels: [2025]; observed codes without labels: {2024: [0, 4]}",8,
+01,p107c35,VERIFIED_MAPPING,,4,2015
+01,p107c36,UNRESOLVED_MAPPING,"years without value labels: [2025]; observed codes without labels: {2024: [0, 6]}",8,
+01,p107c37,UNRESOLVED_MAPPING,"years without value labels: [2025]; observed codes without labels: {2024: [0, 7]}",8,
+01,p107c38,UNRESOLVED_MAPPING,"years without value labels: [2025]; observed codes without labels: {2024: [0, 8]}",5,
+01,p107c39,UNRESOLVED_MAPPING,"years without value labels: [2025]; observed codes without labels: {2024: [0, 9]}",4,
+01,p107c41,UNRESOLVED_MAPPING,years without value labels: [2025]; observed codes without labels: {2024: [0]},8,
+01,p107c410,UNRESOLVED_MAPPING,"years without value labels: [2025]; observed codes without labels: {2024: [0, 10]}",3,
+01,p107c42,UNRESOLVED_MAPPING,years without value labels: [2025]; observed codes without labels: {2024: [0]},8,
+01,p107c43,UNRESOLVED_MAPPING,"years without value labels: [2025]; observed codes without labels: {2024: [0, 3]}",8,
+01,p107c44,UNRESOLVED_MAPPING,"years without value labels: [2025]; observed codes without labels: {2024: [0, 4]}",8,
+01,p107c45,VERIFIED_MAPPING,,4,2015
+01,p107c46,UNRESOLVED_MAPPING,"years without value labels: [2025]; observed codes without labels: {2024: [0, 6]}",8,
+01,p107c47,UNRESOLVED_MAPPING,"years without value labels: [2025]; observed codes without labels: {2024: [0, 7]}",8,
+01,p107c48,UNRESOLVED_MAPPING,"years without value labels: [2025]; observed codes without labels: {2024: [0, 8]}",5,
+01,p107c49,UNRESOLVED_MAPPING,"years without value labels: [2025]; observed codes without labels: {2024: [0, 9]}",4,
+01,p107e,VERIFIED_MAPPING,,7,2024
+01,p10811,VERIFIED_MAPPING,,8,2011
+01,p10821,VERIFIED_MAPPING,,8,2011
+01,p10831,VERIFIED_MAPPING,,8,2011
+01,p10841,VERIFIED_MAPPING,,8,2011
+01,p10851,VERIFIED_MAPPING,,8,2011
+01,p10861,VERIFIED_MAPPING,,8,2011
+01,p108a11,VERIFIED_MAPPING,,5,2011
+01,p108a13,VERIFIED_MAPPING,,5,2011
+01,p108a21,VERIFIED_MAPPING,,5,2011
+01,p108a23,VERIFIED_MAPPING,,5,2011
+01,p108a31,VERIFIED_MAPPING,,5,2011
+01,p108a33,VERIFIED_MAPPING,,4,2011
+01,p108a41,VERIFIED_MAPPING,,5,2011
+01,p108a43,VERIFIED_MAPPING,,5,2011
+01,p108a51,VERIFIED_MAPPING,,5,2011
+01,p108a53,VERIFIED_MAPPING,,5,2011
+01,p109b,VERIFIED_MAPPING,,3,2006
+01,p110,VERIFIED_MAPPING,,16,2025
+01,p110a,VERIFIED_MAPPING,,11,2025
+01,p110a1,VERIFIED_MAPPING,,8,2025
+01,p110c,VERIFIED_MAPPING,,3,2025
+01,p110d,VERIFIED_MAPPING,,3,2025
+01,p110e,VERIFIED_MAPPING,,3,2025
+01,p110f,VERIFIED_MAPPING,,2,2024
+01,p110g,VERIFIED_MAPPING,,2,2024
+01,p111,UNRESOLVED_MAPPING,observed codes without labels: {2011: [7]},8,
+01,p111a,VERIFIED_MAPPING,,8,2025
+01,p1121,VERIFIED_MAPPING,,16,2025
+01,p1122,VERIFIED_MAPPING,,13,2016
+01,p1123,VERIFIED_MAPPING,,16,2025
+01,p1124,VERIFIED_MAPPING,,16,2025
+01,p1125,VERIFIED_MAPPING,,16,2025
+01,p1126,VERIFIED_MAPPING,,16,2025
+01,p1127,VERIFIED_MAPPING,,16,2025
+01,p112a,VERIFIED_MAPPING,,13,2025
+01,p1131,VERIFIED_MAPPING,,16,2025
+01,p1132,VERIFIED_MAPPING,,16,2025
+01,p1133,VERIFIED_MAPPING,,16,2025
+01,p1134,VERIFIED_MAPPING,,13,2016
+01,p1135,VERIFIED_MAPPING,,16,2025
+01,p1136,VERIFIED_MAPPING,,16,2025
+01,p1137,VERIFIED_MAPPING,,16,2025
+01,p1138,UNRESOLVED_MAPPING,observed codes without labels: {2007: [8]},13,
+01,p1139,VERIFIED_MAPPING,,3,2025
+01,p113a,UNRESOLVED_MAPPING,"years without value labels: [2004, 2005, 2006, 2007]; observed codes without labels: {2011: [0], 2013: [0], 2020: [9], 2024: [9]}",16,
+01,p1141,VERIFIED_MAPPING,,16,2025
+01,p1142,UNRESOLVED_MAPPING,"observed codes without labels: {2006: [1], 2007: [1]}",16,
+01,p1143,UNRESOLVED_MAPPING,"observed codes without labels: {2006: [1], 2007: [1]}",16,
+01,p1144,UNRESOLVED_MAPPING,"observed codes without labels: {2006: [1], 2007: [1]}",16,
+01,p1145,UNRESOLVED_MAPPING,"observed codes without labels: {2006: [1], 2007: [1]}",16,
+01,p1146,VERIFIED_MAPPING,,1,2025
+01,p114b1,VERIFIED_MAPPING,,2,2025
+01,p114b2,VERIFIED_MAPPING,,2,2025
+01,p114b3,VERIFIED_MAPPING,,2,2025
+01,p115,VERIFIED_MAPPING,,3,2006
+01,p116a2,UNRESOLVED_MAPPING,observed codes without labels: {2004: [0]},1,
+01,p116c,UNRESOLVED_MAPPING,observed codes without labels: {2004: [0]},1,
+01,p1171_01,UNRESOLVED_MAPPING,"years without value labels: [2004, 2005]",16,
+01,p1171_02,UNRESOLVED_MAPPING,"years without value labels: [2004, 2005]",16,
+01,p1171_03,UNRESOLVED_MAPPING,"years without value labels: [2004, 2005]",13,
+01,p1171_04,UNRESOLVED_MAPPING,"years without value labels: [2004, 2005]",16,
+01,p1171_05,UNRESOLVED_MAPPING,"years without value labels: [2004, 2005]",16,
+01,p1171_06,UNRESOLVED_MAPPING,"years without value labels: [2004, 2005]",16,
+01,p1171_07,UNRESOLVED_MAPPING,"years without value labels: [2004, 2005]",16,
+01,p1171_08,UNRESOLVED_MAPPING,"years without value labels: [2004, 2005]",16,
+01,p1171_09,UNRESOLVED_MAPPING,"years without value labels: [2004, 2005]",16,
+01,p1171_10,UNRESOLVED_MAPPING,"years without value labels: [2004, 2005]",16,
+01,p1171_11,UNRESOLVED_MAPPING,"years without value labels: [2004, 2005]",16,
+01,p1171_12,UNRESOLVED_MAPPING,"years without value labels: [2004, 2005]",16,
+01,p1171_13,UNRESOLVED_MAPPING,"years without value labels: [2004, 2005]",16,
+01,p1171_14,UNRESOLVED_MAPPING,"years without value labels: [2004, 2005]",16,
+01,p1171_15,VERIFIED_MAPPING,,13,2025
+01,p1171_16,VERIFIED_MAPPING,,3,2025
+01,p1171_17,VERIFIED_MAPPING,,2,2025
+01,p1175_01,UNRESOLVED_MAPPING,"observed codes without labels: {2004: [0], 2005: [0], 2006: [0], 2007: [0]}",16,
+01,p1175_02,UNRESOLVED_MAPPING,"observed codes without labels: {2004: [0], 2005: [0], 2006: [0], 2007: [0], 2025: [4]}",16,
+01,p1175_03,UNRESOLVED_MAPPING,"observed codes without labels: {2004: [0], 2005: [0], 2006: [0], 2007: [0]}",14,
+01,p1175_04,UNRESOLVED_MAPPING,"observed codes without labels: {2004: [0], 2005: [0], 2006: [0], 2007: [0]}",16,
+01,p1175_05,UNRESOLVED_MAPPING,"observed codes without labels: {2004: [0], 2005: [0], 2006: [0], 2007: [0]}",16,
+01,p1175_06,UNRESOLVED_MAPPING,"observed codes without labels: {2004: [0], 2005: [0], 2006: [0], 2007: [0]}",16,
+01,p1175_07,UNRESOLVED_MAPPING,"observed codes without labels: {2004: [0], 2005: [0], 2006: [0], 2007: [0]}",16,
+01,p1175_08,UNRESOLVED_MAPPING,"observed codes without labels: {2004: [0], 2005: [0], 2006: [0], 2007: [0]}",16,
+01,p1175_09,UNRESOLVED_MAPPING,"observed codes without labels: {2004: [0], 2005: [0], 2006: [0], 2007: [0]}",16,
+01,p1175_10,UNRESOLVED_MAPPING,"observed codes without labels: {2004: [0], 2005: [0], 2006: [0], 2007: [0]}",16,
+01,p1175_11,UNRESOLVED_MAPPING,"observed codes without labels: {2004: [0], 2005: [0], 2006: [0], 2007: [0]}",16,
+01,p1175_12,UNRESOLVED_MAPPING,"observed codes without labels: {2004: [0], 2005: [0], 2006: [0], 2007: [0]}",16,
+01,p1175_13,UNRESOLVED_MAPPING,"observed codes without labels: {2004: [0], 2005: [0], 2006: [0], 2007: [0]}",16,
+01,p1175_14,UNRESOLVED_MAPPING,"observed codes without labels: {2004: [0], 2005: [0], 2006: [0], 2007: [0]}",16,
+01,p1175_15,UNRESOLVED_MAPPING,observed codes without labels: {2007: [0]},13,
+01,p1175_16,VERIFIED_MAPPING,,3,2025
+01,p1175_17,VERIFIED_MAPPING,,2,2025
+01,p22,VERIFIED_MAPPING,,6,2025
+01,p24a,VERIFIED_MAPPING,,3,2025
+01,p24b,VERIFIED_MAPPING,,3,2025
+01,p25_1,VERIFIED_MAPPING,,3,2025
+01,p25_2,VERIFIED_MAPPING,,3,2025
+01,p25_3,VERIFIED_MAPPING,,3,2025
+01,p25_4,VERIFIED_MAPPING,,3,2025
+01,p25_5,VERIFIED_MAPPING,,3,2025
+01,p612i1,UNRESOLVED_MAPPING,"years without value labels: [2007, 2009, 2010, 2011, 2013, 2014, 2015, 2016]",13,
+01,p612i2,UNRESOLVED_MAPPING,"years without value labels: [2007, 2009, 2010, 2011, 2012, 2013, 2014, 2015, 2016]",13,
+01,p612i22,UNRESOLVED_MAPPING,"years without value labels: [2007, 2008, 2009, 2010, 2011, 2013, 2014, 2015, 2016, 2020, 2024, 2025]; observed codes without labels: {2012: [3, 4, 5, 10, 15, 18, 20, 30, 35, 40, 45, 50, 60, 65, 70, 80, 90, 100, 105, 120, 140, 150, 190, 200, 210, 230, 240, 250, 260, 280, 300, 340, 350, 400, 420, 430, 450, 500, 600, 650, 700, 780, 800, 900, 1000, 1100, 1200, 1250, 1300, 1400, 1500, 1600, 1700, 1800, 1850, 1900, 2000, 2200, 2300, 2450, 2500, 2600, 2800, 2900, 3000, 3216, 3240, 3400, 3500, 4000, 4185, 4500, 4800, 5000, 5340, 6000, 6750, 7000, 7500, 7800, 7980, 8000, 8100, 8400, 8500, 9000, 9146, 9220, 9450, 9880, 10000, 10240, 10400, 10760, 10880, 11205, 11700, 12000, 12015, 12090, 13800, 14000, 14300, 15000, 15840, 16200, 16800, 16832, 17100, 18000, 18340, 18550, 18900, 19380, 19600, 19680, 19832, 20000, 20100, 20250, 20960, 21840, 24210, 24300, 25000, 25650, 26000, 26800, 27000, 28000, 28300, 30000, 31200, 31920, 33125, 35360, 39000, 39150, 40000, 42000, 46900, 50000, 54000, 76850, 78600, 84537]}",13,
+01,p613,UNRESOLVED_MAPPING,"observed codes without labels: {2004: [9], 2005: [9], 2006: [9]}",3,
+01,p701,VERIFIED_MAPPING,,8,2011
+01,panel,UNRESOLVED_MAPPING,"observed codes without labels: {2004: [0], 2005: [0]}",13,
+01,periodo,UNRESOLVED_MAPPING,"years without value labels: [2004, 2005, 2006, 2007, 2008, 2009, 2010, 2011, 2012, 2013, 2014, 2020, 2024, 2025]",16,
+01,rechazo_razones,VERIFIED_MAPPING,,1,2020
+01,result,VERIFIED_MAPPING,,16,2025
+01,t107c17,VERIFIED_MAPPING,,2,2014
+01,t107c18,VERIFIED_MAPPING,,1,2015
+01,t107c27,VERIFIED_MAPPING,,2,2014
+01,t107c28,VERIFIED_MAPPING,,1,2015
+01,t107c37,VERIFIED_MAPPING,,2,2014
+01,t107c38,VERIFIED_MAPPING,,2,2016
+01,t107c47,VERIFIED_MAPPING,,2,2014
+01,t107c48,VERIFIED_MAPPING,,2,2016
+01,t110,UNRESOLVED_MAPPING,years without value labels: [2007],16,
+01,t111a,VERIFIED_MAPPING,,3,2025
+01,t1137,VERIFIED_MAPPING,,4,2016
+01,t113a,VERIFIED_MAPPING,,2,2016
+01,t1171_15,VERIFIED_MAPPING,,4,2016
+01,ticuest01,UNRESOLVED_MAPPING,observed codes without labels: {2016: [3]},9,
+01,tipenc,VERIFIED_MAPPING,,16,2025
+01,tipocuestionario,VERIFIED_MAPPING,,1,2020
+01,tipoentrevista,VERIFIED_MAPPING,,1,2020

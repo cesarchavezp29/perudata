@@ -390,10 +390,26 @@ def build_recode(module: str | int, column: str, years: list[int] | None = None,
                 f"{m}/{column} {y}: codes {sorted(unmapped)} would be DROPPED. "
                 f"A recode that changes the denominator is wrong by construction.")
 
+    # The canonical label dictionary. NEVER key it on a None.
+    #
+    # `maps[y].get(c)` is None whenever year y carries a LABEL for a code that y's
+    # own map does not cover (the code exists in the dictionary but not in that
+    # year's data, or the year is unresolved). setdefault(None, ...) then writes a
+    # {None: 'otro'} entry, and a null key in the canonical dictionary breaks
+    # anything that sorts or looks up by code -- silently, and downstream.
+    #
+    # This is real, not hypothetical: p101 code 7 ('local no destinado para
+    # habitacion humana') appears in 2021 but not in 2025, and code 8 ('otro')
+    # appears in 2025 but not 2021. The category set legitimately differs by year.
     labels = {}
     for y, lab in labelled.items():
+        m = maps.get(y)
+        if not m:
+            continue                      # unresolved year: it defines no canonical
         for c, l in lab.items():
-            labels.setdefault(maps[y].get(c), l)
+            canon = m.get(c)
+            if canon is not None:
+                labels.setdefault(canon, l)
     return {"map": maps, "labels": labels, "audit": audit, "reference_year": ref}
 
 

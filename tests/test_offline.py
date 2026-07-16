@@ -164,6 +164,28 @@ def test_the_recode_guards_are_alive_not_decorative():
         df["v"].value_counts().tolist())          # zero share drift, exactly
 
 
+def test_canonical_labels_are_never_keyed_on_none(monkeypatch):
+    """A category set can legitimately DIFFER by year: p101 code 7 ('local no
+    destinado para habitacion humana') exists in 2021 but not 2025, and code 8
+    ('otro') exists in 2025 but not 2021. When a year carries a LABEL for a code
+    its own map does not cover, the canonical dict must not gain a {None: 'otro'}
+    entry — a null key breaks every downstream sort and lookup, silently."""
+    from perudata import dictionary, enaho, harmonize
+
+    frames = {2021: pd.DataFrame({"v": [1, 7]}), 2025: pd.DataFrame({"v": [1, 8]})}
+    labels = {2021: {1: "casa", 7: "local", 8: "otro"},      # 8 labelled, unobserved
+              2025: {1: "casa", 8: "otro"}}
+    monkeypatch.setattr(enaho, "load", lambda year, module, **k: frames[year])
+    monkeypatch.setattr(dictionary, "value_labels",
+                        lambda column, year, module: labels[year])
+    monkeypatch.setattr(harmonize, "label_overrides", lambda module=None: pd.DataFrame(
+        columns=["module", "column", "year", "code", "label", "status", "evidence"]))
+
+    rc = harmonize.build_recode("01", "v", years=[2021, 2025])
+    assert None not in rc["labels"], f"null key in canonical labels: {rc['labels']}"
+    assert all(isinstance(k, int) for k in rc["labels"])
+
+
 def test_label_overrides_are_evidence_gated_and_shipped():
     """The overrides supply labels INEI's own .dta omits (ENAHO 2016 declares
     estrsocial as range 1-5 and omits code 6, while 12,952 records sit AT code 6).
@@ -376,12 +398,30 @@ def test_official_override_tables_are_not_shifted():
     assert lookup[("02", "p217", 2004, 1)] == "Viaje"
 
 
-def test_classification_maps_preserve_namespace_code_identity():
-    import json
-    from pathlib import Path
+def test_classification_maps_preserve_namespace_code_identity(monkeypatch):
+    """Occupation and industry codes are OFFICIAL CLASSIFICATION NAMESPACES
+    (CIUO-88, CNO-2015, CIIU rev3/rev4). Inside one declared revision the CODE IS
+    the identity — 4711 means retail because the standard says so, not because a
+    .dta label says so — so a recode must map every code to ITSELF and never
+    renumber it. Renumbering would silently detach the data from the published
+    classification.
 
-    path = Path(__file__).parents[1] / "scripts/recodes_passed.json"
-    maps = json.loads(path.read_text(encoding="utf-8"))["02"]
-    for column in ("ocupac_r3", "ocupac_r4", "rama_3", "rama_4", "rama_r3", "rama_r4"):
-        for year_map in maps[column]["map"].values():
-            assert all(int(raw) == canonical for raw, canonical in year_map.items())
+    (Rewritten: the original read scripts/recodes_passed.json, a scratch artifact
+    that any filter re-run regenerates, so the test broke on a file that is not
+    part of the package. A test must exercise the shipped code.)
+    """
+    from perudata import dictionary, enaho, harmonize
+
+    frames = {2019: pd.DataFrame({"rama_r4": [4711, 4921, 1392]}),
+              2024: pd.DataFrame({"rama_r4": [4711, 4921, 8610]})}
+    monkeypatch.setattr(enaho, "load", lambda year, module, **k: frames[year])
+    monkeypatch.setattr(dictionary, "value_labels", lambda column, year, module: {})
+    monkeypatch.setattr(harmonize, "label_overrides", lambda module=None: pd.DataFrame(
+        columns=["module", "column", "year", "code", "label", "status", "evidence"]))
+
+    rc = harmonize.build_recode("05", "rama_r4", years=[2019, 2024])
+    for year, ymap in rc["map"].items():
+        for raw, canon in ymap.items():
+            assert int(raw) == int(canon), (
+                f"{year}: CIIU code {raw} was renumbered to {canon} — a "
+                f"classification namespace must keep the code as the identity")
