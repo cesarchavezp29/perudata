@@ -4,7 +4,7 @@ module,column,verdict,reason,years,ref_year
 05,estrato,VERIFIED_MAPPING,,16,2025
 05,imputado,VERIFIED_MAPPING,,16,2025
 05,indjun,VERIFIED_MAPPING,,3,2008
-05,ocu500,UNRESOLVED_MAPPING,"observed codes without labels: {2004: [0], 2005: [0], 2006: [0], 2007: [0], 2008: [0], 2009: [0], 2010: [0], 2011: [0], 2012: [0], 2013: [0], 2014: [0], 2015: [0], 2016: [0], 2020: [0], 2024: [0], 2025: [0]}",16,
+05,ocu500,VERIFIED_MAPPING,,16,2025
 05,ocupinf,VERIFIED_MAPPING,,11,2020
 05,p203,VERIFIED_MAPPING,,16,2025
 05,p204,VERIFIED_MAPPING,,16,2025

@@ -177,6 +177,25 @@ for mod in MODULES:
             lo_hi = ranges.get(col)
             dict_tab = tables.get(col, {})
             for code in sorted(missing):
+                # SINGLE-ROW NOISE IS NOT A CATEGORY. A code carried by ONE row in
+                # ~85,000 (0.001%) is a data-entry or encoding artifact, not a
+                # category INEI forgot to label -- the same class as p207's single
+                # -126 row (a Stata int8 overflow, not a third sex).
+                # Contrast estrsocial code 6: it was certifiable precisely BECAUSE
+                # 12,952 records made a deterministic statement possible (code 6 iff
+                # estrato rural, zero mismatches). One row makes no statement at
+                # all, so there is nothing to verify and it must be declined.
+                fy = frames.get(y)
+                n_rows = (int((pd.to_numeric(fy[col], errors="coerce") == code).sum())
+                          if fy is not None and col in fy.columns else 0)
+                if 0 < n_rows <= 5:
+                    declined.append({
+                        "module": mod, "column": col, "year": y, "code": code,
+                        "why": (f"single-row noise: {n_rows} row(s) of "
+                                f"{len(fy):,} ({100 * n_rows / len(fy):.4f}%) — a "
+                                f"data-entry/encoding artifact, not a category. One "
+                                f"observation cannot establish a meaning.")})
+                    continue
                 # RULE 0: INEI ALREADY WROTE IT DOWN. Check the published category
                 # table for THIS year before inferring anything at all. p5401a's
                 # 2015 dictionary literally says "0 Pase".
@@ -227,6 +246,39 @@ for mod in MODULES:
                             f"not stop USING it."),
                     })
                     continue
+                # RULE 7: THE COMPLEMENTARY PAIR. Two columns share one label set
+                # and are MUTUALLY EXCLUSIVE: exactly one of them carries the
+                # answer and the other sits at 0. Code 0 means "the answer is in the
+                # other column", not a category.
+                # PROVEN on module 05's b/d frequency pairs: exactly ONE set in
+                # 12,782 / 21,864 / 46,433 cases across 2004/2015/2020, against only
+                # 36-78 where BOTH are set (0.2-0.6%). p5563d==0 -> p5563b holds the
+                # frequency (4=mensual, 2,997 rows); p5563d 1-8 -> p5563b==0.
+                if code == 0 and re.fullmatch(r"(p\d+)([bd])", col):
+                    stem, suf = re.fullmatch(r"(p\d+)([bd])", col).groups()
+                    twin = f"{stem}{'b' if suf == 'd' else 'd'}"
+                    fy = frames.get(y)
+                    if fy is not None and twin in fy.columns and col in fy.columns:
+                        a = pd.to_numeric(fy[col], errors="coerce").fillna(-1)
+                        b = pd.to_numeric(fy[twin], errors="coerce").fillna(-1)
+                        both = int(((a > 0) & (b > 0)).sum())
+                        one = int(((a > 0) ^ (b > 0)).sum())
+                        if one > 100 and both < 0.02 * max(one, 1):
+                            rows.append({
+                                "module": mod, "column": col, "year": y, "code": 0,
+                                "label": "No corresponde a esta columna",
+                                "status": "verified",
+                                "evidence": (
+                                    f"COMPLEMENTARY PAIR, proven by mutual "
+                                    f"exclusivity. {col} and {twin} share one label "
+                                    f"set and exactly ONE of them carries the "
+                                    f"answer: in {y}, {one:,} rows have exactly one "
+                                    f"set against only {both:,} with both "
+                                    f"({100 * both / max(one, 1):.2f}%). So code 0 "
+                                    f"means 'the answer is in {twin}', not a "
+                                    f"category of its own."),
+                            })
+                            continue
                 # RULE 5: THE MULTIPLE-RESPONSE FLAG, proven by STRUCTURE alone.
                 # A flag column holds at most {0,1} and its label names exactly ONE
                 # code -- the affirmative ({1: 'comprado'}). That is how Stata
