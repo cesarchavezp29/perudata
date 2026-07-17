@@ -699,3 +699,48 @@ def test_no_typographic_duplicate_labels():
     assert not offenders, (
         f"{len(offenders)} codes carry typographic-duplicate labels, e.g. "
         f"{offenders[:3]}")
+
+
+def test_module78_p606n_is_personal_care_not_esparcimiento():
+    """The consumption/production modules were resolved from the standalone
+    whole-survey dictionary, which is NOT module-scoped, so colliding column
+    names pulled the wrong module's labels. p606n is personal-care products in
+    module 78 but esparcimiento in module 12; module 78's rows had absorbed
+    module 12's labels ('Esparcimiento y diversión' on the champú code).
+
+    INEI's module-scoped .dta is ground truth: module 78 p606n code 2 is
+    'Champú y reacondicionador', not anything about cinema or CDs.
+    """
+    import pandas as pd
+    from pathlib import Path
+
+    p = (Path(__file__).parents[1] / "src" / "perudata" / "crosswalks"
+         / "enaho_label_overrides.csv")
+    o = pd.read_csv(p, encoding="utf-8-sig", dtype=str)
+    lab = set(o[(o.module == "78") & (o.column == "p606n")
+               & (o.code == "2")].label.dropna())
+    assert lab, "module 78 p606n code 2 missing"
+    joined = " ".join(lab).lower()
+    assert "champ" in joined, f"module 78 p606n c2 = {lab} (collision not repaired)"
+    assert "esparcimiento" not in joined, f"module 12 label leaked: {lab}"
+
+
+def test_acquisition_batteries_zero_is_no_marcado():
+    """The '¿cómo obtuvo?' / '¿cómo pagó?' / 'tipo de explotación' batteries in
+    the consumption and agro modules have code 0 = 'No marcado', not 'Pase'.
+    Proven exhaustive from the microdata: across all years essentially no
+    in-universe row marks none of the siblings (markNONE <= 0.0006%).
+    """
+    import re
+    import pandas as pd
+    from pathlib import Path
+
+    p = (Path(__file__).parents[1] / "src" / "perudata" / "crosswalks"
+         / "enaho_label_overrides.csv")
+    o = pd.read_csv(p, encoding="utf-8-sig", dtype=str)
+    fams = [("07", r"p601a\d+"), ("12", r"p606a\d+"), ("78", r"p606e\d+"),
+            ("08", r"p602d[abc]"), ("22", r"p20001[abc]")]
+    for mod, rx in fams:
+        pase = o[(o.module == mod) & o.column.str.fullmatch(rx, na=False)
+                 & (o.code == "0") & (o.label == "Pase")]
+        assert pase.empty, f"{mod} {rx}: {len(pase)} rows back to 'Pase'"

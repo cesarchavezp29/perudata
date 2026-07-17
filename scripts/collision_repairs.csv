@@ -1,0 +1,106 @@
+idx,module,column,year,code,was,now
+54521,07,p601d1,2017,12,Anual,Otro
+54989,08,p602db,2017,2,Pagó : por otros pagos asociados,"Pagó por otros pagos asociados (transporte del alimento, kerosene, cocinera, etc)"
+54991,08,p602db,2018,2,Pagó : por otros pagos asociados,"Pagó por otros pagos asociados (transporte del alimento, combustible, cocinera, etc)"
+54993,08,p602db,2019,2,Pagó : por otros pagos asociados,"Pagó por otros pagos asociados (transporte del alimento, combustible, cocinera, etc)"
+55001,08,p602db,2024,2,Pago por otros pagos asociados,"Pago por otros pagos asociados (transporte del alimento, combustible, cocinera, etc)"
+55065,08,p602n,2022,1,Vaso            preparadobenéficas),Vaso de leche preparado
+55071,08,p602n,2022,7,"Cena - club de madres, y otros",Cena - otros
+55087,08,p602n,2023,7,"Cena - club de madres, y otros",Cena - otros
+55628,09,p603n,2024,15,Otros articulos,"Otros articulos? (fosforos, vela, etc.)"
+55878,10,p604a5,2017,1,Regalado o pagado,Regalado o pagado por algún miembro de otro hogar
+55880,10,p604a5,2018,1,Regalado o pagado,Regalado o pagado por algún miembro de otro hogar
+55882,10,p604a5,2019,1,Regalado o pagado,Regalado o pagado por algún miembro de otro hogar
+56044,10,p604n,2017,3,Reparación y conservación de vehículo,"Reparación y conservación del vehículo (lavado, cambio de aceite, etc)"
+56057,10,p604n,2018,3,Reparación y conservación de vehículo,"Reparación y conservación del vehículo (lavado, cambio de aceite, etc)"
+56070,10,p604n,2019,3,Reparación y conservación de vehículo,"Reparación y conservación del vehículo (lavado, cambio de aceite, etc)"
+56785,12,p606a4,2016,1,Parte de pago,Como parte de pago a un miembro del hogar
+56787,12,p606a4,2017,1,Parte de pago,Como parte de pago a un miembro del hogar
+56789,12,p606a4,2018,1,Parte de pago,Como parte de pago a un miembro del hogar
+56791,12,p606a4,2019,1,Parte de pago,Como parte de pago a un miembro del hogar
+56805,12,p606a5,2016,1,Regalado o pagado,Regalado o pagado por algún miembro de otro hogar
+56807,12,p606a5,2017,1,Regalado o pagado,Regalado o pagado por algún miembro de otro hogar
+56809,12,p606a5,2018,1,Regalado o pagado,Regalado o pagado por algún miembro de otro hogar
+56811,12,p606a5,2019,1,Regalado o pagado,Regalado o pagado por algún miembro de otro hogar
+56986,12,p606n,2016,5,Diskette,"Disquetes, usb"
+56994,12,p606n,2017,5,"Diskette, usb","Disquetes, usb"
+57002,12,p606n,2018,5,"Diskette, usb","Disquetes, usb"
+57043,12,p606n,2024,3,"Aportaciones o cuotas a club, asociacion...","Aportaciones o cuotas a clubes, asociaciones, etc."
+57044,12,p606n,2024,4,Gasto en gimnasio,"Gastos en gimnasios (aerobicos, artes marciales, pesas)"
+57842,15,p609n,2016,9,Otro,Otros gastos
+57851,15,p609n,2017,9,Otro,Otros gastos
+57860,15,p609n,2018,9,Otro,Otros gastos
+57869,15,p609n,2019,9,Otro,Otros gastos
+58216,16,p610a5,2016,1,Regalado o pagado,Regalado o pagado por algún miembro de otro hogar
+58218,16,p610a5,2017,1,Regalado o pagado,Regalado o pagado por algún miembro de otro hogar
+58220,16,p610a5,2018,1,Regalado o pagado,Regalado o pagado por algún miembro de otro hogar
+58222,16,p610a5,2019,1,Regalado o pagado,Regalado o pagado por algún miembro de otro hogar
+58360,16,p610aa,2021,1,No sabe/no responde,Ambulante
+58369,16,p610aa,2022,1,No sabe/no responde,Ambulante
+58378,16,p610aa,2023,1,No sabe/no responde,Ambulante
+59133,17,t611n,2016,13,Otros,"Gastos en ayni, cumpleaños, celebraciones y otros"
+59146,17,t611n,2017,13,Otros,"Gastos en ayni, cumpleaños, celebraciones y otros"
+59159,17,t611n,2018,13,Otros,"Gastos en ayni, cumpleaños, celebraciones y otros"
+59172,17,t611n,2019,13,Otros,"Gastos en ayni, cumpleaños, celebraciones y otros"
+59211,17,t611n,2023,13,Otros,"Gastos en ayni, cumpleaños, celebraciones y otros"
+59224,17,t611n,2024,13,Otros,"Gastos en ayni, cumpleaños, celebraciones y otros"
+62705,78,p606n,2016,1,"Periódicos, revistas y libros",Jabón de tocador
+62706,78,p606n,2016,2,"Esparcimiento y diversión (cine, cd, juguetes, espectáculos",Champú y reacondicionador
+62707,78,p606n,2016,3,"Aportaciones o cuotas a clubes, asociaciones, etc.",Pasta de dientes
+62708,78,p606n,2016,4,"Gastos en gimnasio ( aeróbicos, artes marciales, pesas )",Desodorante
+62709,78,p606n,2016,5,Diskette,Toallas higiénicas
+62710,78,p606n,2016,6,Artículos deportivos,Colonia (para hombre y mujer)
+62711,78,p606n,2016,7,"Útiles de escritorio ( cuadernos, papeles, etc. )",Lápiz labial
+62712,78,p606n,2016,8,Otros gastos,"Artículos de tocador para bebes (jabón de tocador, champú, aceite, colonia, etc)"
+62716,78,p606n,2017,1,"Periódicos, revistas y libros",Jabón de tocador
+62717,78,p606n,2017,2,"Esparcimiento y diversión (cine, cd, juguetes, espectáculos",Champú y reacondicionador
+62718,78,p606n,2017,3,"Aportaciones o cuotas a clubes, asociaciones, etc.",Pasta de dientes
+62719,78,p606n,2017,4,"Gastos en gimnasio ( aeróbicos, artes marciales, pesas )",Desodorante
+62720,78,p606n,2017,5,"Diskette, usb",Toallas higiénicas
+62721,78,p606n,2017,6,Artículos deportivos,Colonia (para hombre y/o mujer)
+62722,78,p606n,2017,7,"Útiles de escritorio ( cuadernos, papeles, etc. )",Lápiz labial
+62723,78,p606n,2017,8,Otros gastos,"Artículos de tocador para bebes (jabón de tocador, champú, aceite, colonia, etc)"
+62727,78,p606n,2018,1,"Periódicos, revistas y libros",Jabón de tocador
+62728,78,p606n,2018,2,"Esparcimiento y diversión (cine, cd, juguetes, espectáculos",Champú y reacondicionador
+62729,78,p606n,2018,3,"Aportaciones o cuotas a clubes, asociaciones, etc.",Pasta de dientes
+62730,78,p606n,2018,4,"Gastos en gimnasio ( aeróbicos, artes marciales, pesas )",Desodorante
+62731,78,p606n,2018,5,"Diskette, usb",Toallas higiénicas
+62732,78,p606n,2018,6,Artículos deportivos,Colonia (para hombre y/o mujer)
+62733,78,p606n,2018,7,"Útiles de escritorio ( cuadernos, papeles, etc. )",Lápiz labial
+62734,78,p606n,2018,8,Otros gastos,"Artículos de tocador para bebes (jabón de tocador, champú, aceite, colonia, etc)"
+62738,78,p606n,2019,1,"Periódicos, revistas y libros",Jabón de tocador
+62739,78,p606n,2019,2,"Esparcimiento y diversión (cine, cd, juguetes, espectáculos",Champú y reacondicionador
+62740,78,p606n,2019,3,"Aportaciones o cuotas a clubes, asociaciones, etc.",Pasta de dientes
+62741,78,p606n,2019,4,"Gastos en gimnasio ( aeróbicos, artes marciales, pesas )",Desodorante
+62742,78,p606n,2019,5,Usb,Toallas higiénicas
+62743,78,p606n,2019,6,Artículos deportivos,Colonia (para hombre y/o mujer)
+62744,78,p606n,2019,7,"Útiles de escritorio ( cuadernos, papeles, etc. )",Lápiz labial
+62745,78,p606n,2019,8,Otros gastos,"Artículos de tocador para bebes (jabón de tocador, champú, aceite, colonia, etc)"
+62749,78,p606n,2021,1,"Períodicos, revistas y libros",Jabón de tocador
+62750,78,p606n,2021,2,"Esparcimiento y diversión (ir al cine, comprar cd, juguete, espectáculo deportivo,etc)",Champú y reacondicionador
+62751,78,p606n,2021,3,"Aportaciones o cuotas a clubes, asociaciones, etc.",Pasta de dientes
+62752,78,p606n,2021,4,"Gastos en gimnasios(aeróbicos, artes marciales, pesas)",Desodorante
+62753,78,p606n,2021,5,Usb,Toallas higiénicas
+62754,78,p606n,2021,6,Artículos deportivos,Colonia (para hombre y/o mujer)
+62755,78,p606n,2021,7,"Útiles de escritorio(cuadernos, papeles, etc.)",Lápiz labial
+62756,78,p606n,2021,8,Otros gastos,"Artículos de tocador para bebes (jabón de tocador, champú, aceite, colonia, etc)"
+62757,78,p606n,2021,9,Servicio streaming (tv pagada),"Otros (crema para manos, máquina de afeitar, polvos faciales, rimel, tinte para cabello, peine, esmalte para uñas, etc"
+62760,78,p606n,2022,1,"Períodicos, revistas y libros",Jabon de tocador
+62761,78,p606n,2022,2,"Esparcimiento y diversión (ir al cine, comprar cd, juguete, espectáculo deportivo,etc)",Champu y reacondicionador
+62762,78,p606n,2022,3,"Aportaciones o cuotas a clubes, asociaciones, etc.",Pasta de dientes
+62763,78,p606n,2022,4,"Gastos en gimnasios(aeróbicos, artes marciales, pesas)",Desodorante
+62764,78,p606n,2022,5,Usb,Toallas higienicas
+62765,78,p606n,2022,6,Artículos deportivos,Colonia (para hombre y/o mujer)
+62766,78,p606n,2022,7,"Útiles de escritorio(cuadernos, papeles, etc.)",Lapiz labial
+62767,78,p606n,2022,8,Otros gastos,"Articulos de tocador para bebes (jabon, champu, aceite, etc)"
+62768,78,p606n,2022,9,Servicio streaming (tv pagada),"Otros (crema, maquina de afeitar, tinte cabello, peine, etc"
+62771,78,p606n,2023,1,"Períodicos, revistas y libros",Jabon de tocador
+62772,78,p606n,2023,2,"Esparcimiento y diversión (ir al cine, comprar cd, juguete, espectáculo deportivo,etc)",Champu y reacondicionador
+62773,78,p606n,2023,3,"Aportaciones o cuotas a clubes, asociaciones, etc.",Pasta de dientes
+62774,78,p606n,2023,4,"Gastos en gimnasios(aeróbicos, artes marciales, pesas)",Desodorante
+62775,78,p606n,2023,5,Usb,Toallas higienicas
+62776,78,p606n,2023,6,Artículos deportivos,Colonia (para hombre y/o mujer)
+62777,78,p606n,2023,7,"Útiles de escritorio(cuadernos, papeles, etc.)",Lapiz labial
+62778,78,p606n,2023,8,Otros gastos,Articulos de tocador para bebes
+62779,78,p606n,2023,9,Servicio streaming (tv pagada),"Otros (crema, maquina de afeitar, tinte cabello, peine, etc"
+62792,78,p606n,2024,11,Otros servicios,"Otros servicios (baño publico, ondulacion, lustrada de calzado, etc.)"

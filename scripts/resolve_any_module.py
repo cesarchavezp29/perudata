@@ -105,19 +105,82 @@ def declared_ranges(year: int, module: str) -> dict:
     return dictionary_tables(year, module)[1]
 
 
+def labelled_columns(year: int, mod: str) -> set[str] | None:
+    """Columns that COULD carry a value label -- from the .dta's own metadata
+    and the published dictionary -- known without reading a single data row.
+
+    The consumption and production modules (07-28) are item-level long files:
+    module 07 is 9.1M rows x 22 years, which OOMs if every year's full frame is
+    held at once. But those modules are almost all continuous amounts; only a
+    handful of columns are categorical (module 77 had 7 of 46). A continuous
+    'gasto' column carries no value label and no categorical dictionary entry,
+    so restricting the load to label-bearing columns drops the memory by orders
+    of magnitude and cannot lose a resolvable variable: a code with no label in
+    any .dta AND no dictionary row is declined regardless. Structural keys are
+    always kept so the behavioural proofs (universe, complementarity) still run.
+    """
+    keep = {"conglome", "vivienda", "hogar", "codperso", "ubigeo", "mes",
+            "dominio", "estrato"}
+    try:
+        import pyreadstat
+        p = enaho.path(year, mod)
+        _, meta = pyreadstat.read_dta(str(p), metadataonly=True)
+        present = {c.lower() for c in meta.column_names}
+        keep |= {c.lower() for c in meta.variable_value_labels}
+    except Exception:
+        return None                      # can't introspect -> load everything
+    keep |= set(dictionary_tables(year, mod)[0])   # dict-documented columns
+    return keep & present                # only ask for columns this year has
+
+
+_PRESENT_CACHE: dict = {}
+
+
+def _present_cols(year: int, mod: str) -> set[str]:
+    """Lower-cased column names in a year's .dta, from metadata only."""
+    key = (year, mod)
+    if key not in _PRESENT_CACHE:
+        import pyreadstat
+        _, meta = pyreadstat.read_dta(str(enaho.path(year, mod)),
+                                      metadataonly=True)
+        _PRESENT_CACHE[key] = {c.lower() for c in meta.column_names}
+    return _PRESENT_CACHE[key]
+
+
+FRUGAL = os.environ.get("PERUDATA_FRUGAL") == "1"
+
 rows, declined = [], []
 for mod in MODULES:
     years = [y for y in enaho.years() if enaho.path(y, mod).exists()]
     if not years:
         continue
     frames, labels = {}, {}
+    # A column INEI labels in only ONE year must still be loaded in EVERY year,
+    # or the cross-year rules (phantom, carry-forward, flag-battery) see a
+    # truncated code history. So the frugal allow-list is the UNION over all
+    # years, applied uniformly -- never a per-year filter.
+    use_all, present = None, {}
+    if FRUGAL:
+        use_all = set()
+        for y in years:
+            got = labelled_columns(y, mod)
+            if got is None:
+                use_all = None          # any un-introspectable year -> load all
+                break
+            use_all |= got
+            present[y] = _present_cols(y, mod)
     for y in years:
         try:
-            frames[y] = enaho.load(y, mod, download_if_missing=False)
+            if use_all is not None:
+                frames[y] = enaho.load(y, mod, download_if_missing=False,
+                                       columns=sorted(use_all & present[y]))
+            else:
+                frames[y] = enaho.load(y, mod, download_if_missing=False)
         except Exception:
             continue
     cols = sorted({c for f in frames.values() for c in f.columns})
-    print(f"--- module {mod}: {len(cols)} columns, {len(frames)} years", flush=True)
+    print(f"--- module {mod}: {len(cols)} columns, {len(frames)} years"
+          f"{' [frugal]' if FRUGAL else ''}", flush=True)
 
     for col in cols:
         obs, lab = {}, {}
