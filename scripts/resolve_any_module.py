@@ -177,25 +177,6 @@ for mod in MODULES:
             lo_hi = ranges.get(col)
             dict_tab = tables.get(col, {})
             for code in sorted(missing):
-                # SINGLE-ROW NOISE IS NOT A CATEGORY. A code carried by ONE row in
-                # ~85,000 (0.001%) is a data-entry or encoding artifact, not a
-                # category INEI forgot to label -- the same class as p207's single
-                # -126 row (a Stata int8 overflow, not a third sex).
-                # Contrast estrsocial code 6: it was certifiable precisely BECAUSE
-                # 12,952 records made a deterministic statement possible (code 6 iff
-                # estrato rural, zero mismatches). One row makes no statement at
-                # all, so there is nothing to verify and it must be declined.
-                fy = frames.get(y)
-                n_rows = (int((pd.to_numeric(fy[col], errors="coerce") == code).sum())
-                          if fy is not None and col in fy.columns else 0)
-                if 0 < n_rows <= 5:
-                    declined.append({
-                        "module": mod, "column": col, "year": y, "code": code,
-                        "why": (f"single-row noise: {n_rows} row(s) of "
-                                f"{len(fy):,} ({100 * n_rows / len(fy):.4f}%) — a "
-                                f"data-entry/encoding artifact, not a category. One "
-                                f"observation cannot establish a meaning.")})
-                    continue
                 # RULE 0: INEI ALREADY WROTE IT DOWN. Check the published category
                 # table for THIS year before inferring anything at all. p5401a's
                 # 2015 dictionary literally says "0 Pase".
@@ -263,7 +244,9 @@ for mod in MODULES:
                         b = pd.to_numeric(fy[twin], errors="coerce").fillna(-1)
                         both = int(((a > 0) & (b > 0)).sum())
                         one = int(((a > 0) ^ (b > 0)).sum())
-                        if one > 100 and both < 0.02 * max(one, 1):
+                        exclusive = (both == 0 and one >= 20) or (
+                            one > 100 and both < 0.02 * max(one, 1))
+                        if exclusive:
                             rows.append({
                                 "module": mod, "column": col, "year": y, "code": 0,
                                 "label": "No corresponde a esta columna",
@@ -362,6 +345,27 @@ for mod in MODULES:
                             f"applicable) convention. The declared range is a "
                             f"positive statement that the code exists."),
                     })
+                    continue
+                # LAST RESORT, and it must stay last. A code carried by ONE row
+                # in ~85,000 (0.001%) is a data-entry or encoding artifact -- the
+                # same class as p207's single -126 (a Stata int8 overflow, not a
+                # third sex). estrsocial code 6 was certifiable precisely BECAUSE
+                # 12,952 records made a deterministic statement possible; one row
+                # makes no statement at all.
+                # BUT THIS IS A HEURISTIC, AND EVIDENCE BEATS A HEURISTIC. Running it
+                # FIRST (as it was) threw away 1-row codes that INEI's own dictionary
+                # explicitly labels -- declining as "noise" something INEI had
+                # written down. Every rule above gets its chance first.
+                fy = frames.get(y)
+                n_rows = (int((pd.to_numeric(fy[col], errors="coerce") == code).sum())
+                          if fy is not None and col in fy.columns else 0)
+                if 0 < n_rows <= 5:
+                    declined.append({
+                        "module": mod, "column": col, "year": y, "code": code,
+                        "why": (f"single-row noise: {n_rows} row(s) of {len(fy):,} "
+                                f"({100 * n_rows / len(fy):.4f}%), and NO rule could "
+                                f"certify it — a data-entry/encoding artifact. One "
+                                f"observation cannot establish a meaning.")})
                     continue
                 declined.append({"module": mod, "column": col, "year": y,
                                  "code": code,
