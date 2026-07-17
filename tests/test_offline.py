@@ -744,3 +744,36 @@ def test_acquisition_batteries_zero_is_no_marcado():
         pase = o[(o.module == mod) & o.column.str.fullmatch(rx, na=False)
                  & (o.code == "0") & (o.label == "Pase")]
         assert pase.empty, f"{mod} {rx}: {len(pase)} rows back to 'Pase'"
+
+
+def test_social_and_governance_batteries_are_no_marcado():
+    """Modules 37 (social programmes) and 85 (governance) were resolved before
+    the multiple-response rule was proven, so their flag batteries kept 'Pase'
+    on code 0: the programme batteries (p701_* vaso de leche, p710_* wawa wasi)
+    and the corruption batteries (p2_1_* perception, p22a_*_* the places a person
+    witnessed corruption).
+
+    Each was tested against the microdata: every code-0 cell sits in a row where
+    the battery was administered (out-of-universe 0-rows = 0 across all years),
+    so code 0 is 'No marcado', not 'Pase'. Single-choice questions in the same
+    modules (p9 democracy preference, codes 1-4) correctly KEPT 'Pase' -- they
+    are not batteries, and the binary-flag guard excluded them.
+    """
+    import pandas as pd
+    from pathlib import Path
+
+    p = (Path(__file__).parents[1] / "src" / "perudata" / "crosswalks"
+         / "enaho_label_overrides.csv")
+    o = pd.read_csv(p, encoding="utf-8-sig", dtype=str)
+
+    for mod, col in (("37", "p701_01"), ("37", "p710_01"),
+                     ("85", "p2_1_01"), ("85", "p22a_1_01")):
+        got = set(o[(o.module == mod) & (o.column == col)
+                   & (o.code == "0")].label.dropna())
+        assert "Pase" not in got, f"{mod} {col} code 0 is back to 'Pase'"
+        assert got <= {"No marcado"}, f"{mod} {col} code 0 = {got}"
+
+    # p9 is single-choice (democracy preference), NOT a battery -> keeps its label
+    p9 = set(o[(o.module == "85") & (o.column == "p9")
+              & (o.code == "0")].label.dropna())
+    assert "No marcado" not in p9, "p9 (single-choice) wrongly set to 'No marcado'"
