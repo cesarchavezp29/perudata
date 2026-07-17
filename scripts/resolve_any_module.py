@@ -50,26 +50,48 @@ HEADER = re.compile(r"^([A-Z][A-Z0-9_$]{1,12})\s+\d+\s+\d+\s+[NAC]\s+(.+?)\s*$")
 RANGE = re.compile(r"^\s*Rango\s*:\s*(\d+)\s*[-–,]\s*(\d+)", re.I)
 
 
-def declared_ranges(year: int, module: str) -> dict:
+CATEGORY = re.compile(r"^\s*(\d{1,4})\s*[.\-]?\s*([A-Za-zÁÉÍÓÚÑáéíóúñ¿(].*?)\s*$")
+
+
+def dictionary_tables(year: int, module: str) -> tuple[dict, dict]:
+    """({VAR: {code: label}}, {VAR: (lo, hi)}) from INEI's published dictionary.
+
+    THE TABLE, not merely the declared range. INEI's 2015 dictionary states
+    "P5401A ... 0 Pase / 1 Diario / 2 Semanal / ..." -- code 0 is DOCUMENTED, in
+    black and white. Reading only the Rango line threw that away and left the
+    variable unresolved for want of a label INEI had already written.
+    """
     for p in (SRC / "inzip" / f"{year}_{module}.txt",
               SRC / f"ENAHO_{year}_Diccionario.txt"):
         if not p.exists():
             continue
-        out, cur = {}, None
+        tab, rng, cur = {}, {}, None
         for line in p.read_text(encoding="utf-8", errors="replace").splitlines():
             h = HEADER.match(line)
             if h:
                 cur = h.group(1).lower()
+                tab.setdefault(cur, {})
                 continue
             if cur is None:
                 continue
             r = RANGE.match(line)
             if r:
-                out[cur] = (int(r.group(1)), int(r.group(2)))
+                rng[cur] = (int(r.group(1)), int(r.group(2)))
                 cur = None
-        if out:
-            return out
-    return {}
+                continue
+            c = CATEGORY.match(line)
+            if c:
+                code, lab = int(c.group(1)), c.group(2).strip()
+                if lab and not lab[0].isdigit():
+                    tab[cur].setdefault(code, lab)
+        tab = {k: v for k, v in tab.items() if v}
+        if tab or rng:
+            return tab, rng
+    return {}, {}
+
+
+def declared_ranges(year: int, module: str) -> dict:
+    return dictionary_tables(year, module)[1]
 
 
 rows, declined = [], []
@@ -151,12 +173,43 @@ for mod in MODULES:
             missing = u - set(lab.get(y, {}))
             if not missing:
                 continue
-            ranges = declared_ranges(y, mod)
+            tables, ranges = dictionary_tables(y, mod)
             lo_hi = ranges.get(col)
+            dict_tab = tables.get(col, {})
             for code in sorted(missing):
+                # RULE 0: INEI ALREADY WROTE IT DOWN. Check the published category
+                # table for THIS year before inferring anything at all. p5401a's
+                # 2015 dictionary literally says "0 Pase".
+                if code in dict_tab:
+                    rows.append({
+                        "module": mod, "column": col, "year": y, "code": code,
+                        "label": dict_tab[code].strip().capitalize(),
+                        "status": "verified",
+                        "evidence": (
+                            f"INEI's official {y} Diccionario de Datos states it "
+                            f"outright: '{col.upper()} ... {code} "
+                            f"{dict_tab[code]}'. The .dta simply omits the value "
+                            f"label that the published dictionary carries. Exact "
+                            f"year, exact variable, exact code."),
+                    })
+                    continue
                 # RULE 3: does INEI name this code in ANY other year?
+                #
+                # Look in BOTH places INEI writes labels: the .dta value labels AND
+                # the published dictionary tables. INEI's 2015 dictionary documents
+                # "P5401A ... 0 Pase", while the 2024/2025 dictionaries drop that
+                # line and start at "1. Diario" -- yet the data still ships code 0.
+                # INEI stopped DOCUMENTING a code it never stopped USING. Consulting
+                # only .dta labels missed it, because the evidence was in the
+                # dictionary of a different year.
                 elsewhere = {yy: m[code] for yy, m in lab.items()
                              if code in m and yy != y}
+                for yy in sorted(obs):
+                    if yy == y or yy in elsewhere:
+                        continue
+                    t, _r = dictionary_tables(yy, mod)
+                    if code in t.get(col, {}):
+                        elsewhere[yy] = t[col][code]
                 if elsewhere:
                     src = max(elsewhere)
                     rows.append({
@@ -167,9 +220,11 @@ for mod in MODULES:
                             f"INEI'S OWN TESTIMONY ABOUT ITS OWN CODE. {y} ships no "
                             f"label for {col} code {code}, but INEI labels that "
                             f"exact code on that exact variable in "
-                            f"{sorted(elsewhere)} as '{elsewhere[src]}'. Same "
-                            f"variable, same code, same concept — only the "
-                            f"documentation differs by vintage."),
+                            f"{sorted(elsewhere)} as '{elsewhere[src]}' — in its "
+                            f"own .dta value labels and/or its published "
+                            f"Diccionario de Datos. Same variable, same code, same "
+                            f"concept: INEI stopped DOCUMENTING the code, it did "
+                            f"not stop USING it."),
                     })
                     continue
                 # RULE 5: THE MULTIPLE-RESPONSE FLAG, proven by STRUCTURE alone.
@@ -207,16 +262,24 @@ for mod in MODULES:
                 # (p55610a: 2019-2023 hold {1,2} with 86-128 nulls; 2024/2025 hold
                 # {0,1,2} with 0 nulls and the same {1: si, 2: no} label. 76 of
                 # module 05's blockers are this one pattern.)
+                # The precondition is about NULLS, not code sets. Defining "other
+                # years" as those WITHOUT code 0 fails on p55610d, where code 0 is
+                # present in every year and the comparison set comes out empty --
+                # even though the null counts show the re-encoding plainly:
+                # 92,038 / 91,250 / 86,580 nulls in 2019-2023, then EXACTLY 0 in
+                # 2024/2025. Compare years by their null counts instead.
                 if code == 0 and y in obs:
                     fy = frames.get(y)
-                    nulls_now = int(pd.to_numeric(fy[col], errors="coerce").isna().sum())                         if fy is not None and col in fy.columns else -1
-                    others = [yy for yy in obs if 0 not in obs[yy]]
-                    nulls_before = []
-                    for yy in others:
+                    nulls_now = int(pd.to_numeric(fy[col], errors="coerce").isna().sum()) \
+                        if fy is not None and col in fy.columns else -1
+                    nulls_by_year = {}
+                    for yy in obs:
                         fo = frames.get(yy)
                         if fo is not None and col in fo.columns:
-                            nulls_before.append(
-                                int(pd.to_numeric(fo[col], errors="coerce").isna().sum()))
+                            nulls_by_year[yy] = int(
+                                pd.to_numeric(fo[col], errors="coerce").isna().sum())
+                    others = sorted(yy for yy, n in nulls_by_year.items() if n > 0)
+                    nulls_before = [nulls_by_year[yy] for yy in others]
                     if (nulls_now == 0 and nulls_before
                             and all(n > 0 for n in nulls_before)):
                         rows.append({
