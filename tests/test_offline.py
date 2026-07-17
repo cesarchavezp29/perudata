@@ -460,3 +460,242 @@ def test_classification_maps_preserve_namespace_code_identity(monkeypatch):
             assert int(raw) == int(canon), (
                 f"{year}: CIIU code {raw} was renumbered to {canon} — a "
                 f"classification namespace must keep the code as the identity")
+
+
+def test_internet_device_battery_has_one_meaning_per_code():
+    """p314b1_8/_9 must not flip meaning at 2023.
+
+    INEI mislabelled this battery in BOTH sources, differently in each:
+    its .dta shifted _9 to {0: 'celular con plan de datos', 9: 'otro'} while
+    every sibling is {0: 'pase', N: <substantive>}, and its dictionary's
+    value-label line for _8 says '8. Otro' -- _7's label copied one slot down --
+    contradicting _8's own question text, 'Celular sin plan de datos'.
+
+    The shipped crosswalk had swallowed both, so pooling 2019-2025 made
+    'Celular sin plan de datos' vanish at 2023 while 'Otro' spiked: a trend
+    break invented by the label, with the microdata untouched. No source
+    ranking can catch this -- preferring the dictionary fixes _9 and breaks
+    _8. The arbiter is the question text, which agrees with the value label on
+    136 of 139 true flag batteries package-wide (the other 2 are truncations).
+    """
+    import pandas as pd
+    from pathlib import Path
+
+    p = (Path(__file__).parents[1] / "src" / "perudata" / "crosswalks"
+         / "enaho_label_overrides.csv")
+    o = pd.read_csv(p, encoding="utf-8-sig", dtype=str)
+
+    truth = {
+        ("p314b1_7", "7"): "Otro",
+        ("p314b1_8", "8"): "Celular sin plan de datos",
+        ("p314b1_9", "9"): "Celular con plan de datos",
+    }
+    for (col, code), want in truth.items():
+        got = set(o[(o.column == col) & (o.code == code)].label.dropna())
+        assert got <= {want}, f"{col} code {code} labelled {got}, expected {want!r}"
+
+    # code 0 is 'Pase' for every slot, as the dictionary states
+    for col in ("p314b1_7", "p314b1_8", "p314b1_9"):
+        got = set(o[(o.column == col) & (o.code == "0")].label.dropna())
+        assert got <= {"Pase"}, f"{col} code 0 labelled {got}"
+
+    # and no slot may carry two meanings for one code across years
+    for col in ("p314b1_7", "p314b1_8", "p314b1_9"):
+        sub = o[o.column == col]
+        for code, g in sub.groupby("code"):
+            assert g.label.nunique() <= 1, (
+                f"{col} code {code} means {list(g.label.unique())} by year")
+
+
+def test_multiple_response_flag_zero_is_not_pase():
+    """Code 0 on an exhaustive flag battery means 'No marcado', not 'Pase'.
+
+    'Pase' asserts the question was never put to the person. For these 6-slot
+    batteries the data refutes that: out-of-universe rows are NA in all six
+    slots, and among in-universe rows ZERO mark none of the six. So a 0 cell
+    always belongs to someone who answered by marking a different slot.
+
+    The crosswalk had shipped 'Pase' for 2004-2020 and 'No marcado' for
+    2021-2025 -- one code, one column, two meanings -- because the resolver was
+    append-only and a weaker rule that ran first could never be superseded.
+    """
+    import pandas as pd
+    from pathlib import Path
+
+    p = (Path(__file__).parents[1] / "src" / "perudata" / "crosswalks"
+         / "enaho_label_overrides.csv")
+    o = pd.read_csv(p, encoding="utf-8-sig", dtype=str)
+
+    fams = ([f"p3121a{i}" for i in range(1, 7)]
+            + [f"p3122a{i}" for i in range(1, 7)]
+            + [f"p314a{i}" for i in range(1, 7)]
+            + [f"p315{i}" for i in range(2, 7)])
+    for col in fams:
+        got = set(o[(o.column == col) & (o.code == "0")].label.dropna())
+        assert "Pase" not in got, f"{col} code 0 is back to 'Pase'"
+        assert got <= {"No marcado"}, f"{col} code 0 labelled {got}"
+
+
+def test_indicator_zero_is_substantive_not_pase():
+    """p5291c/p530b code 0 is an ANSWER, not a skip.
+
+    Both are named "Indicador ..." and declared Rango 0-1 with both codes
+    substantive: p5291c is an "Indicador no sabe", so 0 means the person DID
+    know. The crosswalk had shipped 'Pase' for 2007-2025 -- asserting the
+    question was never asked -- while the same file said 'Sabe' for 2004-2006
+    and 2013, and the 'Pase' rows cited exactly those four years as their proof.
+
+    Five sources agree: the 2007 dictionary ('0 Sabe'), INEI's 2004/2005 .dta
+    ({0: 'sabe'}), the file's own 2004-2006/2013 rows, the variable name, and
+    the declared range leaving no room for a pase.
+    """
+    import pandas as pd
+    from pathlib import Path
+
+    p = (Path(__file__).parents[1] / "src" / "perudata" / "crosswalks"
+         / "enaho_label_overrides.csv")
+    o = pd.read_csv(p, encoding="utf-8-sig", dtype=str)
+    for col, want in (("p5291c", "Sabe"), ("p530b", "Tiene ganancia")):
+        got = set(o[(o.column == col) & (o.code == "0")].label.dropna())
+        assert "Pase" not in got, f"{col} code 0 is back to 'Pase'"
+        assert got <= {want}, f"{col} code 0 labelled {got}, expected {want!r}"
+
+
+def test_r559_code9_is_the_catch_all_not_cena():
+    """r559_* code 9 is 'Otros' in every year, never 'Cena'.
+
+    The 2013-2016 dictionaries say '9.Cena'; 2017-2019 say '9. Otros'; and 2020
+    lists '3.Cena' AND '9. Otros' as separate codes. INEI's own 2012/2013 .dta
+    says 9 = 'otros alimentos y bebidas'.
+
+    The mass is decisive: code 9 holds ~80% of observations in 2013-2017 while
+    desayuno is 7% and almuerzo 13%. No dinner share explains that, and once
+    Cena gets its own code in 2019+ it is ~8% while code 9 stays 37-45%. So the
+    dictionary -- not the data -- is what was wrong here, which is why this went
+    the OPPOSITE way from p5291c: no source ranking could have fixed both.
+    """
+    import pandas as pd
+    from pathlib import Path
+
+    p = (Path(__file__).parents[1] / "src" / "perudata" / "crosswalks"
+         / "enaho_label_overrides.csv")
+    o = pd.read_csv(p, encoding="utf-8-sig", dtype=str)
+    r = o.column.str.match(r"r559_\d+$", na=False) & (o.code == "9")
+    got = set(o.loc[r, "label"].dropna())
+    assert "Cena" not in got, "r559 code 9 is labelled 'Cena' again"
+    assert got <= {"Otros"}, f"r559 code 9 labelled {got}"
+
+
+def test_p407h_label_is_not_inverted():
+    """p407h code 1 is 'No lo atendieron' in EVERY year.
+
+    This is the most dangerous defect the crosswalk carried: the label was
+    inverted in 5 of 12 years (2013-2016, 2020 said code 1 = 'Si lo
+    atendieron'), so pooling 2013-2024 inverted a health-access variable.
+
+    The data is constant and decides it. p407h1/h2 record hours and minutes
+    waited: code 1 has a nonzero wait in 0.0% of rows in every year, code 0 in
+    ~100% (median 5 min). Someone not attended cannot have waited. INEI's 2015
+    .dta swaps the two, and its dictionary swaps them in 2016 and 2019 --
+    contradicting INEI's own .dta in 2014, 2016 and 2020. Reading this column
+    from the dictionary gives exactly the wrong answer.
+    """
+    import pandas as pd
+    from pathlib import Path
+
+    p = (Path(__file__).parents[1] / "src" / "perudata" / "crosswalks"
+         / "enaho_label_overrides.csv")
+    o = pd.read_csv(p, encoding="utf-8-sig", dtype=str)
+    one = set(o[(o.column == "p407h") & (o.code == "1")].label.dropna())
+    zero = set(o[(o.column == "p407h") & (o.code == "0")].label.dropna())
+    assert one <= {"No lo atendieron"}, f"p407h code 1 labelled {one}"
+    assert zero <= {"Sí lo atendieron"}, f"p407h code 0 labelled {zero}"
+
+
+def test_p208a1_zero_is_a_no_not_a_pase():
+    """p208a1 code 0 is 'No nació en este distrito', never 'Pase'.
+
+    p208a2 records the district of birth. Code 1 matches the household's
+    ubigeo in 100.0% of rows and code 0 in 0.0%, across 2007, 2010, 2013, 2015
+    and 2016 (2007 stores p208a2 as a float, so the comparison must be
+    numeric -- a string compare wrongly makes 2007 look like an exception).
+
+    'Pase' claimed 43,466 respondents in 2007 were never asked a question that
+    is put to every person on the roster, and that they answered.
+    """
+    import pandas as pd
+    from pathlib import Path
+
+    p = (Path(__file__).parents[1] / "src" / "perudata" / "crosswalks"
+         / "enaho_label_overrides.csv")
+    o = pd.read_csv(p, encoding="utf-8-sig", dtype=str)
+    got = set(o[(o.column == "p208a1") & (o.code == "0")].label.dropna())
+    assert "Pase" not in got, "p208a1 code 0 is back to 'Pase'"
+    assert got <= {"No nació en este distrito"}, f"p208a1 code 0 = {got}"
+
+
+def test_p1145_is_the_none_of_these_slot():
+    """p1145 code 1 is 'No tiene', not p1141's 'Telefono fijo'.
+
+    The 2006/2007 rows carried p1141's label, so 13,479 households in 2006 and
+    11,736 in 2007 that own NO service were labelled landline owners. Proven by
+    exact complementarity in 2006, 2007, 2012 and 2024:
+
+        p1145 == 1 -> owns ANY of p1141-p1144 in   0.0% of rows
+        p1145 == 0 -> owns ANY of p1141-p1144 in 100.0% of rows
+    """
+    import pandas as pd
+    from pathlib import Path
+
+    p = (Path(__file__).parents[1] / "src" / "perudata" / "crosswalks"
+         / "enaho_label_overrides.csv")
+    o = pd.read_csv(p, encoding="utf-8-sig", dtype=str)
+    got = set(o[(o.column == "p1145") & (o.code == "1")].label.dropna())
+    assert got <= {"No tiene"}, f"p1145 code 1 labelled {got}"
+
+    # p107aN4 is the 'no gasto' flag, not the p107aN1 'did you spend?' filter
+    for col, want in (("p107a14", "No gastó ampliación"),
+                      ("p107a24", "No gastó modificación"),
+                      ("p107a34", "No gastó construcción nueva")):
+        got = set(o[(o.column == col) & (o.code == "1")].label.dropna())
+        assert "Si" not in got, f"{col} code 1 is back to 'Si'"
+        assert got <= {want}, f"{col} code 1 labelled {got}"
+
+
+def test_no_typographic_duplicate_labels():
+    """One code, one spelling: no (column, code) may carry two labels that
+    differ only by accents, case, or punctuation.
+
+    Pooling years and grouping by label turns 'Rio, acequia, lago, laguna' and
+    'Río, acequia, lago, laguna' into two categories, each looking like it
+    appears and vanishes mid-panel though nothing in the data changed. p110
+    code 4 once shipped six spellings of one water source.
+
+    This does NOT require every code to have one label across years -- genuine
+    INEI recodes (p102: 'Adobe o tapia' -> 'Adobe', a real category split) must
+    survive. The test only forbids labels that are IDENTICAL once accents, case
+    and punctuation are stripped, which is a meaning-preserving comparison.
+    """
+    import re
+    import unicodedata
+    from pathlib import Path
+
+    import pandas as pd
+
+    def collapse(s: str) -> str:
+        s = unicodedata.normalize("NFKD", str(s))
+        s = "".join(c for c in s if not unicodedata.combining(c))
+        return re.sub(r"[^a-z0-9]", "", s.lower())
+
+    p = (Path(__file__).parents[1] / "src" / "perudata" / "crosswalks"
+         / "enaho_label_overrides.csv")
+    o = pd.read_csv(p, encoding="utf-8-sig", dtype=str)
+
+    offenders = []
+    for key, g in o.groupby(["module", "column", "code"]):
+        labels = set(g.label.dropna())
+        if len(labels) > 1 and len({collapse(x) for x in labels}) == 1:
+            offenders.append((key, sorted(labels)))
+    assert not offenders, (
+        f"{len(offenders)} codes carry typographic-duplicate labels, e.g. "
+        f"{offenders[:3]}")

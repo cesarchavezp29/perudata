@@ -53,6 +53,9 @@ RANGE = re.compile(r"^\s*Rango\s*:\s*(\d+)\s*[-–,]\s*(\d+)", re.I)
 CATEGORY = re.compile(r"^\s*(\d{1,4})\s*[.\-]?\s*([A-Za-zÁÉÍÓÚÑáéíóúñ¿(].*?)\s*$")
 
 
+_DICT_CACHE: dict = {}
+
+
 def dictionary_tables(year: int, module: str) -> tuple[dict, dict]:
     """({VAR: {code: label}}, {VAR: (lo, hi)}) from INEI's published dictionary.
 
@@ -61,6 +64,12 @@ def dictionary_tables(year: int, module: str) -> tuple[dict, dict]:
     black and white. Reading only the Rango line threw that away and left the
     variable unresolved for want of a label INEI had already written.
     """
+    # CACHE IT. This is called per (column, year), so module 03 re-parsed a
+    # ~350k-char dictionary 650 x 22 = 14,300 times. That is what was making the
+    # runs take forever and get killed before they finished -- not the data.
+    key = (year, module)
+    if key in _DICT_CACHE:
+        return _DICT_CACHE[key]
     for p in (SRC / "inzip" / f"{year}_{module}.txt",
               SRC / f"ENAHO_{year}_Diccionario.txt"):
         if not p.exists():
@@ -86,7 +95,9 @@ def dictionary_tables(year: int, module: str) -> tuple[dict, dict]:
                     tab[cur].setdefault(code, lab)
         tab = {k: v for k, v in tab.items() if v}
         if tab or rng:
+            _DICT_CACHE[key] = (tab, rng)
             return tab, rng
+    _DICT_CACHE[key] = ({}, {})
     return {}, {}
 
 
@@ -271,8 +282,15 @@ for mod in MODULES:
                 # (Verified on p311a*: 56 cells x 22 years, ZERO violations, and
                 # 919 rows carry 2+ modes at once -- non-exclusive, so it is a
                 # genuine multiple-response set, not a categorical being misread.)
-                if (code == 0 and all_obs <= {0, 1}
-                        and all(set(m) == {1} for m in lab.values())):
+                # A PHANTOM LABEL MUST NOT VETO THIS RULE. p3152 is {0,1} in the
+                # data with label {1: 'autosuministro'} -- a textbook flag -- but its
+                # 2009-2012 labels name code 2, which exists in NO year (p3152 is the
+                # 2nd slot of its battery, the same INEI bug as p1142/p1144). Judging
+                # the rule on `lab.values()` let a label INEI got WRONG outvote four
+                # correct ones. Consult only the years whose labels match the data.
+                trusted = good or lab
+                if (code == 0 and all_obs <= {0, 1} and trusted
+                        and all(set(m) == {1} for m in trusted.values())):
                     rows.append({
                         "module": mod, "column": col, "year": y, "code": 0,
                         "label": "No marcado", "status": "verified",
@@ -372,10 +390,30 @@ for mod in MODULES:
                                  "why": "no label in any year, and not inside a "
                                         "declared range — needs its own evidence"})
 
-new = pd.DataFrame(rows).drop_duplicates(subset=["module", "column", "year", "code"])
+KEY = ["module", "column", "year", "code"]
+new = pd.DataFrame(rows).drop_duplicates(subset=KEY).astype(str)
 old = pd.read_csv(OUT, encoding="utf-8-sig", dtype=str)
-both = pd.concat([old, new.astype(str)], ignore_index=True).drop_duplicates(
-    subset=["module", "column", "year", "code"], keep="first")
+
+# THE CROSSWALK WAS APPEND-ONLY AND COULD NOT SELF-CORRECT. concat([old, new])
+# + keep="first" let a row written by an EARLIER, WORSE rule silently outrank the
+# rule that supersedes it: p3152's code 0 was labelled "Pase" by rule 1 for
+# 2007-2020 and "No marcado" by rule 5 for 2021-2025 -- the SAME code in the SAME
+# column meaning two different things, which is the exact defect harmonizing
+# exists to remove. Never silently keep either side: REPORT every disagreement
+# and let evidence decide.
+d = old.merge(new, on=KEY, how="inner", suffixes=("_old", "_new"))
+d = d[d.label_old != d.label_new]
+d.to_csv(Path(__file__).parent / "override_disagreements.csv", index=False,
+         encoding="utf-8")
+if len(d):
+    print(f"!! {len(d):,} rows where the rules now disagree with the shipped "
+          f"crosswalk (scripts/override_disagreements.csv)")
+    for (lo, ln), g in d.groupby(["label_old", "label_new"]):
+        print(f"     {lo!r} -> {ln!r}: {len(g):,} rows, "
+              f"{g.column.nunique()} columns")
+
+both = pd.concat([old, new], ignore_index=True).drop_duplicates(
+    subset=KEY, keep="first")
 both.to_csv(OUT, index=False, encoding="utf-8")
 print()
 print(f"certified: {len(new):,}   (by rule: "
