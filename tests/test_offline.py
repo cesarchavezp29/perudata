@@ -964,3 +964,14 @@ def test_endes_dataset_has_true_year_option():
     # CMC 1345 = month 1345 from 1900 -> year 1900 + 1344//12 = 2012
     assert int(endes._cmc_year(__import__("pandas").Series([1345]))[0]) == 2012
     assert endes._CUMULATIVE_SRC[2006] == 2007 and endes._CUMULATIVE_SRC[2008] == 2008
+
+
+def test_endes_tfr_helper_exists():
+    """endes.tfr() packages the DHS 36-month ASFR computation (verified to
+    reproduce INEI's TGF within 0.05 across 2004-2024). Checks the API surface;
+    the computation needs the .sav on disk."""
+    import inspect
+    from perudata import endes
+    sig = inspect.signature(endes.tfr)
+    assert "true_year" in sig.parameters
+    assert endes._ASFR_AGES == [15, 20, 25, 30, 35, 40, 45]
