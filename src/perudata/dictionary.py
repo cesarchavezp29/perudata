@@ -73,19 +73,68 @@ def variable(name: str):
             ["module", "year"])
 
 
+_OVERRIDES = None
+
+
+def _load_overrides():
+    """The verified value-label crosswalk: harmonized/corrected labels keyed by
+    (module, column, year) -> {code: label}. This is where the package's own
+    work lives -- INEI's .dta and dictionaries omit labels for post-2018 years,
+    ship phantom codes, invert p407h, and label exhaustive batteries 'Pase'. The
+    crosswalk fixes and fills all of that, and every row carries its evidence."""
+    global _OVERRIDES
+    if _OVERRIDES is None:
+        import pandas as pd
+        with resources.files("perudata").joinpath(
+                "crosswalks/enaho_label_overrides.csv").open("rb") as f:
+            o = pd.read_csv(f, encoding="utf-8-sig",
+                            dtype={"module": str, "column": str, "code": str,
+                                   "year": str, "label": str})
+        o["module"] = o["module"].astype(str).str.zfill(2)
+        idx = {}
+        for r in o.itertuples(index=False):
+            idx.setdefault((r.module, r.column.lower(), r.year), {})[r.code] = r.label
+        _OVERRIDES = idx
+    return _OVERRIDES
+
+
 def value_labels(name: str, year: int, module: str | None = None) -> dict:
-    """INEI's own value labels for a variable in a given year — the authoritative
-    answer to 'what does code N mean', instead of a guess."""
+    """What code N means for a variable in a given year, HARMONIZED.
+
+    Starts from INEI's own parsed dictionary, then overlays the package's
+    verified crosswalk so corrections win per code and gaps INEI never labelled
+    (every year after ~2018, and battery/phantom cases) are filled. The crosswalk
+    is the authoritative answer: it fixes INEI's own errors (e.g. p407h, whose
+    .dta and dictionary invert 'attended'/'not attended') and each override
+    carries the evidence that justifies it."""
     import json
     d = _load()
     q = (d["column"].str.lower() == str(name).lower()) & (d["year"] == int(year))
     if module:
         q &= d["module"] == str(module).zfill(2)
-    rows = d[q]
-    for _, r in rows.iterrows():
+    labels: dict = {}
+    for _, r in d[q].iterrows():
         if isinstance(r["value_labels"], str) and r["value_labels"]:
-            return json.loads(r["value_labels"])
-    return {}
+            labels = json.loads(r["value_labels"])
+            break
+    # overlay the verified crosswalk: a corrected/added label wins over INEI's.
+    if module is not None:
+        ov = _load_overrides().get(
+            (str(module).zfill(2), str(name).lower(), str(year)))
+        if ov:
+            # Drop any INEI code whose LABEL the crosswalk already carries at a
+            # different code -- that is a stale encoding from the published PDF,
+            # not a live code. p1145's 2006 dictionary lists code 5 'no tiene'
+            # (the old single-variable form) while the released data is the {0,1}
+            # flag the crosswalk describes; keeping code 5 would invent a
+            # phantom. Dedup by normalized label so the crosswalk's code wins.
+            def _norm(s: str) -> str:
+                return "".join(ch for ch in str(s).lower() if ch.isalnum())
+            ov_labels = {_norm(v) for v in ov.values()}
+            labels = {k: v for k, v in labels.items()
+                      if _norm(v) not in ov_labels}
+            labels.update(ov)
+    return labels
 
 
 def weights(module: str | int):

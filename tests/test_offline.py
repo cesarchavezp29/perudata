@@ -816,3 +816,31 @@ def test_multiresponse_batteries_no_marcado_filters_stay_pase():
                    & (o.code == "0")].label.dropna())
         if got:
             assert "No marcado" not in got, f"{mod} {col} wrongly set 'No marcado'"
+
+
+def test_value_labels_surfaces_the_verified_crosswalk():
+    """The whole point of the label crosswalk is that a researcher calling the
+    documented dictionary.value_labels() gets the HARMONIZED answer, not INEI's
+    raw (and often absent or wrong) one. This was silently disconnected: INEI
+    ships no standalone dictionary after ~2018, so ocu500 returned {} for 2019+,
+    and the crosswalk that fixes p407h, the batteries and the collisions was
+    never consulted. value_labels() must overlay the crosswalk.
+    """
+    from perudata import dictionary as dic
+
+    # a code INEI never labelled after 2018 -> filled from the crosswalk
+    lab = dic.value_labels("ocu500", 2023, "05")
+    assert lab.get("1") == "Ocupado" and lab.get("0") == "Sin informacion", lab
+
+    # a code INEI got WRONG -> the crosswalk's correction wins
+    p407h = dic.value_labels("p407h", 2019, "04")
+    assert p407h.get("1") == "No lo atendieron", p407h  # not the inverted label
+
+    # an exhaustive-battery zero -> 'No marcado', not the dictionary's 'Pase'
+    assert dic.value_labels("p3152", 2023, "03").get("0") == "No marcado"
+
+    # a stale published-dictionary code (a different-vintage encoding) is dropped
+    # rather than merged into a phantom set
+    p1145 = dic.value_labels("p1145", 2006, "01")
+    assert p1145.get("1") == "No tiene"
+    assert "5" not in p1145, f"stale code 5 leaked: {p1145}"
