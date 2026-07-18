@@ -182,10 +182,13 @@ def _label_table():
 def value_labels(variable: str) -> dict:
     """Harmonized value labels for an EPEN variable: {code: label}.
 
-    EPEN ships as CSV (codes only); the labels are harvested from the legacy
-    EPE .sav era and reconciled to one canonical Spanish label per code. Covers
-    the variables the .sav files carry (the p-series and shared structural vars
-    like estrato/dominio). The modern CSV era renamed many questions to a
-    c-series; mapping those needs the EPEN questionnaire crosswalk (pending).
+    EPEN ships as CSV (codes only), so labels come from two sources reconciled
+    to one canonical Spanish label per code: the legacy EPE .sav era (p-series,
+    read from the files) and the modern EPEN questionnaire dictionaries (the
+    c-series -- ocup300, c203, c207, c306_*, ... -- parsed from the Diccionario
+    PDFs that ship in the annual/departmental downloads). Both eras decode: a
+    modern CSV is ~59% labelable (the rest are continuous income/hours/code
+    columns that carry no labels), and ocup300 reads Ocupado / desempleado
+    Abierto / Desempleado Oculto / Inactivos.
     """
     return dict(_label_table().get(str(variable).lower(), {}))

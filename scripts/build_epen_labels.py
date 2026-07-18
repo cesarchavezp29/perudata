@@ -41,13 +41,55 @@ def nz(x: str) -> str:
     return "".join(c for c in x if not unicodedata.combining(c)).lower().strip()
 
 
+_VAR = re.compile(r"^([A-Z][A-Z0-9_]+)\s+\d+\s+[NC]\b")
+# a value label: 'code label' or 'code. label' -- the modern dict uses the dot
+_VAL = re.compile(r"^(\d+)\.?\s+(\S.*)$")
+
+
+def parse_pdf(path: Path) -> dict:
+    """{variable: {code: label}} from an EPEN Diccionario PDF.
+
+    Format (both eras): a variable header 'C306_4 1 N <label...>' followed by
+    value-label lines '1 Si' / '2 No' and a 'Rango : (1:2)'. The modern c-series
+    (C306_*, OCUP300, ...) lives ONLY in these PDFs -- the CSVs carry no labels.
+    """
+    import pdfplumber
+    out: dict = {}
+    try:
+        with pdfplumber.open(str(path)) as pdf:
+            lines = []
+            for pg in pdf.pages:
+                lines += (pg.extract_text() or "").splitlines()
+    except Exception:
+        return out
+    cur = None
+    for ln in lines:
+        s = ln.strip()
+        m = _VAR.match(s)
+        if m:
+            cur = m.group(1).lower()
+            out.setdefault(cur, {})
+            continue
+        if cur is None:
+            continue
+        if s.lower().startswith("rango"):
+            cur = None                       # value labels end at the Rango line
+            continue
+        v = _VAL.match(s)
+        if v:
+            code, lab = v.group(1), v.group(2).strip()
+            # a value code is small (0-99); >=100 is a question number wrapping
+            # into the value block, and its 'label' is question text, not a value
+            if int(code) < 100 and 0 < len(lab) <= 55:
+                out[cur].setdefault(code, lab)
+    return out
+
+
 def main() -> int:
-    savs = sorted(RAW.rglob("*.sav")) + sorted(RAW.rglob("*.SAV"))
-    savs = sorted(set(p.resolve() for p in savs))
+    savs = sorted(set(p.resolve() for p in
+                      list(RAW.rglob("*.sav")) + list(RAW.rglob("*.SAV"))))
     print(f"EPEN .sav files found: {len(savs)}")
 
-    # variable -> code -> {label: count} across all files (pick the most common,
-    # longest label as canonical)
     acc: dict = {}
     read = 0
     for p in savs:
@@ -61,6 +103,23 @@ def main() -> int:
             for c, lab in vals.items():
                 d.setdefault(codekey(c), {}).setdefault(lab, 0)
                 d[codekey(c)][lab] += 1
+
+    # the modern c-series labels come ONLY from the dictionary PDFs. Parse one of
+    # each UNIQUE dictionary (many departments ship the same 2023 dict).
+    pdfs = list(RAW.rglob("*iccionario*.pdf")) + list(RAW.rglob("*iccionario*.PDF"))
+    seen_names, pdf_read = set(), 0
+    for p in sorted(pdfs):
+        tag = (p.name.lower(), p.stat().st_size // 1000)
+        if tag in seen_names:
+            continue
+        seen_names.add(tag)
+        for var, codes in parse_pdf(p).items():
+            d = acc.setdefault(var, {})
+            for code, lab in codes.items():
+                d.setdefault(code, {}).setdefault(lab, 0)
+                d[code][lab] += 1
+        pdf_read += 1
+    print(f"unique dictionary PDFs parsed: {pdf_read}")
 
     rows = []
     for var in sorted(acc):

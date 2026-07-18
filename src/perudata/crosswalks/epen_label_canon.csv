@@ -2,14 +2,246 @@ variable,code,label,n_files,n_variants
 adecemp,1,Adecuadamente empleada,1,1
 adecemp,2,No Adecuadamente Empleada,1,1
 adecempleada,1,POB ADEC EMPLEADA,1,1
-area,1,Lima,2,1
-area,2,Callao,2,1
+area,1,Urbano,4,2
+area,2,Callao,4,2
 asalariado,1,Asalariado,1,1
 asalariado,2,No asalariado,1,1
 asalariado1,1,ASALARIADO,1,1
 bienes,1,Bienes,1,1
 bienser,1,Bienes,1,1
 bienser,2,Servicios,1,1
+c203,1,Jefe/a,2,1
+c203,10,Pensionista,2,1
+c203,11,Otro no pariente,2,1
+c203,2,Esposo/a o compañero/a,2,1
+c203,3,Hijo/a o hijastro/a,2,1
+c203,4,Yerno o Nuera,2,1
+c203,5,Nieto/a,2,1
+c203,6,Padre/madre/suegro/a,2,1
+c203,7,Hermano/a,2,1
+c203,8,Otro pariente,2,1
+c203,9,Trabajador/a del hogar,2,1
+c203,98,No Residente,2,1
+c204,1,Si,2,1
+c204,2,No,2,1
+c205,1,Si,2,1
+c205,2,No,2,1
+c206,1,Si,2,1
+c206,2,No,2,1
+c207,1,Hombre,2,1
+c207,2,Mujer,2,1
+c303,1,Si,2,1
+c303,2,No,2,1
+c304,1,Si,2,1
+c304,2,No,2,1
+c305,1,Si,2,1
+c305,2,No,2,1
+c306_1,1,Si,2,1
+c306_1,2,No,2,1
+c306_10,1,Si,2,1
+c306_10,2,No,2,1
+c306_10a,1,Si,2,1
+c306_10a,2,No,2,1
+c306_11,1,Si,2,1
+c306_11,2,No,2,1
+c306_2,1,Si,2,1
+c306_2,2,No,2,1
+c306_3,1,Si,2,1
+c306_3,2,No,2,1
+c306_4,1,Si,2,1
+c306_4,2,No,2,1
+c306_5,1,Si,2,1
+c306_5,2,No,2,1
+c306_6,1,Si,2,1
+c306_6,2,No,2,1
+c306_7,1,Si,2,1
+c306_7,2,No,2,1
+c306_8,1,Si,2,1
+c306_8,2,No,2,1
+c306_9,1,Si,2,1
+c306_9,2,No,2,1
+c306a,1,Si,1,1
+c306a,2,No,1,1
+c310,1,Empleador o patrono,2,1
+c310,2,Trabajador independiente,2,1
+c310,3,Empleado u obrero,2,1
+c310,4,Ayudante en un negocio de la familia,2,1
+c310,5,Ayudante en el empleo de un familiar,2,1
+c310,6,Trabajador del hogar,2,1
+c310,7,Aprendiz/practicante remunerado,2,1
+c310,8,Practicante sin remuneración,2,1
+c311,1,"Fuerzas Armadas, Policía Nacional del Perú (militares)",2,1
+c311,2,Administración pública,2,1
+c311,3,Empresa pública,2,1
+c311,4,Empresas especiales de servicios (SERVICE),2,1
+c311,5,Empresa o patrono privado,2,1
+c311,6,Otra,2,1
+c312,2,"Persona Natural con RUC (RUS, RER, u otro régimen)",2,1
+c312,3,No está registrado (no tiene RUC),2,1
+c312,4,No sabe,2,1
+c313,1,Si,2,1
+c313,2,No,2,1
+c313,3,No Sabe,2,1
+c317,1,Hasta 20 personas,2,1
+c317,2,De 21 a 50 personas,2,1
+c317,3,De 51 a 100 personas,2,1
+c317,4,De 101 a 500 personas,2,1
+c317,5,Más de 500 personas,2,1
+c330,1,Si,2,1
+c330,2,No,2,1
+c333,1,Si,2,1
+c333,2,No,2,1
+c334,1,Si,2,1
+c334,2,No,2,1
+c335,1,Si,2,1
+c335,2,No,2,1
+c338,1,Diario,2,1
+c338,2,Semanal,2,1
+c338,3,Quincenal,2,1
+c338,4,Mensual,2,1
+c338,5,No recibió pago alguno,2,1
+c352,1,Si,2,1
+c352,2,No,2,1
+c353,2,"Reparando sus activos (local, máquina, equipo)",2,1
+c353,4,Estudiando,2,1
+c353,5,Quehaceres del hogar,2,1
+c353,6,Vivía de su pensión o jubilación u otras rentas,2,1
+c353,7,Enfermo o incapacitado,2,1
+c353,8,Otro,2,1
+c354,1,Si,2,1
+c354,2,No,2,1
+c355,1,Si,2,1
+c355,2,No,2,1
+c356,1,No hay trabajo,2,1
+c356,11,Otro,2,1
+c356,12,Ya encontró trabajo,2,1
+c356,13,Si buscó trabajo,2,1
+c356,2,Se cansó de buscar,2,1
+c356,3,Por su edad,2,1
+c356,4,Falta de experiencia,2,1
+c356,5,Sus estudios no le permiten,2,1
+c356,6,Los quehaceres del hogar no le permiten,2,1
+c356,7,Razones de salud,2,1
+c356,8,Falta de capital,2,1
+c356,9,Espera los resultados de una búsqueda anterior,2,1
+c359,1,Si,2,1
+c359,2,No,2,1
+c361_1,1,Si,2,1
+c361_1,2,No,2,1
+c361_2,1,Si,2,1
+c361_2,2,No,2,1
+c361_3,1,Si,2,1
+c361_3,2,No,2,1
+c361_4,1,Si,2,1
+c361_4,2,No,2,1
+c361_5,1,Si,2,1
+c361_5,2,No,2,1
+c361_6,1,Si,2,1
+c361_6,2,No,2,1
+c361_7,1,Si,2,1
+c361_7,2,No,2,1
+c361_8,1,Si,2,1
+c361_8,2,No,2,1
+c362_1,1,Su centro de Trabajo,2,1
+c362_1,2,Ud. mismo,2,1
+c362_1,3,Es jubilado,2,1
+c362_1,4,Un familiar,2,1
+c362_1,5,No paga,2,1
+c362_2,1,Su centro de Trabajo,2,1
+c362_2,2,Ud. mismo,2,1
+c362_2,3,Es jubilado,2,1
+c362_2,4,Un familiar,2,1
+c362_3,1,Su centro de Trabajo,2,1
+c362_3,2,Ud. mismo,2,1
+c362_3,3,Es jubilado,2,1
+c362_3,4,Un familiar,2,1
+c362_4,1,Su centro de Trabajo,2,1
+c362_4,2,Ud. mismo,2,1
+c362_4,3,Es jubilado,2,1
+c362_4,4,Un familiar,2,1
+c362_5,1,Su centro de Trabajo,2,1
+c362_5,2,Ud. mismo,2,1
+c362_5,4,Un familiar,2,1
+c362_5,5,No paga,2,1
+c362_6,2,Ud. mismo,2,1
+c362_6,4,Un familiar,2,1
+c362_7,2,Ud. mismo,2,1
+c362_7,4,Un familiar,2,1
+c362_8,1,Su centro de Trabajo,2,1
+c362_8,2,Ud. mismo,2,1
+c362_8,3,Es jubilado,2,1
+c362_8,4,Un familiar,2,1
+c362_8,5,No paga,2,1
+c364_1,1,Si,2,1
+c364_1,2,No,2,1
+c364_2,1,Si,2,1
+c364_2,2,No,2,1
+c364_3,1,Si,2,1
+c364_3,2,No,2,1
+c364_4,1,Si,2,1
+c364_4,2,No,2,1
+c365_1,1,Su centro de Trabajo,2,1
+c365_1,2,Ud. mismo,2,1
+c365_1,3,Es jubilado,2,1
+c365_1,4,Un familiar,2,1
+c365_1,5,No aporta,2,1
+c365_2,1,Su centro de Trabajo,2,1
+c365_2,2,Ud. mismo,2,1
+c365_2,3,Es jubilado,2,1
+c365_2,4,Un familiar,2,1
+c365_2,5,No aporta,2,1
+c365_3,1,Su centro de Trabajo,2,1
+c365_3,3,Es jubilado,2,1
+c365_3,4,Un familiar,2,1
+c365_4,1,Su centro de Trabajo,2,1
+c365_4,2,Ud. mismo,2,1
+c365_4,3,Es jubilado,2,1
+c365_4,4,Un familiar,2,1
+c366,1,Sin nivel,2,1
+c366,10,Superior universitaria incompleta,2,1
+c366,11,Superior universitaria completa,2,1
+c366,12,Maestría/Doctorado,2,1
+c366,2,Educación Inicial,2,1
+c366,3,Primaria incompleta,2,1
+c366,4,Primaria completa,2,1
+c366,5,Secundaria incompleta,2,1
+c366,6,Secundaria completa,2,1
+c366,7,Básica especial,2,1
+c366,8,Superior no universitaria incompleta,2,1
+c366,9,Superior no universitaria completa,2,1
+c375_1,1,Si,2,1
+c375_1,2,No,2,1
+c375_2,1,Si,2,1
+c375_2,2,No,2,1
+c375_3,1,Si,2,1
+c375_3,2,No,2,1
+c375_4,1,Si,2,1
+c375_4,2,No,2,1
+c375_5,1,Si,2,1
+c375_5,2,No,2,1
+c375_6,1,Si,2,1
+c375_6,2,No,2,1
+c376,1,Quechua,2,1
+c376,10,Castellano,2,1
+c376,11,Portugués,2,1
+c376,12,Otra lengua extranjera,2,1
+c376,13,No escucha/No habla,2,1
+c376,14,Lengua de señas peruanas,2,1
+c376,2,Aimara,2,1
+c376,3,Ashaninka,2,1
+c376,4,Awajún/Aguaruna,2,1
+c376,5,Shipibo - Konibo,2,1
+c376,6,Shawi/Chayahuita,2,1
+c376,7,Matigenka/Machiguenga,2,1
+c376,8,Achuar,2,1
+c376,9,Otra lengua nativa,2,1
+c377,1,Quechua,2,1
+c377,2,Aymara,2,1
+c377,3,Nativo o Indígena de la Amazonía,2,1
+c377,6,Blanco,2,1
+c377,7,Mestizo,2,1
+c377,8,Otro,2,1
+c377,9,No sabe/No responde,2,1
 categ,1,Independiente,1,1
 categ,2,Dependiente,1,1
 categ,3,Trabaj fam. no remunerado,1,1
@@ -38,11 +270,14 @@ dominio,8,Lima Metropolitana,42,1
 edadem,1,De 14 a 24 años,1,1
 edadem,2,De 25 a 44 años,1,1
 edadem,3,De 45 y más años,1,1
-estrato,1,Ciudades Capitales (Urbano),42,1
+estrato,1,Ciudades Capitales (Urbano),44,2
 estrato,2,Grandes Ciudades   (Urbano),42,1
-estrato,3,CCPP de mas de 2000 Habitantes (Urbano),42,2
-estrato,4,CCPP DE 500  a 2000 Habitantes (Rural),42,1
-estrato,5,Area Rural,42,1
+estrato,3,CCPP de mas de 2000 Habitantes (Urbano),44,3
+estrato,4,CCPP DE 500  a 2000 Habitantes (Rural),44,2
+estrato,5,Area Rural,44,2
+estrato,6,Conformado por aquellas UPM de 500 a 1999 habitantes,2,1
+estrato,7,Conformado por el AER Compuesto,2,1
+estrato,8,Conformado por el AER Simple,2,1
 filter_$,0,Not Selected,2,1
 filter_$,1,Selected,2,1
 gedad1,1,De 0 a 13 años,1,1
@@ -67,6 +302,8 @@ horasmens4,1,Horas mensuales - No Incluye a los trab famil no remuner y practica
 horasmens5,1,Horas mensuales - No Incluye a los trab famil no remuner y practicantes y no incluye la pob ocupada cuyos ingresos total,1,1
 inactivo1,1,POB INACTIVA,1,1
 inactsinexper,1,Inactivo sin experiencia,1,1
+ingtotp,1,Empleo Informal,2,1
+ingtotp,2,Empleo Formal,2,1
 mype,1,Mype,1,1
 mype,2,No Mype,1,1
 mype1,1,Mype de 1 a 10 trabajadores,1,1
@@ -109,6 +346,10 @@ ocu6,6,Trabajador del hogar,1,1
 ocuinga,1,Población ocupada con ingresos mayores a cero- No incluye a los trabaj fam no remunerados y practicantes,1,1
 ocuinga1,1,Población ocupada con ingresos- No incluye a los trabaj fam no remunerados y practicantes y no incluye a la pob ocupada,1,1
 ocuinga2,1,Población ocupada con ingresos- No incluye a los trabaj fam no remunerados y practicantes y no incluye a la pob ocupada,1,1
+ocup300,1,Ocupado,2,1
+ocup300,2,desempleado Abierto,2,1
+ocup300,3,Desempleado Oculto,2,1
+ocup300,4,Inactivos,2,1
 ocupado,1,OCUPADO - Incluye a los trabaj fam no remunerados practicantes,1,1
 ocupado1,1,OCUPADO - Incluye a los trabaj fam no remunerados y practicantes y no incluye a la pob ocupada cuyo ingreso total es may,1,1
 ocupado2,1,OCUPADO - Incluye a los trabaj fam no remunerados y practicantes y no incluye a la pob ocupada cuyo ingreso principal es,1,1
@@ -227,8 +468,8 @@ p209bb,1,Si,138,1
 p209bb,2,No,138,1
 p209ee,1,Si,138,1
 p209ee,2,No,138,1
-p209h,1,Si,143,1
-p209h,2,No,143,1
+p209h,1,Si,145,1
+p209h,2,No,145,1
 p210,0,Practicante,148,1
 p210,1,Diario?,148,1
 p210,2,Semanal?,148,1
@@ -342,6 +583,9 @@ ranghora,9,De 81 y más Horas,1,1
 rec3nive,1,Hasta primaria,1,1
 rec3nive,2,Secundaria,1,1
 rec3nive,3,Superior,1,1
+resident,0,No,2,1
+resident,1,Si,2,1
+resident,9,Omisión,2,1
 rrama,1,Manufactura,1,1
 rrama,2,Construcción,1,1
 rrama,3,Comercio,1,1
@@ -369,6 +613,7 @@ subempleo,2,Subempleado invisible,1,1
 subempleo,3,Adecuadamente empleado,1,1
 subempleo,4,Desempleado abierto,1,1
 subemptot,1,POB SUBEMPLEADA,1,1
+submuestra3,8,Lima Metropolitana,25,1
 tamemp,1,De 1 a 10 trabajadores,1,1
 tamemp,2,De 11 a 50 trabajadores,1,1
 tamemp,3,De 51 a más trabajadores,1,1

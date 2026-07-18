@@ -1020,3 +1020,16 @@ def test_epen_loads_all_formats_and_has_value_labels():
     # the standard employment condition decodes to the DHS/ENAHO categories
     ocu = epen.value_labels("ocu200")
     assert ocu.get("1") == "Ocupado" and "No PEA" in ocu.values()
+
+
+def test_epen_modern_cseries_labels_from_dictionary():
+    """The modern EPEN CSV era renamed the questions to a c-series the .sav
+    p-series crosswalk cannot reach; its labels are parsed from the Diccionario
+    PDFs. ocup300 (employment condition) must decode, since it is the key labor
+    variable and the whole employment series depends on it."""
+    from perudata import epen
+    ocup = epen.value_labels("ocup300")
+    assert ocup.get("1") == "Ocupado", ocup
+    assert any("ocupado" in v.lower() for v in ocup.values())      # desempleado
+    # a modern c-series categorical also resolves
+    assert epen.value_labels("c207").get("1") == "Hombre"
