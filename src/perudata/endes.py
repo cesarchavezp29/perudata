@@ -315,8 +315,23 @@ def value_labels(variable: str, year: int | None = None) -> dict:
 # ---------------------------------------------------------------------------
 # One-call harmonized multi-year loader (the ENDES parallel of dataset())
 # ---------------------------------------------------------------------------
+# The 2004-2008 CUMULATIVE-file trap. Verified from the interview-date CMC
+# (v008): the early "annual" files nest prior years, so plotting them as single
+# years is spurious. Take each TRUE calendar year from ONE source and filter by
+# v008: 2004-2007 from the 2007 release (code 194), 2008 from 2008 (code 209),
+# 2009+ already single-year. (Matches ENAHO_ANALYSIS/scripts/endes_units.py.)
+_CUMULATIVE_SRC = {2004: 2007, 2005: 2007, 2006: 2007, 2007: 2007, 2008: 2008}
+
+
+def _cmc_year(s):
+    """CMC (century-month code) interview date -> calendar year."""
+    import pandas as pd
+    v = pd.to_numeric(s, errors="coerce")
+    return 1900 + ((v - 1) // 12)
+
+
 def dataset(years, module, recode: str | None = None, *,
-            has: list[str] | None = None,
+            has: list[str] | None = None, true_year: bool = False,
             harmonize: bool = True, download_if_missing: bool = True,
             columns: list[str] | None = None, verbose: bool = True):
     """Download (if needed) and pool ONE ENDES recode across many years.
@@ -340,21 +355,56 @@ def dataset(years, module, recode: str | None = None, *,
 
     recode: which DHS subfile ('REC0111' women, 'RECH1' hh members, ...). If
     omitted, the largest .sav in the module is used.
+
+    true_year=True: fix the 2004-2008 CUMULATIVE-file trap. Those early ENDES
+    "annual" files nest prior years' interviews -- the 2006 release is really
+    2003-2006, only ~35% of it actually 2006 -- so a raw yearly series has
+    spurious jumps. With true_year, each calendar year is drawn from ONE source
+    (2004-2007 from the 2007 release, 2008 from 2008, 2009+ annual) and filtered
+    to the records whose interview date v008/hv008 falls in that year. A recode
+    that ships no v008 (INEI strips it from some) is kept whole and true-year'd
+    by a caseid merge with the women's recode. Verified: adolescent motherhood
+    then matches INEI's validated series across all 21 years (max 0.3pp).
     """
     import pandas as pd
     years = [years] if isinstance(years, int) else list(years)
     frames, got = [], []
+    # with true_year, several calendar years share one source file (2004-2007 all
+    # come from the 2007 release); load each source ONCE and split it by v008.
+    src_cache: dict = {}
     for y in years:
         if y not in ENDES_CODE:
             continue
+        src = _CUMULATIVE_SRC.get(y, y) if true_year else y
         try:
-            df = load(y, module, recode=recode, has=has,
-                      download_if_missing=download_if_missing, columns=columns)
+            if src not in src_cache:
+                src_cache[src] = load(src, module, recode=recode, has=has,
+                                      download_if_missing=download_if_missing,
+                                      columns=columns)
+            df = src_cache[src]
         except Exception as e:
             if verbose:
                 print(f"[skip] ENDES {y} {module}/{recode}: "
                       f"{type(e).__name__}: {str(e)[:70]}")
             continue
+        if true_year:
+            datecol = next((c for c in ("v008", "hv008") if c in df.columns), None)
+            if datecol is not None:
+                # this recode carries the interview date -> filter it directly
+                df = df[_cmc_year(df[datecol]) == y].copy()
+            else:
+                # a recode with no v008 (INEI strips it from some, e.g. the
+                # reproduction file) cannot self-split. Keep the full source
+                # tagged with the target year: a caseid merge against a
+                # v008-bearing recode (the women's file) then restricts it to
+                # the true year. Standalone use of such a recode in a cumulative
+                # year stays pooled -- merge it, or use a recode that has v008.
+                df = df.copy()
+                if src != y and verbose:
+                    print(f"[note] {y}: {module}/{recode or has} has no v008; "
+                          f"merge on caseid with a women recode to true-year it")
+        else:
+            df = df.copy()
         df.insert(0, "anio", y)
         if harmonize:
             for wname in ("v005", "hv005"):

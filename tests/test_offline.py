@@ -951,3 +951,16 @@ def test_endes_load_has_selects_recode_by_content():
     assert "has" in inspect.signature(endes.load).parameters
     assert "has" in inspect.signature(endes.dataset).parameters
     assert callable(endes._recode_columns)
+
+
+def test_endes_dataset_has_true_year_option():
+    """The 2004-2008 ENDES files are cumulative (nest prior years' interviews);
+    true_year=True assigns each record to its calendar year via v008 and draws
+    each year from one source. cmc_year converts the CMC interview code to a
+    calendar year. Checks the plumbing (the split needs the .sav on disk)."""
+    import inspect
+    from perudata import endes
+    assert "true_year" in inspect.signature(endes.dataset).parameters
+    # CMC 1345 = month 1345 from 1900 -> year 1900 + 1344//12 = 2012
+    assert int(endes._cmc_year(__import__("pandas").Series([1345]))[0]) == 2012
+    assert endes._CUMULATIVE_SRC[2006] == 2007 and endes._CUMULATIVE_SRC[2008] == 2008
