@@ -23,10 +23,15 @@ Quickstart
     endes.files(2024, "peso_talla_anemia") # the .sav recodes inside
     df = endes.load(2024, "peso_talla_anemia")
 
-    # ONE CALL: download-if-missing + pool + harmonize the whole 2004-2024 span
-    w = endes.dataset(range(2004, 2025), "mef_datos_basicos", "REC0111")
+    # ONE CALL: download-if-missing + pool + harmonize the whole 2004-2025 span
+    w = endes.dataset(range(2004, 2026), "mef_datos_basicos", "REC0111")
     w["educ"] = endes.decode(w, "v106")    # 'Superior' every year, not Higher/Mayor
     # w['anio'] = year, w['wt'] = DHS weight / 1e6, w.attrs['labels'] = the maps
+
+    # MERGE the standard recodes onto one analysis unit (ENAHO-combine parallel)
+    women  = endes.combine(range(2004, 2026), level="woman")   # 1 row / woman
+    kids   = endes.combine(2019, level="child")                # 1 row / child + mother
+    endes.tfr(range(2004, 2026))           # Total Fertility Rate per year
 
 Value labels DRIFT across ENDES years -- the same DHS code reads English in 2013
 ('yes', 'Higher') and Spanish later ('si', 'Superior'). endes.value_labels()
@@ -528,6 +533,104 @@ def decode(df, column: str):
         or value_labels(column)
     s = pd.to_numeric(df[column], errors="coerce").astype("Int64").astype(str)
     return s.map(lab)
+
+
+# For endes.combine(): the ANCHOR recode that sets each unit's grain and weight,
+# and the standard recodes merged onto it. Recodes are (module, recode, has) --
+# `has` finds a recode by content when its name drifts across years.
+_LEVEL_KEY = {"woman": "caseid", "birth": "caseid", "child": "caseid",
+              "household": "hhid"}
+_LEVEL_ANCHOR = {
+    "woman": ("mef_datos_basicos", "REC0111", None),
+    "birth": ("historia_nacimientos", None, ["b3"]),
+    "child": ("peso_talla_anemia", "REC44", None),
+    "household": ("hogar", "RECH0", None),
+}
+_LEVEL_MERGE = {
+    # woman: the other woman-level recodes join 1:1 on caseid
+    "woman": [("historia_nacimientos", None, ["v201"]),      # reproduction + v312
+              ("nupcialidad_fecundidad", None, ["v501"]),    # marital / union
+              ("mortalidad_materna_violencia", None, ["d105a"])],  # violence
+    # birth/child: the MOTHER's attributes broadcast to each birth/child
+    "birth": [("mef_datos_basicos", "REC0111", None)],
+    "child": [("mef_datos_basicos", "REC0111", None)],
+    "household": [],
+}
+
+
+def combine(years, *, level: str = "woman", extra=None, true_year: bool = True,
+            harmonize: bool = True, download_if_missing: bool = True,
+            verbose: bool = True):
+    """Merge the standard ENDES recodes onto ONE analysis unit -- the ENAHO
+    combine() parallel for the DHS recode files.
+
+        from perudata import endes
+        w   = endes.combine(range(2004, 2025), level="woman")     # 1 row/woman
+        br  = endes.combine(2019, level="birth")                  # 1 row/birth  + mother
+        ch  = endes.combine(2019, level="child")                  # 1 row/child  + mother
+        hh  = endes.combine(2019, level="household")              # 1 row/household
+
+    ENDES recodes sit at four units -- household (hhid), woman (caseid), birth
+    (caseid+bidx) and child. You cannot stack them into one table; you merge the
+    ones your question needs onto its unit. combine() does that: it loads the
+    anchor recode for `level` (which fixes the grain and the weight), then joins
+    the standard companion recodes on the unit key -- caseid for woman/birth/
+    child, hhid for household -- keeping only columns the anchor does not already
+    have. For level='birth'/'child' the mother's woman-level variables broadcast
+    to every birth/child (as ENAHO broadcasts household vars to persons). Labels
+    stay harmonized (w.attrs['labels']) and true_year fixes the cumulative
+    2004-2008 files.
+
+    extra: additional recodes to merge, each (module, recode, has_list).
+    """
+    import pandas as pd
+    key = _LEVEL_KEY.get(level)
+    if key is None:
+        raise ValueError(f"level must be one of {sorted(_LEVEL_KEY)}, not {level!r}")
+    amod, arec, ahas = _LEVEL_ANCHOR[level]
+    base = dataset(years, amod, arec, has=ahas, true_year=true_year,
+                   harmonize=harmonize, download_if_missing=download_if_missing,
+                   verbose=False)
+    if key not in base.columns:
+        raise KeyError(f"anchor {amod}/{arec or ahas} has no {key} to merge on")
+    base["_k"] = base[key].astype(str).str.replace(r"\s+", "", regex=True)
+    merged = base
+    for mod, rec, hs in list(_LEVEL_MERGE[level]) + list(extra or []):
+        try:
+            add = dataset(years, mod, rec, has=hs, true_year=true_year,
+                          harmonize=False, download_if_missing=download_if_missing,
+                          verbose=False)
+        except Exception as e:
+            if verbose:
+                print(f"[skip] {level} <- {mod}/{rec or hs}: {type(e).__name__}")
+            continue
+        idcol = "caseid" if "caseid" in add.columns else key
+        add["_k"] = add[idcol].astype(str).str.replace(r"\s+", "", regex=True)
+        new = [c for c in add.columns
+               if c not in merged.columns and c not in ("_k", "anio")]
+        if not new:
+            continue
+        merged = merged.merge(add[["anio", "_k"] + new], on=["anio", "_k"],
+                              how="left")
+    merged = merged.drop(columns="_k")
+    if harmonize:
+        # the DHS weight: for birth/child the anchor carries none -- it comes
+        # from the mother's v005, merged in from her recode. Derive wt from
+        # whatever weight the combined table now holds (÷1e6, as DHS requires).
+        if "wt" not in merged.columns:
+            for wname in ("v005", "hv005"):
+                if wname in merged.columns:
+                    merged["wt"] = pd.to_numeric(merged[wname],
+                                                 errors="coerce") / 1e6
+                    break
+        merged.attrs["labels"] = {c: value_labels(c) for c in merged.columns
+                                  if value_labels(c)}
+        merged.attrs["level"] = level
+    if verbose:
+        print(f"ENDES combine level={level}: {merged.shape[0]:,} rows x "
+              f"{merged.shape[1]} cols "
+              f"({merged['anio'].min()}-{merged['anio'].max()})")
+    return merged
 
 
 _ASFR_AGES = [15, 20, 25, 30, 35, 40, 45]

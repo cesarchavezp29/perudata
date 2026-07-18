@@ -989,3 +989,18 @@ def test_endes_discover_code_api():
     assert {"lo", "hi", "module", "verify", "register"} <= set(sig.parameters)
     # a known year returns immediately without probing
     assert endes.discover_code(2024, verbose=False) == endes.ENDES_CODE[2024]
+
+
+def test_endes_combine_levels_and_keys():
+    """endes.combine() is the ENAHO combine() parallel: merge the standard DHS
+    recodes onto one unit. Checks the level->key/anchor tables and the API; the
+    merge itself needs the .sav on disk."""
+    import inspect
+    from perudata import endes
+    assert "level" in inspect.signature(endes.combine).parameters
+    assert endes._LEVEL_KEY == {"woman": "caseid", "birth": "caseid",
+                                "child": "caseid", "household": "hhid"}
+    # every level names an anchor recode and (for woman/birth/child) companions
+    assert endes._LEVEL_ANCHOR["woman"][0] == "mef_datos_basicos"
+    assert endes._LEVEL_ANCHOR["household"][0] == "hogar"
+    assert endes._LEVEL_MERGE["birth"] == [("mef_datos_basicos", "REC0111", None)]
