@@ -151,8 +151,36 @@ def download(years_: list[int] | int, modules_: list | None = None,
 
 
 def files(year: int, module: str | int, out: str | Path | None = None) -> list[Path]:
-    """List the .sav recodes downloaded for a (year, module)."""
-    return sorted(module_dir(year, module, out).glob("**/*.sav"))
+    """List the .sav recodes for a (year, module), whatever the folder layout.
+
+    ENDES is extracted under two conventions in the wild: the package's staged
+    `<m>_<name>` (e.g. 66_mef_datos_basicos) and INEI's own raw `Modulo{NN}` /
+    `{code}-Modulo{NN}`. Match the module by NUMBER so a download made either way
+    (or by another INEI toolkit) is found -- and glob case-insensitively, since
+    early years ship `.SAV` upper-cased."""
+    import re
+    m = resolve_module(year, module)
+    ydir = module_dir(year, module, out).parent          # <root>/endes/<year>_<code>
+    staged = module_dir(year, module, out)
+    savs: set = set()
+    cand = [staged] if staged.is_dir() else []
+    if ydir.is_dir():
+        rx = re.compile(rf"(^|[-_]){m}$", re.I)           # ..Modulo64, 691-Modulo64, 64_hogar
+        for sub in ydir.iterdir():
+            if not sub.is_dir():
+                continue
+            tail = (sub.name.split("Modulo")[-1] if "Modulo" in sub.name
+                    else sub.name.split("_")[0]).strip()      # 'Modulo 66' -> '66'
+            if tail == str(m) or rx.search(sub.name):
+                cand.append(sub)
+    for c in cand:
+        savs |= {p for p in c.glob("**/*.sav")}
+        savs |= {p for p in c.glob("**/*.SAV")}
+    # early years (2004) ship the recodes FLAT in the year folder with no module
+    # subdirectory at all; fall back to those so load(recode=...) can filter them.
+    if not savs and ydir.is_dir():
+        savs |= {p for p in ydir.glob("*.sav")} | {p for p in ydir.glob("*.SAV")}
+    return sorted(savs)
 
 
 def dta_files(year: int, module: str | int, out: str | Path | None = None) -> list[Path]:
@@ -189,7 +217,12 @@ def load(year: int, module: str | int, recode: str | None = None,
     if not savs:
         raise RuntimeError(f"could not obtain ENDES {year} module {module}")
     if recode:
-        hits = [p for p in savs if recode.lower() in p.name.lower()]
+        # match recode name IGNORING separators and case: 'REC0111' must find
+        # 'REC0111.sav', 'REC01_11.sav' (2004) and 'REC0111_2024.sav' (2024).
+        def _norm(s: str) -> str:
+            return "".join(ch for ch in s.lower() if ch.isalnum())
+        want = _norm(recode)
+        hits = [p for p in savs if want in _norm(p.stem)]
         if not hits:
             raise FileNotFoundError(f"no .sav matching {recode!r} in {[p.name for p in savs]}")
         target = hits[0]
