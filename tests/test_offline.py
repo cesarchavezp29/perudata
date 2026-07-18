@@ -917,3 +917,24 @@ def test_endes_value_labels_are_harmonized_across_years():
     assert len(endes.value_labels("v190")) == 5           # wealth quintiles
     # year is accepted but the canonical label is year-independent
     assert endes.value_labels("v106", 2013) == endes.value_labels("v106", 2024)
+
+
+def test_endes_dataset_and_decode_are_wired():
+    """The ENDES one-call loader mirrors perudata.dataset(): pool a recode across
+    years, attach the clean DHS weight and the harmonized labels, and decode a
+    code column to a label that is CONSISTENT across years. This checks the API
+    surface and the decode path without needing the .sav on disk."""
+    import pandas as pd
+    from perudata import endes
+
+    assert callable(endes.dataset) and callable(endes.decode)
+
+    # decode() maps codes to the harmonized label and reads it from attrs first
+    df = pd.DataFrame({"v106": [0, 1, 2, 3, 3]})
+    df.attrs["labels"] = {"v106": endes.value_labels("v106")}
+    out = endes.decode(df, "v106")
+    assert (out == "Superior").sum() == 2          # code 3 -> the ONE canonical label
+    assert set(out.dropna()) <= {"Sin educación", "Primario", "Secundario",
+                                 "Superior"}
+    # falls back to the crosswalk when no attrs are attached
+    assert endes.decode(pd.DataFrame({"v106": [3]}), "v106").iloc[0] == "Superior"

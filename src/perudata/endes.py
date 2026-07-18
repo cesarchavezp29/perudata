@@ -22,6 +22,15 @@ Quickstart
     endes.download(2024, ["peso_talla_anemia"])
     endes.files(2024, "peso_talla_anemia") # the .sav recodes inside
     df = endes.load(2024, "peso_talla_anemia")
+
+    # ONE CALL: download-if-missing + pool + harmonize the whole 2004-2024 span
+    w = endes.dataset(range(2004, 2025), "mef_datos_basicos", "REC0111")
+    w["educ"] = endes.decode(w, "v106")    # 'Superior' every year, not Higher/Mayor
+    # w['anio'] = year, w['wt'] = DHS weight / 1e6, w.attrs['labels'] = the maps
+
+Value labels DRIFT across ENDES years -- the same DHS code reads English in 2013
+('yes', 'Higher') and Spanish later ('si', 'Superior'). endes.value_labels()
+returns ONE canonical label per code so a pooled panel aggregates cleanly.
 """
 from __future__ import annotations
 
@@ -273,3 +282,82 @@ def value_labels(variable: str, year: int | None = None) -> dict:
     symmetry but the canonical label is year-independent by design.
     """
     return dict(_label_table().get(str(variable).lower(), {}))
+
+
+# ---------------------------------------------------------------------------
+# One-call harmonized multi-year loader (the ENDES parallel of dataset())
+# ---------------------------------------------------------------------------
+def dataset(years, module, recode: str | None = None, *,
+            harmonize: bool = True, download_if_missing: bool = True,
+            columns: list[str] | None = None, verbose: bool = True):
+    """Download (if needed) and pool ONE ENDES recode across many years.
+
+    The ENDES parallel of perudata.dataset(): give it a span and a module, and
+    it returns one stacked, harmonized DataFrame ready for a multi-year series.
+
+        from perudata import endes
+        w = endes.dataset(range(2004, 2025), "mef_datos_basicos", "REC0111")
+        # -> women 15-49, every year, one table; w['anio'] is the year,
+        #    w['wt'] the DHS weight already divided by 1e6, and
+        #    w.attrs['labels'] the harmonized {code: label} per column.
+
+    harmonize=True (default):
+      * adds `anio` (survey year) and `wt` (the DHS weight v005/hv005 divided by
+        1e6, as DHS requires) so the panel is analysis-ready;
+      * attaches w.attrs['labels'] = {column: {code: label}} from the canonical
+        crosswalk, so decoding is CONSISTENT across years -- the same code reads
+        the same label in 2004 and 2024 (raw ENDES ships English in early years,
+        Spanish later). Use endes.decode(w, 'v106') or map with value_labels().
+
+    recode: which DHS subfile ('REC0111' women, 'RECH1' hh members, ...). If
+    omitted, the largest .sav in the module is used.
+    """
+    import pandas as pd
+    years = [years] if isinstance(years, int) else list(years)
+    frames, got = [], []
+    for y in years:
+        if y not in ENDES_CODE:
+            continue
+        try:
+            df = load(y, module, recode=recode,
+                      download_if_missing=download_if_missing, columns=columns)
+        except Exception as e:
+            if verbose:
+                print(f"[skip] ENDES {y} {module}/{recode}: "
+                      f"{type(e).__name__}: {str(e)[:70]}")
+            continue
+        df.insert(0, "anio", y)
+        if harmonize:
+            for wname in ("v005", "hv005"):
+                if wname in df.columns:
+                    df["wt"] = pd.to_numeric(df[wname], errors="coerce") / 1e6
+                    break
+        frames.append(df)
+        got.append(y)
+    if not frames:
+        raise RuntimeError(f"no ENDES data loaded for {module}/{recode} in {years}")
+    out = pd.concat(frames, ignore_index=True)
+    if harmonize:
+        labels = {}
+        for c in out.columns:
+            vl = value_labels(c)
+            if vl:
+                labels[c] = vl
+        out.attrs["labels"] = labels
+        out.attrs["years"] = got
+    if verbose:
+        print(f"ENDES {module}/{recode or 'largest'}: {out.shape[0]:,} rows x "
+              f"{out.shape[1]} cols, {len(got)} years ({got[0]}-{got[-1]})")
+    return out
+
+
+def decode(df, column: str):
+    """Map an ENDES code column to its harmonized label (a pandas Series).
+
+    Consistent across years by construction: endes.decode(w, 'v106') reads
+    'Superior' for code 3 in every year, not 'Higher'/'Mayor'/'Superior'."""
+    import pandas as pd
+    lab = (df.attrs.get("labels", {}) or {}).get(column.lower()) \
+        or value_labels(column)
+    s = pd.to_numeric(df[column], errors="coerce").astype("Int64").astype(str)
+    return s.map(lab)
