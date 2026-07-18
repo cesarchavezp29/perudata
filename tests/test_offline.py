@@ -844,3 +844,13 @@ def test_value_labels_surfaces_the_verified_crosswalk():
     p1145 = dic.value_labels("p1145", 2006, "01")
     assert p1145.get("1") == "No tiene"
     assert "5" not in p1145, f"stale code 5 leaked: {p1145}"
+
+
+def test_validate_poverty_accepts_a_bare_year():
+    """poverty(2023) is the natural call; it must not iterate an int. Accepts a
+    single int, a range, or a list -- the flagship gate should not trip on the
+    most obvious usage."""
+    import inspect
+    from perudata import validate
+    src = inspect.getsource(validate.poverty)
+    assert "isinstance(years, int)" in src and "list(years)" in src

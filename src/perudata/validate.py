@@ -70,7 +70,12 @@ def poverty(years: list[int] | None = None, out: str | Path | None = None,
     """Reproduce the official national poverty series. Returns a DataFrame with
     the computed rate, the official rate and their difference per year."""
     import pandas as pd
-    years = years or enaho.years()
+    if years is None:
+        years = enaho.years()
+    elif isinstance(years, int):
+        years = [years]                 # accept a bare year: poverty(2023)
+    else:
+        years = list(years)             # materialize a range/generator
     rows, unfetched = [], []
     for y in years:
         # a year that cannot be fetched must NOT kill the gate: the gate is the
