@@ -494,10 +494,14 @@ def test_internet_device_battery_has_one_meaning_per_code():
         got = set(o[(o.column == col) & (o.code == code)].label.dropna())
         assert got <= {want}, f"{col} code {code} labelled {got}, expected {want!r}"
 
-    # code 0 is 'Pase' for every slot, as the dictionary states
+    # code 0 is 'No marcado': the device battery is multiple-response (a person
+    # using internet marks some devices 1 and leaves others 0), proven by the
+    # 145,846 records where a sibling flag is 1 while another is 0. INEI's
+    # dictionary writes '0.Pase' generically, but behaviourally the 0 is 'did not
+    # use this device', not 'never asked'.
     for col in ("p314b1_7", "p314b1_8", "p314b1_9"):
         got = set(o[(o.column == col) & (o.code == "0")].label.dropna())
-        assert got <= {"Pase"}, f"{col} code 0 labelled {got}"
+        assert got <= {"No marcado"}, f"{col} code 0 labelled {got}"
 
     # and no slot may carry two meanings for one code across years
     for col in ("p314b1_7", "p314b1_8", "p314b1_9"):
@@ -777,3 +781,38 @@ def test_social_and_governance_batteries_are_no_marcado():
     p9 = set(o[(o.module == "85") & (o.column == "p9")
               & (o.code == "0")].label.dropna())
     assert "No marcado" not in p9, "p9 (single-choice) wrongly set to 'No marcado'"
+
+
+def test_multiresponse_batteries_no_marcado_filters_stay_pase():
+    """A package-wide sweep found flag batteries still labelled 'Pase' in
+    modules 01/03/04/05/84 that earlier passes missed. Each was decided by a
+    NON-VACUOUS test: code 0 is 'No marcado' only when the released records show
+    a sibling flag == 1 co-occurring with another == 0 (admin0 >= 30), which
+    proves the battery was administered and the 0 is a deliberate 'not this one'.
+
+    Genuine filter follow-ups, where 0 really is a skip, showed admin0 == 0 and
+    correctly KEPT 'Pase' -- this test pins both outcomes so a future rule cannot
+    over- or under-reach.
+    """
+    import pandas as pd
+    from pathlib import Path
+
+    p = (Path(__file__).parents[1] / "src" / "perudata" / "crosswalks"
+         / "enaho_label_overrides.csv")
+    o = pd.read_csv(p, encoding="utf-8-sig", dtype=str)
+
+    # proven multi-response batteries -> code 0 is 'No marcado'
+    for mod, col in (("04", "p558h1_01"), ("04", "p409_01"), ("05", "p511_01"),
+                     ("84", "p801_01"), ("01", "p1171_01")):
+        got = set(o[(o.module == mod) & (o.column == col)
+                   & (o.code == "0")].label.dropna())
+        if got:
+            assert "Pase" not in got, f"{mod} {col} code 0 back to 'Pase'"
+            assert got <= {"No marcado"}, f"{mod} {col} code 0 = {got}"
+
+    # genuine filter follow-ups (admin0 == 0) -> code 0 stays 'Pase'
+    for mod, col in (("05", "p524a1"), ("05", "p538b1")):
+        got = set(o[(o.module == mod) & (o.column == col)
+                   & (o.code == "0")].label.dropna())
+        if got:
+            assert "No marcado" not in got, f"{mod} {col} wrongly set 'No marcado'"

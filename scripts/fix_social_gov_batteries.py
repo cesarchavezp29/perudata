@@ -38,17 +38,37 @@ from perudata import enaho  # noqa: E402
 
 ROOT = Path(__file__).parents[1]
 XW = ROOT / "src" / "perudata" / "crosswalks" / "enaho_label_overrides.csv"
-MODULES = ["37", "85"]
+MODULES = os.environ.get("PERUDATA_MODULES", "37,85").split(",")
 
 
 def stem_of(col: str) -> str:
-    return re.sub(r"_?\d+$", "", col)
+    """Strip ONE trailing index level only. 'p401d1'->'p401d', 'p22a_1_01'->
+    'p22a_1', 'p8_2'->'p8'. Stripping ALL trailing digits ('p2591'->'p') would
+    pool unrelated variables under a bare 'p', so a battery is recognised only
+    when the shared stem is specific (>=2 chars, not a lone letter)."""
+    return re.sub(r"(_\d+|\d)$", "", col)
 
 
 def battery_ok(mod: str, family: list) -> tuple[bool, int, int]:
-    """(passes, total out-of-universe 0-rows, total mark2+) across all years."""
+    """Is code 0 provably 'No marcado' on this family? Returns (passes, admin0,
+    zero_only).
+
+    The proof must be NON-VACUOUS. 'A 0-cell sits in an administered row' is
+    tautological -- a 0 is non-NA by definition. The real evidence that 0 means
+    'asked and not selected' is a row where this family has a sibling == 1 AND
+    another sibling == 0 at the same time: the 1 proves the battery was applied,
+    so the co-occurring 0 is a deliberate 'not this one', not a skip.
+
+    Also enforces that the family is a genuine set of {0, k} FLAGS. A column that
+    is not a flag (holds several positive codes -- a single-choice question) is
+    dropped, so distinct questions that merely share a stem prefix (p501, p502)
+    cannot be pooled into a spurious battery.
+
+      admin0     rows where some flag == 1 and some flag == 0 (the proof)
+      zero_only  in-universe rows where every flag == 0 (asked, marked none)
+    """
     fam = [c.lower() for c in family]
-    out_total = multi_total = years = 0
+    admin0 = zero_only = flag_years = 0
     for y in enaho.years():
         p = enaho.path(y, mod)
         if not p.exists():
@@ -62,13 +82,23 @@ def battery_ok(mod: str, family: list) -> tuple[bool, int, int]:
             continue
         df, _ = pyreadstat.read_dta(str(p), usecols=present)
         v = df.apply(pd.to_numeric, errors="coerce")
-        inuni = ~v.isna().all(axis=1)
-        has0 = (v == 0).any(axis=1)
-        out_total += int((has0 & ~inuni).sum())
-        multi_total += int(((v > 0).sum(axis=1)[inuni] >= 2).sum())
-        years += 1
-    passes = years > 0 and out_total == 0 and multi_total > 0
-    return passes, out_total, multi_total
+        # keep only genuine {0, k} flags: <=1 distinct positive value
+        flags = [c for c in present
+                 if v[c][v[c] > 0].nunique() <= 1]
+        if len(flags) < 2:
+            continue
+        w = v[flags]
+        has1 = (w == 1).any(axis=1)
+        has0 = (w == 0).any(axis=1)
+        inuni = ~w.isna().all(axis=1)
+        admin0 += int((has1 & has0).sum())
+        zero_only += int((inuni & ~has1 & has0).sum())
+        flag_years += 1
+    # require a ROBUST count, not a single record: one co-occurrence cannot
+    # establish that 0 means 'administered, not selected' (the estrsocial
+    # one-row lesson). 30 mirrors the noise-decline floor used elsewhere.
+    passes = flag_years > 0 and admin0 >= 30
+    return passes, admin0, zero_only
 
 
 def main(apply: bool) -> int:
@@ -96,6 +126,10 @@ def main(apply: bool) -> int:
         print(f"\n=== module {mod}: {len(z)} code-0 'Pase' rows, "
               f"{len(fams)} candidate stems")
         for stem, cols in sorted(fams.items()):
+            if len(stem) < 2:
+                print(f"   {stem!r}: single-letter stem pools unrelated "
+                      f"variables -> KEEP 'Pase' ({sorted(cols)[:4]})")
+                continue
             rx = re.compile(re.escape(stem) + r"_?\d+$")
             # discover full family from a year's columns
             family = set(cols)
@@ -112,26 +146,26 @@ def main(apply: bool) -> int:
             if len(family) < 2:
                 print(f"   {stem}*: single column, NOT a battery -> keep 'Pase'")
                 continue
-            ok, out, multi = battery_ok(mod, sorted(family))
+            ok, admin0, zero_only = battery_ok(mod, sorted(family))
             m = ((o.module == mod) & o.column.isin(cols)
                  & (o.code == "0") & (o.label == "Pase"))
             n = int(m.sum())
             if ok:
                 o.loc[m, "label"] = "No marcado"
                 o.loc[m, "evidence"] = (
-                    f"MULTIPLE-RESPONSE FLAG, proven administered. {stem}* is a "
-                    f"battery of {len(family)} slots; every code-0 cell sits in a "
-                    f"row where the battery was administered (out-of-universe "
-                    f"0-rows = {out} across all years) and the family is "
-                    f"multi-response ({multi} rows mark 2+). Code 0 is 'No "
+                    f"MULTIPLE-RESPONSE FLAG, proven administered by the released "
+                    f"records. {stem}* is a battery of {len(family)} {{0,k}} flag "
+                    f"slots. In {admin0:,} records a sibling flag is set to 1 while "
+                    f"another is 0, so the battery WAS applied and the co-occurring "
+                    f"0 is a deliberate 'not this one', not a skip. Code 0 is 'No "
                     f"marcado' -- asked and not selected -- not 'Pase' (never "
-                    f"asked); out-of-universe rows are NA, not 0.")
+                    f"asked); the not-asked rows are NA, not 0.")
                 total += n
                 print(f"   {stem}* ({len(family)} slots): {n} rows -> 'No marcado' "
-                      f"(out={out}, multi={multi})")
+                      f"(admin0={admin0:,}, zero_only={zero_only:,})")
             else:
                 print(f"   {stem}* ({len(family)} slots): KEEP 'Pase' "
-                      f"(out={out}, multi={multi}) -- not an exhaustive battery")
+                      f"(admin0={admin0}) -- no sibling proves it was administered")
     if not apply:
         print("\n(dry run -- pass --apply to write)")
         return 0
