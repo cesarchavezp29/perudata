@@ -854,3 +854,22 @@ def test_validate_poverty_accepts_a_bare_year():
     from perudata import validate
     src = inspect.getsource(validate.poverty)
     assert "isinstance(years, int)" in src and "list(years)" in src
+
+
+def test_battery_code0_is_consistent_across_the_full_span():
+    """One code, one meaning across 2004-2025. value_labels() overlays the
+    crosswalk on INEI's .dta, but where the crosswalk was incomplete the raw
+    .dta 'pase' leaked through in some years while the crosswalk said 'No
+    marcado' in others -- so a pooled panel saw the same battery slot change
+    meaning mid-series (p314b1_8: 'pase' 2019, 'No marcado' 2021). The crosswalk
+    was completed so code 0 reads the same in every year the battery exists.
+    """
+    from perudata import dictionary as dic
+
+    for col, mod in (("p314b1_8", "03"), ("p1121", "01"), ("p558h1_1", "05")):
+        seen = {dic.value_labels(col, y, mod).get("0")
+                for y in range(2004, 2026)}
+        seen.discard(None)
+        assert "pase" not in {s.lower() for s in seen}, \
+            f"{col} code 0 still leaks 'pase': {seen}"
+        assert seen <= {"No marcado"}, f"{col} code 0 varies by year: {seen}"
