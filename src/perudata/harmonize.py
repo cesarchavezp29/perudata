@@ -127,7 +127,7 @@ def available() -> list[str]:
     d = resources.files("perudata").joinpath("crosswalks")
     return sorted(Path(str(p)).stem for p in d.iterdir()
                   if str(p).endswith(".csv") and "_auto_" not in str(p)
-                  and "_label_overrides" not in str(p))
+                  and "_label_" not in str(p))
 
 
 def stability(module: str | int, status: str | None = None):

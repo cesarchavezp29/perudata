@@ -1,0 +1,4287 @@
+variable,code,year,was,canonical
+b0,4,2013,4th of multiple,4to. de nacimiento múltiple
+b0,5,2013,5th of multiple,5to. de nacimiento múltiple
+b0,2,2013,2nd of multiple,2do. de nacimineto múltipe
+b0,3,2013,3rd of multiple,3ero. de nacimiento múltiple
+b0,0,2013,Single birth,Nacimiento único
+b0,1,2013,1st of multiple,1ero. de nacimiento múltiple
+b10,4,2013,Y & age - y ignored,Año y edad - año ignorado
+b10,5,2013,"Year - a, m imp","Año - edad, mes imputado"
+b10,6,2013,"Age - y, m imp","Edad - año, mes imputado"
+b10,7,2013,"Month - a, y imp","Mes - edad, año imputado"
+b10,2,2013,Month and age -y imp,Mes y edad - año imputado
+b10,8,2013,None - all imp,Ninguno - todos imputados
+b10,3,2013,Year and age - m imp,Año y edad - mes imputado
+b10,1,2013,Month and year,Mes y año
+b13,4,2013,< first breastfed,primeramente amamantado
+b13,5,2013,< last vaccination,última vacunación
+b13,6,2013,Outside range,Rango exterior
+b13,7,2013,"Imputed, units given","Imputación, unidades dadas"
+b13,2,2013,< breastfeeding,lactancia
+b13,8,2013,"Imputed, no units","Imputado, no hay unidades"
+b13,3,2013,< age supplemented,edad suplementada
+b13,0,2013,No flag,Sin bandera
+b13,1,2013,> interview,entrevista
+b15,1,2013,Yes,Sí
+b16,0,2013,Not listed in household,No  listado en el hogar
+b4,2,2013,Female,Femenino
+b4,1,2013,Male,Masculino
+b5,1,2013,Yes,Sí
+b6,998,2013,Don't know,No sabe
+b6,997,2013,Inconsistent,Inconsistente
+b9,4,2013,Lives elsewhere,Vive en otro lugar
+b9,2,2013,Other relative,Otro pariente
+b9,3,2013,Someone else,Alguien más
+b9,0,2013,Respondent,Entrevistada
+b9,1,2013,Father,Padre
+d101a,1,2013,Yes,Si
+d101a,8,2013,DK,No sabe
+d101b,1,2013,Yes,Si
+d101b,8,2013,DK,No sabe
+d101c,1,2013,Yes,Si
+d101c,8,2013,DK,No sabe
+d101d,1,2013,Yes,Si
+d101d,8,2013,DK,No sabe
+d101e,1,2013,Yes,Si
+d101e,8,2013,DK,No sabe
+d101f,1,2013,Yes,Si
+d101f,8,2013,DK,No sabe
+d101g,1,2013,Yes,Si
+d101g,8,2013,DK,No sabe
+d101h,1,2013,Yes,Si
+d101h,8,2013,DK,No sabe
+d101i,1,2013,Yes,Si
+d101i,8,2013,DK,No sabe
+d101j,1,2013,Yes,Si
+d101j,8,2013,DK,No sabe
+d103a,2,2013,Sometimes,Algunas veces
+d103a,3,2013,Not at all,Nunca
+d103a,1,2013,often,Frecuentemente
+d103b,2,2013,Sometimes,Algunas veces
+d103b,3,2013,Not at all,Nunca
+d103b,1,2013,often,Frecuentemente
+d103c,2,2013,Sometimes,Algunas veces
+d103c,3,2013,Not at all,Nunca
+d103c,1,2013,often,Frecuentemente
+d103d,2,2013,Sometimes,Algunas veces
+d103d,3,2013,Not at all,Nunca
+d103d,1,2013,often,Frecuentemente
+d103e,2,2013,Sometimes,Algunas veces
+d103e,3,2013,Not at all,Nunca
+d103e,1,2013,often,Frecuentemente
+d103f,2,2013,Sometimes,Algunas veces
+d103f,3,2013,Not at all,Nunca
+d103f,1,2013,often,Frecuentemente
+d104,1,2013,Yes,Si
+d105a,2,2013,Sometimes,Algunas veces
+d105a,3,2013,Not at all,Nunca
+d105a,1,2013,often,Frecuentemente
+d105b,2,2013,Sometimes,Algunas veces
+d105b,3,2013,Not at all,Nunca
+d105b,1,2013,often,Frecuentemente
+d105c,2,2013,Sometimes,Algunas veces
+d105c,3,2013,Not at all,Nunca
+d105c,1,2013,often,Frecuentemente
+d105d,2,2013,Sometimes,Algunas veces
+d105d,3,2013,Not at all,Nunca
+d105d,1,2013,often,Frecuentemente
+d105e,2,2013,Sometimes,Algunas veces
+d105e,3,2013,Not at all,Nunca
+d105e,1,2013,often,Frecuentemente
+d105f,2,2013,Sometimes,Algunas veces
+d105f,3,2013,Not at all,Nunca
+d105f,1,2013,often,Frecuentemente
+d105g,2,2013,Sometimes,Algunas veces
+d105g,3,2013,Not at all,Nunca
+d105g,1,2013,often,Frecuentemente
+d105h,2,2013,Sometimes,Algunas veces
+d105h,3,2013,Not at all,Nunca
+d105h,1,2013,often,Frecuentemente
+d105i,2,2013,Sometimes,Algunas veces
+d105i,3,2013,Not at all,Nunca
+d105i,1,2013,often,Frecuentemente
+d105j,2,2013,Sometimes,Algunas veces
+d105j,3,2013,Not at all,Nunca
+d105j,1,2013,often,Frecuentemente
+d105k,2,2013,Sometimes,Algunas veces
+d105k,3,2013,Not at all,Nunca
+d105k,1,2013,often,Frecuentemente
+d105l,2,2013,Sometimes,Algunas veces
+d105l,3,2013,Not at all,Nunca
+d105l,1,2013,often,Frecuentemente
+d105m,2,2013,Sometimes,Algunas veces
+d105m,3,2013,Not at all,Nunca
+d105m,1,2013,often,Frecuentemente
+d105n,2,2013,Sometimes,Algunas veces
+d105n,3,2013,Not at all,Nunca
+d105n,1,2013,often,Frecuentemente
+d106,1,2013,Yes (D105A-D),"Si (D105 A, B, C o D)"
+d107,1,2013,Yes (D105E-G),"Si (D105 E, F o G)"
+d108,1,2013,Yes (D105H-I),Si (D105 H o I)
+d109,96,2013,After separation/divorce,Después de la separación/divorcio
+d109,95,2013,Before union,Antes de la union
+d109,98,2013,Don't know,No sabe
+d110a,1,2013,Yes,Si
+d110b,1,2013,Yes,Si
+d110c,1,2013,Yes,Si
+d110d,1,2013,Yes,Si
+d110e,1,2013,Yes,Si
+d110f,1,2013,Yes,Si
+d110g,1,2013,Yes,Si
+d110h,1,2013,Yes,Si
+d111,1,2013,Yes (D110A-C),Si (D110A-C)
+d112,1,2013,Yes,Si
+d112a,1,2013,Often,Mucha frecuencia
+d112a,2,2013,Sometimes,Algunas veces
+d112a,0,2013,Not at all,Nunca
+d112a,8,2013,DK,No sabe
+d113,1,2013,Yes,Si
+d114,2,2013,Sometimes,Algunas veces
+d114,0,2013,Never,Nunca
+d114,1,2013,Often,Mucha frecuencia
+d115b,1,2013,Yes,Sí
+d115b,8,2013,Didn't respond,No respondio
+d115c,1,2013,Yes,Sí
+d115c,8,2013,Didn't respond,No respondio
+d115d,1,2013,Yes,Sí
+d115d,8,2013,Didn't respond,No respondio
+d115e,1,2013,Yes,Sí
+d115e,8,2013,Didn't respond,No respondio
+d115f,1,2013,Yes,Sí
+d115f,8,2013,Didn't respond,No respondio
+d115g,1,2013,Yes,Sí
+d115g,8,2013,Didn't respond,No respondio
+d115h,1,2013,Yes,Sí
+d115h,8,2013,Didn't respond,No respondio
+d115i,1,2013,Yes,Sí
+d115i,8,2013,Didn't respond,No respondio
+d115j,1,2013,Yes,Sí
+d115j,8,2013,Didn't respond,No respondio
+d115k,1,2013,Yes,Sí
+d115k,8,2013,Didn't respond,No respondio
+d115l,1,2013,Yes,Sí
+d115l,8,2013,Didn't respond,No respondio
+d115m,1,2013,Yes,Sí
+d115m,8,2013,Didn't respond,No respondio
+d115n,1,2013,Yes,Sí
+d115n,8,2013,Didn't respond,No respondio
+d115o,1,2013,Yes,Sí
+d115o,8,2013,Didn't respond,No respondio
+d115p,1,2013,Yes,Sí
+d115p,8,2013,Didn't respond,No respondio
+d115q,1,2013,Yes,Sí
+d115q,8,2013,Didn't respond,No respondio
+d115r,1,2013,Yes,Sí
+d115r,8,2013,Didn't respond,No respondio
+d115s,1,2013,Yes,Sí
+d115s,8,2013,Didn't respond,No respondio
+d115t,1,2013,Yes,Sí
+d115t,8,2013,Didn't respond,No respondio
+d115u,1,2013,Yes,Sí
+d115u,8,2013,Didn't respond,No respondio
+d115v,1,2013,Yes,Sí
+d115v,8,2013,Didn't respond,No respondio
+d115w,1,2013,Yes,Sí
+d115w,8,2013,Didn't respond,No respondio
+d115x,1,2013,Yes,Sí
+d115x,8,2013,Didn't respond,No respondio
+d115xa,1,2013,Yes,Sí
+d115xa,8,2013,Didn't respond,No respondio
+d115xb,1,2013,Yes,Sí
+d115xb,8,2013,Didn't respond,No respondio
+d115xc,1,2013,Yes,Sí
+d115xc,8,2013,Didn't respond,No respondio
+d115xd,1,2013,Yes,Sí
+d115xd,8,2013,Didn't respond,No respondio
+d115xe,1,2013,Yes,Sí
+d115xe,8,2013,Didn't respond,No respondio
+d115xf,1,2013,Yes,Sí
+d115xf,8,2013,Didn't respond,No respondio
+d115xg,1,2013,Yes,Sí
+d115xg,8,2013,Didn't respond,No respondio
+d115xh,1,2013,Yes,Sí
+d115xh,8,2013,Didn't respond,No respondio
+d115xi,1,2013,Yes,Sí
+d115xi,8,2013,Didn't respond,No respondio
+d115xj,1,2013,Yes,Sí
+d115xj,8,2013,Didn't respond,No respondio
+d115xk,1,2013,Yes,Sí
+d115xk,8,2013,Didn't respond,No respondio
+d115y,1,2013,No one ever physically hurt her,Nadie la lastimó físicamente
+d115y,0,2013,Someone physically hurt her,Alguien la lastimó físicamente
+d115y,8,2013,Didn't respond,No respondio
+d116,17,2013,"Male friend, acquaintance",Amigo/conocido
+d116,5,2013,Sister,Hermana
+d116,19,2013,Employer,Empleador(a)
+d116,96,2013,Other,Otra
+d116,1,2013,Mother,Madre
+d116,8,2013,Son,Hijo
+d116,4,2013,Step father,Padrastro
+d116,20,2013,Stranger,Extraño(a)
+d116,7,2013,Daughter,Hija
+d116,16,2013,"Female friend, acquaintance",Amiga/conocida
+d116,18,2013,Teacher,Maestro(a)/Profesor(a)
+d116,10,2013,Mother-in-law,Suegra
+d116,6,2013,Brother,Hermano
+d116,12,2013,Other female in-law,Otro familiar femenino del esposo
+d116,11,2013,Father-in-law,Suegro
+d116,14,2013,Other female relative,Otro pariente femenino
+d116,13,2013,Other male in-law,Otro familiar masculino del esposo
+d116,15,2013,Other male relative,Otro pariente masculino
+d116,2,2013,Father,Padre
+d116,9,2013,Former partner,Ex-esposo/ex-compañero
+d116,3,2013,Step mother,Madrastra
+d117a,2,2013,Sometimes,Algunas veces
+d117a,0,2013,Not at all,De ningún modo
+d117a,1,2013,Often,A menudo
+d118a,1,2013,Yes,Si
+d118b,1,2013,Yes,Si
+d118c,1,2013,Yes,Si
+d118d,1,2013,Yes,Si
+d118e,1,2013,Yes,Si
+d118f,1,2013,Yes,Si
+d118g,1,2013,Yes,Si
+d118h,1,2013,Yes,Si
+d118i,1,2013,Yes,Si
+d118j,1,2013,Yes,Si
+d118k,1,2013,Yes,Si
+d118l,1,2013,Yes,Si
+d118m,1,2013,Yes,Si
+d118n,1,2013,Yes,Si
+d118o,1,2013,Yes,Si
+d118p,1,2013,Yes,Si
+d118q,1,2013,Yes,Si
+d118r,1,2013,Yes,Si
+d118s,1,2013,Yes,Si
+d118t,1,2013,Yes,Si
+d118u,1,2013,Yes,Si
+d118v,1,2013,Yes,Si
+d118w,1,2013,Yes,Si
+d118x,1,2013,Yes,Si
+d118xa,1,2013,Yes,Si
+d118xb,1,2013,Yes,Si
+d118xc,1,2013,Yes,Si
+d118xd,1,2013,Yes,Si
+d118xe,1,2013,Yes,Si
+d118xf,1,2013,Yes,Si
+d118xg,1,2013,Yes,Si
+d118xh,1,2013,Yes,Si
+d118xi,1,2013,Yes,Si
+d118xj,1,2013,Yes,Si
+d118xk,1,2013,Yes,Si
+d118y,0,2013,Someone hurt her during preganacy,Alguien la lastimó durante la gestación
+d118y,1,2013,No one hurt her during preganacy,Nadie la lastimó durante la gestación
+d119a,1,2013,Yes,Si
+d119b,1,2013,Yes,Si
+d119c,1,2013,Yes,Si
+d119d,1,2013,Yes,Si
+d119e,1,2013,Yes,Si
+d119f,1,2013,Yes,Si
+d119g,1,2013,Yes,Si
+d119h,1,2013,Yes,Si
+d119i,1,2013,Yes,Si
+d119j,1,2013,Yes,Si
+d119k,1,2013,Yes,Si
+d119l,1,2013,Yes,Si
+d119m,1,2013,Yes,Si
+d119n,1,2013,Yes,Si
+d119o,1,2013,Yes,Si
+d119p,1,2013,Yes,Si
+d119q,1,2013,Yes,Si
+d119r,1,2013,Yes,Si
+d119s,1,2013,Yes,Si
+d119t,1,2013,Yes,Si
+d119u,1,2013,Yes,Si
+d119v,1,2013,Yes,Si
+d119w,1,2013,Yes,Si
+d119x,1,2013,Yes,Si
+d119xa,1,2013,Yes,Si
+d119xb,1,2013,Yes,Si
+d119xc,1,2013,Yes,Si
+d119xd,1,2013,Yes,Si
+d119xe,1,2013,Yes,Si
+d119xf,1,2013,Yes,Si
+d119xg,1,2013,Yes,Si
+d119xh,1,2013,Yes,Si
+d119xi,1,2013,Yes,Si
+d119xj,1,2013,Yes,Si
+d119xk,1,2013,Yes,Si
+d119y,0,2013,Sought help from someone,Buscó ayuda de alguien
+d119y,1,2013,No help was sought,No buscó ayuda
+d120,5,2013,Afraid of divorce,Miedo al divorcio/separación
+d120,6,2013,Afraid of further beating,Miedo a que le pegara de neuvo a ella o a sus hijas e hijos
+d120,96,2013,Other,Otro
+d120,8,2013,Embarrassed,Vergüenza
+d120,1,2013,Don't know where to go,No sabe donde ir/no conoce servicios
+d120,4,2013,It is part of life,Es parte de la vida
+d120,7,2013,Afraid of getting the person in trouble,Miedo de causarle un problema a la persona que le pego
+d120,2,2013,It was not necessary,No era necesario
+d120,9,2013,It was her fault,Ella tenía la culpa
+d120,3,2013,It is of no use,No sirve de nada
+d121,1,2013,Yes,Sí
+d121,8,2013,DK,No sabe
+d122a,2,2013,"Yes, more than once",Si mas de una vez
+d122a,1,2013,"Yes, once","Si, una vez"
+d122b,2,2013,"Yes, more than once",Si mas de una vez
+d122b,1,2013,"Yes, once","Si, una vez"
+d122c,2,2013,"Yes, more than once",Si mas de una vez
+d122c,1,2013,"Yes, once","Si, una vez"
+d123,2,2013,Forced to,Forzado a
+d123,3,2013,Refused to answer / no response,Se negó a responder/no respondió
+d123,1,2013,Wanted to,Quería
+d124,6,2013,Refused to answer / no response,Se negó a responder/no respondió
+d124,1,2013,Yes,Sí
+d125,3,2013,Refused to answer / no response,Se negó a responder/no respondió
+d125,1,2013,Yes,Sí
+d126,98,2013,Don't know,No sabe
+d127,5,2013,Step father,Padrastro
+d127,6,2013,Other relative,Otro pariente
+d127,12,2013,Police / soldier,Policía/soldado
+d127,11,2013,Employer / someone at work,Empleador/alguien en el trabajo
+d127,14,2013,Stranger,Desconocido
+d127,96,2013,Other,Otro
+d127,1,2013,Current husband / partner,Esposo actual/pareja
+d127,8,2013,Own friend / acquaintance,Propio amigo/conocido
+d127,4,2013,Father,Padre
+d127,7,2013,In-law,Consuegro
+d127,13,2013,Priest / religious leader,Sacerdote/líder religioso
+d127,2,2013,Former husband / partner,Ex marido/pareja
+d127,9,2013,Family friend,Amigo de la familia
+d127,3,2013,Current / former boyfriend,Actual/ex novio
+d127,10,2013,Teacher,Profesor
+d128,1,2013,Yes,Si
+h0,1,2013,Vacc. date on card,Vacuna fecha en la tarjeta
+h0,2,2013,Reported by mother,Reportado por la madre
+h0,3,2013,Vacc. marked on card,Vacuna marcado en la tarjeta
+h0,8,2013,DK,No sabe
+h0d,97,2013,Inconsistent,Inconsistente
+h0d,98,2013,DK,No sabe
+h0m,97,2013,Inconsistent,Inconsistente
+h0m,98,2013,DK,No sabe
+h0y,9997,2013,Inconsistent,Inconsistente
+h0y,9998,2013,DK,No sabe
+h1,2,2013,"Yes, not seen","Sí, no vista"
+h1,3,2013,No longer has card,Ya no tiene tarjeta
+h1,0,2013,No card,Sin tarjeta
+h1,1,2013,"Yes, seen","Sí, vista"
+h10,1,2013,Yes,"Sí, las últimas 24 horas"
+h10,8,2013,Don't know,No sabe
+h11,1,2013,"Yes, last 24 hours","Sí, las últimas 24 horas"
+h11,2,2013,"Yes, last two weeks","Sí, las últimas dos semanas"
+h11,8,2013,Don't know,No sabe
+h11b,1,2013,Yes,Si
+h11b,8,2013,Don't know,No sabe
+h12a,1,2013,Yes,Si
+h12b,1,2013,Yes,Si
+h12c,1,2013,Yes,Si
+h12d,1,2013,Yes,Si
+h12e,1,2013,Yes,Si
+h12f,1,2013,Yes,Si
+h12g,1,2013,Yes,Si
+h12h,1,2013,Yes,Si
+h12i,1,2013,Yes,Si
+h12j,1,2013,Yes,Si
+h12k,1,2013,Yes,Si
+h12l,1,2013,Yes,Si
+h12m,1,2013,Yes,Si
+h12n,1,2013,Yes,Si
+h12o,1,2013,Yes,Si
+h12p,1,2013,Yes,Si
+h12q,1,2013,Yes,Si
+h12r,1,2013,Yes,Si
+h12s,1,2013,Yes,Si
+h12t,1,2013,Yes,Si
+h12u,1,2013,Yes,Si
+h12v,1,2013,Yes,Si
+h12w,1,2013,Yes,Si
+h12x,1,2013,Yes,Si
+h12y,0,2013,No: received treatm.,Si recibió tratamiento
+h12y,1,2013,Yes: no treatment,No recibió tratamiento
+h12z,1,2013,Yes,Si
+h13,1,2013,Yes: ORS - spontan.,1 Sí: SRO - espontáneo
+h13,2,2013,Yes: ORS - probed,2 Sí: SRO - sondeó
+h13,8,2013,Don't know,8 No sabe
+h13b,1,2013,Yes,Si
+h13b,8,2013,Don't know,No sabe
+h14,1,2013,Yes: RHS - spontan.,1 Sí: RHS - espontáneo
+h14,2,2013,Yes: RHS - probed,2 Sí: RHS - sondeó
+h14,8,2013,Don't know,8 No sabe
+h15,1,2013,Yes,Si
+h15,8,2013,Don't know,No sabe
+h15a,1,2013,Yes,Si
+h15a,8,2013,Don't know,No sabe
+h15b,1,2013,Yes,Si
+h15b,8,2013,Don't know,No sabe
+h15c,1,2013,Yes,Si
+h15c,8,2013,Don't know,No sabe
+h15d,1,2013,Yes,Si
+h15d,8,2013,Don't know,No sabe
+h15e,1,2013,Yes,Si
+h15e,8,2013,Don't know,No sabe
+h15f,1,2013,Yes,Si
+h15f,8,2013,Don't know,No sabe
+h15g,1,2013,Yes,Si
+h15g,8,2013,Don't know,No sabe
+h15h,1,2013,Yes,Si
+h15h,8,2013,Don't know,No sabe
+h15i,1,2013,Yes,Si
+h15i,8,2013,Don't know,No sabe
+h15j,1,2013,Yes,Si
+h15j,8,2013,Don't know,No sabe
+h15k,1,2013,Yes,Si
+h15k,8,2013,Don't know,No sabe
+h15l,1,2013,Yes,Si
+h15l,8,2013,Don't know,No sabe
+h15m,1,2013,Yes,Si
+h15m,8,2013,Don't know,No sabe
+h2,1,2013,Vacc. date on card,Vacuna fecha en la tarjeta
+h2,2,2013,Reported by mother,Reportado por la madre
+h2,3,2013,Vacc. marked on card,Vacuna marcado en la tarjeta
+h2,8,2013,DK,No sabe
+h20,1,2013,Yes,Si
+h21,1,2013,Yes,Si
+h21a,1,2013,Yes: no treatment,No recibió tratamiento
+h21a,0,2013,No: received treatm.,Si recibió tratamiento
+h21a,8,2013,DK,No sabe
+h22,1,2013,Yes,Si
+h22,8,2013,DK,No sabe
+h2d,97,2013,Inconsistent,Inconsistente
+h2d,98,2013,DK,No sabe
+h2m,97,2013,Inconsistent,Inconsistente
+h2m,98,2013,DK,No sabe
+h2y,9997,2013,Inconsistent,Inconsistente
+h2y,9998,2013,DK,No sabe
+h3,1,2013,Vacc. date on card,Vacuna fecha en la tarjeta
+h3,2,2013,Reported by mother,Reportado por la madre
+h3,3,2013,Vacc. marked on card,Vacuna marcado en la tarjeta
+h3,8,2013,DK,No sabe
+h31,1,2013,"Yes, last 24 hours","Sí, las últimas 24 horas"
+h31,2,2013,"Yes, last two weeks","Sí, las últimas dos semanas"
+h31,8,2013,Don't know,No sabe
+h31b,1,2013,Yes,Si
+h31b,8,2013,DK,No sabe
+h31c,6,2013,Other,Otro
+h31c,1,2013,Chest only,Solo pecho
+h31c,2,2013,Nose only,Solo nariz
+h31c,3,2013,Both,Ambos
+h31c,8,2013,Don't know,No sabe
+h31d,4,2013,About the same,La misma cantidad
+h31d,5,2013,More,Más
+h31d,2,2013,Much less,Mucho menos
+h31d,3,2013,Somewhat less,Algo menos
+h31d,0,2013,Nothing to drink,Nada para beber
+h31d,8,2013,Don't know,No sabe
+h31e,4,2013,About the same,La misma cantidad
+h31e,5,2013,More,Más
+h31e,1,2013,Never gave food,Nunca dio comida
+h31e,2,2013,Much less,Mucho menos
+h31e,3,2013,Somewhat less,Algo menos
+h31e,0,2013,Stopped food,Nada de comer
+h31e,8,2013,Don't know,No sabe
+h32a,1,2013,Yes,Si
+h32b,1,2013,Yes,Si
+h32c,1,2013,Yes,Si
+h32d,1,2013,Yes,Si
+h32e,1,2013,Yes,Si
+h32f,1,2013,Yes,Si
+h32g,1,2013,Yes,Si
+h32h,1,2013,Yes,Si
+h32i,1,2013,Yes,Si
+h32j,1,2013,Yes,Si
+h32k,1,2013,Yes,Si
+h32l,1,2013,Yes,Si
+h32m,1,2013,Yes,Si
+h32n,1,2013,Yes,Si
+h32o,1,2013,Yes,Si
+h32p,1,2013,Yes,Si
+h32q,1,2013,Yes,Si
+h32r,1,2013,Yes,Si
+h32s,1,2013,Yes,Si
+h32t,1,2013,Yes,Si
+h32u,1,2013,Yes,Si
+h32v,1,2013,Yes,Si
+h32w,1,2013,Yes,Si
+h32x,1,2013,Yes,Si
+h32y,0,2013,No: received treatm.,Si recibió tratamiento
+h32y,1,2013,Yes: no treatment,No recibió tratamiento
+h32z,1,2013,Yes,Si
+h33,1,2013,Vacc. date on card,Fecha de vacuna en tarjeta
+h33,2,2013,Reported by mother,Reportado por la madre
+h33,3,2013,Vacc. marked on card,Vacuna señalada en tarjeta
+h33,8,2013,DK,No sabe
+h33d,97,2013,Inconsistent,Inconsistente
+h33d,98,2013,DK,No sabe
+h33m,97,2013,Inconsistent,Inconsistente
+h33m,98,2013,DK,No sabe
+h33y,9997,2013,Inconsistent,Inconsistente
+h33y,9998,2013,DK,No sabe
+h34,1,2013,Yes,Si
+h34,8,2013,Don't know,No sabe
+h35,1,2013,Yes,Si
+h35,8,2013,Don't know,No sabe
+h36a,1,2013,Yes,Si
+h36a,8,2013,DK,No sabe
+h36b,1,2013,Yes,Si
+h36b,8,2013,DK,No sabe
+h36c,1,2013,Yes,Si
+h36c,8,2013,DK,No sabe
+h36d,1,2013,Yes,Si
+h36d,8,2013,DK,No sabe
+h36e,1,2013,Yes,Si
+h36e,8,2013,DK,No sabe
+h36f,1,2013,Yes,Si
+h36f,8,2013,DK,No sabe
+h37a,1,2013,Yes,Si
+h37b,1,2013,Yes,Si
+h37c,1,2013,Yes,Si
+h37d,1,2013,Yes,Si
+h37e,1,2013,Yes,Si
+h37f,1,2013,Yes,Si
+h37g,1,2013,Yes,Si
+h37h,1,2013,Yes,Si
+h37i,1,2013,Yes,Si
+h37j,1,2013,Yes,Si
+h37k,1,2013,Yes,Si
+h37l,1,2013,Yes,Si
+h37m,1,2013,Yes,Si
+h37n,1,2013,Yes,Si
+h37o,1,2013,Yes,Si
+h37p,1,2013,Yes,Si
+h37x,1,2013,Yes,Si
+h37y,1,2013,"Yes, nothing taken",Si
+h37z,1,2013,"Yes, DK",Si
+h38,4,2013,About the same,Sobre lo mismo
+h38,5,2013,More,Más
+h38,2,2013,Much less,Mucho menos
+h38,3,2013,Somewhat less,Algo menos
+h38,0,2013,Nothing to drink,Nada para beber
+h38,8,2013,Don't know,No sabe
+h39,4,2013,About the same,La misma cantidad
+h39,5,2013,More,Más
+h39,1,2013,Never gave food,Nunca dio comida
+h39,2,2013,Much less,Mucho menos
+h39,3,2013,Somewhat less,Algo menos
+h39,0,2013,Stopped food,Nada de comer
+h39,8,2013,Don't know,No sabe
+h3d,97,2013,Inconsistent,Inconsistente
+h3d,98,2013,DK,No sabe
+h3m,97,2013,Inconsistent,Inconsistente
+h3m,98,2013,DK,No sabe
+h3y,9997,2013,Inconsistent,Inconsistente
+h3y,9998,2013,DK,No sabe
+h4,1,2013,Vacc. date on card,Vacuna fecha en la tarjeta
+h4,2,2013,Reported by mother,Reportado por la madre
+h4,3,2013,Vacc. marked on card,Vacuna marcado en la tarjeta
+h4,8,2013,DK,No sabe
+h40,1,2013,Vacc. date on card,Vacc. fecha en la tarjeta
+h40,2,2013,Reported by mother,Reportado por la madre
+h40,3,2013,Vacc. marked on card,Vacc. marcado en la tarjeta
+h40,8,2013,DK,No sabe
+h40d,97,2013,Inconsistent,Inconsistente
+h40d,98,2013,DK,No sabe
+h40m,97,2013,Inconsistent,Inconsistente
+h40m,98,2013,DK,No sabe
+h40y,9997,2013,Inconsistent,Inconsistente
+h40y,9998,2013,DK,No sabe
+h41a,1,2013,Yes,Si
+h41a,8,2013,Don't know,No sabe
+h41b,1,2013,Yes,Si
+h41b,8,2013,Don't know,No sabe
+h42,1,2013,Yes,Si
+h42,8,2013,Don't know,No sabe
+h43,1,2013,Yes,Si
+h43,8,2013,Don't know,No sabe
+h44a,17,2013,Health worker,Promotor de la salud
+h44a,96,2013,Other,Otro
+h44a,23,2013,Popular botiquin,Botiquin popular
+h44a,98,2013,Can't be established,No sabe puede establecer
+h44a,32,2013,Traditional healer,Curandero tradicional
+h44a,16,2013,Center/post ESSALUD,Políclinico/Centro/Posta ESSALUD
+h44a,24,2013,Pharmacy,Farmacia
+h44a,21,2013,Private clinic,Clínica privada
+h44a,14,2013,Health center MINSA,Centro de salud MINSA
+h44a,31,2013,Friend/relative,Amigo/pariente
+h44a,13,2013,Hospital F.F AA.and PNP,Hospital FF. AA. y PNP
+h44a,22,2013,Private doctor,Médico privado
+h44a,15,2013,Health post MINSA,Puesto de salud MINSA
+h44b,0,2013,Same day,Mismo día
+h44b,98,2013,Don't know,No sabe
+h44c,1,2013,Yes,Si
+h44c,8,2013,Don't know,No sabe
+h45,98,2013,Don't know,No sabe
+h46a,17,2013,Health worker,Trabajador de la salud
+h46a,96,2013,Other,Otro
+h46a,23,2013,Popular botiquin,Botiquin popular
+h46a,98,2013,Can't be established,No sabe puede establecer
+h46a,32,2013,Traditional healer,Curandero tradicional
+h46a,16,2013,Center/post ESSALUD,Centro/publicar ESSALUD
+h46a,24,2013,Pharmacy,Farmacia
+h46a,21,2013,Private clinic,Clínica privada
+h46a,14,2013,Health center MINSA,Centro de salud MINSA
+h46a,31,2013,Friend/relative,Amigo/pariente
+h46a,13,2013,Hospital F.F AA.and PNP,Hospital F.F AA.y PNP
+h46a,22,2013,Private doctor,Médico privado
+h46a,15,2013,Health post MINSA,Puesto de salud MINSA
+h46b,0,2013,Same day,Mismo día
+h46b,98,2013,Don't know,No sabe
+h4d,97,2013,Inconsistent,Inconsistente
+h4d,98,2013,DK,No sabe
+h4m,97,2013,Inconsistent,Inconsistente
+h4m,98,2013,DK,No sabe
+h4y,9997,2013,Inconsistent,Inconsistente
+h4y,9998,2013,DK,No sabe
+h5,1,2013,Vacc. date on card,Vacuna fecha en la tarjeta
+h5,2,2013,Reported by mother,Reportado por la madre
+h5,3,2013,Vacc. marked on card,Vacuna marcado en la tarjeta
+h5,8,2013,DK,No sabe
+h5d,97,2013,Inconsistent,Inconsistente
+h5d,98,2013,DK,No sabe
+h5m,97,2013,Inconsistent,Inconsistente
+h5m,98,2013,DK,No sabe
+h5y,9997,2013,Inconsistent,Inconsistente
+h5y,9998,2013,DK,No sabe
+h6,1,2013,Vacc. date on card,Vacuna fecha en la tarjeta
+h6,2,2013,Reported by mother,Reportado por la madre
+h6,3,2013,Vacc. marked on card,Vacuna marcado en la tarjeta
+h6,8,2013,DK,No sabe
+h6d,97,2013,Inconsistent,Inconsistente
+h6d,98,2013,DK,No sabe
+h6m,97,2013,Inconsistent,Inconsistente
+h6m,98,2013,DK,No sabe
+h6y,9997,2013,Inconsistent,Inconsistente
+h6y,9998,2013,DK,No sabe
+h7,1,2013,Vacc. date on card,Vacuna fecha en la tarjeta
+h7,2,2013,Reported by mother,Reportado por la madre
+h7,3,2013,Vacc. marked on card,Vacuna marcado en la tarjeta
+h7,8,2013,DK,No sabe
+h7d,97,2013,Inconsistent,Inconsistente
+h7d,98,2013,DK,No sabe
+h7m,97,2013,Inconsistent,Inconsistente
+h7m,98,2013,DK,No sabe
+h7y,9997,2013,Inconsistent,Inconsistente
+h7y,9998,2013,DK,No sabe
+h8,1,2013,Vacc. date on card,Vacuna fecha en la tarjeta
+h8,2,2013,Reported by mother,Reportado por la madre
+h8,3,2013,Vacc. marked on card,Vacuna marcado en la tarjeta
+h8,8,2013,DK,No sabe
+h8d,97,2013,Inconsistent,Inconsistente
+h8d,98,2013,DK,No sabe
+h8m,97,2013,Inconsistent,Inconsistente
+h8m,98,2013,DK,No sabe
+h8y,9997,2013,Inconsistent,Inconsistente
+h8y,9998,2013,DK,No sabe
+h9,1,2013,Vacc. date on card,Vacuna fecha en la tarjeta
+h9,2,2013,Reported by mother,Reportado por la madre
+h9,3,2013,Vacc. marked on card,Vacuna marcado en la tarjeta
+h9,8,2013,DK,No sabe
+h9d,97,2013,Inconsistent,Inconsistente
+h9d,98,2013,DK,No sabe
+h9m,97,2013,Inconsistent,Inconsistente
+h9m,98,2013,DK,No sabe
+h9y,9997,2013,Inconsistent,Inconsistente
+h9y,9998,2013,DK,No sabe
+ha11,9998,2013,Flagged cases,Casos marcados
+ha12,99998,2013,Flagged cases,Casos marcados
+ha12a,99998,2013,Flagged cases,Casos marcados
+ha12b,99998,2013,Flagged cases,Casos marcados
+ha13,4,2013,Refused,Rechazó
+ha13,6,2013,Other,Otro
+ha13,3,2013,Not present,No presente
+ha13,0,2013,Measured,Medida
+ha33,4,2013,Year,Año
+ha33,6,2013,Age,Edad
+ha33,7,2013,Month,Mes
+ha33,2,2013,Month and age,Mes y edad
+ha33,8,2013,None,Ninguno
+ha33,3,2013,Year and age,Año y edad
+ha33,1,2013,Month and year,Mes y año
+ha35,0,2013,Doesn't smoke,No fuma
+ha4,9998,2013,Flagged cases,Casos marcados
+ha40,9998,2013,Flagged cases,Casos marcados
+ha41,9998,2013,Flagged cases,Casos marcados
+ha5,9998,2013,Flagged cases,Casos marcados
+ha50,2,2013,Age 18 or older,De 18 a 49 años de edad
+ha50,1,2013,Under age 18,De 12 a 17 años de edad
+ha51,0,2013,Not in household,No es miembro del hogar
+ha52,2,2013,Parent/Other responsible refused,"Padre/Otro responsable, rechazó"
+ha52,1,2013,Granted,Aceptó
+ha54,0,2013,No/don't know,No/No sé
+ha54,1,2013,Yes,Si
+ha55,4,2013,Refused,Rechazó
+ha55,6,2013,Other,Otro
+ha55,3,2013,Not present,No presente
+ha55,0,2013,Measured,Medida
+ha57,4,2013,Not anemic,Sin anemia
+ha57,2,2013,Moderate,Moderado
+ha57,3,2013,Mild,Leve
+ha57,1,2013,Severe,Grave
+ha58,1,2013,Yes,Si
+ha6,99998,2013,Flagged cases,Casos marcados
+ha60,2,2013,Other,Otro
+ha60,1,2013,Never in union,Nunca en unión
+ha61,4,2013,Sample not tested/lost/not eonugh DBS,Muestra no probada/perdida/no suficiente DBS
+ha61,2,2013,Parent/Other responsible refused,Padre/Otro responsable rechazó
+ha61,3,2013,Respondent refused,Entrevistada rechazó
+ha61,1,2013,Granted,Aceptó
+ha63,4,2013,Sample not tested/lost,Muestra no probada/perdida
+ha63,5,2013,Not enough DBS to complete protocol,No hay suficiente DBS para completar el protocolo
+ha63,6,2013,Other,Otro
+ha63,2,2013,Not present,No presente
+ha63,3,2013,Refused,Rechazo
+ha63,1,2013,Blood taken,Muestra de sangre tomada
+ha64,2,2013,Parent/Other responsible refused,Padres/Otro responsable rechazó
+ha64,3,2013,Respondent refused,Entrevistada rechazó
+ha64,1,2013,Granted,Aceptada
+ha65,4,2013,Refused,Rechada
+ha65,5,2013,Partly completed,Incompleta
+ha65,6,2013,Incapacitated,Incapacitada
+ha65,7,2013,Other,Otro
+ha65,2,2013,Not at home,Ausente
+ha65,3,2013,Postponed,Aplazada
+ha65,1,2013,Completed,Completa
+ha66,1,2013,Primary,Primaria
+ha66,2,2013,Secondary,Secundaria
+ha66,3,2013,Higher,Superior
+ha66,0,2013,No education,Sin educación
+ha66,8,2013,Don't know,No sabe
+ha67,98,2013,Don't know,No sabe
+ha68,1,2013,Primary,Primaria
+ha68,2,2013,Secondary,Secundaria
+ha68,3,2013,Higher,Superior
+ha68,0,2013,No education,Sin educación
+ha68,8,2013,Don't know,No sabe
+hc10,9998,2013,Flagged cases,Casos marcados
+hc11,9998,2013,Flagged cases,Casos marcados
+hc13,4,2013,Refused,Rechazó
+hc13,6,2013,Other,Otro
+hc13,3,2013,Not present,No presente
+hc13,0,2013,Measured,Medido
+hc15,2,2013,Standing,De pie
+hc15,1,2013,Lying,Acostado
+hc27,2,2013,Female,Mujer
+hc27,1,2013,Male,Hombre
+hc30,97,2013,Inconsistent,Inconsistente
+hc30,98,2013,DK,NS
+hc31,9997,2013,Inconsistent,Inconsistente
+hc31,9998,2013,DK,NS
+hc33,4,2013,Year,Año
+hc33,6,2013,Age,Edad
+hc33,7,2013,Month,Mes
+hc33,2,2013,Month and age,Mes y edad
+hc33,8,2013,None,Ninguno
+hc33,3,2013,Year and age,Año y edad
+hc33,1,2013,Month and year,Mes y año
+hc4,9998,2013,Flagged cases,Casos marcados
+hc5,9998,2013,Flagged cases,Casos marcados
+hc51,0,2013,Not in household,No en el hogar
+hc52,2,2013,Refused,Rechazó/otro
+hc52,1,2013,Granted,Aceptó
+hc55,4,2013,Refused,Rechazó
+hc55,6,2013,Other,Otro
+hc55,3,2013,Not present,No presente
+hc55,0,2013,Measured,Medido
+hc57,4,2013,Not anemic,Sin anemia
+hc57,2,2013,Moderate,Moderar
+hc57,3,2013,Mild,Leve
+hc57,1,2013,Severe,Grave
+hc58,1,2013,Yes,Si
+hc60,993,2013,Mother not de facto,Madre no de facto (MEF que no durmieron la noche anterior)
+hc60,995,2013,Not in household,Madre no vive en el hogar
+hc60,994,2013,Incomplete woman's interview,Entrevista incompleta de la MEF
+hc61,2,2013,Secondary,Secundaria
+hc61,3,2013,Higher,Superior
+hc61,0,2013,No education,Sin educación
+hc61,1,2013,Primary,Primaria
+hc68,1,2013,Primary,Primaria
+hc68,2,2013,Secondary,Secundaria
+hc68,3,2013,Higher,Superior
+hc68,0,2013,No education,Sin educación
+hc68,8,2013,Don't know,No sabe
+hc7,9998,2013,Flagged cases,Casos marcados
+hc70,9997,2013,Age in days out of plausible limits,Edad en días fuera de límites plausibles
+hc70,9996,2013,Height out of plausible limits,Altura fuera de los límites plausibles.
+hc70,9998,2013,Flagged cases,Casos marcados
+hc71,9997,2013,Age in days out of plausible limits,Edad en días fuera de límites plausibles
+hc71,9996,2013,Height out of plausible limits,Altura fuera de los límites plausibles.
+hc71,9998,2013,Flagged cases,Casos marcados
+hc72,9997,2013,Age in days out of plausible limits,Edad en días fuera de límites plausibles
+hc72,9996,2013,Height out of plausible limits,Altura fuera de los límites plausibles.
+hc72,9998,2013,Flagged cases,Casos marcados
+hc73,9997,2013,Age in days out of plausible limits,Edad en días fuera de límites plausibles
+hc73,9996,2013,Height out of plausible limits,Altura fuera de los límites plausibles.
+hc73,9998,2013,Flagged cases,Casos marcados
+hc8,9998,2013,Flagged cases,Casos marcados
+hml1,98,2013,Don't know,No sabe
+hv015,4,2013,Postponed,Aplazada
+hv015,5,2013,Refused,Rechazada
+hv015,6,2013,Dwelling vacant,Vivienda desocupada o no es vivienda
+hv015,7,2013,Dwelling destroyed,Vivienda destruida
+hv015,2,2013,"HH present, no resp",Hogar presente pero entrevistado ausente
+hv015,8,2013,Dwelling not found,Vivienda no encontrada
+hv015,9,2013,Other,Otro
+hv015,3,2013,HH absent,Hogar ausente
+hv015,1,2013,Completed,Completo
+hv020,0,2013,All woman sample,Muestra todas las mujeres
+hv020,1,2013,Ever married sample,Muestra alguna vez casado
+hv025,1,2013,Urban,Urbano
+hv026,2,2013,Town,Pueblo
+hv026,3,2013,Countryside,Campo
+hv026,0,2013,"Capital, large city","Capital, gran ciudad"
+hv026,1,2013,Small city,Pequeña ciudad
+hv027,2,2013,Husband's survey,Encuesta del esposo
+hv027,0,2013,Not selected,No seleccionado
+hv027,1,2013,Men's survey,Encuesta de hombres
+hv042,0,2013,Not selected,No seleccionado
+hv042,1,2013,Selected,Seleccionado
+hv043,0,2013,Household not selected,Hogar no seleccionado
+hv043,1,2013,Household selected,Hogar seleccionado
+hv044,0,2013,Household not selected,Hogar no seleccionado
+hv044,1,2013,Household selected,Hogar seleccionado
+hv101,5,2013,Grandchild,Nieto
+hv101,6,2013,Parent,Padre
+hv101,12,2013,Not related,Sin parentesco
+hv101,11,2013,Adopted/foster child,Hijo adoptado
+hv101,1,2013,Head,Jefe del Hogar
+hv101,8,2013,Brother/sister,Hermano/Hermana
+hv101,4,2013,Son/daughter-in-law,Yerno/Nuera
+hv101,7,2013,Parent-in-law,Suegro
+hv101,15,2013,Maid,Empleada doméstica
+hv101,2,2013,Wife or husband,Esposa o esposo
+hv101,3,2013,Son/daughter,Hijo/Hija
+hv101,10,2013,Other relative,Otro pariente
+hv102,1,2013,Yes,Sí
+hv103,1,2013,Yes,Sí
+hv104,2,2013,Female,Mujer
+hv104,1,2013,Male,Hombre
+hv105,97,2013,97+,Mayores de 96
+hv105,98,2013,DK,No sabe
+hv106,1,2013,Primary,Primario
+hv106,2,2013,Secondary,Secundario
+hv106,3,2013,Higher,Superior
+hv106,0,2013,"No education, preschool","Sin educación, preescolar"
+hv106,8,2013,DK,No sabe
+hv107,98,2013,DK,No sabe
+hv108,98,2013,DK,No sabe
+hv109,4,2013,Complete secondary,Secundaria completa
+hv109,5,2013,Higher,Superior
+hv109,1,2013,Incomplete primary,Primaria incompleta
+hv109,2,2013,Complete primary,Primaria completa
+hv109,3,2013,Incomplete secondary,Secundaria incompleta
+hv109,0,2013,No education,Sin educación
+hv109,8,2013,DK,No sabe
+hv110,1,2013,Yes,Sí
+hv111,1,2013,Yes,Sí
+hv111,8,2013,DK,No sabe
+hv112,0,2013,Mother not in HH,Madre no en HH
+hv113,1,2013,Yes,Sí
+hv113,8,2013,DK,No sabe
+hv114,0,2013,Father not in HH,Padre no en HH
+hv115,4,2013,Divorced,Divorciado(a)
+hv115,5,2013,Not living together,Separado(a)
+hv115,2,2013,Living together,Conviviente
+hv115,3,2013,Widowed,Viudo(a)
+hv115,0,2013,Never married,Soltero(a)
+hv115,1,2013,Married,Casado(a)
+hv116,2,2013,Formerly/ever marr.,Anteriormente/alguna vez casado(a) o conviviendo
+hv116,0,2013,Never married,Soltero(a)
+hv116,1,2013,Currently married,Actualmente casado(a) o conviviendo
+hv117,0,2013,Not eligible,No elegible
+hv117,1,2013,Eligible,Elegible
+hv118,0,2013,Not eligible,No elegible
+hv118,1,2013,Eligible,Elegible
+hv120,0,2013,Not eligible,No elegible
+hv120,1,2013,Eligible,Elegible
+hv121,1,2013,Currently attending,Actualmente asistiendo
+hv122,1,2013,Primary,Primario
+hv122,2,2013,Secondary,Secundario
+hv122,3,2013,Higher,Superior
+hv122,0,2013,"No education, preschool",Inicial/Pre-escolar
+hv122,0,2019,"Sin educación, preescolar",Inicial/Pre-escolar
+hv122,8,2013,DK,No sabe
+hv123,98,2013,DK,No Sabe
+hv124,97,2013,Inconsistent,Inconsistente
+hv124,98,2013,DK,No Sabe
+hv125,1,2013,Yes,Sí
+hv126,1,2013,Primary,Primario
+hv126,2,2013,Secondary,Secundario
+hv126,3,2013,Higher,Superior
+hv126,0,2013,"No education, preschool",Inicial/Pre-escolar
+hv126,0,2019,"Sin educación, preescolar",Inicial/Pre-escolar
+hv126,8,2013,DK,No sabe
+hv127,98,2013,DK,NS
+hv128,97,2013,Inconsistent,Inconsistente
+hv128,98,2013,DK,No Sabe
+hv129,4,2013,Dropout,Abandonó
+hv129,4,2019,Abandonar,Abandonó
+hv129,5,2013,Left school 2+ years ago,Dejo el colegio hace más de 2 años
+hv129,5,2019,Izquierda escuela hace 2+ años,Dejo el colegio hace más de 2 años
+hv129,1,2013,Entered school,Ingresado a la escuela
+hv129,2,2013,Advanced,Avanzado
+hv129,3,2013,Repeating,Repitiendo
+hv129,0,2013,Never attended,Nunca asistió
+hv129,8,2013,DK,No sabe
+hv201,12,2013,Piped outside dwelling but within buikding,"Fuera de la vivienda, pero dentro del edificio"
+hv201,21,2013,Well inside dwelling,Pozo en la vivineda/patio/lote
+hv201,11,2013,Piped into dwelling,Dentro de la vivienda
+hv201,51,2013,Rainwater,Agua de lluvia
+hv201,96,2013,Other,Otro
+hv201,71,2013,Bottled water,Agua embotellada
+hv201,43,2013,River/dam/lake/ponds/stream/canal/irirgation channel,Río/acequia/laguna
+hv201,13,2013,Public tap/standpipe,Pilón/Grifo público
+hv201,22,2013,Public well,Pozo público
+hv201,41,2013,Spring,Manantial (puquio)
+hv201,61,2013,Tanker truck,Camión cisterna
+hv202,12,2013,Piped outside dwelling but within buikding,"Fuera de la vivienda, pero dentro del edificio"
+hv202,21,2013,Well inside dwelling,Pozo en la vivineda/patio/lote
+hv202,11,2013,Piped into dwelling,Dentro de la vivienda
+hv202,51,2013,Rainwater,Agua de lluvia
+hv202,96,2013,Other,Otro
+hv202,43,2013,River/dam/lake/ponds/stream/canal/irirgation channel,Río/acequia/laguna
+hv202,13,2013,Public tap/standpipe,Pilón/Grifo público
+hv202,22,2013,Public well,Pozo público
+hv202,41,2013,Spring,Manantial (puquio)
+hv202,61,2013,Tanker truck,Camión cisterna
+hv204,996,2013,On premises,En las instalaciones
+hv204,998,2013,DK,No sabe
+hv205,24,2013,Latrine over river/lake,Latrina mejorada colgada/flotante
+hv205,12,2013,Outside dwelling,"Fuera de la vivienda, pero dentro del edificio"
+hv205,21,2013,Ventilated latrine,Letrina mejorada ventilada
+hv205,11,2013,Inside dwelling,Dentro de la vivienda
+hv205,96,2013,OTHER,Otro
+hv205,23,2013,Latrine (ciego o negro),Latrina (pozo ciego o negro)
+hv205,31,2013,"River, canal","Río, acequia o canal"
+hv205,22,2013,Septic well,Pozo séptico
+hv205,32,2013,No service,Sin servicio (matorral/campo)
+hv206,1,2013,Yes,Si
+hv207,1,2013,Yes,Si
+hv208,1,2013,Yes,Si
+hv209,1,2013,Yes,Si
+hv210,1,2013,Yes,Si
+hv211,1,2013,Yes,Si
+hv212,1,2013,Yes,Si
+hv213,21,2013,Wood,Madera
+hv213,11,2013,Earth/sand,Tierra / arena
+hv213,32,2013,Asphlat tiles/vynil,"Láminas asfálticas, vinílicos o similares"
+hv213,96,2013,OTHER,Otro
+hv213,33,2013,"Granite, ceramic tiles","Losetas, terrazos o similares"
+hv213,31,2013,Parket,Parquet o madera pulida
+hv213,34,2013,Cement/brick,Cemento / ladrillo
+hv214,21,2013,Mud or mud bricks,Adobe o tapia
+hv214,11,2013,Wood,Tablones/Madera
+hv214,96,2013,OTHER,Otro
+hv214,23,2013,Stone with mud,Piedra con barro
+hv214,31,2013,Brick/cement blocks,Ladrillo o bloques de cemento
+hv214,13,2013,Rustic mats,Caña/Bambu/Pona/Palma/Troncos/Tabique
+hv214,22,2013,Bambu with mud,Quincha (caña con barro)
+hv214,32,2013,Stone with cal or cement,Piedra o sillar con cal o cemento
+hv214,41,2013,No walls,Sin paredes
+hv214,33,2013,Compressed wood,Tripley
+hv215,21,2013,Bambu with mud,Caña o estera en torta de barro
+hv215,11,2013,Straw and palm leaves,"Paja, hojas de palmera etc."
+hv215,96,2013,OTHER,Otro
+hv215,31,2013,Concrete plaque,Concreto armado
+hv215,34,2013,Plaque from different materials,"Plancha de calamina, fibra de cemento o similares"
+hv215,32,2013,Wood,Madera
+hv215,41,2013,With no roof,Sin techo
+hv215,33,2013,Tiles,Tejas
+hv217,4,2013,Three+ related adult,Tres o más adultos con algún grado de parentesco
+hv217,5,2013,Unrelated adults,Adultos sin grado de parentesco
+hv217,2,2013,"Two adults, opp. sex","Dos adultos, diferente sexo"
+hv217,3,2013,"Two adults, same sex","Dos adultos, del mismo sexo"
+hv217,1,2013,One adult,Un adulto
+hv219,2,2013,Female,Femenino
+hv219,1,2013,Male,Masculino
+hv220,97,2013,97+,97y más
+hv220,98,2013,DK,No Sabe
+hv221,1,2013,Yes,Si
+hv225,1,2013,Yes,Si
+hv226,6,2013,"Coal, lignite",Carbón vegetal
+hv226,11,2013,Animal dung,Bosta
+hv226,95,2013,No food cooked in HH,No cocina
+hv226,96,2013,Other,Otro
+hv226,8,2013,Wood,Leña
+hv226,1,2013,Electricity,Electricidad
+hv226,7,2013,Charcoal,Carbón mineral
+hv226,2,2013,LPG,GLP
+hv226,9,2013,Straw / shrubs / grass,Caña/Arbustos secos
+hv226,3,2013,Natural gas,Gas natural
+hv226,10,2013,Agricultural crop,Residuos agrícolas
+hv227,1,2013,Yes,Si
+hv228,2,2013,Some children,Algunos niños
+hv228,3,2013,No bednet in HH,No mosquitero en el hogar
+hv228,1,2013,All children,Todos los niños
+hv234,994,2013,Salt not tested,No se realizó la prueba
+hv234,995,2013,No salt in household,No hay sal en el hogar
+hv234,0,2013,0 PPM (No Iodine),0 PPM (sin yodo)
+hv235,2,2013,In own yard/plot,En patio o parcela propia
+hv235,3,2013,Elsewhere,Otro lugar
+hv235,1,2013,In own dwelling,En vivienda propia
+hv236,4,2013,Male child under 15 years old,Niños menores de 15 años
+hv236,6,2013,Other,Otro
+hv236,2,2013,Adult man,Hombre adulto
+hv236,3,2013,Female child under 15 years old,Niño menor de 15 años
+hv236,1,2013,Adult woman,Mujer adulta
+hv237,1,2013,Yes,Si
+hv237a,1,2013,Yes,Si
+hv237b,1,2013,Yes,Si
+hv237c,1,2013,Yes,Si
+hv237d,1,2013,Yes,Si
+hv237e,1,2013,Yes,Si
+hv237f,1,2013,Yes,Si
+hv237g,1,2013,Yes,Si
+hv237h,1,2013,Yes,Si
+hv237i,1,2013,Yes,Si
+hv237j,1,2013,Yes,Si
+hv237k,1,2013,Yes,Si
+hv237x,1,2013,Yes,Si
+hv237z,1,2013,Yes,Si
+hv238,95,2013,10 or more households,10 o más hogares
+hv238,98,2013,Don't know,No sabe
+hv239,6,2013,Other,Otro
+hv239,2,2013,Open stove,Estufa abierta
+hv239,3,2013,Closed stove with chimney,Estufa cerrada con chimenea
+hv239,1,2013,Open fire,Abran fuego
+hv240,2,2013,Hood,capucha
+hv240,0,2013,Neither chimney or hood,Ni chimenea ni campana
+hv240,1,2013,Chimney,Tubo de lámpara
+hv241,6,2013,Other,Otro
+hv241,2,2013,In a separate building,En un edificio separado
+hv241,3,2013,Outdoors,Al aire libre
+hv241,1,2013,In the house,En la casa
+hv242,1,2013,Yes,Si
+hv243a,1,2013,Yes,Si
+hv243b,1,2013,Yes,Si
+hv243c,1,2013,Yes,Si
+hv243d,1,2013,Yes,Si
+hv244,1,2013,Yes,Si
+hv245,96,2013,Area givien in other than hectares,Superficie que no sea hectárea
+hv245,95,2013,More than 95,Más de 95
+hv245,98,2013,Unknown,No sabe
+hv246,1,2013,Yes,Si
+hv246a,95,2013,More than 95,Más de 95
+hv246a,0,2013,None,Ninguna
+hv246a,98,2013,Unknown,Desconocido
+hv246b,95,2013,More than 95,Más de 95
+hv246b,0,2013,None,Ninguna
+hv246b,98,2013,Unknown,Desconocido
+hv246c,95,2013,More than 95,Más de 95
+hv246c,0,2013,None,Ninguna
+hv246c,98,2013,Unknown,Desconocido
+hv246d,95,2013,More than 95,Más de 95
+hv246d,0,2013,None,Ninguna
+hv246d,98,2013,Unknown,Desconocido
+hv246e,95,2013,More than 95,Más de 95
+hv246e,0,2013,None,Ninguna
+hv246e,98,2013,Unknown,Desconocido
+hv246f,95,2013,More than 95,Más de 95
+hv246f,0,2013,None,Ninguna
+hv246f,98,2013,Unknown,Desconocido
+hv246g,95,2013,More than 95,Más de 95
+hv246g,0,2013,None,Ninguna
+hv246g,98,2013,Unknown,Desconocido
+hv246h,95,2013,More than 95,Más de 95
+hv246h,0,2013,None,Ninguna
+hv246h,98,2013,Unknown,Desconocido
+hv246i,95,2013,More than 95,Más de 95
+hv246i,0,2013,None,Ninguna
+hv246i,98,2013,Unknown,Desconocido
+hv246j,95,2013,More than 95,Más de 95
+hv246j,0,2013,None,Ninguna
+hv246j,98,2013,Unknown,Desconocido
+hv246k,95,2013,More than 95,Más de 95
+hv246k,0,2013,None,Ninguna
+hv246k,98,2013,Unknown,Desconocido
+hv247,1,2013,Yes,Si
+hv249,1,2013,Yes,Si
+hv249,8,2013,DK,No sabe
+hv250,8,2013,DK,NS
+hv270,4,2013,Richer,Rico
+hv270,5,2013,Richest,Más rico
+hv270,2,2013,Poorer,Pobre
+hv270,3,2013,Middle,Medio
+hv270,1,2013,Poorest,Los más pobres
+hw10,9998,2013,Flagged cases,Casos marcados
+hw11,9998,2013,Flagged cases,Casos marcados
+hw12,99998,2013,Flagged cases,Casos marcados
+hw13,4,2013,Refused,Rechazó
+hw13,5,2013,Mother refused,Madre rechazó
+hw13,6,2013,Other,Otro
+hw13,7,2013,No measurement found in HH,Ninguna medida encontrada en HH
+hw13,2,2013,Sick,Enfermo
+hw13,3,2013,Not present,No presente
+hw13,0,2013,Measured,Medido
+hw13,1,2013,Dead,Muerto
+hw15,2,2013,Standing,De pie
+hw15,1,2013,Lying,Acostado
+hw16,97,2013,Inconsistent,Inconsistente
+hw16,98,2013,DK,No sabe
+hw4,9998,2013,Flagged cases,Casos marcados
+hw5,9998,2013,Flagged cases,Casos marcados
+hw51,0,2013,Not in household,No en el hogar
+hw52,2,2013,Refused,Rechazó/Otro
+hw52,1,2013,Granted,Aceptó
+hw55,4,2013,Refused,Rechazó
+hw55,6,2013,Other,Otro
+hw55,7,2013,No measurement found in HH,Ninguna medida encontrada en HH
+hw55,3,2013,Not present,No presente
+hw55,0,2013,Measured,Medido
+hw55,1,2013,Dead,Muerto
+hw57,4,2013,Not anemic,Sin anemia
+hw57,2,2013,Moderate,Moderado
+hw57,3,2013,Mild,Leve
+hw57,1,2013,Severe,Grave
+hw58,1,2013,Yes,Si
+hw6,99998,2013,Flagged cases,Casos marcados
+hw7,9998,2013,Flagged cases,Casos marcados
+hw70,9997,2013,Age in days out of plausible limits,Edad en días fuera de límites plausibles
+hw70,9996,2013,Height out of plausible limits,Altura fuera de los límites plausibles.
+hw70,9998,2013,Flagged cases,Casos marcados
+hw71,9997,2013,Age in days out of plausible limits,Edad en días fuera de límites plausibles
+hw71,9996,2013,Height out of plausible limits,Altura fuera de los límites plausibles.
+hw71,9998,2013,Flagged cases,Casos marcados
+hw72,9997,2013,Age in days out of plausible limits,Edad en días fuera de límites plausibles
+hw72,9996,2013,Height out of plausible limits,Altura fuera de los límites plausibles.
+hw72,9998,2013,Flagged cases,Casos marcados
+hw73,9997,2013,Age in days out of plausible limits,Edad en días fuera de límites plausibles
+hw73,9996,2013,Height out of plausible limits,Altura fuera de los límites plausibles.
+hw73,9998,2013,Flagged cases,Casos marcados
+hw8,9998,2013,Flagged cases,Casos marcados
+hw9,99998,2013,Flagged cases,Casos marcados
+m1,7,2013,7+,7 ó más
+m1,0,2013,Received no inject.,No Recibió
+m1,8,2013,Don't know,No sabe
+m10,2,2013,Later,Esperar más
+m10,3,2013,No more,No quería más
+m10,1,2013,Then,Entonces
+m11,998,2013,DK,No sabe
+m13,98,2013,DK,No sabe
+m14,0,2013,No antenatal visits,Sin visitas prenatales
+m14,98,2013,DK,No sabe
+m15,24,2013,Health center MINSA,Centro de salud MINSA
+m15,12,2013,Midwife's home,Casa de la partera
+m15,11,2013,Respondents home,Su domicilio
+m15,27,2013,Local Government,Hospital/otro de la Municipalidad
+m15,96,2013,OTHER,Otro
+m15,26,2013,Center/Post ESSALUD,Center/Posta ESSALUD
+m15,25,2013,Health post MINSA,Puesto de salud MINSA
+m15,31,2013,Private clinic,Clínica privada
+m15,32,2013,Private doctor,Consultorio médico privado
+m15,41,2013,Clinic/Post NGO,Clínica/Posta ONG
+m15,42,2013,Church,Hospital/Otro de la Iglesia
+m17,1,2013,Yes,Sí
+m18,4,2013,Smaller than average,Pequeño
+m18,5,2013,Very small,Muy pequeño
+m18,1,2013,Very large,Muy grande
+m18,2,2013,Larger than average,Grande
+m18,3,2013,Average,Mediano (normal)
+m18,8,2013,DK,No sabe
+m19,9996,2013,Not weighed at birth,No se pesó al nacer
+m19,9998,2013,DK,No sabe
+m19a,1,2013,From card,De la tarjeta
+m19a,2,2013,From recall,Lo que recuerda
+m19a,9,2013,Special answers,Respuesta especial
+m19a,0,2013,Not weighed,No se pesó
+m19a,8,2013,DK,No sabe
+m1a,7,2013,7+,7 ó más
+m1a,0,2013,Received no inject.,No Recibió
+m1a,8,2013,Don't know,No sabe
+m1b,98,2013,Don't know month,No sabe el mes
+m1c,9998,2013,Don't know year,No sabe año
+m1d,98,2013,DK,No sabe
+m1e,9996,2013,Can't be determined,No sabe puede determinar
+m27,4,2013,During preg in cal.,Durante embarazo
+m27,2,2013,> interval by 1 mnth,> intervalo en 1 mes
+m27,3,2013,> age at death,> edad al morir
+m27,0,2013,No flag,Sin bandera
+m27,1,2013,> interval,> intervalo
+m28,4,2013,During preg in cal.,Durante embarazo
+m28,2,2013,> interval by 1 mnth,> intervalo en 1 mes
+m28,0,2013,No flag,Sin bandera
+m28,1,2013,> interval,> intervalo
+m29,4,2013,During preg in cal.,Durante embarazo
+m29,2,2013,> interval by 1 mnth,> intervalo en 1 mes
+m29,0,2013,No flag,Sin bandera
+m29,1,2013,> interval,> intervalo
+m2a,1,2013,Yes,Sí
+m2b,1,2013,Yes,Sí
+m2c,1,2013,Yes,Sí
+m2d,1,2013,Yes,Sí
+m2e,1,2013,Yes,Sí
+m2f,1,2013,Yes,Sí
+m2g,1,2013,Yes,Sí
+m2h,1,2013,Yes,Sí
+m2i,1,2013,Yes,Sí
+m2j,1,2013,Yes,Sí
+m2k,1,2013,Yes,Sí
+m2l,1,2013,Yes,Sí
+m2m,1,2013,Yes,Sí
+m2n,0,2013,No: some care,No
+m2n,1,2013,Yes: no care,Sí
+m34,201,2013,Days: 1,1 días: 1
+m34,101,2013,Hours: 1,1 horas: 1
+m34,0,2013,Immediately,Inmediatamente
+m35,96,2013,On demand,Lo que demanda
+m36,96,2013,On demand,Lo que demanda
+m38,1,2013,Yes,Sí
+m38,8,2013,DK,No sabe
+m39,7,2013,7+,7 ó más
+m39,0,2013,None,Ninguna
+m39,8,2013,DK,No sabe
+m3a,1,2013,Yes,Sí
+m3b,1,2013,Yes,Sí
+m3c,1,2013,Yes,Sí
+m3d,1,2013,Yes,Sí
+m3e,1,2013,Yes,Sí
+m3f,1,2013,Yes,Sí
+m3g,1,2013,Yes,Sí
+m3h,1,2013,Yes,Sí
+m3i,1,2013,Yes,Sí
+m3j,1,2013,Yes,Sí
+m3k,1,2013,Yes,Sí
+m3l,1,2013,Yes,Sí
+m3m,1,2013,Yes,Sí
+m3n,0,2013,No: some assistance,No
+m3n,1,2013,Yes: no assistance,Sí
+m4,94,2013,Never breastfed,Nunca amamantó
+m4,95,2013,Still breastfeeding,Aún amamantando
+m4,98,2013,DK,No sabe
+m42a,1,2013,Yes,Sí
+m42b,1,2013,Yes,Sí
+m42c,1,2013,Yes,Sí
+m42d,1,2013,Yes,Sí
+m42e,1,2013,Yes,Sí
+m43,1,2013,Yes,Sí
+m43,8,2013,Don't know,No sabe
+m44,1,2013,Yes,Sí
+m44,8,2013,Don't know,No sabe
+m45,1,2013,Yes,Sí
+m45,8,2013,Don't know,No sabe
+m46,998,2013,Don't know,No sabe
+m47,1,2013,Yes,Sí
+m47,8,2013,Don't know,No sabe
+m48,1,2013,Yes,Sí
+m48,8,2013,Don't know,No sabe
+m49a,1,2013,Yes,Sí
+m49a,8,2013,Don't know,No sabe
+m49b,1,2013,Yes,Sí
+m49b,8,2013,Don't know,No sabe
+m49c,1,2013,Yes,Sí
+m49c,8,2013,Don't know,No sabe
+m49d,1,2013,Yes,Sí
+m49d,8,2013,Don't know,No sabe
+m49e,1,2013,Yes,Sí
+m49e,8,2013,Don't know,No sabe
+m49f,1,2013,Yes,Sí
+m49f,8,2013,Don't know,No sabe
+m49g,1,2013,Yes,Sí
+m49g,8,2013,Don't know,No sabe
+m49x,1,2013,Yes,Sí
+m49x,8,2013,Don't know,No sabe
+m49z,1,2013,"Yes, took no drug",Sí
+m49z,8,2013,Don't know,No sabe
+m5,94,2013,Never breastfed,Nunca amamantó
+m5,98,2013,DK,No sabe
+m51a,201,2013,1 day,1 día
+m51a,101,2013,1 hour,1 hora
+m51a,998,2013,Don't know,No sabe
+m51a,100,2013,Same hour,La misma hora
+m51a,301,2013,1 week,1 semana
+m51a,995,2013,Didn't have check-up,No tuve un chequeo
+m54,1,2013,Yes,Sí
+m55a,1,2013,Yes,Sí
+m55a,8,2013,DK,No sabe
+m55b,1,2013,Yes,Sí
+m55b,8,2013,DK,No sabe
+m55c,1,2013,Yes,Sí
+m55c,8,2013,DK,No sabe
+m55d,1,2013,Yes,Sí
+m55d,8,2013,DK,No sabe
+m55e,1,2013,Yes,Sí
+m55e,8,2013,DK,No sabe
+m55f,1,2013,Yes,Sí
+m55f,8,2013,DK,No sabe
+m55g,1,2013,Yes,Sí
+m55g,8,2013,DK,No sabe
+m55h,1,2013,Yes,Sí
+m55h,8,2013,DK,No sabe
+m55i,1,2013,Yes,Sí
+m55i,8,2013,DK,No sabe
+m55j,1,2013,Yes,Sí
+m55j,8,2013,DK,No sabe
+m55k,1,2013,Yes,Sí
+m55k,8,2013,DK,No sabe
+m55l,1,2013,Yes,Sí
+m55l,8,2013,DK,No sabe
+m55m,1,2013,Yes,Sí
+m55m,8,2013,DK,No sabe
+m55n,1,2013,Yes,Sí
+m55n,8,2013,DK,No sabe
+m55x,1,2013,Yes,Sí
+m55x,8,2013,DK,No sabe
+m55z,1,2013,"Yes, given nothing",Sí
+m55z,8,2013,DK,No sabe
+m57a,1,2013,Yes,Sí
+m57b,1,2013,Yes,Sí
+m57c,1,2013,Yes,Sí
+m57d,1,2013,Yes,Sí
+m57e,1,2013,Yes,Sí
+m57f,1,2013,Yes,Sí
+m57g,1,2013,Yes,Sí
+m57h,1,2013,Yes,Sí
+m57i,1,2013,Yes,Sí
+m57j,1,2013,Yes,Sí
+m57k,1,2013,Yes,Sí
+m57l,1,2013,Yes,Sí
+m57m,1,2013,Yes,Sí
+m57n,1,2013,Yes,Sí
+m57o,1,2013,Yes,Sí
+m57p,1,2013,Yes,Sí
+m57q,1,2013,Yes,Sí
+m57r,1,2013,Yes,Sí
+m57s,1,2013,Yes,Sí
+m57t,1,2013,Yes,Sí
+m57u,1,2013,Yes,Sí
+m57v,1,2013,Yes,Sí
+m57x,1,2013,Yes,Sí
+m6,96,2013,Period not returned,Período no volvió
+m6,97,2013,Inconsistent,Inconsistente
+m6,98,2013,DK,No sabe
+m60,1,2013,Yes,Sí
+m60,8,2013,DK,No sabe
+m61,201,2013,One day,Un día
+m61,998,2013,DK,No sabe
+m61,100,2013,Zero hours,Horas cero
+m61,301,2013,One week,Una semana
+m62,1,2013,Yes,Sí
+m62,8,2013,DK,No sabe
+m63,201,2013,One day,Un día
+m63,998,2013,DK,No sabe
+m63,100,2013,Zero hours,Horas cero
+m63,301,2013,One week,Una semana
+m64,21,2013,Traditional birth attendant,Partera tradicional
+m64,96,2013,Other,Otro
+m64,20,2013,OTHER PERSON,Otra persona
+m64,13,2013,Nurse,enfermera
+m64,22,2013,Community/village health worker,Trabajador de salud de la comunidad/pueblo
+m64,15,2013,Health worker,Trabajador de la salud
+m64,10,2013,HEALTH PERSONNEL,Personal Sanitario
+m65a,1,2013,Yes,Sí
+m65b,1,2013,Yes,Sí
+m65c,1,2013,Yes,Sí
+m65d,1,2013,Yes,Sí
+m65e,1,2013,Yes,Sí
+m65f,1,2013,Yes,Sí
+m65g,1,2013,Yes,Sí
+m65h,1,2013,Yes,Sí
+m65i,1,2013,Yes,Sí
+m65j,1,2013,Yes,Sí
+m65k,1,2013,Yes,Sí
+m65l,1,2013,Yes,Sí
+m65x,1,2013,Yes,Sí
+m66,1,2013,Yes,Sí
+m67,201,2013,One day,Un día
+m67,998,2013,DK,No sabe
+m67,100,2013,Zero hours,Horas cero
+m67,301,2013,One week,Una semana
+m68,12,2013,Obstetrician,Obstetra
+m68,13,2013,Nurse,Enfermera
+m68,21,2013,Traditional birth attendant,Comadrona/partera
+m68,11,2013,Doctor,Médico
+m68,15,2013,Health worker,Promotor de la salud
+m68,14,2013,Health worker (Technical Nurse),Técnico en enfermería
+m68,96,2013,Other,Otro
+m69,24,2013,Health center MINSA,Centro de salud MINSA
+m69,12,2013,Midwife's home,Casa de partera
+m69,11,2013,Respondent's home,Su domicilio
+m69,27,2013,Hospital/Other Local Govern.,Hospital/Otro de la Municipalidad
+m69,96,2013,Other,Otro
+m69,26,2013,Health center/post ESSALUD,Policlínico/Centro/Posta ESSALUD
+m69,25,2013,Health post MINSA,Puesto de salud MINSA
+m69,31,2013,Private clinic,Clínica particular
+m69,32,2013,Private doctor,Consultorio médico particular
+m69,41,2013,NGO Clinic/Post,Clínica/Posta de ONG
+m69,42,2013,Church Hospital/Other,Hospital/Otro de la Iglesia
+m7,97,2013,Inconsistent,Inconsistente
+m7,98,2013,DK,No sabe
+m70,1,2013,Yes,Sí
+m70,8,2013,DK,No sabe
+m71,201,2013,One day,Un día
+m71,998,2013,DK,No sabe
+m71,100,2013,Zero hours,Horas cero
+m71,301,2013,One week,Una semana
+m72,12,2013,Obstetrician,Obstetra
+m72,13,2013,Nurse,Enfermera
+m72,21,2013,Traditional birth attendant,Comadrona/partera
+m72,11,2013,Doctor,Médico
+m72,15,2013,Health worker,Promotor de la salud
+m72,14,2013,Health worker (Technical Nurse),Técnico en enfermería
+m72,96,2013,Other,Otro
+m73,24,2013,Health center MINSA,Centro de salud MINSA
+m73,12,2013,Midwife's home,Casa de partera
+m73,11,2013,Respondent's home,Su domicilio
+m73,27,2013,Hospital/other Local Gov.,Hospital/Otro de la Municipalidad
+m73,96,2013,Other,Otro
+m73,26,2013,Health center/post ESSALUD,Policlínico/Centro/Posta ESSALUD
+m73,25,2013,Health post MINSA,Puesto de salud MINSA
+m73,31,2013,Private clinic,Clínica particular
+m73,32,2013,Private doctor,Consultorio médico particular
+m73,41,2013,NGO Clinic/Post,Clínica/Posta de ONG
+m73,42,2013,Church Hospital/Other,Hospital/Otro de la Iglesia
+m8,96,2013,Still abstaining,Aún absteniéndose
+m8,98,2013,DK,No sabe
+m9,97,2013,Inconsistent,Inconsistente
+m9,98,2013,DK,No sabe
+ml101,2,2013,Both treated and untreated bednets,Ambos mosquiteros tratados y no tratados
+ml101,3,2013,Only untreated bednets,Solo mosquiteros no tratados
+ml101,0,2013,No bednet,Sin mosquitero
+ml101,1,2013,Only treated bednets,Solo mosquiteros tratados
+mm1,2,2013,Female,Mujer
+mm1,1,2013,Male,Hombre
+mm10,1,2013,Yes,Si
+mm10,0,2013,No,No sabe
+mm10,8,2013,Don't know,No sabe
+mm11,4,2013,None of the above,Ninguno
+mm11,2,2013,Abortion,Aborto
+mm11,3,2013,Delivery,Parto
+mm11,1,2013,Pregnancy,El embarazo
+mm12,201,2013,1 month,1 mes
+mm12,101,2013,1 day,1 día
+mm12,998,2013,Don't know,No sabe
+mm12,301,2013,1 year,1 año
+mm12,997,2013,Inconsistent,Inconsistente
+mm15,9998,2013,Don't know,No sabe
+mm2,1,2013,Alive,Vivo
+mm2,0,2013,Dead,Muerto
+mm2,8,2013,DK,No sabe
+mm3,97,2013,97+,Más de 97
+mm3,98,2013,Don't know,No sabe
+mm5,1,2013,Ever married,Casado
+mm5,0,2013,Never married,Soltero
+mm5,8,2013,DK,No sabe
+mm6,97,2013,97+,97 ó más
+mm6,98,2013,Don't know,No sabe
+mm7,97,2013,97+,97 ó más
+mm7,98,2013,Don't know,No sabe
+mm9,4,2013,Since delivery,Desde el parto
+mm9,5,2013,6 weeks after Deliv.,6 semanas después parto
+mm9,6,2013,2 months after Deliv,Murió dos meses despues de interrumpir el embarazo o del parto
+mm9,2,2013,Died while pregnant,Murió mientras estaba embarazada
+mm9,3,2013,Died during delivery,Murió durante el parto
+mm9,0,2013,Never pregnant,Nunca embarazada
+mm9,1,2013,Death not related,Muerte no relacionada con embarazo
+q1036n,F,2013,Madrastra / Padrastro,Madrastra/Padrastro
+q1036n,C,2013,Abuela / Abuelo,Abuela/Abuelo
+q1036n,D,2013,Hermana / Hermano,Hermana/Hermano
+qh21a,2,2019,Sí,No
+qh21a,1,2019,No,Si
+qh25b,2,2019,Sí,No
+qh25b,1,2019,No,Si
+qs101,30,2013,Clínica / Posta de ONG,Clínica/Posta de ONG
+qs101,31,2013,Hospital / Otro de Iglesia,Hospital/Otra de Iglesia
+qs101,13,2013,Hosp. / Otro Municipal,Hospital/Otro Municipal
+qs101,42,2013,Otro Campañas,Otras Campañas
+qs102,8,2013,No sabe/ no recuerda,No sabe/No recuerda
+qs103u,2,2013,Año,Años (de 2 ó más años)
+qs103u,1,2013,Mes,Meses ( < de 2 años)
+qs103u,8,2013,No recuerda,No sabe/No recuerda
+qs105,8,2013,No sabe/no recuerda,No sabe/ no recuerda
+qs108,31,2013,Hospital / Otro de Iglesia,Hospital / Otra de Iglesia
+qs108,42,2013,Otro Campañas,Otras Campañas
+qs110u,2,2013,Año ( si es de 2 o mas años),Años (de 2 ó más años)
+qs110u,1,2013,Mes (si es < de 2 años),Meses ( < de 2 años)
+qs112,8,2013,No sabe/no recuerda,No sabe/ no recuerda
+qs203u,1,2013,Edad,Edad en años
+qs204u,1,2013,Edad,Número de años
+qs205u,1,2013,Numero de cigarrillos,Número de cegarillos
+qs216u,1,2013,Numero vasos/porciones,Número de vasos de jugo
+qs27,C,2013,SEGURO INTEGRAL DE SALUD,FUERZAS ARMADAS O POLICIALES
+qs27,B,2013,FUERZAS ARMADAS O POLICIALES,ESSALUD/ IPSS
+qs27,A,2013,ESSALUD / IPSS,SEGURO INTEGRAL DE SALUD
+qs415,8,2013,No sabe,No sabe/No recuerda
+qs416u,1,2013,Meses (si es < de 2 años),Meses ( si es < de 2 años)
+qs700a,2,2013,La mayoria de dias (7 a 11 dias),La mayoria de días (de 7 a 11 días)
+qs700a,3,2013,Casi todos los dias (12 a + dias),Casi todos los días (de 12 a más días)
+qs700a,1,2013,Varios dias (1 a 6 dias),Varios días (de 1 a 6 días)
+qs700b,2,2013,La mayoria de dias (7 a 11 dias),La mayoria de días (de 7 a 11 días)
+qs700b,3,2013,Casi todos los dias (12 a + dias),Casi todos los días (de 12 a más días)
+qs700b,1,2013,Varios dias (1 a 6 dias),Varios días (de 1 a 6 días)
+qs700c,2,2013,La mayoria de dias (7 a 11 dias),La mayoria de días (de 7 a 11 días)
+qs700c,3,2013,Casi todos los dias (12 a + dias),Casi todos los días (de 12 a más días)
+qs700c,1,2013,Varios dias (1 a 6 dias),Varios días (de 1 a 6 días)
+qs700d,2,2013,La mayoria de dias (7 a 11 dias),La mayoria de días (de 7 a 11 días)
+qs700d,3,2013,Casi todos los dias (12 a + dias),Casi todos los días (de 12 a más días)
+qs700d,1,2013,Varios dias (1 a 6 dias),Varios días (de 1 a 6 días)
+qs700e,2,2013,La mayoria de dias (7 a 11 dias),La mayoria de días (de 7 a 11 días)
+qs700e,3,2013,Casi todos los dias (12 a + dias),Casi todos los días (de 12 a más días)
+qs700e,1,2013,Varios dias (1 a 6 dias),Varios días (de 1 a 6 días)
+qs700f,2,2013,La mayoria de dias (7 a 11 dias),La mayoria de días (de 7 a 11 días)
+qs700f,3,2013,Casi todos los dias (12 a + dias),Casi todos los días (de 12 a más días)
+qs700f,1,2013,Varios dias (1 a 6 dias),Varios días (de 1 a 6 días)
+qs700g,2,2013,La mayoria de dias (7 a 11 dias),La mayoria de días (de 7 a 11 días)
+qs700g,3,2013,Casi todos los dias (12 a + dias),Casi todos los días (de 12 a más días)
+qs700g,1,2013,Varios dias (1 a 6 dias),Varios días (de 1 a 6 días)
+qs700h,2,2013,La mayoria de dias (7 a 11 dias),La mayoria de días (de 7 a 11 días)
+qs700h,3,2013,Casi todos los dias (12 a + dias),Casi todos los días (de 12 a más días)
+qs700h,1,2013,Varios dias (1 a 6 dias),Varios días (de 1 a 6 días)
+qs700i,2,2013,La mayoria de dias (7 a 11 dias),La mayoria de días (de 7 a 11 días)
+qs700i,3,2013,Casi todos los dias (12 a + dias),Casi todos los días (de 12 a más días)
+qs700i,1,2013,Varios dias (1 a 6 dias),Varios días (de 1 a 6 días)
+qs704a,2,2013,La mayoria de dias (7 a 11 dias),La mayoria de días (de 7 a 11 días)
+qs704a,3,2013,Casi todos los dias (12 a + dias),Casi todos los días (de 12 a más días)
+qs704a,1,2013,Varios dias (1 a 6 dias),Varios días (de 1 a 6 días)
+qs704b,2,2013,La mayoria de dias (7 a 11 dias),La mayoria de días (de 7 a 11 días)
+qs704b,3,2013,Casi todos los dias (12 a + dias),Casi todos los días (de 12 a más días)
+qs704b,1,2013,Varios dias (1 a 6 dias),Varios días (de 1 a 6 días)
+qs704c,2,2013,La mayoria de dias (7 a 11 dias),La mayoria de días (de 7 a 11 días)
+qs704c,3,2013,Casi todos los dias (12 a + dias),Casi todos los días (de 12 a más días)
+qs704c,1,2013,Varios dias (1 a 6 dias),Varios días (de 1 a 6 días)
+qs704d,2,2013,La mayoria de dias (7 a 11 dias),La mayoria de días (de 7 a 11 días)
+qs704d,3,2013,Casi todos los dias (12 a + dias),Casi todos los días (de 12 a más días)
+qs704d,1,2013,Varios dias (1 a 6 dias),Varios días (de 1 a 6 días)
+qs704e,2,2013,La mayoria de dias (7 a 11 dias),La mayoria de días (de 7 a 11 días)
+qs704e,3,2013,Casi todos los dias (12 a + dias),Casi todos los días (de 12 a más días)
+qs704e,1,2013,Varios dias (1 a 6 dias),Varios días (de 1 a 6 días)
+qs704f,2,2013,La mayoria de dias (7 a 11 dias),La mayoria de días (de 7 a 11 días)
+qs704f,3,2013,Casi todos los dias (12 a + dias),Casi todos los días (de 12 a más días)
+qs704f,1,2013,Varios dias (1 a 6 dias),Varios días (de 1 a 6 días)
+qs704g,2,2013,La mayoria de dias (7 a 11 dias),La mayoria de días (de 7 a 11 días)
+qs704g,3,2013,Casi todos los dias (12 a + dias),Casi todos los días (de 12 a más días)
+qs704g,1,2013,Varios dias (1 a 6 dias),Varios días (de 1 a 6 días)
+qs704h,2,2013,La mayoria de dias (7 a 11 dias),La mayoria de días (de 7 a 11 días)
+qs704h,3,2013,Casi todos los dias (12 a + dias),Casi todos los días (de 12 a más días)
+qs704h,1,2013,Varios dias (1 a 6 dias),Varios días (de 1 a 6 días)
+qs704i,2,2013,La mayoria de dias (7 a 11 dias),La mayoria de días (de 7 a 11 días)
+qs704i,3,2013,Casi todos los dias (12 a + dias),Casi todos los días (de 12 a más días)
+qs704i,1,2013,Varios dias (1 a 6 dias),Varios días (de 1 a 6 días)
+qs708,E,2013,Centro/Puesto de Salud,Centro/Puesto del MINSA
+qs731,D,2013,Hospital / Otro Municipal,Hospital/Otro municipal
+qs731,I,2013,Clinica/Posta de ONG,Clínica/Posta ONG
+qs731,C,2013,Hospital FFAA Y PNP,Hospital FF.AA. y PNP.
+qs731,J,2013,Hospital / Otro de Iglesia,Hospital/Otro iglesia
+qs802a,6,2013,Responsable discapacitado(a),Responsable discapacitada(o)
+qs802cm,9,2013,Septiembre,Setiembre
+qs802v,1,2013,No vive en el hogar,Si vive en el hogar
+qs804u,2,2013,Uno o mas años,Dos o más años
+qs804u,1,2013,Meses ( si es < de 2 años),Meses (si es < de 2 años)
+qs812u,2,2013,Uno o mas años,Un año o más
+qs812u,1,2013,Meses ( si es <  de 1 año),Meses (si es < de 1 año)
+qs813,1,2013,Solo la niña/el niño,Solo la niña o el niño
+qs818u,2,2013,Años ( si es de 2 o mas años),Dos años o más
+qs818u,1,2013,Meses ( si es < de 2 años),Meses (si es < de 2 años)
+qs822u,2,2013,Años ( si es de 2 o mas años),Años (si es de 2 ó más años)
+qs822u,1,2013,Meses ( si es < de 2 años),Meses (si es < de 2 años)
+qs828,8,2013,no sabe/ no recuerda,No sabe/No recuerda
+qs840b,7,2013,Otra marca,"Número borroso, registre la marca"
+qs840b,8,2013,Valor ppm,"Valor diferente a ppm, registre el valor"
+qs840b,9,2013,Otro valor,Otro
+qs902,4,2013,Fue evaluada en C.hogar,Fue evaluada en C. Hogar
+qs902,1,2013,Medido,Medido(a)
+qs906,1,2013,Medido,Medido(a)
+qsresinf,6,2013,Discapacitado,Discapacitada(o)
+qsresinf,1,2019,Iniciar entrevista,Completa
+qsresult,6,2013,Discapacitado,Discapacitada(o)
+qult5,0,2019,Si,No
+qult5,1,2019,No,Si
+s1002a,2,2013,Sometimes,A veces
+s1002a,0,2013,Never,Nunca
+s1002a,1,2013,Frequently,Frecuentemente
+s1002b,2,2013,Sometimes,A veces
+s1002b,0,2013,Never,Nunca
+s1002b,1,2013,Frequently,Frecuentemente
+s1002c,2,2013,Sometimes,A veces
+s1002c,0,2013,Never,Nunca
+s1002c,1,2013,Frequently,Frecuentemente
+s1002d,2,2013,Sometimes,A veces
+s1002d,0,2013,Never,Nunca
+s1002d,1,2013,Frequently,Frecuentemente
+s1002e,2,2013,Sometimes,A veces
+s1002e,0,2013,Never,Nunca
+s1002e,1,2013,Frequently,Frecuentemente
+s1008an,2,2013,Sometimes,Algunas veces
+s1008an,0,2013,Never,Nunca
+s1008an,1,2013,Frequently,Con mucha frecuencia
+s1008bn,2,2013,Sometimes,Algunas veces
+s1008bn,0,2013,Never,Nunca
+s1008bn,1,2013,Frequently,Con mucha frecuencia
+s1008cn,2,2013,Sometimes,Algunas veces
+s1008cn,0,2013,Never,Nunca
+s1008cn,1,2013,Frequently,Con mucha frecuencia
+s1008dn,2,2013,Sometimes,Algunas veces
+s1008dn,0,2013,Never,Nunca
+s1008dn,1,2013,Frequently,Frecuentemente
+s1012b,1,2013,Yes,Si
+s1012bn,2,2013,Sometimes,Algunas veces
+s1012bn,0,2013,Never,Nunca
+s1012bn,1,2013,Frequently,Con mucha frecuencia
+s1017,98,2013,DK,No sabe
+s1023aa,1,2013,Yes,Si
+s1023ab,1,2013,Yes,Si
+s1023ac,1,2013,Yes,Si
+s1023ad,1,2013,Yes,Si
+s1023ae,1,2013,Yes,Si
+s1023af,1,2013,Yes,Si
+s1023ag,1,2013,Yes,Si
+s1023ah,1,2013,Yes,Si
+s1023ax,1,2013,Yes,Si
+s1023az,0,2013,No: helph sought,No
+s1023az,1,2013,Yes: never sought help,Si
+s1026,1,2013,Yes,Sí
+s1028a,1,2013,Yes,Si
+s1028b,1,2013,Yes,Si
+s1028x,1,2013,Yes,Si
+s1028y,1,2013,Yes,Si
+s1030aa,1,2013,Yes,Si
+s1030ab,1,2013,Yes,Si
+s1030ac,1,2013,Yes,Si
+s1030ad,1,2013,Yes,Si
+s1030ae,1,2013,Yes,Si
+s1030af,1,2013,Yes,Si
+s1030ag,1,2013,Yes,Si
+s1030ah,1,2013,Yes,Si
+s1030ai,1,2013,Yes,Si
+s1030aj,1,2013,Yes,Si
+s1030ak,1,2013,Yes,Si
+s1030al,1,2013,Yes,Si
+s1030am,1,2013,Yes,Si
+s1030ax,1,2013,Yes,Si
+s1030ba,1,2013,Yes,Si
+s1030bb,1,2013,Yes,Si
+s1030bc,1,2013,Yes,Si
+s1030bd,1,2013,Yes,Si
+s1030be,1,2013,Yes,Si
+s1030bf,1,2013,Yes,Si
+s1030bg,1,2013,Yes,Si
+s1030bh,1,2013,Yes,Si
+s1030bi,1,2013,Yes,Si
+s1030bj,1,2013,Yes,Si
+s1030bk,1,2013,Yes,Si
+s1030bl,1,2013,Yes,Si
+s1030bx,1,2013,Yes,Si
+s1030ca,1,2013,Yes,Si
+s1030cb,1,2013,Yes,Si
+s1030cc,1,2013,Yes,Si
+s1030cd,1,2013,Yes,Si
+s1030ce,1,2013,Yes,Si
+s1030cf,1,2013,Yes,Si
+s1030cg,1,2013,Yes,Si
+s1030ch,1,2013,Yes,Si
+s1030ci,1,2013,Yes,Si
+s1030cj,1,2013,Yes,Si
+s1030ck,1,2013,Yes,Si
+s1030cl,1,2013,Yes,Si
+s1030cm,1,2013,Yes,Si
+s1030cx,1,2013,Yes,Si
+s1031,1,2013,Yes,Sí
+s1031,8,2013,Don't know,No sabe
+s1032a,1,2013,Yes,Si
+s1032b,1,2013,Yes,Si
+s1032c,1,2013,Yes,Si
+s1032d,1,2013,Yes,Si
+s1032e,1,2013,Yes,Si
+s1032f,1,2013,Yes,Si
+s1032g,1,2013,Yes,Si
+s1032h,1,2013,Yes,Si
+s1032i,1,2013,Yes,Si
+s1032j,1,2013,Yes,Si
+s1032k,1,2013,Yes,Si
+s1032l,1,2013,Yes,Si
+s1032m,1,2013,Yes,Si
+s1032n,1,2013,Yes,Si
+s1032x,1,2013,Yes,Si
+s1032y,1,2013,Yes,Si
+s1033,2,2013,Frecuently,Frecuentemente
+s1033,0,2013,No,No/Nunca
+s1033,1,2013,Sometimes,Algunas veces
+s1034a,2,2013,All time,Todo el tiempo
+s1034a,0,2013,No,No presente
+s1034a,1,2013,Sometimes,Algunas veces
+s1034b,2,2013,All time,Todo el tiempo
+s1034b,0,2013,No,No presente
+s1034b,1,2013,Sometimes,Algunas veces
+s108n,4,2013,"Higher, university",Superior universitario
+s108n,5,2013,PostGrade,Posgrado
+s108n,2,2013,Secondary,Secundario
+s108n,3,2013,Higher but not university,Superior no universitario
+s108n,0,2013,"None, preschool",Inicial/Pre-escolar
+s108n,1,2013,Primary,Primario
+s108y,7,2013,Education given in grades,Educación dada en grados
+s111,1,2013,Yes,Si
+s112,5,2013,Didn't have money,Falta de dinero
+s112,6,2013,Sickness,Enfermedad
+s112,12,2013,There wer no teachers at school,No había maestros en la escuela
+s112,11,2013,School far away,Escuela muy lejos/no había escuela
+s112,96,2013,Other,Otra
+s112,98,2013,Don't know,No sabe
+s112,8,2013,"Graduated, enough",Se graduó/ suficiente estudio
+s112,1,2013,Became preganant,Quedó embarazada
+s112,4,2013,To help family,Tenìa que ayudar en la chacra o negocio de la familia
+s112,7,2013,Need to earn money,Necesitaba trabajar para ganar dinero
+s112,13,2013,Study in Academy / Short Profession,Estudia en academia preuniversitaria/carrera corta
+s112,2,2013,Got married,Se casó/se unió
+s112,9,2013,Didn't pass test,No aprobó examen de ingreso
+s112,3,2013,Take care of children,Tenía que cuidar a las niñas /niños más pequeños
+s112,10,2013,Didn't want to study anymore,No quiso estudiar
+s119,5,2013,Foreign language,Shipibo/Konibo
+s119,1,2013,Spanish,Quechua
+s119,4,2013,Other indigeneous,Awajún/Aguaruna
+s119,2,2013,Quechua,Aimara
+s119,3,2013,Aymara,Ashaninka
+s229a,1,2013,Yes,Si
+s229b,1,2013,Yes,Si
+s229b1,2,2013,"Yes, and don´t show the record","Sí, y no muestra el registro"
+s229b1,1,2013,"Yes, and show the record","Sí, y muestra el registro"
+s229c,1,2013,Yes,Si
+s229d,1,2013,Yes,Si
+s229da,1,2013,Yes,Si
+s229db,1,2013,Yes,Si
+s229dc,1,2013,Yes,Si
+s229dd,1,2013,Yes,Si
+s229de,1,2013,Yes,Si
+s229df,1,2013,Yes,Si
+s229dx,1,2013,Yes,Si
+s229e,1,2013,Yes,Si
+s229f,1,2013,Yes,Si
+s229g,1,2013,Yes,Si
+s229h,1,2013,Yes,Si
+s229i,1,2013,Yes,Si
+s229j,1,2013,Yes,Si
+s229k,1,2013,Yes,Si
+s229l,1,2013,Yes,Si
+s229x,1,2013,Yes,Si
+s229y,0,2013,No: pregnancy control,No: control del embarazo
+s229y,1,2013,Yes: no pregnancy control,Sí: no hay control del embarazo
+s239a,1,2013,Yes,Si
+s239b,1,2013,Yes,Si
+s239c,1,2013,Yes,Si
+s239d,1,2013,Yes,Si
+s239e,1,2013,Yes,Si
+s239f,0,2013,No: has ID document,No: tiene documento de identificación
+s239f,1,2013,Yes: no ID document,Sí: sin documento de identificación
+s239x,1,2013,Yes,Si
+s314,9998,2013,Don`t know,No sabe
+s314,9995,2013,Don`t payment,No pague
+s315b,6,2013,Other,En otro momento
+s315b,2,2013,During delivery,Durante el parto
+s315b,3,2013,After delivery,Después del parto
+s315b,1,2013,Prenatal control,Control prenatal
+s317ac,95,2013,No brand (MINSA),Sin marca (MINSA)
+s317ac,96,2013,Other,Otro
+s317ac,93,2013,"No brand (H. FF.AA., FF.PP)","Sin marca (H. FF.AA., FF.PP)"
+s317ac,98,2013,Don't know,No sabe
+s317ac,94,2013,No brand (ESSALUD),SIn marca (ESSALUD)
+s317ad,98,2013,No Sabe / No recuerda,No Sabe/No recuerda
+s317c,4,2013,Body temp and cervical mucous,Temperatura corporal y moco cervical
+s317c,5,2013,Cycle collar,Ciclo de cuello
+s317c,6,2013,No system,Sin sistema
+s317c,96,2013,Other,Otro
+s317c,2,2013,Body temperature,Temperatura corporal
+s317c,3,2013,Cervical mucous,Mucosa cervical
+s317c,1,2013,Based on calendar,Basado en calendario
+s321a,17,2013,Hospital/Other FFAA & PNP,Hosp./Otro de las FFAA y PNP
+s321a,19,2013,Other governemnt,Otro gobierno
+s321a,96,2013,OTHER,Otro
+s321a,23,2013,Private doctor,Consultorio Médico Particular
+s321a,25,2013,Health worker NGO,Promotor de ONG
+s321a,32,2013,Church,Hospital/Otro de la Iglesia
+s321a,16,2013,Center/Post ESSALUD,Polic./Centro/Posta ESSALUD
+s321a,18,2013,Hospital/Other Local Govern.,Hosp./Otro de municipalidad
+s321a,33,2013,Friends/relatives,Amigos/Parientes
+s321a,24,2013,Clinic/FP post NGO,Clínica/Posta de ONG
+s321a,12,2013,Health center MINSA,Centro de salud MINSA
+s321a,21,2013,Private clinic,Clínica Particular
+s321a,95,2013,Automedication,Nadie/Se automedicó
+s321a,14,2013,Health worker MINSA,Promotor de Salud MINSA
+s321a,31,2013,Shop/supermarket,Tienda/Supermercado/Hostal
+s321a,13,2013,Health post MINSA,Puesto de Salud MINSA
+s321a,22,2013,Pharmacy,Farmacia/Botica
+s325a,6,2013,Other,Otro
+s325a,2,2013,Didn't have any preference,No tenía preferencia
+s325a,3,2013,Didn't want to use method,No quería usar método
+s325a,1,2013,Yes,Si
+s325b,5,2013,Injection,Inyección
+s325b,6,2013,Implants,Implantes o Norplant
+s325b,12,2013,Withdrawal,Retiro
+s325b,11,2013,Periodic abstinence,Abstinencia periódica
+s325b,96,2013,Other,Otro
+s325b,8,2013,Female Condom,Condón Femenino
+s325b,1,2013,Female sterilization,Esterilización Femenina
+s325b,4,2013,IUD,DIU
+s325b,7,2013,Condom,Condón
+s325b,13,2013,Emergency contraception,Anticoncepción oral de emergencia
+s325b,2,2013,Male sterilization,Esterilización Masculina (vasectomia)
+s325b,9,2013,"Foam, jelly, suppository","Espuma, jalea, óvulos (vaginales)"
+s325b,3,2013,Pill,Píldora
+s325b,10,2013,LAM,Lactancia exclusiva (mela)
+s325ca,1,2013,Yes,Si
+s325cb,1,2013,Yes,Si
+s325cx,1,2013,Yes,Si
+s325d,4,2013,ONG fieldworker,Promotor de salud de ONG
+s325d,5,2013,Herself,Ella misma
+s325d,96,2013,Other,Otro
+s325d,2,2013,"Doctor, nurse","Medico, obstetriz, enfermera"
+s325d,3,2013,Governemnt fieldworker,Promotor de salud del ministerio
+s325d,1,2013,Partner,Mi esposo/compañero
+s325e,4,2013,They offered incentives (food/medicines),Me ofrec. víveres/atenc. gratis
+s325e,5,2013,Would stop participation in other programs,Dejaría ser socia de P. Social
+s325e,96,2013,Other,Otro
+s325e,2,2013,There wasn't any other available,No había otro mét. disponible
+s325e,3,2013,Partner wanted that method,Esposo/compañero eligió
+s325e,1,2013,Doctor recommended,Me recomendó personal de salud
+s325ga,1,2013,Good,Bueno
+s325ga,3,2013,Bad,Mal
+s325ga,8,2013,Don't know,No sabe
+s325gb,1,2013,Good,Bueno
+s325gb,3,2013,Bad,Mal
+s325gb,8,2013,Don't know,No sabe
+s325gc,1,2013,Good,Bueno
+s325gc,3,2013,Bad,Mal
+s325gc,8,2013,Don't know,No sabe
+s325gd,1,2013,Good,Bueno
+s325gd,3,2013,Bad,Mal
+s325gd,8,2013,Don't know,No sabe
+s325ge,1,2013,Good,Bueno
+s325ge,3,2013,Bad,Mal
+s325ge,8,2013,Don't know,No sabe
+s325gf,1,2013,Good,Bueno
+s325gf,3,2013,Bad,Mal
+s325gf,8,2013,Don't know,No sabe
+s325gg,1,2013,Good,Bueno
+s325gg,3,2013,Bad,Mal
+s325gg,8,2013,Don't know,No sabe
+s325gh,1,2013,Good,Bueno
+s325gh,3,2013,Bad,Mal
+s325gh,8,2013,Don't know,No sabe
+s325gi,1,2013,Good,Bueno
+s325gi,3,2013,Bad,Mal
+s325gi,8,2013,Don't know,No sabe
+s325gj,1,2013,Good,Bueno
+s325gj,3,2013,Bad,Mal
+s325gj,8,2013,Don't know,No sabe
+s325gk,1,2013,Good,Bueno
+s325gk,3,2013,Bad,Mal
+s325gk,8,2013,Don't know,No sabe
+s327b,1,2013,Yes,Si
+s327c,0,2013,None,Ninguno
+s410b,98,2013,DK,No sabe
+s411b,1,2013,Yes,Si
+s411b,8,2013,DK,No sabe
+s411f,1,2013,Yes,Si
+s411f,8,2013,DK,No sabe
+s411g,1,2013,Yes,Si
+s411g,8,2013,DK,No sabe
+s411h,1,2013,Yes,Si
+s411h,8,2013,DK,No sabe
+s413,1,2013,Yes,Si
+s425a,1,2013,Yes,Si
+s426b,17,2013,Partner/family opposed,Esposo/Familiar se opuso
+s426b,19,2013,Place was not clean,No era higiénico
+s426b,24,2013,Was not accepted at facility,No la quisieron atender
+s426b,12,2013,Too far away,Quedaba muy lejos
+s426b,21,2013,Personnel is not professional,Personal es descuidado
+s426b,11,2013,No health facility in locality,No existe en la localidad
+s426b,14,2013,Was member of other health plan,Estaba afiliada a otro servicio de salud
+s426b,96,2013,Other,Otro
+s426b,23,2013,Din't have money,No tenía dinero
+s426b,25,2013,Advance bitrh when go to health facility,Iba camino a establecimiento/Parto se adelantó
+s426b,20,2013,Mistrust,No confia en la atención
+s426b,13,2013,There were no health personnel,No había personal
+s426b,22,2013,Crowded/congested,Congestión del servicio
+s426b,15,2013,Personnel didn't treat patients well,Personal daba malos tratos
+s426b,16,2013,Lack of privacy,No había privacidad en atención
+s426b,18,2013,It is customary,Por tradición
+s426ga,1,2013,Yes,Si
+s426gb,1,2013,Yes,Si
+s426gc,1,2013,Yes,Si
+s426gd,1,2013,Yes,Si
+s426ge,1,2013,Yes,Si
+s427da,1,2013,Yes,Si
+s427db,1,2013,Yes,Si
+s427dc,1,2013,Yes,Si
+s427dd,1,2013,Yes,Si
+s427de,1,2013,Yes,Si
+s427df,1,2013,Yes,Si
+s427dg,1,2013,Yes,Si
+s427f,1,2013,Yes,Si
+s430c,1,2013,"Yes (<2008), or yes and shows birth certificate (2008)","Sí, muestra partida de nacimiento/DNI"
+s430c,2,2013,"Yes, doesn't show birth certificate","Sí, no muestra partida de nacimiento/DNI"
+s430c,8,2013,DK,No sabe
+s430d,1,2013,Yes,Si tiene Nro. CIU: DNI
+s430d,0,2013,No,No tiene
+s431a,1,2013,Yes,Si
+s431a,8,2013,DK,No sabe
+s432,1,2013,"Yes (<2008), Yes and shows card (2008)",Si
+s432,8,2013,Don't know,No sabe
+s435,4,2013,Child has problem sucking,Niña(o) tiene problemas succión
+s435,5,2013,Nipple/breast problem,Problema de succión pezón
+s435,6,2013,Not enough milk,No tenía leche
+s435,7,2013,Mother working,Madre trabajando
+s435,96,2013,Don't know,No sabe
+s435,2,2013,Child sick/weak,Niña(o) enfermo/débil
+s435,8,2013,Child refused,Niña(o) rehusó
+s435,3,2013,Child died,Niña(o) murió
+s435,1,2013,Mother sick,Madre enferma/débil
+s436c,1,2013,Yes,Si
+s440,5,2013,Nipple/breast problem,Problema de succión pezón
+s440,6,2013,Not enough milk,No tenía leche
+s440,12,2013,Child only want chest,Niña(o) solo quería pecho
+s440,11,2013,Started using contraception,Comenzó a usar anticonceptivos
+s440,96,2013,Don't know,No sabe
+s440,8,2013,Child refused,Niña(o) rehusó
+s440,1,2013,Mother sick,Madre enferma/débil
+s440,4,2013,Child has problem sucking,Niña(o) tiene problemas succión
+s440,7,2013,Mother working,Madre trabajaba/estudiaba
+s440,2,2013,Child sick/weak,Niña(o) enfermo/débil
+s440,9,2013,Weaning age,Edad de destete
+s440,3,2013,Child died,Niña(o) murió
+s440,10,2013,Became pregnant,Quedó embarazada
+s441,1,2013,Yes,Si
+s442,24,2013,Health center MINSA,Centro de salud MINSA
+s442,27,2013,Hospital/Other Local Government,Hospital/Otro de la Municipalidad
+s442,96,2013,Other,Otro
+s442,23,2013,Hospital FFAA & PNP,Hospital FFAA y PNP
+s442,26,2013,Center/post ESSALUD,policlínico/Centro/Posta ESSALUD
+s442,31,2013,Private clinic,Clínica particular
+s442,25,2013,Health post MINSA,Puesto de salud MINSA
+s442,32,2013,Private doctor,Consultorio médico particular
+s442,41,2013,NGO Clinic/post,Clinica/Posta ONG
+s442,33,2013,Traditional birth attendant home,Casa de partera
+s442,42,2013,Church Hospital/Other,Hospital/Otro de la Iglesia
+s446a,1,2013,Yes,Si
+s446a,8,2013,DK,No sabe
+s446aa,201,2013,One hour,Una hora
+s446aa,101,2013,One minute,Un minuto
+s446aa,998,2013,DK,No sabe
+s446aa,100,2013,Zero minutes,Cero minutos
+s446aa,0,2013,Inmediately,Inmediatamente
+s446aa,200,2013,Zero hours,Cero horas
+s446ab,6,2013,Other,Otro
+s446ab,1,2013,Refrigerator,Refrigerador
+s446ab,2,2013,Frezeer,Congelador
+s446ab,8,2013,DK,No sabe
+s448a,201,2013,One hour,Una hora
+s448a,101,2013,One minute,Un minuto
+s448a,998,2013,DK,No sabe
+s448a,100,2013,Zero minutes,Cero minutos
+s448a,0,2013,Inmediately,Inmediatamente
+s448a,200,2013,Zero hours,Cero horas
+s448b,6,2013,Other,Otro
+s448b,1,2013,Refrigerator,Refrigerador
+s448b,2,2013,Frezeer,Congelador
+s448b,8,2013,DK,No sabe
+s459b,2,2013,Later,Luego
+s459b,1,2013,At birth,Al nacer
+s45b0,1,2013,Vacc. date on card,Vacuna fecha en la tarjeta
+s45b0,2,2013,Reported by mother,Reportada por la madre
+s45b0,3,2013,Vacc. marked on card,Vacuna marcado en la tarjeta
+s45b0,8,2013,DK,No sabe
+s45b0d,97,2013,Inconsistent,Inconsistente
+s45b0d,98,2013,DK,No sabe
+s45b0m,97,2013,Inconsistent,Inconsistente
+s45b0m,98,2013,DK,No sabe
+s45b0y,9997,2013,Inconsistent,Inconsistente
+s45b0y,9998,2013,DK,No sabe
+s45b1,1,2013,Vacc. date on card,Vacuna fecha en la tarjeta
+s45b1,2,2013,Reported by mother,Reportada por la madre
+s45b1,3,2013,Vacc. marked on card,Vacuna marcado en la tarjeta
+s45b1,8,2013,DK,No sabe
+s45b1d,97,2013,Inconsistent,Inconsistente
+s45b1d,98,2013,DK,No sabe
+s45b1m,97,2013,Inconsistent,Inconsistente
+s45b1m,98,2013,DK,No sabe
+s45b1y,9997,2013,Inconsistent,Inconsistente
+s45b1y,9998,2013,DK,No sabe
+s45b2,1,2013,Vacc. date on card,Vacuna fecha en la tarjeta
+s45b2,2,2013,Reported by mother,Reportada por la madre
+s45b2,3,2013,Vacc. marked on card,Vacuna marcado en la tarjeta
+s45b2,8,2013,DK,No sabe
+s45b2d,97,2013,Inconsistent,Inconsistente
+s45b2d,98,2013,DK,No sabe
+s45b2m,97,2013,Inconsistent,Inconsistente
+s45b2m,98,2013,DK,No sabe
+s45b2y,9997,2013,Inconsistent,Inconsistente
+s45b2y,9998,2013,DK,No sabe
+s45b3,1,2013,Vacc. date on card,Vacuna fecha en la tarjeta
+s45b3,2,2013,Reported by mother,Reportada por la madre
+s45b3,3,2013,Vacc. marked on card,Vacuna marcado en la tarjeta
+s45b3,8,2013,DK,No sabe
+s45b3d,97,2013,Inconsistent,Inconsistente
+s45b3d,98,2013,DK,No sabe
+s45b3m,97,2013,Inconsistent,Inconsistente
+s45b3m,98,2013,DK,No sabe
+s45b3y,9997,2013,Inconsistent,Inconsistente
+s45b3y,9998,2013,DK,No sabe
+s45d4,1,2013,Vacc. date on card,Vacuna fecha en la tarjeta
+s45d4,2,2013,Reported by mother,Reportada por la madre
+s45d4,3,2013,Vacc. marked on card,Vacuna marcado en la tarjeta
+s45d4,8,2013,DK,No sabe
+s45d4d,97,2013,Inconsistent,Inconsistente
+s45d4d,98,2013,DK,No sabe
+s45d4m,97,2013,Inconsistent,Inconsistente
+s45d4m,98,2013,DK,No sabe
+s45d4y,9997,2013,Inconsistent,Inconsistente
+s45d4y,9998,2013,DK,No sabe
+s45f1,1,2013,Vacc. date on card,Vacuna fecha en la tarjeta
+s45f1,2,2013,Reported by mother,Reportada por la madre
+s45f1,3,2013,Vacc. marked on card,Vacuna marcado en la tarjeta
+s45f1,8,2013,DK,No sabe
+s45f1d,97,2013,Inconsistent,Inconsistente
+s45f1d,98,2013,DK,No sabe
+s45f1m,97,2013,Inconsistent,Inconsistente
+s45f1m,98,2013,DK,No sabe
+s45f1y,9997,2013,Inconsistent,Inconsistente
+s45f1y,9998,2013,DK,No sabe
+s45f2,1,2013,Vacc. date on card,Vacuna fecha en la tarjeta
+s45f2,2,2013,Reported by mother,Reportada por la madre
+s45f2,3,2013,Vacc. marked on card,Vacuna marcado en la tarjeta
+s45f2,8,2013,DK,No sabe
+s45f2d,97,2013,Inconsistent,Inconsistente
+s45f2d,98,2013,DK,No sabe
+s45f2m,97,2013,Inconsistent,Inconsistente
+s45f2m,98,2013,DK,No sabe
+s45f2y,9997,2013,Inconsistent,Inconsistente
+s45f2y,9998,2013,DK,No sabe
+s45f3,1,2013,Vacc. date on card,Vacuna fecha en la tarjeta
+s45f3,2,2013,Reported by mother,Reportada por la madre
+s45f3,3,2013,Vacc. marked on card,Vacuna marcado en la tarjeta
+s45f3,8,2013,DK,No sabe
+s45f3d,97,2013,Inconsistent,Inconsistente
+s45f3d,98,2013,DK,No sabe
+s45f3m,97,2013,Inconsistent,Inconsistente
+s45f3m,98,2013,DK,No sabe
+s45f3y,9997,2013,Inconsistent,Inconsistente
+s45f3y,9998,2013,DK,No sabe
+s45if1,1,2013,Vacc. date on card,Vacuna fecha en la tarjeta
+s45if1,2,2013,Reported by mother,Reportada por la madre
+s45if1,3,2013,Vacc. marked on card,Vacuna marcado en la tarjeta
+s45if1,8,2013,DK,No sabe
+s45if1d,97,2013,Inconsistent,Inconsistente
+s45if1d,98,2013,DK,No sabe
+s45if1m,97,2013,Inconsistent,Inconsistente
+s45if1m,98,2013,DK,No sabe
+s45if1y,9997,2013,Inconsistent,Inconsistente
+s45if1y,9998,2013,DK,No sabe
+s45if2,1,2013,Vacc. date on card,Vacuna fecha en la tarjeta
+s45if2,2,2013,Reported by mother,Reportada por la madre
+s45if2,3,2013,Vacc. marked on card,Vacuna marcado en la tarjeta
+s45if2,8,2013,DK,No sabe
+s45if2d,97,2013,Inconsistent,Inconsistente
+s45if2d,98,2013,DK,No sabe
+s45if2m,97,2013,Inconsistent,Inconsistente
+s45if2m,98,2013,DK,No sabe
+s45if2y,9997,2013,Inconsistent,Inconsistente
+s45if2y,9998,2013,DK,No sabe
+s45ml,1,2013,Vacc. date on card,Vacuna fecha en la tarjeta
+s45ml,2,2013,Reported by mother,Reportada por la madre
+s45ml,3,2013,Vacc. marked on card,Vacuna marcado en la tarjeta
+s45ml,8,2013,DK,No sabe
+s45mld,97,2013,Inconsistent,Inconsistente
+s45mld,98,2013,DK,No sabe
+s45mlm,97,2013,Inconsistent,Inconsistente
+s45mlm,98,2013,DK,No sabe
+s45mly,9997,2013,Inconsistent,Inconsistente
+s45mly,9998,2013,DK,No sabe
+s45nm1,1,2013,Vacc. date on card,Vacuna fecha en la tarjeta
+s45nm1,2,2013,Reported by mother,Reportada por la madre
+s45nm1,3,2013,Vacc. marked on card,Vacuna marcado en la tarjeta
+s45nm1,8,2013,DK,No sabe
+s45nm1d,97,2013,Inconsistent,Inconsistente
+s45nm1d,98,2013,DK,No sabe
+s45nm1m,97,2013,Inconsistent,Inconsistente
+s45nm1m,98,2013,DK,No sabe
+s45nm1y,9997,2013,Inconsistent,Inconsistente
+s45nm1y,9998,2013,DK,No sabe
+s45nm2,1,2013,Vacc. date on card,Vacuna fecha en la tarjeta
+s45nm2,2,2013,Reported by mother,Reportada por la madre
+s45nm2,3,2013,Vacc. marked on card,Vacuna marcado en la tarjeta
+s45nm2,8,2013,DK,No sabe
+s45nm2d,97,2013,Inconsistent,Inconsistente
+s45nm2d,98,2013,DK,No sabe
+s45nm2m,97,2013,Inconsistent,Inconsistente
+s45nm2m,98,2013,DK,No sabe
+s45nm2y,9997,2013,Inconsistent,Inconsistente
+s45nm2y,9998,2013,DK,No sabe
+s45nm3,1,2013,Vacc. date on card,Vacuna fecha en la tarjeta
+s45nm3,2,2013,Reported by mother,Reportada por la madre
+s45nm3,3,2013,Vacc. marked on card,Vacuna marcado en la tarjeta
+s45nm3,8,2013,DK,No sabe
+s45nm3d,97,2013,Inconsistent,Inconsistente
+s45nm3d,98,2013,DK,No sabe
+s45nm3m,97,2013,Inconsistent,Inconsistente
+s45nm3m,98,2013,DK,No sabe
+s45nm3y,9997,2013,Inconsistent,Inconsistente
+s45nm3y,9998,2013,DK,No sabe
+s45pv1,1,2013,Vacc. date on card,Vacuna fecha en la tarjeta
+s45pv1,2,2013,Reported by mother,Reportada por la madre
+s45pv1,3,2013,Vacc. marked on card,Vacuna marcado en la tarjeta
+s45pv1,8,2013,DK,No sabe
+s45pv1d,97,2013,Inconsistent,Inconsistente
+s45pv1d,98,2013,DK,No sabe
+s45pv1m,97,2013,Inconsistent,Inconsistente
+s45pv1m,98,2013,DK,No sabe
+s45pv1y,9997,2013,Inconsistent,Inconsistente
+s45pv1y,9998,2013,DK,No sabe
+s45pv2,1,2013,Vacc. date on card,Vacuna fecha en la tarjeta
+s45pv2,2,2013,Reported by mother,Reportada por la madre
+s45pv2,3,2013,Vacc. marked on card,Vacuna marcado en la tarjeta
+s45pv2,8,2013,DK,No sabe
+s45pv2d,97,2013,Inconsistent,Inconsistente
+s45pv2d,98,2013,DK,No sabe
+s45pv2m,97,2013,Inconsistent,Inconsistente
+s45pv2m,98,2013,DK,No sabe
+s45pv2y,9997,2013,Inconsistent,Inconsistente
+s45pv2y,9998,2013,DK,No sabe
+s45pv3,1,2013,Vacc. date on card,Vacuna fecha en la tarjeta
+s45pv3,2,2013,Reported by mother,Reportada por la madre
+s45pv3,3,2013,Vacc. marked on card,Vacuna marcado en la tarjeta
+s45pv3,8,2013,DK,No sabe
+s45pv3d,97,2013,Inconsistent,Inconsistente
+s45pv3d,98,2013,DK,No sabe
+s45pv3m,97,2013,Inconsistent,Inconsistente
+s45pv3m,98,2013,DK,No sabe
+s45pv3y,9997,2013,Inconsistent,Inconsistente
+s45pv3y,9998,2013,DK,No sabe
+s45rt1,1,2013,Vacc. date on card,Vacuna fecha en la tarjeta
+s45rt1,2,2013,Reported by mother,Reportada por la madre
+s45rt1,3,2013,Vacc. marked on card,Vacuna marcado en la tarjeta
+s45rt1,8,2013,DK,No sabe
+s45rt1d,97,2013,Inconsistent,Inconsistente
+s45rt1d,98,2013,DK,No sabe
+s45rt1m,97,2013,Inconsistent,Inconsistente
+s45rt1m,98,2013,DK,No sabe
+s45rt1y,9997,2013,Inconsistent,Inconsistente
+s45rt1y,9998,2013,DK,No sabe
+s45rt2,1,2013,Vacc. date on card,Vacuna fecha en la tarjeta
+s45rt2,2,2013,Reported by mother,Reportada por la madre
+s45rt2,3,2013,Vacc. marked on card,Vacuna marcado en la tarjeta
+s45rt2,8,2013,DK,No sabe
+s45rt2d,97,2013,Inconsistent,Inconsistente
+s45rt2d,98,2013,DK,No sabe
+s45rt2m,97,2013,Inconsistent,Inconsistente
+s45rt2m,98,2013,DK,No sabe
+s45rt2y,9997,2013,Inconsistent,Inconsistente
+s45rt2y,9998,2013,DK,No sabe
+s45sp1,1,2013,Vacc. date on card,Vacuna fecha en la tarjeta
+s45sp1,2,2013,Reported by mother,Reportada por la madre
+s45sp1,3,2013,Vacc. marked on card,Vacuna marcado en la tarjeta
+s45sp1,8,2013,DK,No sabe
+s45sp1d,97,2013,Inconsistent,Inconsistente
+s45sp1d,98,2013,DK,No sabe
+s45sp1m,97,2013,Inconsistent,Inconsistente
+s45sp1m,98,2013,DK,No sabe
+s45sp1y,9997,2013,Inconsistent,Inconsistente
+s45sp1y,9998,2013,DK,No sabe
+s45sp2,1,2013,Vacc. date on card,Vacuna fecha en la tarjeta
+s45sp2,2,2013,Reported by mother,Reportada por la madre
+s45sp2,3,2013,Vacc. marked on card,Vacuna marcado en la tarjeta
+s45sp2,8,2013,DK,No sabe
+s45sp2d,98,2013,DK,No sabe
+s45sp2m,98,2013,DK,No sabe
+s45sp2y,9997,2013,Inconsistent,Inconsistente
+s45sp2y,9998,2013,DK,No sabe
+s45sr,1,2013,Vacc. date on card,Vacuna fecha en la tarjeta
+s45sr,2,2013,Reported by mother,Reportada por la madre
+s45sr,3,2013,Vacc. marked on card,Vacuna marcado en la tarjeta
+s45sr,8,2013,DK,No sabe
+s45srd,97,2013,Inconsistent,Inconsistente
+s45srd,98,2013,DK,No sabe
+s45srm,97,2013,Inconsistent,Inconsistente
+s45srm,98,2013,DK,No sabe
+s45sry,9997,2013,Inconsistent,Inconsistente
+s45sry,9998,2013,DK,No sabe
+s45tt,1,2013,Vacc. date on card,Vacuna fecha en la tarjeta
+s45tt,2,2013,Reported by mother,Reportada por la madre
+s45tt,3,2013,Vacc. marked on card,Vacuna marcado en la tarjeta
+s45tt,8,2013,DK,No sabe
+s45ttd,97,2013,Inconsistent,Inconsistente
+s45ttd,98,2013,DK,No sabe
+s45ttm,97,2013,Inconsistent,Inconsistente
+s45ttm,98,2013,DK,No sabe
+s45tty,9997,2013,Inconsistent,Inconsistente
+s45tty,9998,2013,DK,No sabe
+s45va3,1,2013,Vacc. date on card,Vacuna fecha en la tarjeta
+s45va3,2,2013,Reported by mother,Reportada por la madre
+s45va3,3,2013,Vacc. marked on card,Vacuna marcado en la tarjeta
+s45va3,8,2013,DK,No sabe
+s45va3d,97,2013,Inconsistent,Inconsistente
+s45va3d,98,2013,DK,No sabe
+s45va3m,97,2013,Inconsistent,Inconsistente
+s45va3m,98,2013,DK,No sabe
+s45va3y,9997,2013,Inconsistent,Inconsistente
+s462e,8,2013,Don't know,No sabe
+s466,1,2013,Yes,Si
+s466,8,2013,Don't know,No sabe
+s466aa,1,2013,Yes,Si
+s466aa,8,2013,DK,No sabe
+s466ab,1,2013,Yes,Si
+s466ab,8,2013,DK,No sabe
+s466ac,1,2013,Yes,Si
+s466ac,8,2013,DK,No sabe
+s466ad,1,2013,Yes,Si
+s466ad,8,2013,DK,No sabe
+s466ae,1,2013,Yes,Si
+s466ae,8,2013,DK,No sabe
+s466ax,1,2013,Yes,Si
+s466ax,8,2013,DK,No sabe
+s466b,24,2013,Health center MINSA,Centro de salud MINSA
+s466b,27,2013,Hospital/Other Local Gov,Hospital/Otro de la Municipalidad
+s466b,96,2013,Other,Otro
+s466b,23,2013,Hospital FF.AA. & PNP,Hospital FF.AA. y PNP
+s466b,26,2013,Center/post ESSALUD,Policlìnico/Centro/Posta/Policlínico ESSALUD
+s466b,31,2013,Private clinic,Clínica particular
+s466b,25,2013,Health post MINSA,Puesto de salud MINSA
+s466b,32,2013,Private doctor,Médico particular
+s466b,41,2013,Clinic/Post NGO,Clínica/Posta de ONG
+s466b,42,2013,Hospital/Other Church,Hospital/Otro de la Iglesia
+s466c,98,2013,Don't know,No sabe
+s466dc1,44,2013,Marked but no date,Marcado pero sin fecha
+s466dc1,0,2013,There are no more controls,No hay controles grabados
+s466dc1,98,2013,Day can't be identified,El día  no puede ser identificado
+s466dc10,44,2013,Marked but no date,Marcado pero sin fecha
+s466dc10,0,2013,There are no more controls,No hay controles grabados
+s466dc10,98,2013,Day can't be identified,El día  no puede ser identificado
+s466dc11,44,2013,Marked but no date,Marcado pero sin fecha
+s466dc11,0,2013,There are no more controls,No hay controles grabados
+s466dc11,98,2013,Day can't be identified,El día  no puede ser identificado
+s466dc12,44,2013,Marked but no date,Marcado pero sin fecha
+s466dc12,0,2013,There are no more controls,No hay controles grabados
+s466dc12,98,2013,Day can't be identified,El día  no puede ser identificado
+s466dc2,44,2013,Marked but no date,Marcado pero sin fecha
+s466dc2,0,2013,There are no more controls,No hay controles grabados
+s466dc2,98,2013,Day can't be identified,El día  no puede ser identificado
+s466dc3,44,2013,Marked but no date,Marcado pero sin fecha
+s466dc3,0,2013,There are no more controls,No hay controles grabados
+s466dc3,98,2013,Day can't be identified,El día  no puede ser identificado
+s466dc4,44,2013,Marked but no date,Marcado pero sin fecha
+s466dc4,0,2013,There are no more controls,No hay controles grabados
+s466dc4,98,2013,Day can't be identified,El día  no puede ser identificado
+s466dc5,44,2013,Marked but no date,Marcado pero sin fecha
+s466dc5,0,2013,There are no more controls,No hay controles grabados
+s466dc5,98,2013,Day can't be identified,El día  no puede ser identificado
+s466dc6,44,2013,Marked but no date,Marcado pero sin fecha
+s466dc6,0,2013,There are no more controls,No hay controles grabados
+s466dc6,98,2013,Day can't be identified,El día  no puede ser identificado
+s466dc7,44,2013,Marked but no date,Marcado pero sin fecha
+s466dc7,0,2013,There are no more controls,No hay controles grabados
+s466dc7,98,2013,Day can't be identified,El día  no puede ser identificado
+s466dc8,44,2013,Marked but no date,Marcado pero sin fecha
+s466dc8,0,2013,There are no more controls,No hay controles grabados
+s466dc8,98,2013,Day can't be identified,El día  no puede ser identificado
+s466dc9,44,2013,Marked but no date,Marcado pero sin fecha
+s466dc9,0,2013,There are no more controls,No hay controles grabados
+s466dc9,98,2013,Day can't be identified,El día  no puede ser identificado
+s466mc1,98,2013,Month can't be identified,El mes no puede ser identificado
+s466mc10,98,2013,Month can't be identified,El mes no puede ser identificado
+s466mc11,98,2013,Month can't be identified,El mes no puede ser identificado
+s466mc12,98,2013,Month can't be identified,El mes no puede ser identificado
+s466mc2,98,2013,Month can't be identified,El mes no puede ser identificado
+s466mc3,98,2013,Month can't be identified,El mes no puede ser identificado
+s466mc4,98,2013,Month can't be identified,El mes no puede ser identificado
+s466mc5,98,2013,Month can't be identified,El mes no puede ser identificado
+s466mc6,98,2013,Month can't be identified,El mes no puede ser identificado
+s466mc7,98,2013,Month can't be identified,El mes no puede ser identificado
+s466mc8,98,2013,Month can't be identified,El mes no puede ser identificado
+s466mc9,98,2013,Month can't be identified,El mes no puede ser identificado
+s466yc1,9998,2013,Year can't be identified,Año no puede ser identificado
+s466yc10,9998,2013,Year can't be identified,Año no puede ser identificado
+s466yc11,9998,2013,Year can't be identified,Año no puede ser identificado
+s466yc12,9998,2013,Year can't be identified,Año no puede ser identificado
+s466yc2,9998,2013,Year can't be identified,Año no puede ser identificado
+s466yc3,9998,2013,Year can't be identified,Año no puede ser identificado
+s466yc4,9998,2013,Year can't be identified,Año no puede ser identificado
+s466yc5,9998,2013,Year can't be identified,Año no puede ser identificado
+s466yc6,9998,2013,Year can't be identified,Año no puede ser identificado
+s466yc7,9998,2013,Year can't be identified,Año no puede ser identificado
+s466yc8,9998,2013,Year can't be identified,Año no puede ser identificado
+s466yc9,9998,2013,Year can't be identified,Año no puede ser identificado
+s470,17,2013,Didn't think it was necessary,No loconsideró necesario/sintomas no eran graves
+s470,19,2013,Lack of time,Falta de tiempo
+s470,12,2013,Far away,Queda muy lejos
+s470,11,2013,No facility in locality,No existe en la localidad
+s470,14,2013,Personnel treat patients badly,El personal trata mal a los pacientes
+s470,96,2013,Other,Otro
+s470,20,2013,Child's father didn't want to,El padre de la/el niña/o no quiso
+s470,13,2013,Mistrust health personnel,No confía en el personal de salud
+s470,15,2013,There are no medicaments,No hay medicamentos
+s470,16,2013,Didn't have money,No tenía con que pagar
+s470,18,2013,Knows what to give in those cases,Ya sabe qué darle en esos casos
+s471,1,2013,Fever,Fiebre
+s471,2,2013,Cough,Tos
+s471,3,2013,Both fever and cough,Ambos fiebre y tos
+s471,0,2013,No,Ninguno
+s471,8,2013,DK,No sabe
+s471ca,1,2013,Yes,Si
+s471cb,1,2013,Yes,Si
+s471cc,1,2013,Yes,Si
+s471cd,1,2013,Yes,Si
+s471ce,1,2013,Yes,Si
+s471cf,0,2013,No: have any,No: tener cualquier
+s471cf,1,2013,Yes: didn't have any,Sí: no tenía ninguna
+s472aa,1,2013,Yes,Si
+s472aa,8,2013,Don't know,No sabe
+s472ab,1,2013,Yes,Si
+s472ab,8,2013,Don't know,No sabe
+s472ac,1,2013,Yes,Si
+s472ac,8,2013,Don't know,No sabe
+s472ad,1,2013,Yes,Si
+s472ad,8,2013,Don't know,No sabe
+s472b,98,2013,Don't know,No sabe
+s473da,1,2013,Yes,Si
+s473db,1,2013,Yes,Si
+s475,17,2013,Didn't think it was necessary,No lo consideró necesario/sintomas no eran graves
+s475,19,2013,Lack of time,No tenía tiempo
+s475,12,2013,Far away,Queda muy lejos
+s475,11,2013,No facility in locality,No existe en la localidad
+s475,14,2013,Personnel treat patients badly,El personal trata mal a los pacientes
+s475,96,2013,Other,Otro
+s475,20,2013,Child's father didn't want to,El padre de la/el niña/o no quería
+s475,13,2013,Mistrust health personnel,No confía en el personal de salud
+s475,15,2013,There are no medicaments,No hay medicamentos
+s475,16,2013,Didn't have money,No tenia con que pagar
+s475,18,2013,Knows what to give in those cases,Ya sabe qué darle en esos casos
+s481aa,1,2013,Yes,Si
+s481ab,1,2013,Yes,Si
+s481ac,1,2013,Yes,Si
+s481ad,1,2013,Yes,Si
+s481ae,1,2013,Yes,Si
+s481af,1,2013,Yes,Si
+s481ag,1,2013,Yes,Si
+s481ax,1,2013,Yes,Si
+s481az,1,2013,Yes,Si
+s484,1,2013,Si y muestra al acuerdo de compromisos,Sí
+s485,1,2013,Yes,Si
+s485a,1,2013,Yes,Si
+s486,1,2013,Yes,Si
+s486a,1,2013,Yes,Si
+s486b,1,2013,Yes,Si
+s489c,1,2013,Yes,Sí
+s489c,8,2013,Don't know,No sabe
+s490,5,2019,No sabe lava,No se lava
+s490aa,1,2013,Yes,Si
+s490ab,1,2013,Yes,Si
+s490ac,1,2013,Yes,Si
+s490ad,1,2013,Yes,Si
+s490ae,1,2013,Yes,Si
+s490af,1,2013,Yes,Si
+s490ag,1,2013,Yes,Si
+s490ax,1,2013,Yes,Si
+s490ba,1,2013,Yes,Si
+s490bb,1,2013,Yes,Si
+s490bc,1,2013,Yes,Si
+s490bd,1,2013,Yes,Si
+s490bx,1,2013,Yes,Si
+s492a,8,2013,Don't know,No sabe
+s492b,8,2013,Don't know,No sabe
+s492c,8,2013,Don't know,No sabe
+s492d,8,2013,Don't know,No sabe
+s492e,8,2013,Don't know,No sabe
+s492f,8,2013,Don't know,No sabe
+s492g,8,2013,Don't know,No sabe
+s493a,8,2013,Don't know,No sabe
+s493b,8,2013,Don't know,No sabe
+s493c,8,2013,Don't know,No sabe
+s493d,8,2013,Don't know,No sabe
+s493e,8,2013,Don't know,No sabe
+s493f,8,2013,Don't know,No sabe
+s493g,8,2013,Don't know,No sabe
+s493h,8,2013,Don't know,No sabe
+s493i,8,2013,Don't know,No sabe
+s493j,8,2013,Don't know,No sabe
+s493k,8,2013,Don't know,No sabe
+s493l,8,2013,Don't know,No sabe
+s493m,8,2013,Don't know,No sabe
+s493n,8,2013,Don't know,No sabe
+s493o,8,2013,Don't know,No sabe
+s493p,8,2013,Don't know,No sabe
+s494,1,2013,"Yes, Show the packet","Sí, muestra el envase"
+s494,2,2013,"Yes, don`t show the packet","Sí, no muestra el envase"
+s494,8,2013,don`t know,No sabe
+s494b,0,2013,Don`t eat,No come
+s494b,98,2013,Don't know,No sabe
+s496,6,2013,Vecinos/Amigos,Vecinos/Amistades
+s500a,1,2013,Yes,Si
+s500b,1,2013,Yes,Si
+s500c,1,2013,Yes,Si
+s500d,1,2013,Yes,Si
+s508a,5,2013,Partner didn't play his role as a fahter/husband,"Incumplía deber: padre, esposo"
+s508a,6,2013,She didn't play his role as a mather/female,"Incumplía deber: madre, esposa"
+s508a,11,2013,Lack of understanding,Falta de comprensión
+s508a,96,2013,Other,Otro
+s508a,8,2013,She got drunk continously/used drugs,Por ser ella ebria/drogo
+s508a,1,2013,Husband died,Enviudó
+s508a,4,2013,She unfaithful,Infidelidad de ella
+s508a,7,2013,Partner got drunk continously/used drugs,Por ser él ebrio/drogo
+s508a,2,2013,Physical/sexual/psicological violence,Violencia física/psicológica o sexual
+s508a,9,2013,Partner Corrupt/inapropriate behavior,Conducta corrupta de él
+s508a,3,2013,Partner unfaithful,Infidelidad de él
+s508a,10,2013,She Corrupt/inapropriate behavior,Conducta corrupta de ella
+s512c,4,2013,Casual friend,Compañero casual
+s512c,5,2013,Relative,Pariente
+s512c,6,2013,Sexual workwer,Trabajador sexual
+s512c,7,2013,Boyfriend,Enamorado
+s512c,2,2013,Fiance,Novio/Prometido
+s512c,3,2013,Friend,Amigo
+s512c,1,2013,Husband/partner,Esposo/Compañero/Conviviente
+s616,2,2013,Disapprove,Desaprueba
+s616,3,2013,No opinion,No opina
+s616,1,2013,Approve,Aprueba
+s618a,1,2013,Yes,Si
+s618b,1,2013,Yes,Si
+s618c,1,2013,Yes,Si
+s618d,1,2013,Yes,Si
+s618e,1,2013,Yes,Si
+s618f,1,2013,Yes,Si
+s618g,1,2013,Yes,Si
+s618h,1,2013,Yes,Si
+s618i,1,2013,Yes,Si
+s618j,1,2013,Yes,Si
+s618k,1,2013,Yes,Si
+s618l,1,2013,Yes,Si
+s618m,1,2013,Yes,Si
+s618x,1,2013,Yes,Si
+s621,2,2013,Disapprove,Desaprueba
+s621,1,2013,Approve,Aprueba
+s621,8,2013,DK,No sabe
+s621a,2,2013,Sometimes,Algunas veces
+s621a,3,2013,Often,Muy a menudo
+s621a,1,2013,Never,Nunca
+s704g,8,2013,Don't know,No sabe
+s704n,4,2013,Superior no university,Superior universitario
+s704n,5,2013,"Superior, university",Postgrado
+s704n,1,2013,Primary,Primaria
+s704n,2,2013,Secondary,Secundaria
+s704n,3,2013,High school,Superior no universitario
+s704n,0,2013,None/preschool,Inicial/pre-escolar
+s704n,8,2013,Don't know,No sabe
+s704y,7,2013,Education given in grades,Educación dada en grados
+s704y,8,2013,Don't know,No sabe
+s718,4,2013,More than half,Más de la mitad
+s718,5,2013,All income,Todos los ingresos
+s718,6,2013,"Nothing, save all income","Nada, ahorra todo el ingreso"
+s718,2,2013,Less than half,Menos de la mitad
+s718,3,2013,Half,Mitad
+s718,1,2013,Almost nothing,Casi nada
+s720a,5,2013,Other relatives,Otros parientes
+s720a,6,2013,Neighbors,Vecinos/Amistades
+s720a,96,2013,Other,Otro
+s720a,8,2013,Household maid,Empleada doméstica
+s720a,1,2013,Respondent,Entrevistada
+s720a,4,2013,"Parents, parents in law",Padres/Suegros
+s720a,7,2013,Firends,Oros no parientes
+s720a,2,2013,Partner,Esposo/Compañero
+s720a,9,2013,Care by WAWA-WASI,Cuidado WAWA-WASI/CUNA MAS
+s720a,3,2013,Older children,Hijas/Hijos mayores
+s720a,10,2013,Institutional childcare,Cuidado otra institución
+s802,1,2013,Yes,Sí
+s802,8,2013,DK,No sabe
+s802d,1,2013,Yes,Sí
+s802d,8,2013,DK,No sabe
+s802e,1,2013,Yes,Sí
+s802e,8,2013,DK,No sabe
+s802h,1,2013,Yes,Sí
+s802h,8,2013,DK,No sabe
+s802i,1,2013,Yes,Sí
+s802i,8,2013,DK,No sabe
+s803af,1,2013,Yes,Si
+s803ag,1,2013,Yes,Si
+s803am,1,2013,Yes,Si
+s804a,1,2013,Yes,Si
+s804c,1,2013,Yes,Si
+s806ax,1,2013,Yes,Sí
+s806ax,8,2013,DK,No sabe
+s806az,1,2013,Yes,Sí
+s806az,8,2013,DK,No sabe
+s807,1,2013,Yes,Sí
+s807,8,2013,DK,No sabe
+s809,1,2013,Yes,Sí
+s809,8,2013,DK,No sabe
+s810,1,2013,Yes,Sí
+s810,8,2013,DK,No sabe
+s811,1,2013,Yes,Sí
+s811,8,2013,DK,No sabe
+s815aa,1,2013,Yes,Si
+s815ab,1,2013,Yes,Si
+s815ac,1,2013,Yes,Si
+s815ad,1,2013,Yes,Si
+s815ae,1,2013,Yes,Si
+s815ax,1,2013,Yes,Si
+s815az,1,2013,Yes,Si
+s816a,1,2013,Yes,Si
+s816aa,1,2013,Yes,Si
+s816ab,1,2013,Yes,Si
+s816ac,1,2013,Yes,Si
+s816ad,1,2013,Yes,Si
+s816ae,1,2013,Yes,Si
+s816af,1,2013,Yes,Si
+s816ag,1,2013,Yes,Si
+s816ah,1,2013,Yes,Si
+s816ai,1,2013,Yes,Si
+s816aj,1,2013,Yes,Si
+s816ak,1,2013,Yes,Si
+s816al,1,2013,Yes,Si
+s816aw,1,2013,Yes,Si
+s816az,1,2013,Yes,Si
+s816b,1,2013,Yes,Si
+s816c,1,2013,Yes,Si
+s816d,1,2013,Yes,Si
+s816e,1,2013,Yes,Si
+s816f,1,2013,Yes,Si
+s816g,1,2013,Yes,Si
+s816h,1,2013,Yes,Si
+s816i,1,2013,Yes,Si
+s816j,1,2013,Yes,Si
+s816k,1,2013,Yes,Si
+s816l,1,2013,Yes,Si
+s816m,1,2013,Yes,Si
+s816w,1,2013,Yes,Si
+s816z,1,2013,Yes,Si
+s817,1,2013,Yes,Sí
+s817,8,2013,Don't know,No sabe
+s817gf,1,2013,Yes,Si
+s817gg,1,2013,Yes,Si
+s817gm,1,2013,Yes,Si
+s818,1,2013,Yes,Si
+sh11a,1,2013,Yes,Si
+sh11b,1,2013,Yes,Si
+sh11c,1,2013,Yes,Si
+sh11d,1,2013,Yes,Si
+sh11e,1,2013,Yes,Si
+sh11y,1,2013,"Yes, Don't Know",Si
+sh11z,1,2013,Yes,Si
+sh12,1,2013,Yes,Si
+sh12,8,2013,DK,No sabe
+sh13,5,2013,Sought for work,Buscó trabajo
+sh13,6,2013,Student,Estudiaba
+sh13,96,2013,Others,Otro
+sh13,98,2013,DK,No sabe
+sh13,1,2013,Worked 1 hour,Trabajó menos de una hora
+sh13,4,2013,Worked with family,"Estuvo ayudando en la chacra, tienda o negocio de un familiar, sin pago alguno"
+sh13,7,2013,Household work,Realizó los queaceres del hogar
+sh13,2,2013,Did some tasks for money,Realizó alguna tarea o cachuelo
+sh13,3,2013,Didn't work but has a job,No trabajó pero tenia trabajo
+sh15g,8,2013,Don't know,No lo sé
+sh15n,4,2013,"Higher, university",Superior universitario
+sh15n,5,2013,Post grade,Posgrado
+sh15n,1,2013,Primary,Primario
+sh15n,2,2013,Secondary,Secundario
+sh15n,3,2013,"Higher, not university","Superior, no universitario"
+sh15n,0,2013,Preschool,Inicial/ Pre-escolar
+sh15n,0,2019,Preescolar,Inicial/ Pre-escolar
+sh15n,8,2013,DK,No sabe
+sh15y,7,2013,Education given in grades,Educación dada en grados
+sh15y,8,2013,Don't know,No lo sé
+sh18g,8,2013,Don't know,No lo sé
+sh18n,4,2013,"Higher, university",Superior universitario
+sh18n,5,2013,Post grade,Posgrado
+sh18n,1,2013,Primary,Primario
+sh18n,2,2013,Secondary,Secundario
+sh18n,3,2013,"Higher, not university","Superior, no universitario"
+sh18n,0,2013,Preschool,Inicial/ Pre-escolar
+sh18n,0,2019,Preescolar,Inicial/ Pre-escolar
+sh18n,8,2013,DK,No sabe
+sh18y,7,2013,Education given in grades,Educación dada en grados
+sh18y,8,2013,Don't know,No lo sé
+sh20g,8,2013,Don't know,No lo sé
+sh20n,4,2013,"Higher, university",Superior universitario
+sh20n,5,2013,Post grade,Posgrado
+sh20n,1,2013,Primary,Primario
+sh20n,2,2013,Secondary,Secundario
+sh20n,3,2013,"Higher, not university","Superior, no universitario"
+sh20n,0,2013,Preschool,Inicial/ Pre-escolar
+sh20n,0,2019,Preescolar,Inicial/ Pre-escolar
+sh20n,8,2013,DK,No sabe
+sh20y,7,2013,Education given in grades,Educación dada en grados
+sh20y,8,2013,Don't know,No lo sé
+sh224,1,2013,"Sin coloracion (valor ""0"")",Sin coloracion - valor 0
+sh224,1,2019,Sin coloracion (valor,Sin coloracion - valor 0
+sh224,4,2013,"Coloracion morado oscuro (valor ""30"")",Coloracion morado oscuro - valor 30
+sh224,4,2019,Coloracion morado oscuro (valor,Coloracion morado oscuro - valor 30
+sh224,2,2013,"Coloracion tenue (valor ""7"")",Coloracion tenue - valor 7
+sh224,2,2019,Coloracion tenue (valor,Coloracion tenue - valor 7
+sh224,3,2013,"Coloracion azul o morado (valor ""15"")",Coloracion azul o morado - valor 15
+sh224,3,2019,Coloracion azul o morado (valor,Coloracion azul o morado - valor 15
+sh225,17,2013,Salcita,Marisal
+sh225,5,2013,Supersaladita,Cholisal
+sh225,19,2013,Elita sal,Mipurita
+sh225,96,2013,Otro,Otros
+sh225,23,2013,Esal,Prodesmi
+sh225,25,2013,Premium,Ricanorteñita
+sh225,1,2013,Norsal,Blanquita
+sh225,8,2013,Marsal,Elita
+sh225,4,2013,Emsal,Chinita
+sh225,20,2013,Liberteña,Norsal
+sh225,7,2013,Varsal,ElChalandelNorte
+sh225,16,2013,Costeñita,Marina
+sh225,18,2013,Sabrosita,Marsal
+sh225,10,2013,Norteño,Emsal
+sh225,24,2013,Extra sal,Purasal
+sh225,6,2013,Salina,Costeñita
+sh225,12,2013,Mi purita,Extrasal
+sh225,21,2013,Rica norteñita,Norteño
+sh225,11,2013,Elita,Esal
+sh225,14,2013,Chinita,LaCocinera
+sh225,13,2013,Salcita var,Finita
+sh225,22,2013,Blanquita,Premium
+sh225,15,2013,Viva,Liberteña
+sh225,2,2013,Pura sal,Brisal
+sh225,9,2013,Marisal,Elitasal
+sh225,3,2013,Marina,Chavelita
+sh227,4,2013,"Take the water as it comes from river, spring, well, etc","La toman tal como viene del: Rio, Acequia, Pozo, etc."
+sh227,5,2013,Take packed water,Toman agua embotellada
+sh227,2,2013,From 0.1 to < than 0.5 mg/lt,De 0.1 mg/Lt. a menos de 0.5 mg/Lt.
+sh227,9,2013,Test could not be taken,No se pudo realizar la Prueba
+sh227,3,2013,0.0 mg/lt,0.0 mg/Lt. (Colorímetro de disco)
+sh227,3,2019,0.0 mg/Lt.,0.0 mg/Lt. (Colorímetro de disco)
+sh227,1,2013,>=  0.5 mg/lt,Mayor o Igual a 0.5 mg/Lt.
+sh42,1,2013,Yes,Si
+sh43,1,2013,Yes,Si
+sh48,1,2013,Yes,Si
+sh52,6,2013,Other,Otro
+sh52,2,2013,Private agency/company,Agencia privada / empresa
+sh52,3,2013,Other private water provider,Otras provisiones privadas de agua
+sh52,1,2013,Public agency/company,Agencia pública / empresa
+sh56,4,2013,Weekly,Semanal
+sh56,5,2013,8+ days,8 días
+sh56,6,2013,Never,Nunca
+sh56,1,2013,Several times during the day,Varias veces durante el
+sh56,2,2013,Daily,Diariamente
+sh56,3,2013,Several times during the week,Varias veces durante el
+sh58,81,2013,Use to feed animals,Uso para alimentar a los animales
+sh58,96,2013,Other,Otro
+sh58,23,2013,Throw in community containers,Tirar en contenedores comunitarios
+sh58,98,2013,DK,No sabe
+sh58,41,2013,Throw in far away place,Tirar en un lugar lejano
+sh58,61,2013,Bury,Enterrar
+sh58,42,2013,Throw on streets,Tirar en las calles
+sh58,24,2013,Throw in private company containers,Tirar en compañía privada
+sh58,12,2013,Picked at home by municipality,Elegido en el hogar por municipio
+sh58,21,2013,Throw in government containers,Tirar en contenedores del gobierno
+sh58,11,2013,Picked at home by government,Elegido en casa por el gobierno
+sh58,14,2013,Picked at home by private companies,Elegido en casa por la empresa privada
+sh58,51,2013,Burn,Quemar
+sh58,31,2013,Throw in open space,Lanzar en un espacio abierto
+sh58,71,2013,Make compost,Hacer abono
+sh58,44,2013,River,Río
+sh58,43,2013,Throw in yard/plot,Tirar en yarda / parcela
+sh58,13,2013,Picked at home by community,Elegido en casa por la comunidad
+sh58,22,2013,Throw in municipality containers,Lanzar en el municipio containe
+sh58,15,2013,Picked at home by other,Elegido en casa por Otro
+sh59,4,2013,Every other week,Cualquier otra semana
+sh59,5,2013,Once per month,Una vez al mes
+sh59,6,2013,Irregular timing,Tiempo irregular
+sh59,2,2013,Several times during week,Varias veces durante la semana
+sh59,3,2013,Weekly,Semanal
+sh59,1,2013,Daily,Diariamente
+sh60,4,2013,Paper bags,Bolsas de papel
+sh60,5,2013,Do not have recipient,No tiene destinatario
+sh60,6,2013,Other,Otro
+sh60,1,2013,Cover recipient/container,Contenedor / contenedor de la cubierta
+sh60,2,2013,Uncover recepient/container,Descubrir receptivo / contener
+sh60,3,2013,Plastic bags,Bolsas de plástico
+sh61a,1,2013,Yes,Si
+sh61b,1,2013,Yes,Si
+sh61c,1,2013,Yes,Si
+sh61d,1,2013,Yes,Si
+sh61e,1,2013,Yes,Si
+sh61j,1,2013,Yes,Si
+sh61k,1,2013,Yes,Si
+sh61l,1,2013,Yes,Si
+sh61m,1,2013,Yes,Si
+sh61n,1,2013,Yes,Si
+sh61o,1,2013,Yes,Si
+sh61p,1,2013,Yes,Si
+sh61q,1,2013,Yes,Si
+sh61r,1,2013,Yes,Si
+sh61s,1,2013,Yes,Si
+sh63,1,2013,Yes,Si
+sh64,6,2013,"Coal, lignite",Carbón vegetal
+sh64,11,2013,Animal dung,Bosta
+sh64,96,2013,Other,Otro
+sh64,8,2013,Wood,Leña
+sh64,1,2013,Electricity,Electricidad
+sh64,7,2013,Charcoal,Carbón mineral
+sh64,2,2013,LPG,GLP
+sh64,9,2013,Straw / shrubs / grass,Caña arbustos secos
+sh64,3,2013,Natural gas,Gas natural
+sh64,10,2013,Agricultural crop,Residuos agrícolas
+sh66,1,2013,Yes,Si
+sh69,1,2013,Yes,Si
+sh69,8,2013,DK,No sabe
+sh70,5,2013,Candles,Velas
+sh70,6,2013,Battery,Batería
+sh70,96,2013,Other,Otro
+sh70,2,2013,LPG,GLP
+sh70,3,2013,Natural gas,Gas natural
+sh70,1,2013,Electriciy,Electricidad
+sh76a,1,2013,Yes,Si
+sh76a,8,2013,DK,No sabe
+sh76b,1,2013,Yes,Si
+sh76c,1,2013,Yes,Si
+sh76d,1,2013,Yes,Si
+sh76e,1,2013,Yes,Si
+sh77f,1,2013,Yes,Si
+sh78,1,2013,Yes,Si
+sh78,8,2013,DK,No sabe
+sh79,9996,2013,Area given in units other than hectares,Área dada en otras unidades
+sh79,9998,2013,DK,No sabe
+sh79,0,2013,Less than 0.1 hectares,Menos de 0.1 hectáreas
+sxh73,1,2013,Yes,Si
+v013,4,2013,30-34,De 30 a 34 años de edad
+v013,5,2013,35-39,De 35 a 39 años de edad
+v013,6,2013,40-44,De 40 a 44 años de edad
+v013,7,2013,45-49,De 45 a 49 años de edad
+v013,2,2013,20-24,De 20 a 24 años de edad
+v013,3,2013,25-29,De 25 a 29 años de edad
+v013,1,2013,15-19,De 15 a 19 años de edad
+v014,4,2013,Y & age - y ignored,Año y edad - año ignorado supera el año de entrevista
+v014,5,2013,"Year - a, m imp",Año - edad y mes imputados
+v014,6,2013,"Age - y, m imp",Edad - año y mes imputados
+v014,7,2013,"Month - a, y imp",Mes - edad y año imputados
+v014,2,2013,Month and age -y imp,Mes y edad - año imputado
+v014,8,2013,None - all imp,"Ninguno - edad, mes y año imputados"
+v014,3,2013,Year and age - m imp,Año y edad - mes imputado
+v014,1,2013,Month and year,Mes y año
+v015,4,2013,Refused,Rechazada
+v015,5,2013,Partly completed,Incompleta
+v015,5,2019,Incoompleta,Incompleta
+v015,6,2013,Incapacitated,Discapacitada
+v015,7,2013,Other,Otra
+v015,2,2013,Not at home,Ausente
+v015,3,2013,Postponed,Aplazada
+v015,1,2013,Completed,Completa
+v018,0,2013,No calendar,Sin calendario
+v019,0,2013,No calendar,Sin calendario
+v020,0,2013,All woman sample,Toda la mujer muestra
+v020,1,2013,Ever married sample,Alguna muestra casada
+v025,1,2013,Urban,Urbano
+v026,2,2013,Town,Pueblo
+v026,3,2013,Countryside,Campo
+v026,0,2013,"Capital, large city","Capital, gran ciudad"
+v026,1,2013,Small city,Pequeña ciudad
+v034,0,2013,Husband not in HH,El esposo no está en el hogar
+v042,0,2013,Not selected,No sabeleccionado
+v042,1,2013,Selected,Seleccionado
+v043,0,2013,Woman not selected,Mujer No sabeleccionada
+v043,1,2013,Woman selected,Mujer seleccionada
+v044,2,2013,"Woman selected, but privacy not possible","Mujer seleccionada, pero la privacidad no es posible"
+v044,3,2013,"Woman selected, but not interviewed","Mujer seleccionada, pero no entrevistada"
+v044,0,2013,Woman not selected,Mujer No sabeleccionada
+v044,1,2013,Woman selected and interviewed,Mujer seleccionada y entrevistada
+v102,1,2013,Urban,Urbano
+v103,4,2013,Abroad,En el extranjero
+v103,2,2013,Town,Pueblo
+v103,3,2013,Countryside,Campo
+v103,0,2013,"Capital, large city","Capital, gran ciudad"
+v103,1,2013,City,Ciudad
+v104,95,2013,Always,Siempre
+v104,97,2013,Inconsistent,Inconsistente
+v104,96,2013,Visitor,Visitante
+v104,98,2013,Don't know,No sabe
+v105,4,2013,Abroad,En el extranjero
+v105,2,2013,Town,Pueblo
+v105,3,2013,Countryside,Campo
+v105,0,2013,"Capital, large city","Capital, gran ciudad"
+v105,1,2013,City,Ciudad
+v106,2,2013,Secondary,Secundario
+v106,3,2013,Higher,Superior
+v106,3,2019,Mayor,Superior
+v106,0,2013,No education,Sin educación
+v106,1,2013,Primary,Primario
+v113,12,2013,Piped outside dwelling but within buikding,"Fuera de la vivienda, pero dentro del edificio"
+v113,21,2013,Well inside dwelling,Pozo en la casa/patio/lote
+v113,11,2013,Piped into dwelling,Dentro de la vivienda
+v113,97,2013,Not dejure resident,No es residente habitual
+v113,51,2013,Rainwater,Agua de lluvia
+v113,96,2013,Other,Otro
+v113,71,2013,Bottled water,Agua embotellada
+v113,43,2013,River/dam/lake/ponds/stream/canal/irirgation channel,Río/Acequia/Laguna
+v113,13,2013,Public tap/standpipe,Pilón/Grifo público
+v113,22,2013,Public well,Pozo Público
+v113,41,2013,Spring,Manantial (puquio)
+v113,61,2013,Tanker truck,Camión tanque/Aguatero
+v115,996,2013,On premises,En los lugares
+v115,997,2013,Not dejure resident,No residente de jure
+v116,24,2013,Latrine over river/lake,Latrina sobre el río/lago
+v116,12,2013,Outside dwelling,Vivienda exterior
+v116,21,2013,Ventilated latrine,Letrina ventilada
+v116,11,2013,Inside dwelling,Vivienda interior
+v116,97,2013,Not dejure resident,No es residente habitual
+v116,96,2013,OTHER,Otro
+v116,23,2013,Latrine (ciego o negro),Latrina (ciego o negro)
+v116,31,2013,"River, canal","Río, canal"
+v116,22,2013,Septic well,Pozo séptico
+v116,32,2013,No service,Sin servicio
+v119,7,2013,Not dejure resident,No es residente habitual
+v119,1,2013,Yes,Si
+v120,7,2013,Not dejure resident,No es residente habitual
+v120,1,2013,Yes,Si
+v121,7,2013,Not dejure resident,No es residente habitual
+v121,1,2013,Yes,Si
+v122,7,2013,Not dejure resident,No es residente habitual
+v122,1,2013,Yes,Si
+v123,7,2013,Not dejure resident,No es residente habitual
+v123,1,2013,Yes,Si
+v124,7,2013,Not dejure resident,No es residente habitual
+v124,1,2013,Yes,Si
+v125,7,2013,Not dejure resident,No es residente habitual
+v125,1,2013,Yes,Si
+v127,21,2013,Wood,Madera (entablados)
+v127,11,2013,Earth/sand,Tierra/arena
+v127,97,2013,Not dejure resident,Otro(pona)
+v127,96,2013,OTHER,Pona
+v127,31,2013,Parket,Parquet o madera pulida
+v127,34,2013,Cement/brick,Cemento/ladrillo
+v127,32,2013,Asphlat tiles/vynil,"Làminas asfálticas, vinílicos o similares"
+v127,33,2013,"Granite, ceramic tiles","Losetas, terrazos o similares"
+v128,21,2013,Mud or mud bricks,Adobe o tapia tarrajeados
+v128,11,2013,Wood,Tablones/madera
+v128,97,2013,Not dejure resident,No es residente habitual
+v128,96,2013,OTHER,Otro
+v128,23,2013,Stone with mud,Piedra con barro
+v128,31,2013,Brick/cement blocks,Ladrillo o /Bloques de cemento
+v128,13,2013,Rustic mats,Caña/bambu/pona/palma/troncos/tabique
+v128,22,2013,Bambu with mud,Quincha (caña con barro)
+v128,32,2013,Stone with cal or cement,Piedra o sillar con cal o cemento
+v128,41,2013,No walls,Sin paredes
+v128,33,2013,Compressed wood,Tripley
+v129,21,2013,Bambu with mud,Caña o estera con torta de barro
+v129,11,2013,Straw and palm leaves,"Paja, hojas de palmera etc."
+v129,97,2013,Not dejure resident,No es residente habitual
+v129,96,2013,OTHER,Otro
+v129,31,2013,Concrete plaque,Concreto armado
+v129,34,2013,Plaque from different materials,"Plancha de calamina, fibra de cemento o similares"
+v129,32,2013,Wood,Madera
+v129,41,2013,With no roof,Sin techo
+v129,33,2013,Tiles,Tejas
+v130,96,2013,Other,Otra
+v131,5,2013,Foreign language,Shipibo/Konibo
+v131,1,2013,Spanish speaker,Quechua
+v131,4,2013,Other indigeneous,Awajún/Aguaruna
+v131,2,2013,Quechua,Aimara
+v131,3,2013,Aymara,Ashaninka
+v133,97,2013,Inconsistent,Inconsistente
+v134,2,2013,Town,Pueblo
+v134,3,2013,Countryside,Campo
+v134,0,2013,"Capital, large city","Capital, ciudad grande"
+v134,1,2013,Small city,Ciudad pequeña
+v135,2,2013,Visitor,Visitante
+v135,1,2013,Usual resident,Residente habitual
+v139,97,2013,Not dejure resident,No es residente habitual
+v139,0,2013,Abroad,En el extranjero
+v140,2,2013,Rural,Área rural
+v140,7,2013,Not dejure resident,No es residente habitual
+v140,1,2013,Urban,Área urbana
+v141,7,2013,Not dejure resident,No es residente habitual
+v141,2,2013,Town,Pueblo
+v141,3,2013,Countryside,Campo
+v141,0,2013,"Capital, large city","Capital, ciudad grande"
+v141,1,2013,City,Ciudad pequeña
+v149,4,2013,Complete secondary,Secundaria completa
+v149,5,2013,Higher,Superior
+v149,2,2013,Complete primary,Primaria completa
+v149,3,2013,Incomplete secondary,Secundaria incompleta
+v149,0,2013,No education,Sin educación
+v149,1,2013,Incomplete primary,Primaria incompleta
+v150,5,2013,Grand-daughter,Nieto/Nieta
+v150,6,2013,Mother,Padre/Madre
+v150,12,2013,Not related,Sin parentesco
+v150,11,2013,Adopted/foster child,Hijo adoptado/hijo de crianza
+v150,98,2013,DK,No sabe
+v150,8,2013,Sister,Hermano/a
+v150,1,2013,Head,Jefe del hogar
+v150,4,2013,Daughter-in-law,Yerno/Nuera
+v150,7,2013,Mother-in-law,Suegro/Suegra
+v150,15,2013,Maid,Empleada domésdtica
+v150,2,2013,Wife,Esposa/esposo
+v150,9,2013,Co-spouse,Conviviente
+v150,3,2013,Daughter,Hijo/Hija
+v150,10,2013,Other relative,Otro pariente
+v151,2,2013,Female,Mujer
+v151,1,2013,Male,Hombre
+v152,98,2013,DK,NS
+v153,7,2013,Not dejure resident,No es residente habitual
+v153,1,2013,Yes,Si
+v155,4,2013,Blind/visually impaired,Ciega/problemas visuales
+v155,2,2013,Able to read whole sentence,Puede leer la frase
+v155,3,2013,No card with required language,No hay tarjeta en el idioma requerido
+v155,0,2013,Cannot read at all,No puede leer
+v155,1,2013,Able to read only parts of sentence,Puede leer sólo parte de la frase
+v156,1,2013,Yes,Si
+v157,2,2013,At least once a week,Una vez por semana
+v157,3,2013,Almost every day,Casi todos los días
+v157,0,2013,Not at all,Nunca
+v157,1,2013,Less than once a week,De vez en cuando
+v158,2,2013,At least once a week,Una vez por semana
+v158,3,2013,Almost every day,Casi todos los días
+v158,0,2013,Not at all,Nunca
+v158,1,2013,Less than once a week,De vez en cuando
+v159,2,2013,At least once a week,Una vez por semana
+v159,3,2013,Almost every day,Casi todos los días
+v159,0,2013,Not at all,Nunca
+v159,1,2013,Less than once a week,De vez en cuando
+v160,7,2013,Not dejure resident,No es residente habitual
+v160,1,2013,Yes,Si
+v161,6,2013,"Coal, lignite",Carbón mineral
+v161,11,2013,Animal dung,Bosta
+v161,95,2013,No food cooked in HH,No cocina
+v161,97,2013,Not dejure resident,No es residente habitual
+v161,96,2013,Other,Otro
+v161,8,2013,Wood,Leña
+v161,1,2013,Electricity,Electricidad
+v161,7,2013,Charcoal,Carbon vegetal
+v161,2,2013,LPG,Gas Licuado (GLP)
+v161,9,2013,Straw / shrubs / grass,Cañas/Arbustos (secos)
+v161,3,2013,Natural gas,Gas natural(Tuberia)
+v161,10,2013,Agricultural crop,Residuos agricolas
+v166,7,2013,7 ppm,Coloración tenue - 7 ppm
+v166,15,2013,15 ppm,Coloración azul o morado - 15 ppm
+v166,994,2013,Salt not tested,No se pudo realizar la prueba
+v166,995,2013,No salt,No hay sal en el hogar
+v166,30,2013,30 ppm,Coloración morado oscuro - 30 ppm a más
+v166,0,2013,0 ppm (no iodine),Sin coloración  - 0 ppm (sin yodo)
+v167,0,2013,None,Ninguno
+v168,1,2013,Yes,Si
+v190,4,2013,Richer,Rico
+v190,5,2013,Richest,Más rico
+v190,2,2013,Poorer,Pobrer
+v190,3,2013,Middle,Medio
+v190,1,2013,Poorest,El más pobre
+v213,0,2013,No or unsure,No o no está segura
+v213,1,2013,Yes,Sí
+v215,996,2013,Never menstruated,Nunca menstruado
+v215,998,2013,Don't know,No sabe
+v215,994,2013,In menopause,En la menopausia
+v215,995,2013,Before last birth,Antes del último nacimiento
+v215,997,2013,Inconsistent,Inconsistente
+v216,1,2013,Yes,Si
+v217,4,2013,Before period begins,Antes del período
+v217,5,2013,At any time,En cualquier momento
+v217,6,2013,Other,Otro
+v217,1,2013,During her period,Durante su periodo
+v217,2,2013,After period ended,Después de su período
+v217,3,2013,Middle of the cycle,En medio del ciclo
+v217,8,2013,Don't know,No sabe
+v221,996,2013,Negative interval,Intervalo Negativo
+v223,7,2013,Month - exact date,Mes - fecha exacta
+v223,8,2013,None - date placed,Ninguno - fecha de colocación
+v225,2,2013,Later,Querìa esperar
+v225,3,2013,Not at all,No querìa tener (màs) hijas/hijos
+v225,1,2013,Then,En ese momento
+v226,996,2013,Never menstruated,Nunca menstruado
+v226,998,2013,Don't know,No sabe
+v226,994,2013,In menopause,En la menopausia
+v226,995,2013,Before last birth,Antes del último nacimiento
+v226,997,2013,Inconsistent,Inconsistente
+v227,5,2013,"95, but per.returned","95, pero per. devuelto"
+v227,6,2013,"96, but per.returned","96, pero por vuelta"
+v227,0,2013,No flag,No marcado
+v227,8,2013,"96, had children","96, tuvo hijos"
+v227,1,2013,N > int. since birth,N> int. desde el nacimiento
+v227,4,2013,"95, but no birth","95, pero sin nacimiento"
+v227,7,2013,"N, last per. in preg","N, last per Emba"
+v227,2,2013,N + amen. > interval,N + amen > intervalo
+v227,9,2013,"N, per.bef.last birt","N, per antes ult nac"
+v227,3,2013,"N, but per. not ret.","N, pero per no ret"
+v228,1,2013,Yes,Si
+v229,97,2013,Inconsistent,Inconsistente
+v229,98,2013,DK,No Sabe
+v230,9997,2013,Inconsistent,Inconsistente
+v230,9998,2013,DK,No Sabe
+v231,9997,2013,Inconsistent,Inconsistente
+v231,9998,2013,DK,No Sabe
+v232,5,2013,Year,Año
+v232,7,2013,Month,Mes
+v232,1,2013,Month and year,Mes y año
+v232,2,2013,From calendar,De calendario
+v232,8,2013,None,Ninguna
+v233,97,2013,Inconsistent,Inconsistente
+v233,98,2013,Don't know,NS
+v234,1,2013,Yes,Si
+v235,0,2013,No prior child,No niño anterior
+v237,1,2013,Yes,Si
+v239,1,2013,Yes,Si
+v240,97,2013,Inconsistent,Inconsistente
+v240,98,2013,Don't know,No sabe
+v241,9997,2013,Inconsistent,Inconsistente
+v241,9998,2013,Don't know,No sabe
+v242,9997,2013,Inconsistent,Inconsistente
+v242,9998,2013,Don't know,No sabe
+v243,5,2013,Year,Año
+v243,7,2013,Month,Mes
+v243,1,2013,Month and year,Mes y año
+v243,2,2013,From calendar,De calendario
+v243,8,2013,None,Ninguna
+v301,2,2013,Knows only trad. mth,Sólo sabe trad. mes
+v301,3,2013,Knows modern method,Conoce el método moderno
+v301,0,2013,Knows no method,No conoce ningún método
+v301,1,2013,Knows only folkloric,Sabe sólo folklórico
+v302,2,2013,Used only trad. meth,Metodos tradicionales
+v302,3,2013,Used modern method,Metodos modernos
+v302,0,2013,Never used,Nunca usado
+v302,1,2013,Used only folkloric,Otros metodos
+v307_09,1,2013,Yes,Si
+v311,4,2013,4+,4 a más
+v311,5,2013,Never used,Nunca usado
+v312,17,2013,Specific method 1,Método específico 1
+v312,5,2013,Condom,Condón
+v312,19,2013,Specific method 3,Método específico 3
+v312,0,2013,Not using,No usando
+v312,1,2013,Pill,Píldora
+v312,8,2013,Periodic Abstinence,Abstinencia periódica
+v312,4,2013,Diaphragm,Diafragma
+v312,20,2013,Specific method 4,Método específico 4
+v312,7,2013,Male Sterilization,Esterilización masculina
+v312,16,2013,Emergency contraception,Anticoncepción oral de emergencia
+v312,18,2013,Specific method 2,Método específico 2
+v312,10,2013,Other,Otro
+v312,6,2013,Female Sterilization,Esterilización femenina
+v312,12,2013,Abstinence,Abstinencia
+v312,11,2013,Norplant,Norplant/Implantes
+v312,14,2013,Female condom,Condón femenino
+v312,13,2013,Lactational amenorrhea,Amenorrea por lactancia (MELA)
+v312,15,2013,Foam or jelly,"Espuma, jalea, óvulos (vaginales)"
+v312,2,2013,IUD,DIU
+v312,9,2013,Withdrawal,Retiro
+v312,3,2013,Injections,Inyección
+v313,2,2013,Traditional method,Método tradicional
+v313,3,2013,Modern method,Método moderno
+v313,0,2013,No method,No hay método
+v313,1,2013,Folkloric method,Método folclórico
+v318,5,2013,"Year - m imp, a calc","Año - m imp, una calc"
+v318,7,2013,Month - date placed,Mes - fecha de publicación
+v318,1,2013,Month and year,Mes y año
+v318,9,2013,From calendar,De calendario
+v318,8,2013,None - date placed,Ninguno - fecha de colocación
+v319,4,2013,6-7,de 6 a 7
+v319,5,2013,8-9,de 8 a 9
+v319,6,2013,10+,de 10 a más
+v319,2,2013,2-3,de 2 a 3
+v319,3,2013,4-5,de 4 a 5
+v319,1,2013,<2,menor de 2
+v320,4,2013,35-39,de 35 a 39
+v320,5,2013,40-44,de 40 a 44
+v320,6,2013,45-49,de 45 a 49
+v320,2,2013,25-29,de 25 a 29
+v320,3,2013,30-34,de 30 a 34
+v320,1,2013,<25,menor de 25
+v321,4,2013,15-19,de 15 a 19
+v321,5,2013,20-24,de 20 a 24
+v321,6,2013,25+,de 25 a más
+v321,2,2013,5-9,de 5 a 9
+v321,3,2013,10-14,de 10 a 14
+v321,0,2013,"Single, before marriage","Soltero, antes del matrimonio"
+v321,1,2013,0-4,de 0 a 4
+v322,5,2013,5+,de 5 a más
+v323,96,2013,Other,Otro
+v323,93,2013,"No brand (H. FF.AA., FF.PP)","Sin marca (H. FF.AA., FF.PP)"
+v323,98,2013,Don't know,No sabe
+v323,95,2013,No brand(MINSA),Sin marca (MINSA)
+v323,94,2013,No brand(ESSALUD),Sin marca (ESSALUD)
+v323a,96,2013,Other,Otro
+v323a,93,2013,"No brand (H. FF.AA., FF.PP)","Sin marca (H. FF.AA., FF.PP)"
+v323a,98,2013,Don't know,No sabe
+v323a,95,2013,No brand(ESSALUD),Sin marca (MINSA)
+v323a,94,2013,No brand(MINSA),Sin marca (ESSALUD)
+v325a,9999995,2013,Free,Gratis
+v325a,9999998,2013,Don't know,No sabe
+v326,17,2013,Hospital/Other FFAA & PNP,Hospital/Otros de las FFAA & PNP
+v326,19,2013,Other governemnt,Otro gobierno
+v326,96,2013,OTHER,Otro
+v326,23,2013,Private doctor,Consultorio médico particular
+v326,25,2013,Health worker NGO,Promotor de ONG
+v326,98,2013,DK,No sabe
+v326,32,2013,Church,Hospital/Otro de la Iglesia
+v326,16,2013,Center/Post ESSALUD,Policlìnico/Centro/Posta ESSALUD
+v326,18,2013,Hospital/Other Local Govern.,Hospital/Otro de la Municipalidad
+v326,33,2013,Friends/relatives,Amigos/parientes
+v326,24,2013,Clinic/FP post NGO,Clínica/Posta de ONG
+v326,12,2013,Health center MINSA,Centro de salud MINSA
+v326,21,2013,Private clinic,Clínica particular
+v326,95,2013,Automedication,Automedicación
+v326,14,2013,Health worker MINSA,Promotor de salud MINSA
+v326,31,2013,Shop/supermarket,Tienda/supermercado/hostal
+v326,13,2013,Health post MINSA,Puesto de salud MINSA
+v326,22,2013,Pharmacy,Farmacia/botica
+v327,4,2013,Private Clin/Deliv,Clínica/Consultorio médico particular
+v327,5,2013,Private Pharmacy,Farmacia/botica
+v327,6,2013,"Shop, church, friend","Tienda, iglesia, amigo"
+v327,7,2013,Other,Automedicación/Otro
+v327,2,2013,Govt Home/Comm deliv,Promotor de Salud
+v327,8,2013,Don't know,No sabe
+v327,3,2013,NGO,Clínica/Posta/ Promotor ONG
+v327,1,2013,Govt Clinical/Pharm,"Hospital, Centro de Salud, Puesto de Salud, Policlínico del Gobierno"
+v337,998,2013,Don't know,No sabe
+v337,95,2013,All cal. {A core},Todas cal {A core}
+v337,997,2013,Inconsistent,Inconsistente
+v359,17,2013,Collar cycle,Método específico 1
+v359,5,2013,Condom,Condón
+v359,19,2013,Specific method 3,Método específico 3
+v359,1,2013,Pill,Píldora
+v359,8,2013,Periodic Abstinence,Abstinencia periódica
+v359,4,2013,Diaphragm,Diafragma
+v359,20,2013,Specific method 4,Método específico 4
+v359,7,2013,Male Sterilization,Esterilización masculina
+v359,16,2013,Emergency contraception,Anticoncepción oral de emergencia
+v359,18,2013,Specific method 2,Método específico 2
+v359,10,2013,Other,Otro
+v359,6,2013,Female Sterilization,Esterilización femenina
+v359,12,2013,Abstinence,Abstinencia
+v359,11,2013,Norplant,Norplant/Implantes
+v359,14,2013,Female condom,Condón femenino
+v359,13,2013,Lactational amenorrhea,Amenorrea por lactancia (MELA)
+v359,15,2013,Foam or jelly,"Espuma, jalea, óvulos (vaginales)"
+v359,2,2013,IUD,DIU
+v359,9,2013,Withdrawal,Retiro
+v359,3,2013,Injections,Inyecciones
+v360,5,2013,Health concerns,Motivos de salud
+v360,6,2013,"Access, availability","Acceso, disponibilidad"
+v360,12,2013,"Diff.preg.,menopause",Dificil quedar embarazda/menopausia
+v360,11,2013,Fatalistic,Fatalista
+v360,14,2013,Other,Otro
+v360,98,2013,Don't know,No sabe
+v360,8,2013,Inconvenient to use,Uso inconveniente
+v360,1,2013,Became pregnant,Quedó embarazada
+v360,4,2013,Side effects,Efectos secundarios
+v360,7,2013,Wanted more eff.meth,Deseaba método más efectivo
+v360,13,2013,Marital dissolution,Disolución matrimonial
+v360,2,2013,Wanted to become prg,Quería quedar embarazada
+v360,9,2013,"Infreq.sex,husb away",Sexo poco frecuente/Marido ausente
+v360,3,2013,Husband disapproved,Marido desaprobó
+v360,10,2013,Cost,Costo
+v361,4,2013,Never used,Nunca usado
+v361,2,2013,Used since last birth,Usado desde el último nacimiento
+v361,3,2013,Used before last birth,Usado antes del último nacimiento
+v361,1,2013,Currently using,Actualmente usando
+v362,4,2013,Unsure about use,No está seguro sobre el uso
+v362,5,2013,Does not intend,No tiene la intención
+v362,6,2013,Never had sex,Nunca tuve relaciones sexuales
+v362,2,2013,Use later,Usar más tarde
+v362,3,2013,Unsure about timing,No está seguro sobre el momento
+v362,1,2013,In next 12 months,En los próximos 12 meses
+v363,5,2013,Condom,Condón
+v363,6,2013,Female Sterilization,Esterilización femenina
+v363,12,2013,Abstinence,Abstinencia
+v363,11,2013,Norplant,Norplant/Implantes
+v363,14,2013,Female condom,Condón femenino
+v363,1,2013,Pill,Píldora
+v363,8,2013,Periodic Abstinence,Abstinencia periódica
+v363,98,2013,Don't know,No sabe
+v363,4,2013,Diaphragm,Diafragma
+v363,7,2013,Male Sterilization,Esterilización masculina
+v363,13,2013,Lactational amenorrhea,Amenorrea por lactancia (MELA)
+v363,15,2013,Foam or jelly,"Espuma, jalea, óvulos (vaginales)"
+v363,16,2013,Emergency contraception,Anticoncepción oral de emergencia
+v363,2,2013,IUD,DIU
+v363,9,2013,Withdrawal,Retiro
+v363,3,2013,Injections,Inyección
+v363,10,2013,Other,Otro
+v364,4,2013,Does not intend to,No tiene la intención de
+v364,5,2013,Never had sex,Nunca tuve relaciones sexuales
+v364,2,2013,Using traditional method,Usando el método tradicional
+v364,3,2013,Non-user intend to,No-usuario tiene la intención de
+v364,1,2013,Using modern method,Usando el método moderno
+v367,2,2013,Wanted later,Esperar más
+v367,3,2013,Wanted no more,No quería más
+v367,1,2013,Wanted then,Entonces
+v372,0,2013,Package not seen,Paquete no visto
+v372,1,2013,Package seen,Paquete visto
+v372a,0,2013,Package not seen,Paquete no visto
+v372a,1,2013,Package seen,Paquete visto
+v375a,53,2013,Lack of access,Falta de acceso
+v375a,27,2013,Pregnant,Embarazada
+v375a,96,2013,Other,Otro
+v375a,23,2013,Menopausal,Menopausia
+v375a,25,2013,"Postpartum, breastf.",Postparto/Lactancia
+v375a,34,2013,Religious prohibit.,Prohibición religiosa
+v375a,98,2013,DK,No sabe
+v375a,28,2013,Histerctomized,Histerectomìa
+v375a,32,2013,Husband opposed,Esposo/compañero se opuso
+v375a,52,2013,Fear side effects,Miedo a efectos secundarios
+v375a,41,2013,Knows no method,No conoce ningún método
+v375a,33,2013,Others opposed,Otros se oponen
+v375a,42,2013,Knows no source,No conoce ninguna fuente
+v375a,24,2013,"Subfecund, infecund",Infertilidad/Subfecundidad
+v375a,21,2013,Not having sex,No tiene relaciones sexuales
+v375a,11,2013,Not married,No casado
+v375a,51,2013,Health concerns,Problemas de salud
+v375a,56,2013,Interfere with body,Interfiere con procesos normales del cuerpo
+v375a,26,2013,Wants more children,Quiere más hijas(os)
+v375a,31,2013,Respondent opposed,Entrevistada se opone
+v375a,55,2013,Inconvenient to use,Uso inconveniente
+v375a,54,2013,Cost too much,Muy costoso
+v375a,22,2013,Infrequent sex,Sexo poco frecuente
+v376,53,2013,Lack of access,Falta de acceso
+v376,96,2013,Other,Otro
+v376,23,2013,"Menopausal, hyster.",Menopáusica/histerectomizada
+v376,25,2013,Male infecund,Infertilidad hombre
+v376,34,2013,Religious prohibit.,Prohibición religiosa
+v376,98,2013,DK,No sabe
+v376,32,2013,Husband opposed,Esposo/compañero se opuso
+v376,52,2013,Fear side effects,Miedo a efectos secundarios
+v376,41,2013,Knows no method,No conoce ningún método
+v376,33,2013,Others opposed,Otros se oponen
+v376,42,2013,Knows no source,No conoce ninguna fuente
+v376,24,2013,"Subfecund, infecund",Infertilidad mujer
+v376,11,2013,Not married,No casado
+v376,51,2013,Health concerns,Problemas de salud
+v376,56,2013,Interfere with body,Interfiere con procesos normales del cuerpo
+v376,26,2013,Wants more children,Quiere más hijas(os)
+v376,31,2013,Respondent opposed,Entrevistada se opone
+v376,55,2013,Inconvenient to use,Uso inconveniente
+v376,54,2013,Cost too much,Muy costoso
+v376,22,2013,Infrequent sex,Sexo poco frecuente
+v376a,1,2013,Yes,Si
+v376a,8,2013,DK,No sabe
+v379,17,2013,Campaign/fair,Campaña/feria
+v379,96,2013,OTHER,Otro
+v379,23,2013,Private doctor,Médico privado
+v379,25,2013,Health worker NGO,ONG de trabajadores de la salud
+v379,98,2013,DK,No sabe
+v379,32,2013,Church,Iglesia
+v379,16,2013,Center/Post ESSALUD,Centro/Correo ESSALUD
+v379,18,2013,Other governemnt,Otro gobierno
+v379,33,2013,Friends/relatives,Amigos/parientes
+v379,24,2013,Clinic/FP post NGO,Clínica/FP post ONG
+v379,12,2013,Health center MINSA,Centro de salud MINSA
+v379,21,2013,Private clinic,Clínica privada
+v379,95,2013,Automedication,Automedicación
+v379,14,2013,Health worker MINSA,Trabajadora sanitaria MINSA
+v379,31,2013,Shop/supermarket,Tienda/supermercado
+v379,13,2013,Health post MINSA,Puesto de salud MINSA
+v379,22,2013,Pharmacy,Farmacia
+v380,5,2013,Private Pharmacy,Farmacia Privada
+v380,6,2013,"Shop, church, friend","Tienda, iglesia, amigo"
+v380,7,2013,Other,Otro
+v380,2,2013,Govt Home/Comm deliv,Casa de Gobierno/Comm liv
+v380,8,2013,Don't know,No sabe
+v380,3,2013,NGO,ONG
+v384a,1,2013,Yes,Si
+v384b,1,2013,Yes,Si
+v384c,1,2013,Yes,Si
+v393,1,2013,Yes,Si
+v394,1,2013,Yes,Si
+v395,1,2013,Yes,Si
+v3a00a,1,2013,Government hospital,Hospital del gobierno
+v3a00b,1,2013,Govt. health center,Centro de salud del gobierno
+v3a00c,1,2013,Govt. health post,Puesto de salud del gobierno
+v3a00d,1,2013,Public mobile clinic,Clínica móvil pública
+v3a00e,1,2013,Community health wrk,Trabajador de salud comunitario
+v3a00f,1,2013,CS public sector,CS sector público
+v3a00g,1,2013,CS public sector,CS sector público
+v3a00h,1,2013,CS public sector,CS sector público
+v3a00i,1,2013,Other public sector,Other sector público
+v3a00j,1,2013,Private hosp./clinic,Hospítal/clínica particular
+v3a00k,1,2013,Private pharmacy,Famacia privada
+v3a00l,1,2013,Private doctor,Doctor privado
+v3a00m,1,2013,Private mobile clin.,Clínica móvil privada
+v3a00n,1,2013,Community health wrk,Trabajador de salud comunitario
+v3a00o,1,2013,CS med. priv. sector,CS sector privado
+v3a00p,1,2013,CS med. priv. sector,CS sector privado
+v3a00q,1,2013,CS med. priv. sector,CS sector privado
+v3a00r,1,2013,Oth med. priv. sect.,Otro sector privado
+v3a00s,1,2013,Shop,Tienda
+v3a00t,1,2013,Traditional pract.,Práctica tradicional
+v3a00u,1,2013,CS oth. priv. sector,CS otro sector privavdo
+v3a00v,1,2013,CS oth. priv. sector,CS otro sector privado
+v3a00w,1,2013,CS oth. priv. sector,CS otro sector privado
+v3a00x,1,2013,Other,Otro
+v3a00y,0,2013,No: knows a source,No: conoce una fuente
+v3a00y,1,2013,Yes: knows no source,Sí: no conoce ninguna fuente
+v3a00z,1,2013,Yes,Si
+v3a01,1,2013,Yes,Si
+v3a01,8,2013,DK,No sabe
+v3a02,1,2013,Yes,Si
+v3a03,1,2013,Yes,Si
+v3a04,1,2013,Yes,Si
+v3a05,1,2013,Yes,Si
+v3a06,1,2013,Yes,Si
+v3a07,17,2013,Hospital/Other FFAA & PNP,Hospital/Otros de las FFAA & PNP
+v3a07,19,2013,Other governemnt,Otro gobierno
+v3a07,97,2013,Souce not asked,No se pregunto fuente
+v3a07,96,2013,OTHER,Otro
+v3a07,23,2013,Private doctor,Consultorio médico particular
+v3a07,25,2013,Health worker NGO,Promotores de ONG
+v3a07,98,2013,DK,No sabe
+v3a07,32,2013,Church,Hospital/otro de la Iglesia
+v3a07,16,2013,Center/Post ESSALUD,Policlìnico/Centro/Posta ESSALUD
+v3a07,18,2013,Hospital/Other Local Govern.,Hospital/Otro de la Municipalidad
+v3a07,33,2013,Friends/relatives,Amigos/parientes
+v3a07,24,2013,Clinic/FP post NGO,Clínica /Posta de ONG
+v3a07,12,2013,Health center MINSA,Centro de salud MINSA
+v3a07,21,2013,Private clinic,Clínica particular
+v3a07,95,2013,Automedication,Automedicación
+v3a07,14,2013,Health worker MINSA,Promotor de salud  MINSA
+v3a07,31,2013,Shop/supermarket,Tienda/supermercado/hostal
+v3a07,13,2013,Health post MINSA,Puesto de salud MINSA
+v3a07,22,2013,Pharmacy,Farmacia/botica
+v3a08a,1,2013,Not married,No en unión
+v3a08b,1,2013,Not having sex,No tiene relaciones sexuales
+v3a08c,1,2013,Infrequent sex,Sexo poco frecuente
+v3a08d,1,2013,Menopausal/hysterectomy,Menopáusica/histerectomizada
+v3a08e,1,2013,Subfecund/infecund,Infertilidad de la mujer
+v3a08f,1,2013,Postpartum amenorrheic,Amenorrea posparto
+v3a08g,1,2013,Breastfeeding,Lactancia
+v3a08h,1,2013,Fatalistic,Fatalista
+v3a08i,1,2013,Respondent opposed,Entrevistada se opone
+v3a08j,1,2013,Husband/partner opposed,Esposo/compañero se opone
+v3a08k,1,2013,Others opposed,Otros se oponen
+v3a08l,1,2013,Religious prohibition,Prohibición religiosa
+v3a08m,1,2013,Knows no method,No conoce ningún método
+v3a08n,1,2013,Knows no source,No conoce ninguna fuente
+v3a08o,1,2013,Health concerns,Problemas de salud
+v3a08p,1,2013,Fear of side effects,Miedo a los efectos secundarios
+v3a08q,1,2013,Lack of access/too far,Falta de acceso/demasiado lejos
+v3a08r,1,2013,Costs too much,Muy costoso
+v3a08s,1,2013,Inconvenient to use,Uso inconveniente
+v3a08t,1,2013,Interferes with bodys processes,Interfiere con procesos normales del cuerpo
+v3a08u,1,2013,CS,Infertilidad masculina
+v3a08x,1,2013,Other,Otra
+v3a08z,1,2013,Don't know,No sabe
+v3a09a,998,2013,Don't know,No sabe
+v3a09b,998,2013,Don't know,No sabe
+v401,1,2013,Yes,Sí
+v404,1,2013,Yes,Sí
+v405,1,2013,Yes,Sí
+v406,1,2013,Yes,Sí
+v407,96,2013,On demand,Lo que demanda
+v408,96,2013,On demand,Lo que demanda
+v409,1,2013,Yes,Sí
+v409,8,2013,Don't know,No sabe
+v409a,1,2013,Yes,Sí
+v409a,8,2013,Don't know,No sabe
+v410,1,2013,Yes,Sí
+v410,8,2013,Don't know,No sabe
+v410a,1,2013,Yes,Sí
+v410a,8,2013,Don't know,No sabe
+v411,1,2013,Yes,Sí
+v411,8,2013,Don't know,No sabe
+v411a,1,2013,Yes,Sí
+v411a,8,2013,Don't know,No sabe
+v412,1,2013,Yes,Sí
+v412,8,2013,Don't know,No sabe
+v412a,1,2013,Yes,Sí
+v412a,8,2013,Don't know,No sabe
+v412b,1,2013,Yes,Sí
+v412b,8,2013,Don't know,No sabe
+v413,1,2013,Yes,Sí
+v413,8,2013,Don't know,No sabe
+v413a,1,2013,Yes,Sí
+v413a,8,2013,Don't know,No sabe
+v413b,1,2013,Yes,Sí
+v413b,8,2013,Don't know,No sabe
+v413c,1,2013,Yes,Sí
+v413c,8,2013,Don't know,No sabe
+v413d,1,2013,Yes,Sí
+v413d,8,2013,Don't know,No sabe
+v414a,1,2013,Yes,Sí
+v414a,8,2013,Don't know,No sabe
+v414b,1,2013,Yes,Sí
+v414b,8,2013,Don't know,No sabe
+v414c,1,2013,Yes,Sí
+v414c,8,2013,Don't know,No sabe
+v414d,1,2013,Yes,Sí
+v414d,8,2013,Don't know,No sabe
+v414e,1,2013,Yes,Sí
+v414e,8,2013,Don't know,No sabe
+v414f,1,2013,Yes,Sí
+v414f,8,2013,Don't know,No sabe
+v414g,1,2013,Yes,Sí
+v414g,8,2013,Don't know,No sabe
+v414h,1,2013,Yes,Sí
+v414h,8,2013,Don't know,No sabe
+v414i,1,2013,Yes,Sí
+v414i,8,2013,Don't know,No sabe
+v414j,1,2013,Yes,Sí
+v414j,8,2013,Don't know,No sabe
+v414k,1,2013,Yes,Sí
+v414k,8,2013,Don't know,No sabe
+v414l,1,2013,Yes,Sí
+v414l,8,2013,Don't know,No sabe
+v414m,1,2013,Yes,Sí
+v414m,8,2013,Don't know,No sabe
+v414n,1,2013,Yes,Sí
+v414n,8,2013,Don't know,No sabe
+v414o,1,2013,Yes,Sí
+v414o,8,2013,Don't know,No sabe
+v414p,1,2013,Yes,Sí
+v414p,8,2013,Don't know,No sabe
+v414q,1,2013,Yes,Sí
+v414q,8,2013,Don't know,No sabe
+v414r,1,2013,Yes,Sí
+v414r,8,2013,Don't know,No sabe
+v414s,1,2013,Yes,Sí
+v414s,8,2013,Don't know,No sabe
+v414t,1,2013,Yes,Sí
+v414t,8,2013,Don't know,No sabe
+v414u,1,2013,Yes,Sí
+v414u,8,2013,Don't know,No sabe
+v415,1,2013,Yes,Sí
+v415,8,2013,DK,No sabe
+v416,2,2013,Heard of ORS,Ha oído de ORS
+v416,0,2013,Never heard of,Nunca escuché de ORS
+v416,1,2013,Used ORS,Ha usado ORS
+v426,0,2013,Immediately,Inmediatamente
+v439,9998,2013,Flagged cases,Casos marcados
+v440,9998,2013,Flagged cases,Casos marcados
+v444a,9998,2013,Flagged cases,Casos marcados
+v445,9998,2013,Flagged cases,Casos marcados
+v446,9998,2013,Flagged cases,Casos marcados
+v447,4,2013,Refused,Rechazó
+v447,6,2013,Other,Otro
+v447,3,2013,Not present,No presente
+v447,0,2013,Measured,Medida
+v452a,2,2013,Age 18 or older,18 años o más
+v452a,1,2013,Under age 18,Menores de 18 años
+v452b,0,2013,Not in household,No en el hogar
+v452c,2,2013,Parent/other refused,Padre/otro se negó
+v452c,3,2013,Respondent refused,Entrevistada se negó
+v452c,1,2013,Granted,Aceptó
+v454,0,2013,No/don't know,No/no sabe
+v454,1,2013,Yes,Sí
+v455,4,2013,Refused,Rechazo
+v455,6,2013,Other,Otro
+v455,3,2013,Not present,No presente
+v455,0,2013,Measured,Medido
+v457,4,2013,Not anemic,No anémico
+v457,2,2013,Moderate,Moderar
+v457,3,2013,Mild,Templado
+v457,1,2013,Severe,Grave
+v458,1,2013,Yes,Sí
+v459,1,2013,Yes,Sí
+v460,2,2013,Some children,Algunos niños
+v460,3,2013,No bednet in HH,Sin mosquitera en HH
+v460,1,2013,All children,Todos los niños
+v461,1,2013,Yes,Sí
+v462,2,2013,Never prepared meal,Comida nunca preparada
+v462,1,2013,Yes,Sí
+v463a,1,2013,Yes,Sí
+v463b,1,2013,Yes,Sí
+v463c,1,2013,Yes,Sí
+v463d,1,2013,Yes,Sí
+v463e,1,2013,Yes,Sí
+v463f,1,2013,Yes,Sí
+v463g,1,2013,Yes,Sí
+v463x,1,2013,"Yes, smokes nothing","Sí, no fuma nada"
+v463z,0,2013,No,Si fuma
+v463z,1,2013,"Yes, smokes nothing",No fuma
+v463z,1,2019,"Sí, no fuma nada",No fuma
+v465,5,2013,Buried,Enterrado
+v465,6,2013,Rinse away,Enjuagarse
+v465,12,2013,River,Lo tira en el río/acequia
+v465,11,2013,Burn in yard,Lo quema en el patio
+v465,96,2013,Other,Otro
+v465,8,2013,Use washable diapers,Usa pañales lavables
+v465,1,2013,Always use toilet/latrine,Siempre use inodoro/letrina
+v465,4,2013,Throw into garbage,Lo bota en la basura
+v465,7,2013,Use disposable diapers,Usa pañales desechables
+v465,2,2013,Put/rinsed in toilet/latrine,Lo tira en inodoro/letrina
+v465,9,2013,Left in the open/not disposed of,No hace nada/lo deja en el suelo
+v465,3,2013,Put/rinsed into drain or ditch,Lo bota en el lavadero
+v465,10,2013,Throw in yard/countryside,Lo tira en el patio/campo
+v466,1,2013,Yes,Sí
+v466,2,2013,Depends,Depende
+v466,8,2013,DK,No sabe
+v467a,0,2013,No problem,No hay problema
+v467a,1,2013,Big problem,Gran problema
+v467b,0,2013,No problem,No hay problema
+v467b,1,2013,Big problem,Gran problema
+v467c,0,2013,No problem,No hay problema
+v467c,1,2013,Big problem,Gran problema
+v467d,0,2013,No problem,No hay problema
+v467d,1,2013,Big problem,Gran problema
+v467e,0,2013,No problem,No hay problema
+v467e,1,2013,Big problem,Gran problema
+v467f,0,2013,No problem,No hay problema
+v467f,1,2013,Big problem,Gran problema
+v467g,0,2013,No problem,No hay problema
+v467g,1,2013,Big problem,Gran problema
+v467h,0,2013,No problem,No hay problema
+v467h,1,2013,Big problem,Gran problema
+v467i,0,2013,No problem,No hay problema
+v467i,1,2013,Big problem,Gran problema
+v467j,0,2013,No problem,No hay problema
+v467j,1,2013,Big problem,Gran problema
+v467k,0,2013,No problem,No hay problema
+v467k,1,2013,Big problem,Gran problema
+v467l,0,2013,No problem,No hay problema
+v467l,1,2013,Big problem,Gran problema
+v467m,0,2013,No problem,No hay problema
+v467m,1,2013,Big problem,Gran problema
+v468,1,2013,Only last birth,Solo el último nacimiento
+v471a,1,2013,Yes,Sí
+v471a,8,2013,Don't know,No sabe
+v471b,1,2013,Yes,Sí
+v471b,8,2013,Don't know,No sabe
+v471c,1,2013,Yes,Sí
+v471c,8,2013,Don't know,No sabe
+v471d,1,2013,Yes,Sí
+v471d,8,2013,Don't know,No sabe
+v471e,1,2013,Yes,Sí
+v471e,8,2013,Don't know,No sabe
+v471f,1,2013,Yes,Sí
+v471f,8,2013,Don't know,No sabe
+v471g,1,2013,Yes,Sí
+v471g,8,2013,Don't know,No sabe
+v472a,1,2013,Yes,Sí
+v472a,8,2013,Don't know,No sabe
+v472b,1,2013,Yes,Sí
+v472b,8,2013,Don't know,No sabe
+v472c,1,2013,Yes,Sí
+v472c,8,2013,Don't know,No sabe
+v472d,1,2013,Yes,Sí
+v472d,8,2013,Don't know,No sabe
+v472e,1,2013,Yes,Sí
+v472e,8,2013,Don't know,No sabe
+v472f,1,2013,Yes,Sí
+v472f,8,2013,Don't know,No sabe
+v472g,1,2013,Yes,Sí
+v472g,8,2013,Don't know,No sabe
+v472h,1,2013,Yes,Sí
+v472h,8,2013,Don't know,No sabe
+v472i,1,2013,Yes,Sí
+v472i,8,2013,Don't know,No sabe
+v472j,1,2013,Yes,Sí
+v472j,8,2013,Don't know,No sabe
+v472k,1,2013,Yes,Sí
+v472k,8,2013,Don't know,No sabe
+v472l,1,2013,Yes,Sí
+v472l,8,2013,Don't know,No sabe
+v472m,1,2013,Yes,Sí
+v472m,8,2013,Don't know,No sabe
+v472n,1,2013,Yes,Sí
+v472n,8,2013,Don't know,No sabe
+v472o,1,2013,Yes,Sí
+v472o,8,2013,Don't know,No sabe
+v472p,1,2013,Yes,Sí
+v472p,8,2013,Don't know,No sabe
+v472q,1,2013,Yes,Sí
+v472q,8,2013,Don't know,No sabe
+v472r,1,2013,Yes,Sí
+v472r,8,2013,Don't know,No sabe
+v472s,1,2013,Yes,Sí
+v472s,8,2013,Don't know,No sabe
+v472t,1,2013,Yes,Sí
+v472t,8,2013,Don't know,No sabe
+v472u,1,2013,Yes,Sí
+v472u,8,2013,Don't know,No sabe
+v473a,2,2013,Parent/other refused,Padre/otro se negó
+v473a,3,2013,Respondent refused,Emtravistada se negó
+v473a,1,2013,Granted,Concedido
+v473b,6,2013,Other,Otro
+v473b,2,2013,Not present,No presente
+v473b,3,2013,Refused,Rehusó
+v473b,1,2013,Blood taken,Sangre tomada
+v474,1,2013,Yes,Sí
+v474a,1,2013,Yes,Sí
+v474b,1,2013,Yes,Sí
+v474c,1,2013,Yes,Sí
+v474d,1,2013,Yes,Sí
+v474e,1,2013,Yes,Sí
+v474f,1,2013,Yes,Sí
+v474g,1,2013,Yes,Sí
+v474h,1,2013,Yes,Sí
+v474i,1,2013,Yes,Sí
+v474j,1,2013,Yes,Sí
+v474x,1,2013,Yes,Sí
+v474z,1,2013,Yes,Sí
+v475,1,2013,Yes,Sí
+v475,8,2013,Don't know,No sabe
+v476,1,2013,"Yes, remain a secret",Sí
+v476,8,2013,Don't know / not sure / depends,No sabe/no esta segura/depende
+v477,0,2013,None,Ninguna
+v477,98,2013,Don't know,No sabe
+v478,0,2013,None,Ninguna
+v478,98,2013,Don't know,No sabe
+v479,17,2013,Hospital/Others Local Government,Hospital/Otros Local Gov
+v479,19,2013,Other government,Otro gobierno
+v479,96,2013,Other,Otro
+v479,23,2013,Private doctor,Médico privado
+v479,20,2013,PRIVATE MEDICAL,Médico privado
+v479,32,2013,Hospital/Other Church,Hospital/Otra Iglesia
+v479,41,2013,Home,Casa
+v479,16,2013,Hospital/Other FFAA & PNP,Hospital/Otros FFAA y PNP
+v479,10,2013,PUBLIC SECTOR,Sector Público
+v479,24,2013,NGO clinic/FP post,Clínica de ONG/publicación FP
+v479,12,2013,Health center MINSA,Centro de salud MINSA
+v479,21,2013,Private clinic,Clínica privada
+v479,26,2013,Other private medical,Otro médico privado
+v479,30,2013,OTHERS NON-MEDICAL,Otros no Médicos
+v479,13,2013,Health post MINSA,Puesto de salud MINSA
+v479,22,2013,Pharmacy,Farmacia
+v479,15,2013,Center/post ESSALUD,Centro/publicar ESSALUD
+v480,1,2013,Yes,Sí
+v480,8,2013,Don't know,No sabe
+v481,1,2013,Yes,Sí
+v481a,1,2013,Yes,Sí
+v481b,1,2013,Yes,Sí
+v481c,1,2013,Yes,Sí
+v481d,1,2013,Yes,Sí
+v481e,1,2013,Yes,Sí
+v481f,1,2013,Yes,Sí
+v481g,1,2013,Yes,Sí
+v481h,1,2013,Yes,Sí
+v481x,1,2013,Yes,Sí
+v482a,1,2013,Yes,Sí
+v482a,8,2013,Unsure,Inseguro
+v482b,1,2013,Yes,Sí
+v482c,1,2013,Yes,Sí
+v482c,8,2013,Unsure,Inseguro
+v501,4,2013,Divorced,Divorciada
+v501,5,2013,Not living together,No viven juntos
+v501,2,2013,Living together,Viviendo juntos
+v501,3,2013,Widowed,Viuda
+v501,0,2013,Never married,Nunca casada
+v501,1,2013,Married,Casado
+v502,2,2013,Formerly married,Anteriormente casada
+v502,0,2013,Never married,Nunca casada
+v502,1,2013,Currently married,Actualmente casada
+v503,2,2013,More than once,Mas de una vez
+v503,1,2013,Once,Una vez
+v504,2,2013,Staying elsewhere,Vive en otro sitio
+v504,1,2013,Living with her,Vive con ella
+v505,0,2013,No other wives,No otras esposas
+v505,98,2013,Don't know,No sabe
+v506,98,2013,Don't know,No sabe
+v510,5,2013,"Year - a, m imp",Tiene año - imputa mes
+v510,6,2013,"Age - y, m imp",Tiene edad - imputa mes año
+v510,7,2013,"Month - a, y imp",Tiene mes - imputa año
+v510,2,2013,Month and age -y imp,Tiene mes y edad - imputa año
+v510,8,2013,None - all imp,Ninguno - imputa todo
+v510,3,2013,Year and age - m imp,Tiene año y edad - imputa mes
+v510,1,2013,Month and year,Tiene mes y año
+v513,4,2013,15-19,De 15 a 19 años
+v513,5,2013,20-24,De 20 a 24 años
+v513,6,2013,25-29,De 25 a 29 años
+v513,7,2013,30+,De 30 a más años
+v513,2,2013,5-9,De 5 a 9 años
+v513,3,2013,10-14,De 10 a 14 años
+v513,0,2013,Never married,Nunca casada
+v513,1,2013,0-4,De 0 a 4 años
+v525,96,2013,At first union,En la primera union
+v525,0,2013,Not had intercourse,Nunca tuvo relaciones sexuales
+v527,401,2013,Years: 1,Años:
+v527,201,2013,Weeks: 1,Semanas:
+v527,101,2013,Days: 1,Días:
+v527,100,2013,<1 day ago,Menos de un día
+v527,301,2013,Months: 1,Meses:
+v528,31,2013,31+ days,31 ó más días
+v529,997,2013,Inconsistent,Inconsistente
+v530,5,2013,"96, but curr.preg.","96, pero act emb"
+v530,6,2013,"96, but resumed sex","96, pero reanudó el sexo"
+v530,0,2013,No flag,Sin marcador
+v530,8,2013,"N, inconsis 4 weeks","N, inconsis 4 semanas"
+v530,1,2013,N > int. since birth,N> int. desde el nacimiento
+v530,4,2013,"96, but no birth","96, pero sin nacimiento"
+v530,7,2013,"N, last sex bef preg","N, último sexo antes de"
+v530,2,2013,N + abst. > interval,N + abst. > intervalo
+v530,3,2013,"N, but sex not res.","N, pero el sexo no res."
+v531,97,2013,Inconsistent,Inconsistente
+v531,0,2013,Not had intercourse,No tuve relaciones sexuales
+v531,98,2013,Don't know,No sabe
+v532,4,2013,"At marr, never marr","En marr, nunca marr"
+v532,5,2013,"At marr,after concep","En marr, despues de concep"
+v532,6,2013,After marriage,Despues del matrimonio
+v532,2,2013,After concep >= 1 yr,Después de concep> = 1 año
+v532,3,2013,After concep < 1 yr,Después de concep <1 año
+v532,0,2013,No flag,Sin bandera
+v532,1,2013,After interview,Despues de la entrevista
+v535,2,2013,Lived with a man,"Sí, convivió"
+v535,1,2013,Formerly married,"Sí, estuvo casada"
+v536,2,2013,Not active in last 4 weeks - postpartum abst.,No activo en las últimas 4 semanas - abstinencia postparto
+v536,3,2013,Not active in last 4 weeks - not postpartum abst.,No activo en las últimas 4 semanas - no abstinencia postparto
+v536,0,2013,Never had intercourse,Nunca tuvo relaciones sexuales
+v536,1,2013,Active in last 4 weeks,Activo en las últimas 4 semanas
+v537,60,2013,60+,60 meses o más
+v537,97,2013,Inconsistent,Inconsistente
+v538,2,2013,Divorce,Divorcio
+v538,3,2013,Separation,Separación
+v538,1,2013,Death / widowhood,Muerte/viudez
+v539,4,2013,Spouse's family,Familia del cónyuge
+v539,6,2013,Other,Otro
+v539,7,2013,No property,Sin propiedad
+v539,2,2013,Other wife,Otra esposa
+v539,3,2013,Spouse's children,Hijos del cónyuge
+v539,1,2013,Respondent,Informante
+v540,1,2013,Yes,Sí
+v541,1,2013,Yes,Sí
+v541,8,2013,Don't know / unsure,No sabe/insegura
+v602,4,2013,Sterilized,Esterilizada
+v602,5,2013,Declared infecund,Infertilidad
+v602,2,2013,Undecided,No sabe/insegura
+v602,3,2013,No more,No más/ninguno
+v602,1,2013,Have another,Tener un/otro hijo
+v603,996,2013,"Other, Non-numeric","Otro, No numérico"
+v603,998,2013,Don't know,No sabe
+v603,994,2013,"Soon, now","Pronto, ahora"
+v603,993,2013,After marriage,Despues del matrimonio
+v604,4,2013,4 years,4 años
+v604,5,2013,5 years,5 años
+v604,6,2013,6+ years,6 ó más años
+v604,7,2013,Non-numeric,No numérico
+v604,2,2013,2 years,2 años
+v604,8,2013,Don't know,No sabe
+v604,3,2013,3 years,3 años
+v604,0,2013,<12 months,De 0 a 11 meses
+v604,1,2013,1 year,1 año
+v605,4,2013,Undecided,Indecisa
+v605,5,2013,Wants no more,No quiere mas
+v605,6,2013,Sterilized,Esterilizada
+v605,7,2013,Declared infecund,Infértil
+v605,2,2013,Wants after 2+ years,Quiere después de 2 ó más años
+v605,3,2013,"Wants, unsure timing","Quiere, no está seguro de tiempo"
+v605,1,2013,Wants within 2 years,Quiere dentro de 2 años
+v613,96,2013,Non-numeric response,Respuesta no numérica
+v614,7,2013,Non-numeric response,Respuesta no numérica
+v614,6,2013,6+,6 ó más
+v616,996,2013,Other,Otro
+v616,998,2013,DK,No sabe
+v616,994,2013,Soon/now,Pronto/ahora
+v616,993,2013,After marriage,Despues del matrimonio
+v616,995,2013,Can't get pregnant,No puede quedar embarazada
+v621,1,2013,Both want same,Ambos quieren el mismo número
+v621,2,2013,Husband wants more,Quiere más hijas/hijos
+v621,3,2013,Husband wants fewer,Quiere menos hijas/hijos
+v621,8,2013,DK,No sabe
+v623,2,2013,Amenorrheic,Amenorrea
+v623,3,2013,"Infecund, menopausal","Infértil, menopausia"
+v623,0,2013,Fecund,Fértil
+v623,1,2013,Pregnant,Embarazada
+v624,5,2013,Spacing failure,Falla de espacio
+v624,6,2013,Limiting failure,Falla de límite
+v624,0,2013,Never had sex,Nunca tuvo relaciones sexuales
+v624,8,2013,"No sex, want to wait","No sexo, quiere esperar"
+v624,1,2013,Unmet need to space,NeceSIDAd insatisfecha de espacio
+v624,4,2013,Using to limit,Uso de límite
+v624,7,2013,Desire birth < 2 yrs,Deseo de nacimiento <2 años
+v624,2,2013,Unmet need to limit,NeceSIDAd insatisfecha de limite
+v624,9,2013,"Infecund, menopausal","Infértil, menopausia"
+v624,3,2013,Using to space,Uso de espacio
+v625,2,2013,Amenorrheic,Amenorreica
+v625,3,2013,"Infecund, menopausal","Infértil, menopausia"
+v625,0,2013,Fecund,Fértil
+v625,1,2013,Pregnant,Embarazada
+v626,5,2013,Spacing failure,Falla de espacio
+v626,6,2013,Limiting failure,Falla de límite
+v626,0,2013,Never had sex,Nunca tuve relaciones sexuales
+v626,8,2013,"No sex, want to wait","No sexo, quiere esperar"
+v626,1,2013,Unmet need to space,NeceSIDAd insatisfecha de espacio
+v626,4,2013,Using to limit,Uso de límite
+v626,7,2013,Desire birth < 2 yrs,Deseo de nacimiento <2 años
+v626,2,2013,Unmet need to limit,NeceSIDAd insatisfecha de limitar
+v626,9,2013,"Infecund, menopausal","Infértil, menopausia"
+v626,3,2013,Using to space,Uso de espacio
+v627,96,2013,Other,Otro
+v628,96,2013,Other,Otro
+v629,96,2013,Other,Otro
+v631,4,2013,Says she can't get pregnant /not having sex,No puede quedar embarazada/No tiene relaciones sexuales
+v631,2,2013,Small problem,Un pequeño problema
+v631,3,2013,No problem,No seria problema
+v631,1,2013,Big problem,Un gran problema
+v632,6,2013,Other,Otro
+v632,2,2013,"Mainly husband, partner","Esposo, compañero principalmente"
+v632,3,2013,Joint decision,Decisión conjunta
+v632,1,2013,Mainly respondent,Entrevistada principalmente
+v633a,1,2013,Yes,Sí
+v633a,8,2013,DK,No sabe
+v633b,1,2013,Yes,Sí
+v633b,8,2013,DK,No sabe
+v633c,1,2013,Yes,Sí
+v633c,8,2013,DK,No sabe
+v633d,1,2013,Yes,Sí
+v633d,8,2013,DK,No sabe
+v633e,1,2013,Yes,Sí
+v633e,8,2013,DK,No sabe
+v633f,1,2013,Yes,Sí
+v633f,8,2013,DK,No sabe
+v633g,1,2013,Yes,Sí
+v633g,8,2013,DK,No sabe
+v634,1,2013,Yes,Sí
+v634,8,2013,Don't know,No sabe
+v701,1,2013,Primary,Primario
+v701,2,2013,Secondary,Secundario
+v701,3,2013,Higher,Superior
+v701,0,2013,No education,Sin educación
+v701,8,2013,Don't know,No sabe
+v702,98,2013,Don't know,No sabe
+v704,35,2013,"T‚cnicos de Nivel Medio y Trabajadores Asimilados de la Medicina y la Salud, Aplicación de Inyectables, Enfermera Técnic","Técnicos de Nivel Medio y Trabajadores Asimilados de la Medicina y la Salud, Aplicación de Inyectables, Enfermera Técnic"
+v704,34,2013,T‚cnicos de Nivel Medio y Trabajadores Asimilados de las Ciencias Biológicas,Técnicos de Nivel Medio y Trabajadores Asimilados de las Ciencias Biológicas
+v704,78,2013,"Obreros, Mec nicos y Ajustadores de Metales, Equipos El‚ctricos, Electr¢nicos y de Vehículos de Motor, Mecánico de Vehíc","Obreros, Mecánicos y Ajustadores de Metales, Equipos Eléctricos, Electrónicos y de Vehículos de Motor, Mecánico de Vehíc"
+v704,26,2013,"Bibliotecario, Ciencias Sociales, Periodistas,Psic¢logos","Bibliotecario, Ciencias Sociales, Periodistas, Psicólogos"
+v704,31,2013,"T‚cnicos de Nivel Medio en Ciencias F¡sicas, Qu¡micas, Matemáticas e Ingeniería","Técnicos de Nivel Medio en Ciencias Físicas, Químicas, Matemáticas e Ingeniería"
+v704,62,2013,Criadores y Trabajadores Pecuarios Calificados de Cr¡a de Animales para el Mercado y Afines,Criadores y Trabajadores Pecuarios Calificados de Cría de Animales para el Mercado y Afines
+v704,13,2013,Directores de la Educaci¢n,Directores de la Educación
+v704,27,2013,"Profesionales de las Artes, Escultura, M£sica y Afines","Profesionales de las Artes, Escultura, Música y Afines"
+v704,25,2013,"Profesionales de Derecho, Ciencias Econ¢micas Administrativas","Profesionales de Derecho, Ciencias Económicas Administrativas"
+v704,98,2013,"Peones de la Minería, Suministro Electricidad, Gas y Agua, la Construcción, la Industria Manufacturera y el Transporte,","Peones de la Minería, Suministro Electricidad, Gas y Agua, la Construcción, la Industria Manufacturera y el Transporte"
+v704,33,2013,"T‚cnicos en Navegación Marítima y Aeronáutica e Inspectores de Seguridad, Salud y Control de Calidad","Técnicos en Navegación Marítima y Aeronáutica e Inspectores de Seguridad, Salud y Control de Calidad"
+v704,61,2013,"Agricult. (Expl.) y Trab. Calificados de Cultivos Extensivos:Peones de Labranza y Peones Agropecuarios,Peones Forestales","Agricult. (Expl.) y Trab. Calificados de Cultivos Extensivos: Peones de Labranza y Peones Agropecuarios,Peones Forestale"
+v704,24,2013,"Profesores (Maestros y/o Pedagogos), Auxiliar de Educaci¢n","Profesores (Maestros y/o Pedagogos), Auxiliar de Educación"
+v704,21,2013,"Profesionales de las Ciencias Físicas, Químicas,Matem ticas e Ingenier¡a, Civil, Arquitecto","Profesionales de las Ciencias Físicas, Químicas, Matemáticas e Ingeniería, Civil, Arquitecto"
+v704,77,2013,"Obreros de Calzado, Sastres, Modistos, Peleteros,Ebanistas, Tapiceros y Otros Afines, Sombrerero","Obreros de Calzado, Sastres, Modistos, Peleteros, Ebanistas, Tapiceros y Otros Afines, Sombrerero"
+v705,5,2013,Agric-employee,"Agricultor, empleado"
+v705,6,2013,Household & domestic,Empleado del hogar
+v705,0,2013,Did not work,No trabaja
+v705,8,2013,Skilled manual,Habilidades manuales
+v705,1,2013,"Prof., Tech., Manag.","Profesional, Técnico, Gerente"
+v705,4,2013,Agric-self employed,"Agricultor, trabajador independiente"
+v705,7,2013,Services,Servicios
+v705,2,2013,Clerical,Eclesiástico
+v705,9,2013,Unskilled manual,Sin habilidades manuales
+v705,3,2013,Sales,Ventas
+v714,1,2013,Yes,Sí
+v714a,1,2013,Yes,Sí
+v715,98,2013,Don't know,No sabe
+v716,35,2013,"T‚cnicos de Nivel Medio y Trabajadores Asimilados de la Medicina y la Salud, Aplicación de Inyectables, Enfermera Técnic","Técnicos de Nivel Medio y Trabajadores Asimilados de la Medicina y la Salud, Aplicación de Inyectables, Enfermera Técnic"
+v716,34,2013,T‚cnicos de Nivel Medio y Trabajadores Asimilados de las Ciencias Biológicas,Técnicos de Nivel Medio y Trabajadores Asimilados de las Ciencias Biológicas
+v716,78,2013,"Obreros, Mec nicos y Ajustadores de Metales, Equipos El‚ctricos, Electr¢nicos y de Vehículos de Motor, Mecánico de Vehíc","Obreros, Mecánicos y Ajustadores de Metales, Equipos Eléctricos, Electrónicos y de Vehículos de Motor, Mecánico de Vehíc"
+v716,26,2013,"Bibliotecario, Ciencias Sociales, Periodistas,Psic¢logos","Bibliotecario, Ciencias Sociales, Periodistas, Psicólogos"
+v716,31,2013,"T‚cnicos de Nivel Medio en Ciencias F¡sicas, Qu¡micas, Matemáticas e Ingeniería","Técnicos de Nivel Medio en Ciencias Físicas, Químicas, Matemáticas e Ingeniería"
+v716,62,2013,Criadores y Trabajadores Pecuarios Calificados de Cr¡a de Animales para el Mercado y Afines,Criadores y Trabajadores Pecuarios Calificados de Cría de Animales para el Mercado y Afines
+v716,13,2013,Directores de la Educaci¢n,Directores de la Educación
+v716,27,2013,"Profesionales de las Artes, Escultura, M£sica y Afines","Profesionales de las Artes, Escultura, Música y Afines"
+v716,25,2013,"Profesionales de Derecho, Ciencias Econ¢micas Administrativas","Profesionales de Derecho, Ciencias Económicas Administrativas"
+v716,0,2013,No trabaja,"Otro, no trabaja, no especificada"
+v716,33,2013,"T‚cnicos en Navegación Marítima y Aeronáutica e Inspectores de Seguridad, Salud y Control de Calidad","Técnicos en Navegación Marítima y Aeronáutica e Inspectores de Seguridad, Salud y Control de Calidad"
+v716,61,2013,"Agricult. (Expl.) y Trab. Calificados de Cultivos Extensivos:Peones de Labranza y Peones Agropecuarios,Peones Forestales","Agricult. (Expl.) y Trab. Calificados de Cultivos Extensivos: Peones de Labranza y Peones Agropecuarios,Peones Forestale"
+v716,24,2013,"Profesores (Maestros y/o Pedagogos), Auxiliar de Educaci¢n","Profesores (Maestros y/o Pedagogos), Auxiliar de Educación"
+v716,21,2013,"Profesionales de las Ciencias Físicas, Químicas,Matem ticas e Ingenier¡a, Civil, Arquitecto","Profesionales de las Ciencias Físicas, Químicas, Matemáticas e Ingeniería, Civil, Arquitecto"
+v716,77,2013,"Obreros de Calzado, Sastres, Modistos, Peleteros,Ebanistas, Tapiceros y Otros Afines, Sombrerero","Obreros de Calzado, Sastres, Modistos, Peleteros, Ebanistas, Tapiceros y Otros Afines, Sombrerero"
+v717,5,2013,Agric-employee,"Agricultor, empleado"
+v717,6,2013,Household & domestic,Empleada del hogar
+v717,0,2013,Not working,No trabaja
+v717,8,2013,Skilled manual,Habilidades manuales
+v717,1,2013,"Prof., Tech., Manag.","Profesional, Técnico, Gerente"
+v717,4,2013,Agric-self employed,"Agricultor, trabajador independiente"
+v717,7,2013,Services,Servicios
+v717,2,2013,Clerical,Eclesiástico
+v717,9,2013,Unskilled manual,Sin habilidades manuales
+v717,3,2013,Sales,Ventas
+v719,2,2013,For someone else,Para alguien más
+v719,3,2013,Self-employed,Por cuenta propia
+v719,1,2013,For family member,Para un familiar
+v721,2,2013,Away,Fuera del hogar
+v721,1,2013,At home,En el hogar
+v729,4,2013,Complete secondary,Secundaria completa
+v729,5,2013,Higher,Superior
+v729,1,2013,Incomplete primary,Primaria incompleta
+v729,2,2013,Complete primary,Primaria completa
+v729,3,2013,Incomplete secondary,Secundaria incompleta
+v729,0,2013,No education,Sin educación
+v729,8,2013,Don't know,No sabe
+v730,98,2013,DK,No sabe
+v731,2,2013,Currently working,Actualmente trabajando
+v731,3,2013,"Have a job, but on leave last 7 days","Tener un trabajo, pero en licencia los últimos 7 días"
+v731,1,2013,In the past year,En el año pasado
+v732,2,2013,Seasonal,Por temporada
+v732,3,2013,Occasional,De vez en cuando
+v732,1,2013,All year,Todo el año
+v739,4,2013,Husband/partner alone,Esposo/compañero
+v739,5,2013,Someone else,Alguien más
+v739,2,2013,Respondent and husband/partner,Entrevistada y esposo/compañero
+v739,3,2013,Respondent and other person,Entrevistada y alguien más
+v739,1,2013,Respondent alone,Entrevistada
+v740,4,2013,Community land,Comunitario
+v740,1,2013,Family land,Familiar
+v740,2,2013,Someone else's land,De alguien más
+v740,3,2013,Rented land,Alquilado
+v740,0,2013,Own land,Propio
+v741,2,2013,Cash and kind,Efectivo y especie
+v741,3,2013,In kind only,Solo en especie
+v741,0,2013,Not paid,No le pagan
+v741,1,2013,Cash only,Solo en efectivo
+v743a,4,2013,Husband/partner alone,Solo esposo/compañero
+v743a,5,2013,Someone else,Alguien más
+v743a,2,2013,Respondent and husband/partner,Entrevistada y esposo/compañero
+v743a,3,2013,Respondent and other person,Entrevistada y otra persona
+v743a,0,2013,Nobody,Nadie
+v743a,1,2013,Respondent alone,Entrevistada
+v743b,4,2013,Husband/partner alone,Esposo/compañero
+v743b,5,2013,Someone else,Alguien más
+v743b,2,2013,Respondent and husband/partner,Entrevistada y esposo/compañero
+v743b,3,2013,Respondent and other person,Entrevistada y alguien más
+v743b,0,2013,Nobody,Nadie
+v743b,1,2013,Respondent alone,Entrevistada
+v743c,4,2013,Husband/partner alone,Esposo/compañero
+v743c,5,2013,Someone else,Alguien más
+v743c,2,2013,Respondent and husband/partner,Entrevistada y esposo/compañero
+v743c,3,2013,Respondent and other person,Entrevistada y alguien más
+v743c,0,2013,Nobody,Nadie
+v743c,1,2013,Respondent alone,Entrevistada
+v743d,4,2013,Husband/partner alone,Esposo/compañero
+v743d,5,2013,Someone else,Alguien más
+v743d,2,2013,Respondent and husband/partner,Entrevistada y esposo/compañero
+v743d,3,2013,Respondent and other person,Entrevistada y alguien más
+v743d,0,2013,Nobody,Nadie
+v743d,1,2013,Respondent alone,Entrevistada
+v743e,4,2013,Husband/partner alone,Esposo/compañero
+v743e,5,2013,Someone else,Alguien más
+v743e,2,2013,Respondent and husband/partner,Entrevistada y esposo/compañero
+v743e,3,2013,Respondent and other person,Entrevistada y alguien más
+v743e,0,2013,Nobody,Nadie
+v743e,1,2013,Respondent alone,Entrevistada
+v743f,4,2013,Husband/partner alone,Esposo/compañero
+v743f,5,2013,Someone else,Alguien más
+v743f,6,2013,Other,Otro
+v743f,7,2013,Husband/partner has no earnings,Esposo/compañero no tiene ganancias
+v743f,2,2013,Respondent and husband/partner,Entrevistada y esposo/compañero
+v743f,3,2013,Respondent and other person,Entrevistada y alguien más
+v743f,1,2013,Respondent alone,Entrevistada
+v744a,1,2013,Yes,Sí
+v744a,8,2013,Don't know,No sabe
+v744b,1,2013,Yes,Sí
+v744b,8,2013,Don't know,No sabe
+v744c,1,2013,Yes,Sí
+v744c,8,2013,Don't know,No sabe
+v744d,1,2013,Yes,Sí
+v744d,8,2013,Don't know,No sabe
+v744e,1,2013,Yes,Sí
+v744e,8,2013,Don't know,No sabe
+v746,4,2013,Partner doesn't bring in money,Esposo/compañero no tiene ganancias
+v746,1,2013,More than him,Más que el
+v746,2,2013,Less than him,Menos que el
+v746,3,2013,About the same,Igual que el
+v746,8,2013,Don't know,No sabe
+v750,1,2013,Yes,Sí
+v751,1,2013,Yes,Sí
+v754bp,1,2013,Yes,Sí
+v754bp,8,2013,Don't know,No sabe
+v754cp,1,2013,Reduce chances of AIDS by always using condoms during sex,Si
+v754cp,8,2013,Don't know,No sabe
+v754dp,1,2013,Reduce chance of AIDS: have 1 sex partnr with no oth partner,Si
+v754dp,8,2013,Don't know,No sabe
+v754jp,1,2013,Get AIDS from mosquito bites,Si
+v754jp,8,2013,Don't know,No sabe
+v754wp,1,2013,Get AIDS by sharing food with person who has AIDS,Si
+v754wp,8,2013,Don't know,No sabe
+v756,1,2013,Yes,Sí
+v756,8,2013,DK,No sabe
+v761,1,2013,Yes,Sí
+v761b,1,2013,Yes,Sí
+v761c,1,2013,Yes,Sí
+v762aa,1,2013,Yes,Sí
+v762ab,1,2013,Yes,Sí
+v762ac,1,2013,Yes,Sí
+v762ad,1,2013,Yes,Sí
+v762ae,1,2013,Yes,Sí
+v762af,1,2013,Yes,Sí
+v762ag,1,2013,Yes,Sí
+v762ah,1,2013,Yes,Sí
+v762ai,1,2013,Yes,Sí
+v762aj,1,2013,Yes,Sí
+v762ak,1,2013,Yes,Sí
+v762al,1,2013,Yes,Sí
+v762am,1,2013,Yes,Sí
+v762an,1,2013,Yes,Sí
+v762ao,1,2013,Yes,Sí
+v762ap,1,2013,Yes,Sí
+v762aq,1,2013,Yes,Sí
+v762ar,1,2013,Yes,Sí
+v762as,1,2013,Yes,Sí
+v762at,1,2013,Yes,Sí
+v762au,1,2013,Yes,Sí
+v762av,1,2013,Yes,Sí
+v762aw,1,2013,Yes,Sí
+v762ax,1,2013,Yes,Sí
+v762az,0,2013,No: source known,No
+v762az,1,2013,Yes: no source known,Sí
+v762ba,1,2013,Yes,Sí
+v762bb,1,2013,Yes,Sí
+v762bc,1,2013,Yes,Sí
+v762bd,1,2013,Yes,Sí
+v762be,1,2013,Yes,Sí
+v762bf,1,2013,Yes,Sí
+v762bg,1,2013,Yes,Sí
+v762bh,1,2013,Yes,Sí
+v762bi,1,2013,Yes,Sí
+v762bj,1,2013,Yes,Sí
+v762bk,1,2013,Yes,Sí
+v762bl,1,2013,Yes,Sí
+v762bm,1,2013,Yes,Sí
+v762bn,1,2013,Yes,Sí
+v762bo,1,2013,Yes,Sí
+v762bp,1,2013,Yes,Sí
+v762bq,1,2013,Yes,Sí
+v762br,1,2013,Yes,Sí
+v762bs,1,2013,Yes,Sí
+v762bt,1,2013,Yes,Sí
+v762bu,1,2013,Yes,Sí
+v762bv,1,2013,Yes,Sí
+v762bw,1,2013,Yes,Sí
+v762bx,1,2013,Yes,Sí
+v762bz,0,2013,No: source known,No: fuente conocida
+v762bz,1,2013,Yes: no source known,Si: fuente desconocida
+v763a,1,2013,Yes,Sí
+v763a,8,2013,DK,No sabe
+v763b,1,2013,Yes,Sí
+v763b,8,2013,DK,No sabe
+v763c,1,2013,Yes,Sí
+v763c,8,2013,DK,No sabe
+v763d,1,2013,Country specific,Sí
+v763d,8,2013,DK,No sabe
+v763e,1,2013,Country specific,Sí
+v763e,8,2013,DK,No sabe
+v763f,1,2013,Country specific,Sí
+v763f,8,2013,DK,No sabe
+v763g,1,2013,Country specific,Sí
+v763g,8,2013,DK,No sabe
+v766a,98,2013,DK,No sabe
+v766b,98,2013,DK,No sabe
+v767a,4,2013,Casual acquaintance,Compañero casual
+v767a,5,2013,Relative,Pariente
+v767a,6,2013,Commercial sex worker,Trabajador sexual
+v767a,96,2013,Other,Otro
+v767a,2,2013,Boyfriend not living with respondent,Novio/prometido
+v767a,8,2013,Other boyfriend,Enamorado
+v767a,3,2013,Other friend,Amigo
+v767a,1,2013,Spouse,Esposo/conviviente
+v767b,4,2013,Casual acquaintance,Compañero casual
+v767b,5,2013,Relative,Pariente
+v767b,6,2013,Commercial sex worker,Trabajador sexual
+v767b,96,2013,Other,Otro
+v767b,2,2013,Boyfriend not living with respondent,Novio/prometido
+v767b,8,2013,Other boyfriend,Enamorado
+v767b,3,2013,Other friend,Amigo
+v767b,1,2013,Spouse,Esposo/conviviente
+v767c,4,2013,Casual acquaintance,Compañero casual
+v767c,5,2013,Relative,Pariente
+v767c,6,2013,Commercial sex worker,Trabajador sexual
+v767c,96,2013,Other, Otro
+v767c,2,2013,Boyfriend not living with respondent,Novio/prometido
+v767c,8,2013,Other boyfriend,Enamorado
+v767c,3,2013,Other friend,Amigo
+v767c,1,2013,Spouse,Esposo/conviviente
+v768a,201,2013,One month,Un mes
+v768a,101,2013,One day,Un día
+v768a,301,2013,One year,Un año
+v768b,201,2013,One month,Un mes
+v768b,101,2013,One day,Un día
+v768b,301,2013,One year,Un año
+v768c,201,2013,One month,Un mes
+v768c,101,2013,One day,Un día
+v768c,301,2013,One year,Un año
+v769,1,2013,Yes,Sí
+v769,8,2013,DK,No sabe
+v769a,1,2013,Yes,Sí
+v769a,8,2013,DK,No sabe
+v770,1,2013,Yes,Sí
+v770a,1,2013,Yes,Sí
+v770b,1,2013,Yes,Sí
+v770c,1,2013,Yes,Sí
+v770d,1,2013,Yes,Sí
+v770e,1,2013,Yes,Sí
+v770f,1,2013,Yes,Sí
+v770g,1,2013,Yes,Sí
+v770h,1,2013,Yes,Sí
+v770i,1,2013,Yes,Sí
+v770j,1,2013,Yes,Sí
+v770k,1,2013,Yes,Sí
+v770l,1,2013,Yes,Sí
+v770m,1,2013,Yes,Sí
+v770n,1,2013,Yes,Sí
+v770o,1,2013,Yes,Sí
+v770p,1,2013,Yes,Sí
+v770q,1,2013,Yes,Sí
+v770r,1,2013,Yes,Sí
+v770s,1,2013,Yes,Sí
+v770t,1,2013,Yes,Sí
+v770u,1,2013,Yes,Sí
+v770v,1,2013,Yes,Sí
+v770w,1,2013,Yes,Sí
+v770x,1,2013,Yes,Sí
+v774a,1,2013,Yes,Sí
+v774a,8,2013,DK,No sabe
+v774b,1,2013,Yes,Sí
+v774b,8,2013,DK,No sabe
+v774c,1,2013,Yes,Sí
+v774c,8,2013,DK,No sabe
+v775,1,2013,Yes,Sí
+v775,8,2013,DK,No sabe
+v777,1,2013,Yes,Sí
+v777,8,2013,DK,No sabe
+v778,1,2013,Yes,Sí
+v778,8,2013,DK,No sabe
+v779,1,2013,Yes,Sí
+v779,8,2013,DK,No sabe
+v780,1,2013,Yes,Sí
+v781,1,2013,Yes,Sí
+v783,1,2013,Yes,Sí
+v784a,1,2013,Yes,Sí
+v784b,1,2013,Yes,Sí
+v784c,1,2013,Yes,Sí
+v784d,1,2013,Yes,Sí
+v784e,1,2013,Yes,Sí
+v784f,1,2013,Yes,Sí
+v784g,1,2013,Yes,Sí
+v784h,1,2013,Yes,Sí
+v784i,1,2013,Yes,Sí
+v784j,1,2013,Yes,Sí
+v784k,1,2013,Yes,Sí
+v784l,1,2013,Yes,Sí
+v784m,1,2013,Yes,Sí
+v784n,1,2013,Yes,Sí
+v784o,1,2013,Yes,Sí
+v784p,1,2013,Yes,Sí
+v784q,1,2013,Yes,Sí
+v784r,1,2013,Yes,Sí
+v784s,1,2013,Yes,Sí
+v784t,1,2013,Yes,Sí
+v784u,1,2013,Yes,Sí
+v784v,1,2013,Yes,Sí
+v784x,1,2013,Yes,Sí
+v785,1,2013,Yes,Sí
+v811,2,2013,Yes - not listening,Si - no escuchando
+v811,1,2013,Yes - listening,Si - escuchando
+v812,2,2013,Yes - not listening,Si -no escuchando
+v812,1,2013,Yes - listening,Si - escuchando
+v813,2,2013,Yes - not listening,Si - no escuchando
+v813,1,2013,Yes - listening,Si - escuchando
+v814,2,2013,Yes - not listening,Si - no escuchando
+v814,1,2013,Yes - listening,Si - escuchando
+v820,1,2013,Yes,Sí
+v820,8,2013,DK,No sabe
+v821a,4,2013,10 or more years older,10 o mas años mayor
+v821a,5,2013,"Older, don't know difference",Mayor No sabe diferencia
+v821a,1,2013,Younger,Mas joven
+v821a,2,2013,About the same age,De la misma edad
+v821a,3,2013,Less than 10 years older,Menos de 10 años
+v821a,8,2013,Don't know,No sabe
+v821b,4,2013,10 or more years older,10 o mas años mayor
+v821b,5,2013,"Older, don't know difference",Mayor No sabe diferencia
+v821b,1,2013,Younger,Mas joven
+v821b,2,2013,About the same age,De la misma edad
+v821b,3,2013,Less than 10 years older,Menos de 10 años
+v821b,8,2013,Don't know,No sabe
+v821c,4,2013,10 or more years older,10 o mas años mayor
+v821c,5,2013,"Older, don't know difference",Mayor No sabe diferencia
+v821c,1,2013,Younger,Mas joven
+v821c,2,2013,About the same age,De la misma edad
+v821c,3,2013,Less than 10 years older,Menos de 10 años
+v821c,8,2013,Don't know,No sabe
+v822,1,2013,Yes,Sí
+v822,8,2013,Don't know,No sabe
+v823,1,2013,Yes,Sí
+v823,8,2013,Don't know,No sabe
+v824,1,2013,Yes,Sí
+v824,8,2013,Don't know,No sabe
+v825,1,2013,Yes,Sí
+v825,8,2013,Don't know,No sabe
+v826,2,2013,12-23 months,12-23 meses
+v826,3,2013,2 years or more,2 años o mas
+v826,1,2013,Less than 12 months,Menos de 12 meses
+v827,2,2013,Offered and accepted,Ofrecida y aceptada
+v827,3,2013,Required,Requerida
+v827,1,2013,Asked for the test,Pidió la prueba
+v828,1,2013,Yes,Sí
+v829,17,2013,Other public,Otro publico
+v829,24,2013,Private mobile clinic,Clínica móvil privada
+v829,12,2013,Government health center,Centro de salud del gobierno
+v829,21,2013,"Private hospital, clinic or doctor","Hospital privado, clínica o médico."
+v829,11,2013,Government hospital,Hospital del gobierno
+v829,14,2013,Public family planning clinic,Clínica pública de planificación familiar
+v829,23,2013,Private pharmacy,Farmacia privada
+v829,26,2013,Other private medical,Otro medico privado
+v829,25,2013,Private field worker,Trabajador de campo privado
+v829,20,2013,PRIVATE MEDICAL,Medico privado
+v829,13,2013,Public stand-alone VCT center,Centro VCT independiente y público
+v829,22,2013,Private stand-alone VCT center,Centro privado independiente de VCT
+v829,15,2013,Public mobile clinic,Clínica móvil pública
+v829,16,2013,Public field worker,Trabajador de campo publico
+v829,10,2013,PUBLIC SECTOR,Sector Público
+v830,98,2013,Don' t know,No sabe
+v831,4,2013,10 or more years older,10 o mas años mayor
+v831,5,2013,"Older, don't know difference",Mayor No sabe diferencia
+v831,1,2013,Younger,Mas joven
+v831,2,2013,About the same age,De la misma edad
+v831,3,2013,Less than 10 years older,Menos de 10 años
+v831,8,2013,Don't know,No sabe
+v832b,101,2013,Days: 1,1 día
+v832c,101,2013,Days: 1,1 día
+v833a,1,2013,Yes,Sí
+v833b,1,2013,Yes,Sí
+v833c,1,2013,Yes,Sí
+v834a,98,2013,Don' t know,No sabe
+v834b,98,2013,Don' t know,No sabe
+v834c,98,2013,Don' t know,No sabe
+v835a,4,2013,Neither drunk but consumed alcohol,Ninguno de los dos
+v835a,2,2013,Partner drunk only,Solo el
+v835a,3,2013,Both drunk,Ambos se embriagaron
+v835a,1,2013,Respondent drunk only,Solo ella
+v835b,4,2013,Neither drunk but consumed alcohol,Ninguno de los dos
+v835b,2,2013,Partner drunk only,Solo el
+v835b,3,2013,Both drunk,Ambos se embriagaron
+v835b,1,2013,Respondent drunk only,Solo ella
+v835c,4,2013,Neither drunk but consumed alcohol,Ninguno de los dos
+v835c,2,2013,Partner drunk only,Solo el
+v835c,3,2013,Both drunk,Ambos se embriagaron
+v835c,1,2013,Respondent drunk only,Solo ella
+v836,98,2013,Don't know,No sabe
+v837,1,2013,Yes,Sí
+v837,8,2013,Don't know,No sabe
+v838a,1,2013,Yes,Sí
+v838a,8,2013,Don't know,No sabe
+v838b,1,2013,Yes,Sí
+v838b,8,2013,Don't know,No sabe
+v838c,1,2013,Yes,Sí
+v839,1,2013,Yes,Sí
+v840,1,2013,Yes,Sí
+v841,1,2013,Yes,Sí
+v842,17,2013,Other public,Otro publico
+v842,24,2013,Private mobile clinic,Clínica móvil privada
+v842,12,2013,Government health center,Centro de salud del gobierno
+v842,21,2013,"Private hospital, clinic or doctor","Hospital privado, clínica o médico."
+v842,11,2013,Government hospital,Hospital del gobierno
+v842,14,2013,Public family planning clinic,Clínica pública de planificación familiar
+v842,23,2013,Private pharmacy,Farmacia privada
+v842,26,2013,Other private medical,Otro medico privado
+v842,25,2013,Private field worker,Trabajador de campo privado
+v842,20,2013,PRIVATE MEDICAL,Medico privado
+v842,13,2013,Public stand-alone VCT center,Centro VCT independiente y público
+v842,22,2013,Private stand-alone VCT center,Centro privado independiente de VCT
+v842,15,2013,Public mobile clinic,Clínica móvil pública
+v842,16,2013,Public field worker,Trabajador de campo publico
+v842,10,2013,PUBLIC SECTOR,SECTOR PÚBLICO
+v843,1,2013,Yes,Sí
+v844,2,2013,Don't know anyone with AIDS,No conozco a nadie con SIDA
+v844,1,2013,Yes,Sí
+v845,1,2013,Yes,Sí
+v846,1,2013,Yes,Sí
+v847,1,2013,Agree,De acuerdo
+v847,0,2013,Disagree,Discrepar
+v847,8,2013,Don't know / no opinion,No sabe/no opinión
+v848,1,2013,Agree,De acuerdo
+v848,0,2013,Disagree,Discrepar
+v848,8,2013,Don't know / no opinion,No sabe/no opinión
+v849,1,2013,Yes,Sí
+v849,8,2013,Don't know / depends,"No sabe, no estoy seguro, depende"
+v850a,1,2013,Yes,Sí
+v850a,8,2013,"DK, not sure, depends","No sabe, no estoy seguro, depende"
+v850b,1,2013,Yes,Sí
+v850b,8,2013,"DK, not sure, depends","No sabe, no estoy seguro, depende"
+v851a,1,2013,Yes,Sí
+v851a,8,2013,"DK, not sure, depends","No sabe, no estoy seguro, depende"
+v851b,1,2013,Yes,Sí
+v851b,8,2013,"DK, not sure, depends","No sabe, no estoy seguro, depende"
+v851c,1,2013,Yes,Sí
+v851c,8,2013,"DK, not sure, depends","No sabe, no estoy seguro, depende"
+v851d,1,2013,Yes,Sí
+v851d,8,2013,"DK, not sure, depends","No sabe, no estoy seguro, depende"
+v851e,1,2013,Yes,Sí
+v851e,8,2013,"DK, not sure, depends","No sabe, no estoy seguro, depende"
+v851f,1,2013,Yes,Sí
+v851f,8,2013,"DK, not sure, depends","No sabe, no estoy seguro, depende"
+v851g,1,2013,Yes,Sí
+v851g,8,2013,"DK, not sure, depends","No sabe, no estoy seguro, depende"
+v851h,1,2013,Yes,Sí
+v851h,8,2013,"DK, not sure, depends","No sabe, no estoy seguro, depende"
+v851i,1,2013,Yes,Sí
+v851i,8,2013,"DK, not sure, depends","No sabe, no estoy seguro, depende"
+v851j,1,2013,Yes,Sí
+v851j,8,2013,"DK, not sure, depends","No sabe, no estoy seguro, depende"
+v851k,1,2013,Yes,Sí
+v851k,8,2013,"DK, not sure, depends","No sabe, no estoy seguro, depende"
+v851l,1,2013,Yes,Sí
+v851l,8,2013,"DK, not sure, depends","No sabe, no estoy seguro, depende"
+vcol,4,2013,Moves & communities,Específicas del país
+vcol,5,2013,Source of method,Fuente del metodo anticonceptivo
+vcol,2,2013,Reason for discontinuation,Razón de la interrupción
+vcol,3,2013,Marriage & unions,Matrimonio y uniones
+vcol,1,2013,Pregnancies & contraception,Embarazos y anticoncepción

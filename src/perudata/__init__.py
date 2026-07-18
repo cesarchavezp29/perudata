@@ -22,7 +22,7 @@ from ._core import (  # noqa: F401
 )
 from .dataset import dataset  # noqa: F401
 
-__version__ = "0.1.3"
+__version__ = "0.1.4"
 __all__ = ["dataset", "dictionary", "enaho", "endes", "epen", "eea", "panel", "validate",
            "harmonize",
            "PerudataError", "NotPublished", "ServerRefused", "CorruptMember"]

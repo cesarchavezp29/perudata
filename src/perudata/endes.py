@@ -205,3 +205,38 @@ def load(year: int, module: str | int, recode: str | None = None,
           else _core.read_sav(target, columns=columns))
     df.columns = [c.lower() for c in df.columns]
     return df
+
+
+# ---------------------------------------------------------------------------
+# Harmonized value labels
+# ---------------------------------------------------------------------------
+_LABELS = None
+
+
+def _label_table():
+    global _LABELS
+    if _LABELS is None:
+        import pandas as pd
+        from importlib import resources
+        with resources.files("perudata").joinpath(
+                "crosswalks/endes_label_canon.csv").open("rb") as f:
+            t = pd.read_csv(f, encoding="utf-8", dtype={"code": str})
+        idx: dict = {}
+        for r in t.itertuples(index=False):
+            idx.setdefault(r.variable.lower(), {})[str(r.code)] = r.label
+        _LABELS = idx
+    return _LABELS
+
+
+def value_labels(variable: str, year: int | None = None) -> dict:
+    """Harmonized DHS value labels for an ENDES variable: {code: label}.
+
+    ENDES ships each recode's labels inconsistently across years -- the same
+    code reads ENGLISH in 2013 ('yes', 'frequently') and SPANISH in 2019/2024
+    ('si', 'frecuentemente'), plus DHS synonyms ('Mayor'/'Superior'). The codes
+    are stable; only the label string drifts. This returns ONE canonical label
+    per code (the most recent year's Spanish form) so a pooled multi-year panel
+    can aggregate by label without splitting a category. `year` is accepted for
+    symmetry but the canonical label is year-independent by design.
+    """
+    return dict(_label_table().get(str(variable).lower(), {}))

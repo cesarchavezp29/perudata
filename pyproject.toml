@@ -4,7 +4,7 @@ build-backend = "hatchling.build"
 
 [project]
 name = "perudata"
-version = "0.1.3"
+version = "0.1.4"
 description = "Peru's official INEI microdata (ENAHO, ENDES, EPEN, EEA, ENAHO Panel): download, load and validate against official statistics"
 readme = "README.md"
 license = { text = "MIT" }

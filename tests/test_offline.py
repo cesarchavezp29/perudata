@@ -897,3 +897,23 @@ def test_value_labels_casing_is_consistent_across_years():
             for y in range(2004, 2026)}
     estr.discard(None)
     assert len(estr) > 1, "estrato recode wrongly unified"
+
+
+def test_endes_value_labels_are_harmonized_across_years():
+    """ENDES ships DHS recode labels that drift by LANGUAGE and synonym across
+    years -- v106 code 3 is 'Higher' (English, 2013), 'Mayor' (2019) and
+    'Superior' (2024) for the SAME higher-education code. The codes are stable
+    but a pooled panel grouped by label splits the category. endes.value_labels
+    returns one canonical Spanish label per code so aggregation works across
+    years.
+    """
+    from perudata import endes
+
+    v106 = endes.value_labels("v106")
+    assert v106.get("3") == "Superior", v106
+    assert v106.get("0") and v106.get("1") and v106.get("2")
+    # marital status and wealth resolve to Spanish canonical labels too
+    assert endes.value_labels("v501").get("1")            # casado
+    assert len(endes.value_labels("v190")) == 5           # wealth quintiles
+    # year is accepted but the canonical label is year-independent
+    assert endes.value_labels("v106", 2013) == endes.value_labels("v106", 2024)
