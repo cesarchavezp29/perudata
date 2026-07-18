@@ -938,3 +938,16 @@ def test_endes_dataset_and_decode_are_wired():
                                  "Superior"}
     # falls back to the crosswalk when no attrs are attached
     assert endes.decode(pd.DataFrame({"v106": [3]}), "v106").iloc[0] == "Superior"
+
+
+def test_endes_load_has_selects_recode_by_content():
+    """The DHS reproduction recode is named REC223132 / REC22312 / RE212232 /
+    RE223132 across ENDES years -- unmatchable by name. load(..., has=['v201'])
+    must select the recode by the columns it CONTAINS. This checks the argument
+    is wired through load() and dataset() (the file scan needs data, so only the
+    plumbing is asserted here)."""
+    import inspect
+    from perudata import endes
+    assert "has" in inspect.signature(endes.load).parameters
+    assert "has" in inspect.signature(endes.dataset).parameters
+    assert callable(endes._recode_columns)

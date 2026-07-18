@@ -210,12 +210,32 @@ def to_stata(year: int, module: str | int, out: str | Path | None = None) -> lis
     return [p for p in made if p is not None]
 
 
+def _recode_columns(path: Path) -> set:
+    """The (lower-cased) column names of a recode, read from metadata only."""
+    import pyreadstat
+    dta = path.with_suffix(".dta")
+    src = dta if dta.exists() else path
+    try:
+        if src.suffix.lower() == ".dta":
+            _, meta = pyreadstat.read_dta(str(src), metadataonly=True)
+        else:
+            _, meta = pyreadstat.read_sav(str(src), metadataonly=True)
+        return {c.lower() for c in meta.column_names}
+    except Exception:
+        return set()
+
+
 def load(year: int, module: str | int, recode: str | None = None,
          out: str | Path | None = None, columns: list[str] | None = None,
-         download_if_missing: bool = True):
+         download_if_missing: bool = True, has: list[str] | None = None):
     """Load one .sav from a (year, module) as a DataFrame.
 
     recode: substring to pick a specific .sav (e.g. "RECH0"); default = largest.
+    has:    pick the recode that CONTAINS these columns, regardless of its name.
+            The DHS reproduction recode is called REC223132 / REC22312 /
+            RE212232 / RE223132 across ENDES years -- unmatchable by name -- so
+            `has=['v201']` finds it by content in every year. Takes precedence
+            over recode.
     """
     savs = files(year, module, out)
     if not savs:
@@ -225,7 +245,15 @@ def load(year: int, module: str | int, recode: str | None = None,
         savs = files(year, module, out)
     if not savs:
         raise RuntimeError(f"could not obtain ENDES {year} module {module}")
-    if recode:
+    if has:
+        want = {c.lower() for c in has}
+        hits = [p for p in savs if want <= _recode_columns(p)]
+        if not hits:
+            raise FileNotFoundError(
+                f"no .sav in {year} module {module} has all of {sorted(want)} "
+                f"(recodes: {[p.name for p in savs]})")
+        target = max(hits, key=lambda p: p.stat().st_size)
+    elif recode:
         # match recode name IGNORING separators and case: 'REC0111' must find
         # 'REC0111.sav', 'REC01_11.sav' (2004) and 'REC0111_2024.sav' (2024).
         def _norm(s: str) -> str:
@@ -288,6 +316,7 @@ def value_labels(variable: str, year: int | None = None) -> dict:
 # One-call harmonized multi-year loader (the ENDES parallel of dataset())
 # ---------------------------------------------------------------------------
 def dataset(years, module, recode: str | None = None, *,
+            has: list[str] | None = None,
             harmonize: bool = True, download_if_missing: bool = True,
             columns: list[str] | None = None, verbose: bool = True):
     """Download (if needed) and pool ONE ENDES recode across many years.
@@ -319,7 +348,7 @@ def dataset(years, module, recode: str | None = None, *,
         if y not in ENDES_CODE:
             continue
         try:
-            df = load(y, module, recode=recode,
+            df = load(y, module, recode=recode, has=has,
                       download_if_missing=download_if_missing, columns=columns)
         except Exception as e:
             if verbose:
