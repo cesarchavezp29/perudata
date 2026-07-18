@@ -13,6 +13,7 @@ requires-python = ">=3.9"
 dependencies = [
     "pandas>=1.5",
     "pyreadstat>=1.2",
+    "dbfread>=2.0",
 ]
 keywords = ["peru", "inei", "enaho", "endes", "dhs", "microdata", "poverty", "survey", "economics"]
 classifiers = [

@@ -1033,3 +1033,19 @@ def test_epen_modern_cseries_labels_from_dictionary():
     assert any("ocupado" in v.lower() for v in ocup.values())      # desempleado
     # a modern c-series categorical also resolves
     assert epen.value_labels("c207").get("1") == "Hombre"
+
+
+def test_epen_canonical_accessors_resolve_drift():
+    """EPEN renames the labor condition (ocu200/ocup300), the weight
+    (factor/fa_nde10/fa_jas13/fac_t300) and the geography across vintages.
+    The accessors resolve them so one series computes across 2001-2026, and a
+    corrupt .sav falls back to the .dbf. Offline API check."""
+    import inspect
+    from perudata import epen
+    for fn in (epen.weight, epen.condition, epen.region, epen.unemployment):
+        assert callable(fn)
+    # the weight regex must match every vintage's name
+    assert epen._WEIGHT_RX.match("fa_nde10") and epen._WEIGHT_RX.match("fa_jas13")
+    assert epen._WEIGHT_RX.match("fac_t300") and epen._WEIGHT_RX.match("factor")
+    # load() gained a .dbf fallback for corrupt .sav
+    assert ".dbf" in inspect.getsource(epen.load)

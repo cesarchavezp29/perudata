@@ -143,7 +143,17 @@ def load(code: int, out: str | Path | None = None,
     main = max(_data(d), key=lambda p: p.stat().st_size)
     ext = main.suffix.lower()
     if ext == ".sav":
-        df = _core.read_sav(main)
+        try:
+            df = _core.read_sav(main)
+        except Exception:
+            # a few EPEN .sav are corrupt on INEI's server (e.g. codes 376/384,
+            # 'unsupported features'); the .dbf in the same folder reads fine.
+            dbf = next((p for p in d.rglob("*.dbf")), None) \
+                or next((p for p in d.rglob("*.DBF")), None)
+            if dbf is None:
+                raise
+            from dbfread import DBF
+            df = pd.DataFrame(iter(DBF(str(dbf), encoding="latin-1")))
     elif ext == ".dbf":
         from dbfread import DBF
         df = pd.DataFrame(iter(DBF(str(main), encoding="latin-1")))
@@ -192,3 +202,64 @@ def value_labels(variable: str) -> dict:
     Abierto / Desempleado Oculto / Inactivos.
     """
     return dict(_label_table().get(str(variable).lower(), {}))
+
+
+# ---------------------------------------------------------------------------
+# Canonical accessors -- resolve the names that DRIFT across EPEN vintages
+# ---------------------------------------------------------------------------
+import re as _re
+
+# the expansion factor is named fa_<trimester><yy> in the legacy era
+# (fa_nde10, fa_jas13, ...), fac_t300 in the modern CSV, or plain factor/fac.
+_WEIGHT_RX = _re.compile(
+    r"^(factor|fac|fac_t\d+|fac500a|fa_[a-z]+\d+|fa_\d+|peso)$", _re.I)
+_COND_COLS = ("ocup300", "ocu200", "ocu500", "condocup")
+_REGION_COLS = ("region", "ccdd", "dpto")
+
+
+def weight(df):
+    """The EPEN expansion factor as a numeric Series, whatever it is named this
+    vintage (factor / fa_nde10 / fac_t300 / ...)."""
+    import pandas as pd
+    for c in df.columns:
+        if _WEIGHT_RX.match(c):
+            return pd.to_numeric(df[c], errors="coerce")
+    raise KeyError(f"no EPEN weight column found in {list(df.columns)[:8]}...")
+
+
+def condition(df):
+    """Labor-force condition as a numeric Series (1 Ocupado, 2 Desocupado
+    abierto, 3 oculto, 4 No PEA/Inactivo), from ocu200 (legacy) or ocup300
+    (modern) -- the variable was renamed across eras."""
+    import pandas as pd
+    for c in _COND_COLS:
+        if c in df.columns:
+            return pd.to_numeric(df[c], errors="coerce")
+    raise KeyError("no labor-condition column (ocu200/ocup300) in this dataset")
+
+
+def region(df):
+    """Department/region code as a numeric Series if the dataset carries one
+    (many modern Nacional Trim files do NOT -- they hold only urban/rural), else
+    None. Lima Metropolitana is code 1 (region) or 15 (department)."""
+    import pandas as pd
+    for c in _REGION_COLS:
+        if c in df.columns:
+            return pd.to_numeric(df[c], errors="coerce")
+    return None
+
+
+def unemployment(df, lima: bool = False) -> float:
+    """Weighted open-unemployment rate = desocupado abierto / PEA, from a loaded
+    EPEN dataset -- resolving the drifting condition/weight names. lima=True
+    subsets Lima (region 1 / dept 15) when the dataset carries geography."""
+    import numpy as np
+    v, w = condition(df), weight(df)
+    if lima:
+        rg = region(df)
+        if rg is not None:
+            keep = rg.isin([1, 15])
+            v, w = v[keep], w[keep]
+    occ = w[v == 1].sum()
+    ab = w[v == 2].sum()
+    return float(100 * ab / (occ + ab)) if (occ + ab) > 0 else float("nan")
