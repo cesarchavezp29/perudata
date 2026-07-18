@@ -91,10 +91,22 @@ def _load_overrides():
                             dtype={"module": str, "column": str, "code": str,
                                    "year": str, "label": str})
         o["module"] = o["module"].astype(str).str.zfill(2)
-        idx = {}
+        idx, canon_raw = {}, {}
         for r in o.itertuples(index=False):
             idx.setdefault((r.module, r.column.lower(), r.year), {})[r.code] = r.label
-        _OVERRIDES = idx
+            canon_raw.setdefault(
+                (r.module, r.column.lower(), r.code), set()).add(r.label)
+        # canonical casing: for a (module, column, code) whose crosswalk label is
+        # the SAME concept in every year it covers (one label ignoring case), that
+        # is the canonical spelling. A code the crosswalk genuinely RECODES across
+        # years (>1 distinct label ignoring case, e.g. estrato) has no canonical
+        # and is left per-year. Used only to unify casing, never to change meaning.
+        canon = {}
+        for k, labs in canon_raw.items():
+            low = {x.lower() for x in labs}
+            if len(low) == 1:
+                canon[k] = sorted(labs)[0]
+        _OVERRIDES = (idx, canon)
     return _OVERRIDES
 
 
@@ -119,8 +131,10 @@ def value_labels(name: str, year: int, module: str | None = None) -> dict:
             break
     # overlay the verified crosswalk: a corrected/added label wins over INEI's.
     if module is not None:
-        ov = _load_overrides().get(
-            (str(module).zfill(2), str(name).lower(), str(year)))
+        mod = str(module).zfill(2)
+        col = str(name).lower()
+        idx, canon = _load_overrides()
+        ov = idx.get((mod, col, str(year)))
         if ov:
             # Drop any INEI code whose LABEL the crosswalk already carries at a
             # different code -- that is a stale encoding from the published PDF,
@@ -134,6 +148,15 @@ def value_labels(name: str, year: int, module: str | None = None) -> dict:
             labels = {k: v for k, v in labels.items()
                       if _norm(v) not in ov_labels}
             labels.update(ov)
+        # Unify CASING across years. Where a year has no crosswalk row but the
+        # .dta label is the same word as the crosswalk's canonical spelling for
+        # that code (e.g. 'ocupado' vs 'Ocupado'), return the canonical so that
+        # aggregating a pooled panel by label does not split the same category.
+        # Codes the crosswalk genuinely recodes have no canonical and are kept.
+        for k, v in list(labels.items()):
+            c = canon.get((mod, col, str(k)))
+            if c and c != v and c.lower() == str(v).lower():
+                labels[k] = c
     return labels
 
 

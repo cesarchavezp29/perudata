@@ -873,3 +873,27 @@ def test_battery_code0_is_consistent_across_the_full_span():
         assert "pase" not in {s.lower() for s in seen}, \
             f"{col} code 0 still leaks 'pase': {seen}"
         assert seen <= {"No marcado"}, f"{col} code 0 varies by year: {seen}"
+
+
+def test_value_labels_casing_is_consistent_across_years():
+    """Harmonization must let a pooled panel aggregate BY LABEL, not just by
+    code. INEI's .dta lowercases labels in early years ('ocupado') while the
+    crosswalk carries the canonical 'Ocupado' in later ones, so grouping a
+    2004-2025 panel by label split the same category and dropped early years.
+    value_labels() unifies casing to the crosswalk's canonical spelling where
+    the .dta label is the same word -- without touching genuine recodes.
+    """
+    from perudata import dictionary as dic
+
+    # same word, different .dta casing -> one canonical label across the span
+    ocu = {dic.value_labels("ocu500", y, "05").get("1")
+           for y in range(2004, 2026)}
+    ocu.discard(None)
+    assert ocu == {"Ocupado"}, f"ocu500 code 1 label varies by year: {ocu}"
+
+    # a GENUINE recode must NOT be collapsed: estrato was rebinned from
+    # viviendas to habitantes, so its labels legitimately differ across years
+    estr = {dic.value_labels("estrato", y, "01").get("1")
+            for y in range(2004, 2026)}
+    estr.discard(None)
+    assert len(estr) > 1, "estrato recode wrongly unified"
