@@ -18,6 +18,8 @@ year's label (best available). Output: crosswalks/endes_label_canon.csv with
 columns variable, code, label, source_year -- and every earlier-year label that
 DIFFERS is recorded in endes_label_drift.csv as the evidence of what was fixed.
 """
+import os
+import re
 import sys
 import unicodedata
 from pathlib import Path
@@ -27,9 +29,11 @@ sys.path.insert(0, str(Path(__file__).parents[1] / "src"))
 import pandas as pd  # noqa: E402
 import pyreadstat  # noqa: E402
 
-from perudata import endes  # noqa: E402
-
 OUT = Path(__file__).parents[1] / "src" / "perudata" / "crosswalks"
+# the full 21-year ENDES download lives in INEI's raw layout
+# (<year>_<code>/<code>-Modulo<NN>/<RECODE>.SAV), not the package's staged
+# layout; override with ENDES_RAW if elsewhere.
+RAW = Path(os.environ.get("ENDES_RAW", r"D:\ENAHO_ANALYSIS\raw\endes"))
 
 
 def codekey(c) -> str:
@@ -45,35 +49,38 @@ def nz(x: str) -> str:
     return "".join(c for c in x if not unicodedata.combining(c)).lower().strip()
 
 
-def harvest(year: int) -> dict:
-    """{variable: {code: label}} across every recode of a year."""
+def year_dirs() -> dict:
+    """{year: folder} for every ENDES year present in the raw tree."""
+    out = {}
+    for d in RAW.iterdir():
+        m = re.match(r"(\d{4})_\d+$", d.name)
+        if m and d.is_dir():
+            out[int(m.group(1))] = d
+    return dict(sorted(out.items()))
+
+
+def harvest(folder: Path) -> dict:
+    """{variable: {code: label}} across every recode .sav under a year folder."""
     out: dict = {}
-    for mod in endes.modules_for(year):
+    savs = {p.resolve() for p in folder.rglob("*.sav")}
+    savs |= {p.resolve() for p in folder.rglob("*.SAV")}
+    for p in sorted(savs):
         try:
-            fs = endes.files(year, mod)
+            _, meta = pyreadstat.read_sav(str(p), metadataonly=True)
         except Exception:
             continue
-        for p in fs:
-            if p.suffix.lower() != ".sav":
-                continue
-            try:
-                _, meta = pyreadstat.read_sav(str(p), metadataonly=True)
-            except Exception:
-                continue
-            for var, vals in meta.variable_value_labels.items():
-                d = out.setdefault(var.lower(), {})
-                for c, lab in vals.items():
-                    d.setdefault(codekey(c), lab)
+        for var, vals in meta.variable_value_labels.items():
+            d = out.setdefault(var.lower(), {})
+            for c, lab in vals.items():
+                d.setdefault(codekey(c), lab)
     return out
 
 
 def main() -> int:
-    years = [y for y in endes.years()
-             if any(endes.files(y, m) for m in endes.modules_for(y)
-                    if _safe(endes.files, y, m))]
-    years = sorted(years)
-    print(f"loadable ENDES years on disk: {years}")
-    per_year = {y: harvest(y) for y in years}
+    yd = year_dirs()
+    years = sorted(yd)
+    print(f"ENDES years found in {RAW}: {years} ({len(years)} years)")
+    per_year = {y: harvest(yd[y]) for y in years}
 
     canon_rows, drift_rows = [], []
     all_vars = sorted(set().union(*[set(d) for d in per_year.values()]))
@@ -114,13 +121,6 @@ def main() -> int:
             regex=True, na=False)]
         print(f"  of which English->Spanish: ~{len(eng):,}")
     return 0
-
-
-def _safe(fn, *a):
-    try:
-        return bool(fn(*a))
-    except Exception:
-        return False
 
 
 if __name__ == "__main__":
