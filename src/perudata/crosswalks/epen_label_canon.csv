@@ -1,0 +1,423 @@
+variable,code,label,n_files,n_variants
+adecemp,1,Adecuadamente empleada,1,1
+adecemp,2,No Adecuadamente Empleada,1,1
+adecempleada,1,POB ADEC EMPLEADA,1,1
+area,1,Lima,2,1
+area,2,Callao,2,1
+asalariado,1,Asalariado,1,1
+asalariado,2,No asalariado,1,1
+asalariado1,1,ASALARIADO,1,1
+bienes,1,Bienes,1,1
+bienser,1,Bienes,1,1
+bienser,2,Servicios,1,1
+categ,1,Independiente,1,1
+categ,2,Dependiente,1,1
+categ,3,Trabaj fam. no remunerado,1,1
+condactiv,1,PEA,1,1
+condactiv,2,NOPEA,1,1
+cono,1,Cono Norte,1,1
+cono,2,Cono Este,1,1
+cono,3,Cono Centro,1,1
+cono,4,Cono Sur,1,1
+cono,5,Provincia Constitucional del Callao,1,1
+desocaspirante,1,DESOC. ASPIRANTE,1,1
+desoccesante,1,DESOC. CESANTE,1,1
+desocup,1,Aspirante,1,1
+desocup,2,Cesante,1,1
+desocupa,1,Aspirante,1,1
+desocupa,2,Cesante,1,1
+desocupado1,1,DESOCUPADO,1,1
+dominio,1,Costa Norte,42,1
+dominio,2,Costa Centro,42,1
+dominio,3,Costa Sur,42,1
+dominio,4,Sierra Norte,42,1
+dominio,5,Sierra Centro,42,1
+dominio,6,Sierra Sur,42,1
+dominio,7,Selva,42,1
+dominio,8,Lima Metropolitana,42,1
+edadem,1,De 14 a 24 años,1,1
+edadem,2,De 25 a 44 años,1,1
+edadem,3,De 45 y más años,1,1
+estrato,1,Ciudades Capitales (Urbano),42,1
+estrato,2,Grandes Ciudades   (Urbano),42,1
+estrato,3,CCPP de mas de 2000 Habitantes (Urbano),42,2
+estrato,4,CCPP DE 500  a 2000 Habitantes (Rural),42,1
+estrato,5,Area Rural,42,1
+filter_$,0,Not Selected,2,1
+filter_$,1,Selected,2,1
+gedad1,1,De 0 a 13 años,1,1
+gedad1,2,De 14 a 24 años,1,1
+gedad1,3,De 25 a 44 años,1,1
+gedad1,4,De 45 y más años,1,1
+gocup,1,"Funcionarios, gerentes y profesionales",1,1
+gocup,10,Otro,1,1
+gocup,2,Empleados de oficina,1,1
+gocup,3,Técnicos y trabajadores asimilados,1,1
+gocup,4,Trabajadores de servicios personales,1,1
+gocup,5,"Obreros de manufactureras, construcción y minas",1,1
+gocup,6,Conductores de medios de transporte,1,1
+gocup,7,Vendedor ambulante,1,1
+gocup,8,Trabajadores no calificados,1,1
+gocup,9,Trabajadores del hogar,1,1
+horasmens,1,Horas mensuales - Incluye a los trabaj famil no remuner y practicantes,1,1
+horasmens1,1,Horas mensuales - No incluye a los trab famil no remuner y practicantes,1,1
+horasmens2,1,Horas mensuales - Incluye a los trab famil no remuner y practicantes y no incluye la pob ocupada cuyos ingresos totales,1,1
+horasmens3,1,Horas mensuales - Incluye a los trab famil no remuner y practicantes y no incluye la pob ocupada cuyos ingresos principa,1,1
+horasmens4,1,Horas mensuales - No Incluye a los trab famil no remuner y practicantes y no incluye la pob ocupada cuyos ingresos princ,1,1
+horasmens5,1,Horas mensuales - No Incluye a los trab famil no remuner y practicantes y no incluye la pob ocupada cuyos ingresos total,1,1
+inactivo1,1,POB INACTIVA,1,1
+inactsinexper,1,Inactivo sin experiencia,1,1
+mype,1,Mype,1,1
+mype,2,No Mype,1,1
+mype1,1,Mype de 1 a 10 trabajadores,1,1
+mype1,2,Mype de 11 a 50 trabajadores,1,1
+mype1,3,No Mype,1,1
+nive4,1,Hasta primaria,1,1
+nive4,2,Secundaria,1,1
+nive4,3,Superior no universitaria,1,1
+nive4,4,Superior universitaria,1,1
+nivedu,1,Hasta primaria,1,1
+nivedu,2,Secundaria incompleta,1,1
+nivedu,3,Secundaria completa,1,1
+nivedu,4,Superior no universitaria,1,1
+nivedu,5,Superior universitaria,1,1
+nivemp,1,Adecuado,1,1
+nivemp,2,Visible,1,1
+nivemp,3,Invisible,1,1
+nivemp,4,Desempleada,1,1
+nnive,1,Hasta secundaria,1,1
+nnive,2,Superior,1,1
+noempleado,1,No empleado:Desocupados mas inactivos con experoencia,1,1
+noempleo,1,No empleada,1,1
+noempleo,2,Resto,1,1
+ocu200,0,Omisión,1,1
+ocu200,1,Ocupado,148,1
+ocu200,2,Desocupado abierto,148,2
+ocu200,3,Desocupado oculto,148,2
+ocu200,4,No PEA,148,1
+ocu200a,0,Población sin información de empleo,1,1
+ocu200a,1,Ocupado,1,1
+ocu200a,2,Desempleo abierto,1,1
+ocu200a,3,Desempleo oculto,1,1
+ocu200a,4,Inactivo,1,1
+ocu6,1,Empleador o patrono,1,1
+ocu6,2,Trabajador independiente,1,1
+ocu6,3,Empleado,1,1
+ocu6,4,Obrero,1,1
+ocu6,5,Trabaj familiar no remunerado,1,1
+ocu6,6,Trabajador del hogar,1,1
+ocuinga,1,Población ocupada con ingresos mayores a cero- No incluye a los trabaj fam no remunerados y practicantes,1,1
+ocuinga1,1,Población ocupada con ingresos- No incluye a los trabaj fam no remunerados y practicantes y no incluye a la pob ocupada,1,1
+ocuinga2,1,Población ocupada con ingresos- No incluye a los trabaj fam no remunerados y practicantes y no incluye a la pob ocupada,1,1
+ocupado,1,OCUPADO - Incluye a los trabaj fam no remunerados practicantes,1,1
+ocupado1,1,OCUPADO - Incluye a los trabaj fam no remunerados y practicantes y no incluye a la pob ocupada cuyo ingreso total es may,1,1
+ocupado2,1,OCUPADO - Incluye a los trabaj fam no remunerados y practicantes y no incluye a la pob ocupada cuyo ingreso principal es,1,1
+p103,1,Jefe/Jefa,147,1
+p103,2,Esposa(o),147,1
+p103,3,Hijo(a),147,1
+p103,4,Yerno/Nuera,147,1
+p103,5,Padres/Suegros,147,1
+p103,6,Otros parientes,147,1
+p103,7,Trabaj. Hogar,147,1
+p103,8,Pensionista,147,1
+p103,9,Otros No Parientes,147,1
+p103a,1,Persona 1,3,1
+p103a,10,Otro pariente,3,1
+p103a,11,Trabajador(a) del hogar,3,1
+p103a,12,Pensionista,3,1
+p103a,13,Otro no pariente,3,1
+p103a,2,Esposo(a),3,1
+p103a,3,Hijo(a) / hijastro(a),3,1
+p103a,4,Yerno / nuera,3,1
+p103a,5,Nieto(a),3,1
+p103a,6,Padre / madre,3,1
+p103a,7,Suegro(a),3,1
+p103a,8,Hermano(a),3,1
+p103a,9,Cuñado(a),3,1
+p104,1,Si,148,1
+p104,2,No,148,1
+p105,1,Si,148,1
+p105,2,No,148,1
+p106,1,Si,148,1
+p106,2,No,148,1
+p107,1,Hombre,148,1
+p107,2,Mujer,148,1
+p109a,1,Sin Nivel,110,1
+p109a,10,Superior Univ. Completa,110,1
+p109a,2,Inicial,110,1
+p109a,3,Primaria Incompleta,110,1
+p109a,4,Primaria Completa,110,1
+p109a,5,Secundaria Incompleta,110,1
+p109a,6,Secundaria Completa,110,1
+p109a,7,Superior No Univ. Incompleta,110,1
+p109a,8,Superior No Univ. Completa,110,1
+p109a,9,Superior Univ. Incompleta,110,1
+p12b,1,Completa,1,1
+p12b,2,Incompleta,1,1
+p12b,3,Rechazo,1,1
+p12b,4,Ausente,1,1
+p12b,5,Vivienda desocupada,1,1
+p12b,6,No se aperturo la entrevista,1,1
+p12b,7,Otro,1,1
+p201,1,Si,148,1
+p201,2,No,148,1
+p202,1,Si,148,1
+p202,2,No,148,1
+p203,1,Si,148,1
+p203,2,No,148,1
+p204,0,Pase,148,1
+p2041,1,Si,148,1
+p2041,2,No,148,1
+p20410,1,Si,148,1
+p20410,2,No,148,1
+p20411,1,Si,3,1
+p20411,2,No,3,1
+p2042,1,Si,148,1
+p2042,2,No,148,1
+p2043,1,Si,148,1
+p2043,2,No,148,1
+p2044,1,Si,148,1
+p2044,2,No,148,1
+p2045,1,Si,148,1
+p2045,2,No,148,1
+p2046,1,Si,148,1
+p2046,2,No,148,1
+p2047,1,Si,148,1
+p2047,2,No,148,1
+p2048,1,Si,148,1
+p2048,2,No,148,1
+p2049,1,Si,148,1
+p2049,2,No,148,1
+p205,1,Agricultura/Pesca/Mineria,10,1
+p205,2,Manufactura,10,1
+p205,3,Construccion,10,1
+p205,4,Comercio,10,1
+p205,5,Restaurantes y Hoteles,10,1
+p205,6,Transportes y comunicaciones,10,1
+p205,7,"Otros servicios(Sector Publico,anco,sald,educacion,etc)",10,1
+p206,1,Empleador o patrono?,148,1
+p206,2,¿Trabajador Independiente?,148,2
+p206,3,¿Empleado?,148,2
+p206,4,¿Obrero?,148,2
+p206,5,¿Trabajador  Familiar No  Remunerado?,148,2
+p206,6,¿Trabajador del Hogar?,148,2
+p206,7,¿Otro?,148,2
+p206aa,1,"Fuerzas Armadas, Policía Nacional del Perú (militares)?",26,1
+p206aa,2,Administración pública,26,1
+p206aa,3,Empresa pública,26,1
+p206aa,4,Empresas especiales de servicios (SERVICE),26,1
+p206aa,5,Empresa o patrono privado,26,1
+p206aa,6,Otro,26,1
+p207a,1,Menos de 100 personas?,147,1
+p207a,2,Mas de 100 personas?,147,1
+p207aa,1,1 persona?,3,1
+p207aa,2,2 personas?,3,1
+p207aa,3,3 personas?,3,1
+p207aa,4,4 personas?,3,1
+p207aa,5,De 5 a 7 personas?,3,1
+p207aa,6,De 8 a 10 personas?,3,1
+p207aa,7,De 11 a 100 personas?,3,1
+p207aa,8,De 100 a mas personas?,3,1
+p208a,0,Trabajo en este empleo a partir de 1 de enero del 2001,10,1
+p208a,1,Trabajo en este empleo antes de 1 enero del 2001,10,1
+p209,0,Tiene horas trabajadas,10,1
+p209ah,1,Si,1,1
+p209ah,2,No,1,1
+p209bb,1,Si,138,1
+p209bb,2,No,138,1
+p209ee,1,Si,138,1
+p209ee,2,No,138,1
+p209h,1,Si,143,1
+p209h,2,No,143,1
+p210,0,Practicante,148,1
+p210,1,Diario?,148,1
+p210,2,Semanal?,148,1
+p210,3,Quincenal?,148,1
+p210,4,Mensual?,148,1
+p212ac,0,Tiene actividad secundaria,1,1
+p212ac,1,No tiene actividad secundaria,1,1
+p212e,0,Tiene actividad secundaria,143,1
+p212e,1,No tiene actividad secundaria,143,1
+p213,1,Si,148,1
+p213,2,No,148,1
+p214,1,"¿Hizo trámites, buscó local, gestionó préstamos para su nego",148,2
+p214,2,"¿Reparando sus activos (local, maquina, equipo)?",148,2
+p214,3,"¿Esperando el inicio de un trabajo dependiente (Ob,Emp,Th)?",148,2
+p214,4,¿Estudiando?,148,2
+p214,5,¿Quehaceres del hogar?,148,2
+p214,6,¿Vivía de su pensión o jubilacion u otras rentas?,148,2
+p214,7,¿Enfermo o incapacitado?,148,2
+p214,8,¿Servicio Militar obligatorio?,148,2
+p214,9,¿Otro?,148,2
+p215,1,Si,148,1
+p215,2,No,148,1
+p216,1,Si,148,1
+p216,2,No,148,1
+p217,1,No hay trabajo,148,1
+p217,10,Ya encontro trabajo,148,2
+p217,11,Si busco trabajo,148,2
+p217,2,Se canso de buscar,148,2
+p217,3,Por su edad,148,1
+p217,4,Falta de experiencia,148,1
+p217,5,Sus estudios no le permiten,148,1
+p217,6,Los quehaceres del hogar no le permiten,148,1
+p217,7,Razones de Salud,148,1
+p217,8,Falta de capital,148,1
+p217,9,Otro,148,1
+p218,1,Empleador / patrono,148,1
+p218,2,Agencia de empleo/Bolsa  de trabajo,148,1
+p218,3,"Solo amigos, parientes",148,2
+p218,4,Solo leyo avisos,148,2
+p218,5,Otro,148,1
+p218,6,No hizo nada para conseguir trabajo,148,1
+p220,1,Si,148,1
+p220,2,No,148,1
+p221a,0,Pase,10,1
+p221a,1,Hasta que fecha trabajo en ese empleo,10,1
+p222,1,ESSALUD? (antes IPSS),148,1
+p222,2,SEGURO PRIVADO DE SALUD?,148,1
+p222,3,Ambos?,148,2
+p222,4,OTRO?,148,1
+p222,5,No esta afiliado,148,1
+p224,1,Quechua,26,1
+p224,2,Aymara,26,1
+p224,3,Nativo o indígena de la Amazonía,26,1
+p224,4,Negro/Mulato/Zambo/Afro peruano,26,1
+p224,5,Blanco,26,1
+p224,6,Mestizo,26,1
+p224,7,Otro,26,1
+p224,8,NO SABE,26,1
+p225,1,Quechua?,26,1
+p225,2,Aymara?,26,1
+p225,3,Otra lengua nativa,26,1
+p225,4,Castellano,26,1
+p225,5,Portugués,26,1
+p225,6,Otra lengua extranjera,26,1
+p225,7,ES SORDO MUDO(A) / MUDO(A),26,1
+panel,1,panel,1,1
+panel,2,Nuevo,1,1
+pea1,1,Ocupado,1,1
+pea1,2,desocupdo Aspirante,1,1
+pea1,3,desocupdo Cesante,1,1
+pea2,1,Subempleada,1,1
+pea2,2,No subempleada,1,1
+peaa,1,Ocupado,1,1
+peaa,2,desocupdo Abierto,1,1
+peafin,1,PEA,1,1
+peta1,1,Población en Edad Trabajar,1,1
+pmes,1,Enero,142,1
+pmes,10,Octubre,143,1
+pmes,11,Noviembre,143,1
+pmes,12,Diciembre,143,1
+pmes,2,Febrero,142,1
+pmes,3,Marzo,143,1
+pmes,4,Abril,143,1
+pmes,5,Mayo,143,1
+pmes,6,Junio,143,1
+pmes,7,Julio,143,1
+pmes,8,Agosto,143,1
+pmes,9,Setiembre,143,1
+prov,15,Lima,1,1
+prov,7,Callao,1,1
+rama01,1,Sector Primario,1,1
+rama01,10,Servicios a Hogares No Mercantes,1,1
+rama01,11,Otros Servicios,1,1
+rama01,2,Industria Manufacturera,1,1
+rama01,3,Construcción,1,1
+rama01,4,Comercio,1,1
+rama01,5,Restaurantes y  Hoteles,1,1
+rama01,6,Transportes y Comunicaciones,1,1
+rama01,7,Intermediación Financiera,1,1
+rama01,8,Servicios Prestados a Terceros,1,1
+rama01,9,Servicios Gubernamentales,1,1
+ranghora,1,De 1 a 10 Horas,1,1
+ranghora,2,De 11 a 20 Horas,1,1
+ranghora,3,De 21 a 30 Horas,1,1
+ranghora,4,De 31 a 40 Horas,1,1
+ranghora,5,De 41 a 50 Horas,1,1
+ranghora,6,De 51 a 60 Horas,1,1
+ranghora,7,De 61 a 70 Horas,1,1
+ranghora,8,De 71 a 80 Horas,1,1
+ranghora,9,De 81 y más Horas,1,1
+rec3nive,1,Hasta primaria,1,1
+rec3nive,2,Secundaria,1,1
+rec3nive,3,Superior,1,1
+rrama,1,Manufactura,1,1
+rrama,2,Construcción,1,1
+rrama,3,Comercio,1,1
+rrama,4,Servicios,1,1
+rrama,5,Otros,1,1
+sector,1,Primario,1,1
+sector,2,Secundario,1,1
+sector,3,Terciario,1,1
+seguro,1,Con seguro,1,1
+seguro,2,Sin seguro,1,1
+segurob,1,Con seguro,1,1
+servicios,1,Servicios,1,1
+subemp,1,Visible,1,1
+subemp,2,Invisible,1,1
+subemp,3,Adecuado,1,1
+subemp,4,Desempleado,1,1
+subemph,1,Subempleo por horas,1,1
+subemph,2,No subempleo por horas,1,1
+subemphor1,1,POB SUBEMPLEADA HORA,1,1
+subempi,1,Subempleo por ingresos,1,1
+subempi,2,No subempleo por ingresos,1,1
+subemping1,1,POB SUBEMPLEADA INGRESO,1,1
+subempleo,1,Subempleado visible,1,1
+subempleo,2,Subempleado invisible,1,1
+subempleo,3,Adecuadamente empleado,1,1
+subempleo,4,Desempleado abierto,1,1
+subemptot,1,POB SUBEMPLEADA,1,1
+tamemp,1,De 1 a 10 trabajadores,1,1
+tamemp,2,De 11 a 50 trabajadores,1,1
+tamemp,3,De 51 a más trabajadores,1,1
+ubigeo,150101,Lima,1,1
+ubigeo,150102,Ancón,1,1
+ubigeo,150103,Ate,1,1
+ubigeo,150104,Barranco,1,1
+ubigeo,150105,Breña,1,1
+ubigeo,150106,Carabayllo,1,1
+ubigeo,150107,Chaclacayo,1,1
+ubigeo,150108,Chorrillos,1,1
+ubigeo,150109,Cieneguilla,1,1
+ubigeo,150110,Comas,1,1
+ubigeo,150111,El Agustino,1,1
+ubigeo,150112,Independencia,1,1
+ubigeo,150113,Jesús María,1,1
+ubigeo,150114,La Molina,1,1
+ubigeo,150115,La Victoria,1,1
+ubigeo,150116,Lince,1,1
+ubigeo,150117,Los Olivos,1,1
+ubigeo,150118,Lurigancho,1,1
+ubigeo,150119,Lurín,1,1
+ubigeo,150120,Magdalena del Mar,1,1
+ubigeo,150121,Magdalena Vieja,1,1
+ubigeo,150122,Miraflores,1,1
+ubigeo,150123,Pachacámac,1,1
+ubigeo,150124,Pucusana,1,1
+ubigeo,150125,Puente Piedra,1,1
+ubigeo,150126,Punta Hermosa,1,1
+ubigeo,150127,Punta Negra,1,1
+ubigeo,150128,Rímac,1,1
+ubigeo,150129,San Bartolo,1,1
+ubigeo,150130,San Borja,1,1
+ubigeo,150131,San Isidro,1,1
+ubigeo,150132,San Juan de Lurigancho,1,1
+ubigeo,150133,San Juan de Miraflores,1,1
+ubigeo,150134,San Luis,1,1
+ubigeo,150135,San Martín de Porres,1,1
+ubigeo,150136,San Miguel,1,1
+ubigeo,150137,Santa Anita,1,1
+ubigeo,150138,Santa María del Mar,1,1
+ubigeo,150139,Santa Rosa,1,1
+ubigeo,150140,Santiago de Surco,1,1
+ubigeo,150141,Surquillo,1,1
+ubigeo,150142,Villa El Salvador,1,1
+ubigeo,150143,Villa María del Triunfo,1,1
+ubigeo,70101,Callao,1,1
+ubigeo,70102,Bellavista,1,1
+ubigeo,70103,Carmen de La Legua,1,1
+ubigeo,70104,La Perla,1,1
+ubigeo,70105,La Punta,1,1
+ubigeo,70106,Ventanilla,1,1

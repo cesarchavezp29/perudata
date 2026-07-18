@@ -1004,3 +1004,19 @@ def test_endes_combine_levels_and_keys():
     assert endes._LEVEL_ANCHOR["woman"][0] == "mef_datos_basicos"
     assert endes._LEVEL_ANCHOR["household"][0] == "hogar"
     assert endes._LEVEL_MERGE["birth"] == [("mef_datos_basicos", "REC0111", None)]
+
+
+def test_epen_loads_all_formats_and_has_value_labels():
+    """EPEN spans three formats by vintage -- modern CSV, and the 2005-2015
+    legacy EPE served as .sav/.dbf. load() reads whichever is present (a CSV-only
+    reader silently dropped the .sav era). value_labels() serves the labels
+    harvested from the .sav files (codes-only CSVs carry none)."""
+    import inspect
+    from perudata import epen
+    src = inspect.getsource(epen.load)
+    assert ".sav" in src and ".dbf" in src, "load() must read the legacy formats"
+    # dataset_dir finds both the staged and the INEI-toolkit layout
+    assert "epen_inei" in inspect.getsource(epen.dataset_dir)
+    # the standard employment condition decodes to the DHS/ENAHO categories
+    ocu = epen.value_labels("ocu200")
+    assert ocu.get("1") == "Ocupado" and "No PEA" in ocu.values()

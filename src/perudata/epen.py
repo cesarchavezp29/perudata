@@ -59,9 +59,15 @@ def _slug(name: str) -> str:
 
 
 def dataset_dir(code: int, out: str | Path | None = None) -> Path | None:
-    root = _core.data_dir(out) / "epen"
-    hits = sorted(root.glob(f"{code}_*"))
-    return hits[0] if hits else None
+    # the package stages EPEN under 'epen/'; a download made by INEI's own
+    # toolkit lands in 'epen_inei/'. Look in both so either is found.
+    base = _core.data_dir(out)
+    for sub in ("epen", "epen_inei"):
+        hits = sorted((base / sub).glob(f"{code}_*")) \
+            if (base / sub).is_dir() else []
+        if hits:
+            return hits[0]
+    return None
 
 
 def download(codes: list[int] | int, out: str | Path | None = None,
@@ -118,20 +124,68 @@ def load(code: int, out: str | Path | None = None,
          download_if_missing: bool = True, **read_csv_kwargs):
     """Load one EPE/EPEN dataset by code as a DataFrame (latin-1, low_memory off)."""
     import pandas as pd
+
+    def _data(dd):
+        # EPEN spans three formats by vintage: modern CSV, and the 2005-2015
+        # legacy EPE Lima served as .sav (+ .dbf). Read whichever is present.
+        return (list(dd.rglob("*.csv")) or list(dd.rglob("*.CSV"))
+                or list(dd.rglob("*.sav")) or list(dd.rglob("*.SAV"))
+                or list(dd.rglob("*.dbf")) or list(dd.rglob("*.DBF")))
+
     d = dataset_dir(code, out)
-    if d is None or not list(d.rglob("*.csv")):
+    if d is None or not _data(d):
         if not download_if_missing:
             raise FileNotFoundError(f"EPEN code {code} not downloaded")
         download([code], out=out)
         d = dataset_dir(code, out)
     if d is None:
         raise RuntimeError(f"could not obtain EPEN dataset {code}")
-    main = max(d.rglob("*.csv"), key=lambda p: p.stat().st_size)
-    # EPEN ships a mix of ',' and ';' delimited files -- sniff the header line
-    with open(main, "r", encoding="latin-1", errors="replace") as f:
-        header = f.readline()
-    sep = max([",", ";", "\t", "|"], key=header.count)
-    kwargs = {"encoding": "latin-1", "low_memory": False, "sep": sep}
-    kwargs.update(read_csv_kwargs)
-    df = pd.read_csv(main, **kwargs)
+    main = max(_data(d), key=lambda p: p.stat().st_size)
+    ext = main.suffix.lower()
+    if ext == ".sav":
+        df = _core.read_sav(main)
+    elif ext == ".dbf":
+        from dbfread import DBF
+        df = pd.DataFrame(iter(DBF(str(main), encoding="latin-1")))
+    else:
+        # EPEN CSVs mix ',' and ';' delimiters -- sniff the header line
+        with open(main, "r", encoding="latin-1", errors="replace") as f:
+            header = f.readline()
+        sep = max([",", ";", "\t", "|"], key=header.count)
+        kwargs = {"encoding": "latin-1", "low_memory": False, "sep": sep}
+        kwargs.update(read_csv_kwargs)
+        df = pd.read_csv(main, **kwargs)
     return _core.clean_columns(df)
+
+
+# ---------------------------------------------------------------------------
+# Harmonized value labels (harvested from the .sav era; see build_epen_labels.py)
+# ---------------------------------------------------------------------------
+_LABELS = None
+
+
+def _label_table():
+    global _LABELS
+    if _LABELS is None:
+        import pandas as pd
+        from importlib import resources
+        with resources.files("perudata").joinpath(
+                "crosswalks/epen_label_canon.csv").open("rb") as f:
+            t = pd.read_csv(f, encoding="utf-8", dtype={"code": str})
+        idx: dict = {}
+        for r in t.itertuples(index=False):
+            idx.setdefault(r.variable.lower(), {})[str(r.code)] = r.label
+        _LABELS = idx
+    return _LABELS
+
+
+def value_labels(variable: str) -> dict:
+    """Harmonized value labels for an EPEN variable: {code: label}.
+
+    EPEN ships as CSV (codes only); the labels are harvested from the legacy
+    EPE .sav era and reconciled to one canonical Spanish label per code. Covers
+    the variables the .sav files carry (the p-series and shared structural vars
+    like estrato/dominio). The modern CSV era renamed many questions to a
+    c-series; mapping those needs the EPEN questionnaire crosswalk (pending).
+    """
+    return dict(_label_table().get(str(variable).lower(), {}))
