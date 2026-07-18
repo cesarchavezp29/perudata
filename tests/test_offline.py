@@ -975,3 +975,17 @@ def test_endes_tfr_helper_exists():
     sig = inspect.signature(endes.tfr)
     assert "true_year" in sig.parameters
     assert endes._ASFR_AGES == [15, 20, 25, 30, 35, 40, 45]
+
+
+def test_endes_discover_code_api():
+    """endes.discover_code(year) finds the INEI proyecto code for an ENDES year
+    not yet in the map (e.g. 2025) by probing the live server and CONTENT-
+    verifying the interview year -- a 200 alone is not proof. A year already in
+    the map short-circuits to its code. Only the offline behaviour is asserted;
+    the probe itself needs the network."""
+    import inspect
+    from perudata import endes
+    sig = inspect.signature(endes.discover_code)
+    assert {"lo", "hi", "module", "verify", "register"} <= set(sig.parameters)
+    # a known year returns immediately without probing
+    assert endes.discover_code(2024, verbose=False) == endes.ENDES_CODE[2024]

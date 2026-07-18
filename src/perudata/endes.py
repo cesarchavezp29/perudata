@@ -100,6 +100,93 @@ def url(year: int, module: str | int, fmt: str = "SPSS") -> str:
     return f"{_core.BASE}/{fmt}/{ENDES_CODE[year]}-Modulo{m}.zip"
 
 
+def discover_code(year: int, lo: int | None = None, hi: int | None = None,
+                  module: int | None = None, verify: bool = True,
+                  register: bool = True, verbose: bool = True) -> int | None:
+    """Find the INEI proyecto CODE for an ENDES year not yet in the map (e.g.
+    2025), by probing the live server -- then CONTENT-verify it.
+
+    INEI codes are not chronological and not derivable from the year, so a new
+    year's code has to be discovered. This HEAD-probes candidate codes above the
+    latest known one for a core module, and for every hit downloads one recode
+    and reads the interview date (v007, else v008 -> year) to CONFIRM it is that
+    year -- a 200 alone is not proof, the file could be another survey. Returns
+    the confirmed code (and, with register=True, adds it to ENDES_CODE for this
+    session so load()/dataset()/tfr() immediately work), or None if ENDES `year`
+    is not published yet.
+
+        endes.discover_code(2025)          # None until INEI posts ENDES 2025
+    """
+    import tempfile
+    from pathlib import Path as _P
+    if year in ENDES_CODE:
+        return ENDES_CODE[year]
+    mod = module or (1631 if year >= 2020 else 66)
+    base = max(ENDES_CODE.values())
+    lo = lo or base + 1
+    hi = hi or base + 160
+    if verbose:
+        print(f"probing ENDES {year}: codes {lo}-{hi}, Modulo{mod} (SPSS)")
+    hits = []
+    for code in range(lo, hi + 1):
+        if _core.head_ok(f"{_core.BASE}/SPSS/{code}-Modulo{mod}.zip"):
+            hits.append(code)
+            if verbose:
+                print(f"  exists: code {code}")
+    if not hits:
+        if verbose:
+            print(f"  no ENDES module found for {year} -- not published yet")
+        return None
+    if not verify:
+        code = hits[0]
+    else:
+        code = None
+        for c in hits:
+            try:
+                zf = _core.fetch_zip(f"{_core.BASE}/SPSS/{c}-Modulo{mod}.zip")
+            except Exception:
+                continue
+            savs = [n for n in zf.namelist() if n.lower().endswith(".sav")]
+            if not savs:
+                continue
+            with tempfile.TemporaryDirectory() as td:
+                p = _P(td) / "probe.sav"
+                p.write_bytes(zf.read(savs[0]))
+                try:
+                    df = _core.read_sav(p, columns=None)
+                except Exception:
+                    continue
+            df.columns = [x.lower() for x in df.columns]
+            yr = None
+            if "v007" in df.columns:
+                import pandas as pd
+                v = pd.to_numeric(df["v007"], errors="coerce").dropna()
+                if len(v):
+                    yr = int(v.mode().iloc[0])
+                    yr = yr + 1900 if yr < 100 else yr
+            if yr is None:
+                for dc in ("v008", "hv008"):
+                    if dc in df.columns:
+                        yy = _cmc_year(df[dc]).dropna()
+                        if len(yy):
+                            yr = int(yy.mode().iloc[0])
+                            break
+            if verbose:
+                print(f"  code {c}: interview year reads {yr}")
+            if yr == year:
+                code = c
+                break
+        if code is None:
+            if verbose:
+                print(f"  found modules but none verified as {year}")
+            return None
+    if register:
+        ENDES_CODE[year] = code
+        if verbose:
+            print(f"  registered ENDES {year} = code {code}")
+    return code
+
+
 def module_dir(year: int, module: str | int, out: str | Path | None = None) -> Path:
     m = resolve_module(year, module)
     return (_core.data_dir(out) / "endes" / f"{year}_{ENDES_CODE[year]}"
