@@ -26,6 +26,8 @@ OUT = Path(__file__).parents[1] / "src" / "perudata" / "crosswalks"
 # '<pcge> <concept ...> <clave>' -- capture concept and the trailing Clave
 _LINE = re.compile(r"^(\d\S*)\s+(.+?)\s+(\d{1,3})$")
 _META = re.compile(r"s(\d+)_f([A-Za-z0-9]+)_EEA(\d{4})", re.I)
+# chapter section header inside the dict: 'a2023_s04_fF2_c03_1 TABLA QUE CONTIENE'
+_CHAP = re.compile(r"_c(\w+?)_\d+\s+TABLA QUE CONTIENE", re.I)
 
 
 def main() -> int:
@@ -49,8 +51,14 @@ def main() -> int:
                     lines += (pg.extract_text() or "").splitlines()
         except Exception:
             continue
+        chap = None
         for ln in lines:
-            g = _LINE.match(ln.strip())
+            s = ln.strip()
+            ch = _CHAP.search(s)
+            if ch:
+                chap = "c" + ch.group(1).lower()
+                continue
+            g = _LINE.match(s)
             if not g:
                 continue
             concept, clave = g.group(2).strip(), g.group(3)
@@ -58,17 +66,18 @@ def main() -> int:
             if len(concept) < 3 or not re.search(r"[A-Za-zÁÉÍÓÚÑ]", concept):
                 continue
             rows.append({"year": year, "sector": sector, "formulario": form,
-                         "clave": clave, "concepto": concept})
+                         "chapter": chap, "clave": clave, "concepto": concept})
 
     t = pd.DataFrame(rows).drop_duplicates(
-        subset=["year", "sector", "formulario", "clave", "concepto"])
+        subset=["year", "sector", "formulario", "chapter", "clave", "concepto"])
     t.to_csv(OUT / "eea_clave_concept.csv", index=False, encoding="utf-8")
     print(f"dictionaries parsed: {len(seen)}")
-    print(f"(year, sector, form, clave, concept) rows: {len(t):,}")
-    print(f"  distinct claves: {t.clave.nunique()}  years: {sorted(t.year.unique())}")
-    va = t[t.concepto.str.contains("VALOR AGREGADO", case=False, na=False)]
-    print(f"  'VALOR AGREGADO' rows (clave 88 check): "
-          f"{sorted(va.clave.unique())[:5]}")
+    print(f"(year, sector, form, chapter, clave, concept) rows: {len(t):,}")
+    print(f"  distinct claves: {t.clave.nunique()}  chapters: "
+          f"{sorted(t.chapter.dropna().unique())[:12]}")
+    va = t[t.concepto.str.fullmatch(r"VALOR AGREGADO.*", case=False, na=False)]
+    print(f"  VALOR AGREGADO located: chapters {sorted(va.chapter.dropna().unique())}, "
+          f"claves {sorted(va.clave.unique())}")
     return 0
 
 

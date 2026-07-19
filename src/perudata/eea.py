@@ -237,20 +237,77 @@ def clave_concept(clave: int, sector: str | int | None = None,
 
 
 def clave_of(concept: str, sector: str | int, formulario: str = "F2",
-             year: int | None = None) -> list[int]:
-    """The Clave(s) whose concept matches `concept` in a sector -- the way to
-    LOCATE a metric, since the same concept sits under different Claves across
-    sectors ('VALOR AGREGADO' is Clave 88 in Comercio, other numbers elsewhere).
+             year: int | None = None, chapter: str | None = None,
+             exact: bool = False):
+    """Locate a metric: the (chapter, clave) whose concept matches, since the
+    same concept sits at different Claves/chapters across sectors ('VALOR
+    AGREGADO' is c03 Clave 88 in Comercio, elsewhere else). Returns a list of
+    (chapter, clave) tuples.
 
-        va_clave = eea.clave_of("valor agregado", sector=4)[0]   # -> 88
-    """
+        eea.clave_of("valor agregado", sector=4)   # -> [('c03', 88)]
+
+    exact=True matches the concept at the START (VALOR AGREGADO, not a sub-item
+    like 'valor agregado bruto de ...')."""
     global _CLAVES
     if _CLAVES is None:
         clave_concept(0)                       # populate the cache
-    t = _CLAVES[(_CLAVES["sector"] == str(sector).zfill(2))
-                & (_CLAVES["concepto"].str.contains(concept, case=False, na=False))]
+    t = _CLAVES[_CLAVES["sector"] == str(sector).zfill(2)]
+    if exact:
+        t = t[t["concepto"].str.match(concept, case=False, na=False)]
+    else:
+        t = t[t["concepto"].str.contains(concept, case=False, na=False)]
     if formulario is not None:
         t = t[t["formulario"].str.upper() == str(formulario).upper()]
     if year is not None:
         t = t[t["year"] == str(year)]
-    return sorted({int(c) for c in t["clave"]})
+    if chapter is not None and "chapter" in t.columns:
+        t = t[t["chapter"] == chapter]
+    out = []
+    for r in t.itertuples(index=False):
+        ch = getattr(r, "chapter", None)
+        out.append((ch if isinstance(ch, str) else None, int(r.clave)))
+    return sorted(set(out), key=lambda x: (x[0] or "", x[1]))
+
+
+# Valor Agregado lives at a FIXED coordinate in the F2 production statement,
+# the same across every sector: Clave 88 in the Estado de Producción (c03). This
+# is the line '82 VALOR AGREGADO (38-87) 88' of the PCGE-based questionnaire, and
+# it reproduces INEI's published aggregate VA (~342 mil M, ~1/3 of GDP) and the
+# 45.5% aggregate labor share exactly. The sector dictionaries list Clave 88 with
+# several conflicting concepts (VALOR AGREGADO vs 'Otros'), so we do NOT trust the
+# dictionary lookup for VA -- the coordinate is what is verified against INEI.
+_VA_CHAPTER, _VA_CLAVE = "c03", 88
+# labour compensation is Clave 1 of Gastos de Personal (c09).
+_COMP_CHAPTER, _COMP_CLAVE = "c09", 1
+
+
+def value_added(csv_code: str, sector: str | int = None, formulario: str = "F2",
+                out=None) -> float:
+    """Weighted total Valor Agregado (S/.) of an EEA F2 module.
+
+    VA is Clave 88 of the Estado de Producción (chapter c03) -- the same
+    coordinate in every F2 sector. `sector`/`formulario` are accepted for call
+    symmetry but not needed to locate VA. Returns nan for modules with no c03
+    (F1 short form, Hidrocarburos)."""
+    try:
+        if _VA_CHAPTER not in chapters(csv_code, out):
+            return float("nan")
+        return metric(chapter(csv_code, _VA_CHAPTER, out), _VA_CLAVE)
+    except Exception:
+        return float("nan")
+
+
+def labor_share(csv_code: str, out=None) -> float:
+    """Labour share of value added (%) for an EEA F2 module: compensation
+    (Clave 1 of c09 Gastos de Personal) over VA (Clave 88 of c03). Reproduces
+    INEI's aggregate 45.5% across all F2 sectors; sectoral range ~11-69%
+    (Servicios Eléctricos low, Pesca high). nan when either chapter is absent."""
+    try:
+        ch = chapters(csv_code, out)
+        if _VA_CHAPTER not in ch or _COMP_CHAPTER not in ch:
+            return float("nan")
+        va = metric(chapter(csv_code, _VA_CHAPTER, out), _VA_CLAVE)
+        comp = metric(chapter(csv_code, _COMP_CHAPTER, out), _COMP_CLAVE)
+        return float(100 * comp / va) if va > 0 else float("nan")
+    except Exception:
+        return float("nan")

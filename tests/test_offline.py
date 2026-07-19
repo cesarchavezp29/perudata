@@ -1063,4 +1063,21 @@ def test_eea_chapter_and_clave_helpers():
     assert "eea_inei" in inspect.getsource(eea.dataset_dir)
     # the crosswalk names Comercio's Valor Agregado at Clave 88
     assert "valor agregado" in (eea.clave_concept(88, sector=4) or "").lower()
-    assert 88 in eea.clave_of("valor agregado", sector=4)
+    assert ("c03", 88) in eea.clave_of("valor agregado", sector=4)
+
+
+def test_eea_value_added_uses_the_verified_fixed_coordinate():
+    """VA must resolve to the coordinate that reproduces INEI's aggregate, NOT
+    the sector dictionary -- which lists Clave 88 with conflicting concepts
+    (VALOR AGREGADO vs 'Otros') in ~47% of triples. value_added/labor_share are
+    pinned to Clave 88 of c03 (VA) and Clave 1 of c09 (compensation), the
+    coordinate that gives INEI's 342 mil M VA and 45.5% aggregate labor share.
+    Offline: assert the pinned coordinate, not a re-extraction."""
+    from perudata import eea
+    import inspect
+    assert callable(eea.value_added) and callable(eea.labor_share)
+    src = inspect.getsource(eea)
+    assert '_VA_CHAPTER, _VA_CLAVE = "c03", 88' in src
+    assert '_COMP_CHAPTER, _COMP_CLAVE = "c09", 1' in src
+    # value_added must NOT depend on the ambiguous dictionary lookup for VA
+    assert "clave_of" not in inspect.getsource(eea.value_added)
