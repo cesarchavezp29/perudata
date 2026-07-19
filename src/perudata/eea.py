@@ -63,7 +63,14 @@ def url(csv_code: str) -> str:
 
 
 def dataset_dir(csv_code: str, out: str | Path | None = None) -> Path:
-    return _core.data_dir(out) / "eea" / str(csv_code)
+    # the package stages EEA under 'eea/'; an INEI-toolkit download lands in
+    # 'eea_inei/'. Prefer whichever actually holds the code.
+    base = _core.data_dir(out)
+    for sub in ("eea", "eea_inei"):
+        cand = base / sub / str(csv_code)
+        if cand.exists():
+            return cand
+    return base / "eea" / str(csv_code)
 
 
 def download(csv_codes: list | str, out: str | Path | None = None,
@@ -148,3 +155,102 @@ def load(csv_code: str, out: str | Path | None = None,
             f"parsed to a single column with sep={sep!r} — the delimiter is not "
             f"one of , ; tab | . Header starts: {header[:80]!r}")
     return _core.clean_columns(df)
+
+
+# ---------------------------------------------------------------------------
+# EEA is chapter/Clave firm accounting -- helpers to reach a metric
+# ---------------------------------------------------------------------------
+def chapters(csv_code: str, out=None) -> list[str]:
+    """The chapter tags present for a module ('c00','c02','c03','c09','c10',...).
+    Chapter numbers VARY by formulario, so locate the one you need by CONTENT
+    (the Clave it carries), not by a fixed number."""
+    import re
+    tags = set()
+    for p in files(csv_code, out):
+        m = re.search(r"_c(\w+?)_\d+", p.name.lower())
+        if m:
+            tags.add("c" + m.group(1))
+    return sorted(tags)
+
+
+def chapter(csv_code: str, chap: str, out=None, **read_csv_kwargs):
+    """Load ONE chapter of an EEA module (e.g. chap='c03' Estado de Producción).
+
+    Each EEA module ships its chapters as separate CSVs (a2023_s04_fF2_c03_1.csv);
+    load() takes the largest, but a specific analysis needs a specific chapter."""
+    import re
+    import pandas as pd
+    chap = chap.lower().lstrip("c")
+    hits = [p for p in files(csv_code, out)
+            if re.search(rf"_c{chap}_\d+", p.name.lower())]
+    if not hits:
+        raise FileNotFoundError(
+            f"no chapter c{chap} in {csv_code} (have: {chapters(csv_code, out)})")
+    p = max(hits, key=lambda x: x.stat().st_size)
+    with open(p, "r", encoding="latin-1", errors="replace") as f:
+        sep = max([",", ";", "\t", "|"], key=f.readline().count)
+    df = pd.read_csv(p, encoding="latin-1", low_memory=False, sep=sep,
+                     **read_csv_kwargs)
+    return _core.clean_columns(df)
+
+
+def metric(df, clave: int, value: str = "dato1", weighted: bool = True) -> float:
+    """Weighted total of one Clave in an EEA chapter -- the standard extraction.
+
+    E.g. Valor Agregado = metric(chapter(code,'c03'), 88); labor compensation =
+    metric(chapter(code,'c09'), 1). dato1 is the reference (fiscal) year, dato2
+    the prior year. FACTOR_EXP is the expansion weight (present 2012+)."""
+    import pandas as pd
+    row = df[pd.to_numeric(df["clave"], errors="coerce") == clave]
+    v = pd.to_numeric(row[value], errors="coerce")
+    if weighted and "factor_exp" in df.columns:
+        w = pd.to_numeric(row["factor_exp"], errors="coerce")
+        return float((v * w).sum())
+    return float(v.sum())
+
+
+_CLAVES = None
+
+
+def clave_concept(clave: int, sector: str | int | None = None,
+                  formulario: str = "F2", year: int | None = None) -> str | None:
+    """What a Clave means, from the sector dictionaries (e.g. 88 -> 'VALOR
+    AGREGADO'). Claves are reused across chapters and concepts vary by sector, so
+    narrow with sector/formulario/year when a Clave is ambiguous."""
+    global _CLAVES
+    if _CLAVES is None:
+        import pandas as pd
+        from importlib import resources
+        with resources.files("perudata").joinpath(
+                "crosswalks/eea_clave_concept.csv").open("rb") as f:
+            _CLAVES = pd.read_csv(f, encoding="utf-8", dtype=str)
+    t = _CLAVES[_CLAVES["clave"] == str(clave)]
+    if sector is not None:
+        t = t[t["sector"] == str(sector).zfill(2)]
+    if formulario is not None:
+        t = t[t["formulario"].str.upper() == str(formulario).upper()]
+    if year is not None:
+        t = t[t["year"] == str(year)]
+    if t.empty:
+        return None
+    return t["concepto"].mode().iloc[0]
+
+
+def clave_of(concept: str, sector: str | int, formulario: str = "F2",
+             year: int | None = None) -> list[int]:
+    """The Clave(s) whose concept matches `concept` in a sector -- the way to
+    LOCATE a metric, since the same concept sits under different Claves across
+    sectors ('VALOR AGREGADO' is Clave 88 in Comercio, other numbers elsewhere).
+
+        va_clave = eea.clave_of("valor agregado", sector=4)[0]   # -> 88
+    """
+    global _CLAVES
+    if _CLAVES is None:
+        clave_concept(0)                       # populate the cache
+    t = _CLAVES[(_CLAVES["sector"] == str(sector).zfill(2))
+                & (_CLAVES["concepto"].str.contains(concept, case=False, na=False))]
+    if formulario is not None:
+        t = t[t["formulario"].str.upper() == str(formulario).upper()]
+    if year is not None:
+        t = t[t["year"] == str(year)]
+    return sorted({int(c) for c in t["clave"]})

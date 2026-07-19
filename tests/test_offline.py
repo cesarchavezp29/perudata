@@ -1049,3 +1049,18 @@ def test_epen_canonical_accessors_resolve_drift():
     assert epen._WEIGHT_RX.match("fac_t300") and epen._WEIGHT_RX.match("factor")
     # load() gained a .dbf fallback for corrupt .sav
     assert ".dbf" in inspect.getsource(epen.load)
+
+
+def test_eea_chapter_and_clave_helpers():
+    """EEA is chapter/Clave firm accounting: labels live in sector dictionary
+    PDFs, and a concept sits under DIFFERENT Claves across sectors ('VALOR
+    AGREGADO' is 88 in Comercio, other numbers elsewhere). The helpers name a
+    Clave (clave_concept) and locate one by concept (clave_of). Offline check."""
+    from perudata import eea
+    assert callable(eea.chapter) and callable(eea.metric) and callable(eea.clave_of)
+    # dataset_dir finds the INEI-toolkit layout too
+    import inspect
+    assert "eea_inei" in inspect.getsource(eea.dataset_dir)
+    # the crosswalk names Comercio's Valor Agregado at Clave 88
+    assert "valor agregado" in (eea.clave_concept(88, sector=4) or "").lower()
+    assert 88 in eea.clave_of("valor agregado", sector=4)

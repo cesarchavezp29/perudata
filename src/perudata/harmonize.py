@@ -123,11 +123,18 @@ def crosswalk(survey: str, module: str | int):
 
 
 def available() -> list[str]:
-    """Which HAND-CONFIRMED (survey, module) crosswalks exist."""
+    """Which HAND-CONFIRMED (survey, module) rename crosswalks exist.
+
+    Only the `<survey>_<NN>` rename crosswalks (e.g. enaho_01) -- NOT the
+    value-label / Clave crosswalks (endes_label_canon, epen_label_canon,
+    eea_clave_concept), which have a different schema and are served by their
+    own survey modules' value_labels()/clave_concept()."""
+    import re
+    rename = re.compile(r"^[a-z]+_\d{2}$")
     d = resources.files("perudata").joinpath("crosswalks")
-    return sorted(Path(str(p)).stem for p in d.iterdir()
-                  if str(p).endswith(".csv") and "_auto_" not in str(p)
-                  and "_label_" not in str(p))
+    return sorted(s for s in (Path(str(p)).stem for p in d.iterdir()
+                              if str(p).endswith(".csv") and "_auto_" not in str(p))
+                  if rename.match(s))
 
 
 def stability(module: str | int, status: str | None = None):
