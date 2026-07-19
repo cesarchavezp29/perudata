@@ -1076,8 +1076,38 @@ def test_eea_value_added_uses_the_verified_fixed_coordinate():
     from perudata import eea
     import inspect
     assert callable(eea.value_added) and callable(eea.labor_share)
-    src = inspect.getsource(eea)
-    assert '_VA_CHAPTER, _VA_CLAVE = "c03", 88' in src
-    assert '_COMP_CHAPTER, _COMP_CLAVE = "c09", 1' in src
-    # value_added must NOT depend on the ambiguous dictionary lookup for VA
-    assert "clave_of" not in inspect.getsource(eea.value_added)
+    # the verified coordinate for the current vintage is c03/88 (VA) + c09/1 (comp)
+    assert eea._VA_COORDS[2024] == ("c03", 88, "c09", 1)
+    assert eea._VA_COORDS[2023] == ("c03", 88, "c09", 1)
+    # value_added resolves VA from the verified coordinate table, not by calling
+    # the ambiguous dictionary lookup
+    assert "_VA_COORDS" in inspect.getsource(eea.value_added)
+    # unverified vintages return nan, never a fabricated number
+    import math
+    assert math.isnan(eea.value_added("396-Modulo389", year=2010))
+    assert math.isnan(eea.labor_share("767-Modulo1689", year=2020))
+
+
+def test_eea_metric_resolves_value_and_weight_across_vintages():
+    """The value column drifts (p01 in 2005-2019, dato1 since 2020) and the weight
+    (factor_exp / fac_exp) is absent or empty in some years. metric() must resolve
+    both so every vintage extracts, and fall back to a plain sum when the weight
+    column is missing or ships empty (e.g. 2021 factor_exp), never returning a
+    zero-weighted total. Offline check on synthetic frames."""
+    import pandas as pd
+    from perudata import eea
+    # 2020+ layout: dato1 + factor_exp
+    m = pd.DataFrame({"clave": [88, 88], "dato1": [10.0, 5.0],
+                      "factor_exp": [2.0, 4.0]})
+    assert eea.metric(m, 88) == 10 * 2 + 5 * 4
+    assert eea.metric(m, 88, weighted=False) == 15
+    # 2005-2019 layout: value under p01, no weight column -> plain sum
+    old = pd.DataFrame({"clave": [1, 1], "p01": [3.0, 7.0]})
+    assert eea.metric(old, 1) == 10
+    # weight present but empty (2021 factor_exp) -> fall back to plain sum
+    empty_w = pd.DataFrame({"clave": [1, 1], "dato1": [3.0, 7.0],
+                            "factor_exp": [None, None]})
+    assert eea.metric(empty_w, 1) == 10
+    # prior-year value column selectable
+    py = pd.DataFrame({"clave": [1], "dato1": [9.0], "dato2": [8.0]})
+    assert eea.metric(py, 1, value="dato2", weighted=False) == 8

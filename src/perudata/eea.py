@@ -194,18 +194,52 @@ def chapter(csv_code: str, chap: str, out=None, **read_csv_kwargs):
     return _core.clean_columns(df)
 
 
-def metric(df, clave: int, value: str = "dato1", weighted: bool = True) -> float:
+# the value column drifts across vintages (p01 in 2005-2019, dato1 since 2020;
+# dato2/p02 hold the prior year), as does the weight (factor_exp / fac_exp, and
+# absent entirely before ~2019 -- those years are a census-like enumeration and
+# weight 1).
+_VALUE_COLS = ("dato1", "p01", "valor", "monto")
+_WEIGHT_COLS = ("factor_exp", "fac_exp", "factor", "fac")
+
+
+def _value_col(df, prefer=None):
+    if prefer and prefer in df.columns:
+        return prefer
+    for c in _VALUE_COLS:
+        if c in df.columns:
+            return c
+    return None
+
+
+def _weight_col(df):
+    for c in _WEIGHT_COLS:
+        if c in df.columns:
+            return c
+    return None
+
+
+def metric(df, clave: int, value: str | None = None, weighted: bool = True) -> float:
     """Weighted total of one Clave in an EEA chapter -- the standard extraction.
 
     E.g. Valor Agregado = metric(chapter(code,'c03'), 88); labor compensation =
-    metric(chapter(code,'c09'), 1). dato1 is the reference (fiscal) year, dato2
-    the prior year. FACTOR_EXP is the expansion weight (present 2012+)."""
+    metric(chapter(code,'c09'), 1). The reference-year value column is resolved
+    across vintages (dato1 since 2020, p01 in 2005-2019; pass value= to force one,
+    e.g. 'dato2'/'p02' for the prior year). The expansion weight (factor_exp /
+    fac_exp) is applied when present; the pre-2019 census-style years carry no
+    weight and fall back to a plain sum."""
     import pandas as pd
+    col = _value_col(df, value)
+    if col is None:
+        raise KeyError(f"no EEA value column in {list(df.columns)}")
     row = df[pd.to_numeric(df["clave"], errors="coerce") == clave]
-    v = pd.to_numeric(row[value], errors="coerce")
-    if weighted and "factor_exp" in df.columns:
-        w = pd.to_numeric(row["factor_exp"], errors="coerce")
-        return float((v * w).sum())
+    v = pd.to_numeric(row[col], errors="coerce")
+    wcol = _weight_col(df) if weighted else None
+    if wcol is not None:
+        w = pd.to_numeric(row[wcol], errors="coerce")
+        # some INEI vintages ship the weight column empty (e.g. 2021 factor_exp);
+        # a zero-weight total is never what is wanted -- fall back to plain sum.
+        if w.fillna(0).abs().sum() > 0:
+            return float((v * w).sum())
     return float(v.sum())
 
 
@@ -213,10 +247,13 @@ _CLAVES = None
 
 
 def clave_concept(clave: int, sector: str | int | None = None,
-                  formulario: str = "F2", year: int | None = None) -> str | None:
+                  formulario: str = "F2", year: int | None = None,
+                  chapter: str | None = None) -> str | None:
     """What a Clave means, from the sector dictionaries (e.g. 88 -> 'VALOR
     AGREGADO'). Claves are reused across chapters and concepts vary by sector, so
-    narrow with sector/formulario/year when a Clave is ambiguous."""
+    narrow with sector/formulario/year/chapter when a Clave is ambiguous. Note
+    the dictionaries themselves list some Claves with conflicting concepts, so a
+    returned name is indicative -- for VA use value_added(), not this."""
     global _CLAVES
     if _CLAVES is None:
         import pandas as pd
@@ -231,6 +268,8 @@ def clave_concept(clave: int, sector: str | int | None = None,
         t = t[t["formulario"].str.upper() == str(formulario).upper()]
     if year is not None:
         t = t[t["year"] == str(year)]
+    if chapter is not None and "chapter" in t.columns:
+        t = t[t["chapter"] == chapter]
     if t.empty:
         return None
     return t["concepto"].mode().iloc[0]
@@ -269,45 +308,69 @@ def clave_of(concept: str, sector: str | int, formulario: str = "F2",
     return sorted(set(out), key=lambda x: (x[0] or "", x[1]))
 
 
-# Valor Agregado lives at a FIXED coordinate in the F2 production statement,
-# the same across every sector: Clave 88 in the Estado de Producción (c03). This
-# is the line '82 VALOR AGREGADO (38-87) 88' of the PCGE-based questionnaire, and
-# it reproduces INEI's published aggregate VA (~342 mil M, ~1/3 of GDP) and the
-# 45.5% aggregate labor share exactly. The sector dictionaries list Clave 88 with
-# several conflicting concepts (VALOR AGREGADO vs 'Otros'), so we do NOT trust the
-# dictionary lookup for VA -- the coordinate is what is verified against INEI.
-_VA_CHAPTER, _VA_CLAVE = "c03", 88
-# labour compensation is Clave 1 of Gastos de Personal (c09).
-_COMP_CHAPTER, _COMP_CLAVE = "c09", 1
+# Valor Agregado and labour compensation sit at a FIXED (chapter, Clave)
+# coordinate WITHIN a questionnaire vintage -- the same across every F2 sector in
+# that year -- but INEI redesigned the EEA form repeatedly, so the coordinate
+# MOVES across years: VA is Clave 88 of the Estado de Producción (c03) in the
+# current form but Clave 67 in the 2020-2021 form, and compensation lives in c09
+# now but c10 (2020) / c08 (2021) then. We only ship coordinates VERIFIED against
+# INEI's published aggregates, and return nan (never a fabricated number) for
+# vintages we have not verified. The 2023-2024 coordinate reproduces INEI's
+# aggregate VA (~342 mil M, ~1/3 of GDP) and 45.5% labour share to the decimal.
+# (year -> (VA chapter, VA clave, compensation chapter, compensation clave))
+_VA_COORDS = {
+    2023: ("c03", 88, "c09", 1),
+    2024: ("c03", 88, "c09", 1),
+}
 
 
-def value_added(csv_code: str, sector: str | int = None, formulario: str = "F2",
-                out=None) -> float:
+def _year_of(csv_code: str) -> int | None:
+    t = catalog()
+    hit = t[t["csv_code"] == str(csv_code)]
+    return int(hit["year"].iloc[0]) if len(hit) else None
+
+
+def value_added(csv_code: str, year: int | None = None, out=None) -> float:
     """Weighted total Valor Agregado (S/.) of an EEA F2 module.
 
-    VA is Clave 88 of the Estado de Producción (chapter c03) -- the same
-    coordinate in every F2 sector. `sector`/`formulario` are accepted for call
-    symmetry but not needed to locate VA. Returns nan for modules with no c03
-    (F1 short form, Hidrocarburos)."""
+    VA sits at a fixed (chapter, Clave) coordinate within a questionnaire vintage
+    but the coordinate MOVES across INEI's form redesigns, so this is only
+    resolved for years verified against INEI's published aggregates (currently
+    2023-2024, reproducing ~342 mil M). Returns nan for unverified vintages and
+    for modules with no production statement (F1 short form, Hidrocarburos). For
+    an unverified year, locate VA yourself with clave_of()/metric() -- the raw
+    firm-accounting layer works for all 24 years. `year` is inferred from the
+    csv_code when omitted."""
+    yr = year if year is not None else _year_of(csv_code)
+    coord = _VA_COORDS.get(yr)
+    if coord is None:
+        return float("nan")
+    va_ch, va_cl, _, _ = coord
     try:
-        if _VA_CHAPTER not in chapters(csv_code, out):
+        if va_ch not in chapters(csv_code, out):
             return float("nan")
-        return metric(chapter(csv_code, _VA_CHAPTER, out), _VA_CLAVE)
+        return metric(chapter(csv_code, va_ch, out), va_cl)
     except Exception:
         return float("nan")
 
 
-def labor_share(csv_code: str, out=None) -> float:
-    """Labour share of value added (%) for an EEA F2 module: compensation
-    (Clave 1 of c09 Gastos de Personal) over VA (Clave 88 of c03). Reproduces
-    INEI's aggregate 45.5% across all F2 sectors; sectoral range ~11-69%
-    (Servicios Eléctricos low, Pesca high). nan when either chapter is absent."""
+def labor_share(csv_code: str, year: int | None = None, out=None) -> float:
+    """Labour share of value added (%) for an EEA F2 module: compensation over
+    VA at the vintage's verified coordinate. Reproduces INEI's aggregate 45.5%
+    across all F2 sectors in 2023-2024; sectoral range ~11-69% (Servicios
+    Eléctricos low, Pesca high). Returns nan for unverified vintages (see
+    value_added) or when a chapter is absent."""
+    yr = year if year is not None else _year_of(csv_code)
+    coord = _VA_COORDS.get(yr)
+    if coord is None:
+        return float("nan")
+    va_ch, va_cl, cp_ch, cp_cl = coord
     try:
         ch = chapters(csv_code, out)
-        if _VA_CHAPTER not in ch or _COMP_CHAPTER not in ch:
+        if va_ch not in ch or cp_ch not in ch:
             return float("nan")
-        va = metric(chapter(csv_code, _VA_CHAPTER, out), _VA_CLAVE)
-        comp = metric(chapter(csv_code, _COMP_CHAPTER, out), _COMP_CLAVE)
+        va = metric(chapter(csv_code, va_ch, out), va_cl)
+        comp = metric(chapter(csv_code, cp_ch, out), cp_cl)
         return float(100 * comp / va) if va > 0 else float("nan")
     except Exception:
         return float("nan")
